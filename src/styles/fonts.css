@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'NotoSansThai-Light';
+  font-style: normal;
+  src:
+    local('NotoSansThai-Light'),
+    url(../../public/fonts/NotoSansThai-Light.ttf) format('opentype');
+}
+
+@font-face {
+  font-family: 'NotoSansThai-Medium';
+  font-style: normal;
+  src:
+    local('NotoSansThai-Medium'),
+    url(../../public/fonts/NotoSansThai-Medium.ttf) format('opentype');
+}
+
+@font-face {
+  font-family: 'NotoSansThai-Regular';
+  font-style: normal;
+  src:
+    local('NotoSansThai-Regular'),
+    url(../../public/fonts/NotoSansThai-Regular.ttf) format('opentype');
+}
+
+@font-face {
+  font-family: 'NotoSansThai-SemiBold';
+  font-style: normal;
+  src:
+    local('NotoSansThai-SemiBold'),
+    url(../../public/fonts/NotoSansThai-SemiBold.ttf) format('opentype');
+}

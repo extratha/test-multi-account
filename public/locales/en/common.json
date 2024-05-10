@@ -1,0 +1,25 @@
+{
+  "Common": {
+    "button": {
+      "back": "Back",
+      "continue": "ดำเนินการต่อ"
+    },
+    "status": {
+      "availableAppointment": "พร้อมนัดหมาย",
+      "notAvailableAppointment": "ตารางเต็ม"
+    },
+    "text": {
+      "noOptions": "ไม่พบข้อมูล",
+      "loading":"กำลังโหลด"
+    },
+    "file": {
+      "fileTooLarge": "กรุณาเลือกรูปที่มีขนาดไม่เกิน {size} {unit}"
+    },
+    "error": {
+      "errorPleaseTryAgain": "เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง"
+    },
+    "pages" :{ 
+      "landing": "Lading Page"
+    }
+  }
+}

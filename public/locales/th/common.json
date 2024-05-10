@@ -1,0 +1,62 @@
+{
+  "Common": {
+    "button": {
+      "next": "ถัดไป",
+      "select": "เลือก",
+      "cancel": "ยกเลิก",
+      "back": "กลับ",
+      "close": "ปิด",
+      "confirm": "ยืนยัน",
+      "uploadImage": "เลือกรูปภาพ",
+      "ok": "ตกลง",
+      "startAppointment": "เริ่มทำนัด",
+      "appointmentNotAvailable": "ตารางเต็ม",
+      "continue": "ดำเนินการต่อ"
+    },
+    "error": {
+      "errorPleaseTryAgain": "เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง",
+      "emailFormat": "อีเมลไม่ถูกต้อง",
+      "phoneNoFormat": "เบอร์โทรศัพท์ไม่ถูกต้อง",
+      "uploadFileSize": "กรุณาเลือกรูปที่มีขนาดไม่เกิน {fileSize}",
+      "uploadFileType": "รองรับรูปแบบไฟล์เฉพาะ JPG, JPEG และ PNG เท่านั้น"
+    },
+    "calendar": {
+      "selectDate": "เลือกวันที่",
+      "day": "วัน",
+      "week": "สัปดาห์",
+      "month": "เดือน",
+      "year": "ปี",
+      "buddhistYear": "พ.ศ."
+    },
+    "gender": {
+      "male": "ชาย",
+      "female": "หญิง"
+    },
+    "validation": {
+      "invalidInput": "ข้อมูลไม่ถูกต้อง",
+      "invalidPhoneNo": "เบอร์โทรศัพท์ไม่ถูกต้อง",
+      "invalidFirstName": "ชื่อจริงไม่ถูกต้อง",
+      "invalidLastName": "นามสกุลไม่ถูกต้อง",
+      "enterFirstName": "กรุณากรอกชื่อ",
+      "enterLastName": "กรุณากรอกนามสกุล",
+      "phoneNoFormat": "เบอร์โทรศัพท์ไม่ถูกต้อง"
+    },
+    "text": {
+      "noOptions": "ไม่พบข้อมูล",
+      "loading":"กำลังโหลด"
+    },
+    "status": {
+      "availableAppointment": "พร้อมนัดหมาย",
+      "notAvailableAppointment": "ตารางเต็ม"
+    },
+    "file": {
+      "fileTooLarge": "กรุณาเลือกรูปที่มีขนาดไม่เกิน {size} {unit}"
+    },
+    "field": {
+      "optional": "(ถ้ามี)"
+    },
+    "pages" :{ 
+      "landing": "Lading Page"
+    }
+  }
+}
