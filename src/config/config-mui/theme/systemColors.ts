@@ -12,7 +12,6 @@ import {
 } from './colors';
 
 const SystemColors = (theme: Theme) => {
-  console.log(theme)
   return {
     mui3: {
       sys:

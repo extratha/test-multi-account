@@ -9,7 +9,6 @@ const intlMiddleware = createMiddleware({
 export async function middleware(req: NextRequest) {
   let { pathname } = req.nextUrl;
   const res = NextResponse.redirect(new URL(pathname, req.url));
-  console.log(":::",pathname)
   return intlMiddleware(req)
 }
 

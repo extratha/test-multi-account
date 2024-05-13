@@ -9,11 +9,6 @@ import { useTheme } from "@mui/material";
 
 const LandingPage = () => {
   const t = useTranslations();
-  const {toggleColorMode, currentMode} = useContext(ColorModeContext)
-  const theme = useTheme()
-  useEffect(()=> {
-    console.log(theme.palette.background.default)
-  },[theme])
   return (
     <Page title={t("Common.pages.landing")}>
       <Typography>Landing</Typography>

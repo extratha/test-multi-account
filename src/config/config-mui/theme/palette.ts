@@ -9,7 +9,6 @@ import {
 } from './colors';
 
 const getDesignTokens = (mode: PaletteMode) => {
-  console.log(mode);
   const lightMode = {
     primary: {
       main: PRIMARY[50],
