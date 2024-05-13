@@ -11,11 +11,13 @@ import {
   WARNING,
 } from './colors';
 
-const SystemColors = (theme: Theme) => ({
-  mui3: {
-    sys:
-      theme.palette.mode === 'light'
-        ? {
+const SystemColors = (theme: Theme) => {
+  console.log(theme)
+  return {
+    mui3: {
+      sys:
+        theme.palette.mode === 'light'
+          ? {
             /* PRIMARY */
             primary: PRIMARY[50],
             onPrimary: PRIMARY[100],
@@ -81,7 +83,7 @@ const SystemColors = (theme: Theme) => ({
 
             surfaceTint: PRIMARY[80],
           }
-        : {
+          : {
             primary: PRIMARY[80],
             primaryContainer: PRIMARY[30],
             onPrimary: PRIMARY[20],
@@ -120,7 +122,8 @@ const SystemColors = (theme: Theme) => ({
             surfaceTint: PRIMARY[50],
             scrim: NEUTRAL[0],
           },
-  },
-});
+    },
+  }
+};
 
 export default SystemColors;

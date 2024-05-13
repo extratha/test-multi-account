@@ -39,16 +39,20 @@ export default function RootStyleProvider({
   const colorMode = useMemo(
     () => ({
       toggleColorMode: () => {
-        setMode((prevMode: PaletteMode) =>
-          prevMode === 'light' ? 'dark' : 'light',
+        setMode((prevMode: PaletteMode) => {
+          return prevMode === 'light' ? 'dark' : 'light'
+        },
         );
       },
+      currentMode: mode,
     }),
-    [],
+    [mode],
   );
 
   const themeWithMode = useMemo(
-    () => createTheme(theme, getDesignTokens(mode)),
+    () => {
+      return createTheme(theme, getDesignTokens(mode))
+    },
     [mode],
   );
 
