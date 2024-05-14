@@ -30,7 +30,7 @@ const getDesignTokens = (mode: PaletteMode) => {
     },
     background: {
       paper: NEUTRAL[100],
-      default: NEUTRAL[99],
+      default: NEUTRAL[100],
       neutral: NEUTRAL[50],
     },
   }

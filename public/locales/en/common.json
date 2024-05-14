@@ -8,6 +8,10 @@
       "availableAppointment": "พร้อมนัดหมาย",
       "notAvailableAppointment": "ตารางเต็ม"
     },
+    "validation" :{
+      "invalidEmail":"Invalid email.",
+      "invalidPassword":"Password must be at least 8 digits."
+    },
     "text": {
       "noOptions": "ไม่พบข้อมูล",
       "loading":"กำลังโหลด"
@@ -19,7 +23,7 @@
       "errorPleaseTryAgain": "เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง"
     },
     "pages" :{ 
-      "landing": "Lading Page"
+      "landing": "Landing Page"
     }
   }
 }

@@ -39,7 +39,9 @@
       "invalidLastName": "นามสกุลไม่ถูกต้อง",
       "enterFirstName": "กรุณากรอกชื่อ",
       "enterLastName": "กรุณากรอกนามสกุล",
-      "phoneNoFormat": "เบอร์โทรศัพท์ไม่ถูกต้อง"
+      "phoneNoFormat": "เบอร์โทรศัพท์ไม่ถูกต้อง",
+      "invalidEmail" : "อีเมลไม่ถูกต้อง",
+      "invalidPassword":"รหัสผ่านต้องมีอย่างน้อย 8 หลัก"
     },
     "text": {
       "noOptions": "ไม่พบข้อมูล",
@@ -56,7 +58,7 @@
       "optional": "(ถ้ามี)"
     },
     "pages" :{ 
-      "landing": "Lading Page"
+      "landing": "Landing Page"
     }
   }
 }

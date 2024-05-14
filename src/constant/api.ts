@@ -1,7 +1,7 @@
 
 export const API = {
   PATH: {
-    
+    login: '/login'
   },
   HTTP_METHODS: {
     GET: 'GET',
