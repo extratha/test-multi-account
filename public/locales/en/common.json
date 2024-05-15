@@ -2,7 +2,8 @@
   "Common": {
     "button": {
       "back": "Back",
-      "continue": "ดำเนินการต่อ"
+      "continue": "ดำเนินการต่อ",
+      "forgetPassword": "Forget Password"
     },
     "status": {
       "availableAppointment": "พร้อมนัดหมาย",
@@ -14,7 +15,8 @@
     },
     "text": {
       "noOptions": "ไม่พบข้อมูล",
-      "loading":"กำลังโหลด"
+      "loading":"กำลังโหลด",
+      "login" :"Login"
     },
     "file": {
       "fileTooLarge": "กรุณาเลือกรูปที่มีขนาดไม่เกิน {size} {unit}"
@@ -24,6 +26,9 @@
     },
     "pages" :{ 
       "landing": "Landing Page"
+    },
+    "responseError" :{
+      "invalidEmailOrPassword": "Invalid email or password."
     }
   }
 }

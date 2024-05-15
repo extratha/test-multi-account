@@ -5,21 +5,12 @@ import {  getCookie } from 'cookies-next';
 import { staticEnvConfig } from '@/constant/env';
 const axiosForLoginPage = axios.create({
   baseURL: staticEnvConfig.apiUrl,
-  headers:{
-    Authorization: `Bearer ${getCookie("accessToken")}`
-  }
+  
 })
 axiosForLoginPage.interceptors.request.use(
   async (config) => {
-    const accessToken = getCookie('accessToken');
     const newConfig = config;
-    try {
-      if (accessToken) {
-        newConfig.headers.Authorization = `Bearer ${accessToken}`;
-      }
-    } catch (err) {
-      return Promise.reject(new Error('Can not get access token'));
-    }
+    delete config.headers.Authorization
     return newConfig;
   },
   (error) => { 
