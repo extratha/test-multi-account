@@ -60,7 +60,9 @@
       "optional": "(ถ้ามี)"
     },
     "pages" :{ 
-      "landing": "Landing Page"
+      "landing": "Landing Page",
+      "forgetPassword" :"ลืมรหัสผ่าน",
+      "setNewPassword" :"ตั้งค่ารหัสผ่านใหม่"
     },
     "responseError" :{
       "invalidEmailOrPassword": "อีเมลหรือรหัสผ่านไม่ถูกต้อง กรุณาตรวจสอบอีกครั้ง"

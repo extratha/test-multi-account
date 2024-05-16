@@ -25,7 +25,9 @@
       "errorPleaseTryAgain": "เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง"
     },
     "pages" :{ 
-      "landing": "Landing Page"
+      "landing": "Landing Page",
+      "forgetPassword" :"Forget Password",
+      "setNewPassword" :"Set New Password"
     },
     "responseError" :{
       "invalidEmailOrPassword": "Invalid email or password."

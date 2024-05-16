@@ -13,7 +13,7 @@ import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { API } from '@/constant/api';
 import { setCookie } from 'cookies-next';
-import { useUserProfileStore } from '@/store';
+import { usePageLoadingStore, useUserProfileStore } from '@/store';
 
 type LoginForm = {
   email: string | null;
@@ -35,11 +35,11 @@ const LoginForm = () => {
   const [password, setPassword] = useState<string | null>(null)
   const theme = useTheme()
   const { setUserProfile } = useUserProfileStore()
-  const [isLoading, setIsLoading] = useState(false)
   const [isDisableSubmit, setIsDisabledSubmit] = useState<boolean>(false)
   const [showPassword, setShowPassword] = useState(false)
+  const { setPageLoading } = usePageLoadingStore()
   const router = useRouter()
-  const { control, setError, register, handleSubmit } = useForm<LoginForm>()
+  const { control, setError, handleSubmit } = useForm<LoginForm>()
   const t = useTranslations('Common')
   const [errorMessage, setErrorMessage] = useState('')
 
@@ -101,7 +101,7 @@ const LoginForm = () => {
     setShowPassword((prev) => !prev);
   };
   const onSubmit: SubmitHandler<LoginForm> = async (data) => {
-    setIsLoading(true)
+    setPageLoading(true)
     try {
       const response = await axiosForLoginPage.post(
         API.PATH.login,
@@ -116,6 +116,7 @@ const LoginForm = () => {
         }
       )
       if (response.data) {
+        setPageLoading(false)
         const { accessToken, refreshToken, user } = response.data
         if (accessToken) {
           setCookie("accessToken", accessToken)
@@ -140,7 +141,7 @@ const LoginForm = () => {
         }
         setErrorMessage(message)
       }
-      setIsLoading(false)
+      setPageLoading(false)
     }
   }
   return (

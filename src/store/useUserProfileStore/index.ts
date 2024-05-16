@@ -1,36 +1,37 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware'
-type UserProfileState = {
-  "id": string,
-  "email": string,
-  "passwordChanged": boolean | null,
-  "createdAt": string,
-  "updatedAt": string;
-  setUserProfile: (value: UserProfileState) => void
+import { UserProfile } from '@/types/auth'
+interface UserProfileState extends UserProfile {
+  setUserProfile: (value: UserProfile) => void
   resetUserProfile: () => void
-};
+}
+
+const initiateState = {
+  data: null,
+  isLoading: false,
+  success: false,
+  error: false,
+}
 
 const useUserProfileStore = create<UserProfileState>()(
   persist(
-    (set) => ({
+    (set, get) => ({
+      ...initiateState,
       id: '',
-      setId: (value: string) => set(() => ({ id: value })),
       email: '',
-      setEmail: (value: string) => set(() => ({ email: value })),
       passwordChanged: null,
-      setPasswordChanged: (value: boolean) => set(() => ({ passwordChanged: value })),
       createdAt: '',
-      setCreatedAt: (value: string) => set(() => ({ createdAt: value })),
       updatedAt: '',
-      setUpdatedAt: (value: string) => set(() => ({ updatedAt: value })),
 
-      setUserProfile: (value: UserProfileState) => set(() => ({
-        id: value.id,
-        email: value.email,
-        passwordChanged: value.passwordChanged,
-        createdAt: value.createdAt,
-        updatedAt: value.updatedAt
-      })),
+      setUserProfile: (value) => set(() => (
+        {
+          id: value.id,
+          email: value.email,
+          passwordChanged: value.passwordChanged,
+          createdAt: value.createdAt,
+          updatedAt: value.updatedAt
+        }
+      )),
       resetUserProfile: () => set(() => ({
         id: '',
         email: '',
