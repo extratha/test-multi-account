@@ -1,7 +1,9 @@
 
 export const API = {
   PATH: {
-    login: 'auth/login'
+    login: 'auth/login',
+    setNewPassword: 'auth/reset-password',
+    changePassword: 'auth/change-password'
   },
   HTTP_METHODS: {
     GET: 'GET',

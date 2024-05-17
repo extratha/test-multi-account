@@ -6,7 +6,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { ImaagePlaygrondLogo, ImageCarivaLogo, ImageLandingBg } from "@/assets"
 
-import axiosForLoginPage from "@/utils/axios/login";
+import axiosPublicInstance from "@/utils/axios/login";
 import { CustomTextField } from "../styled";
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslations } from 'next-intl';
@@ -80,17 +80,17 @@ const LoginForm = () => {
   }, [email, password])
 
   const isValidField = <T extends Record<string, any>>(
-    fieldName: keyof T,
+    fieldname: keyof T,
     value: unknown,
     isValidLogic: (value: any) => boolean,
-    setError: (fieldName: keyof T, error: { type: string; message: string }) => void,
+    setError: (fieldname: keyof T, error: { type: string; message: string }) => void,
     errorMessage: string,
   ) => {
     if (isValidLogic(value)) {
-      setError(fieldName, { type: '', message: '' });
+      setError(fieldname, { type: '', message: '' });
       return true
     } else {
-      setError(fieldName, {
+      setError(fieldname, {
         type: 'validate',
         message: errorMessage || '',
       });
@@ -103,7 +103,7 @@ const LoginForm = () => {
   const onSubmit: SubmitHandler<LoginForm> = async (data) => {
     setPageLoading(true)
     try {
-      const response = await axiosForLoginPage.post(
+      const response = await axiosPublicInstance.post(
         API.PATH.login,
         {
           email,
@@ -116,7 +116,6 @@ const LoginForm = () => {
         }
       )
       if (response.data) {
-        setPageLoading(false)
         const { accessToken, refreshToken, user } = response.data
         if (accessToken) {
           setCookie("accessToken", accessToken)
@@ -126,7 +125,11 @@ const LoginForm = () => {
         }
         if (user) {
           setUserProfile(user)
+          if(user.passwordChanged) {
+            router.push('/home')
+          }
         }
+        setPageLoading(false)
       }
     }
     catch (error: any) {

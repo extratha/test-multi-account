@@ -1,3 +1,4 @@
+'use client'
 
 import SetNewPasswordForm from "./SetNewPasswordForm";
 import ProjectCoverLayout from "@/components/ProjectCoverLayout";

@@ -12,8 +12,11 @@ import ProjectCoverLayout from "@/components/ProjectCoverLayout";
 
 
 const LoginModule = () => {
-  const { id, passwordChanged } = useUserProfileStore()
+  const { id, passwordChanged, resetUserProfile } = useUserProfileStore()
   const router = useRouter()
+  useEffect(() => {
+    resetUserProfile();
+  }, []);
   useEffect(() => {
     if (id && passwordChanged === false) {
       router.replace(webPaths.setNewPassword)

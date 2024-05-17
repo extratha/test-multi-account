@@ -110,7 +110,7 @@ export const NEUTRAL = {
   95: '#F0F1F3',
   96: '#F3F4F5',
   98: '#F9F9FA',
-  99: '#EAEEF6',
+  99: '#ECEFF1',
   100: '#FFFFFF',
 };
 
@@ -197,7 +197,7 @@ export const CUSTOM_COLORS = {
   disabled: '#F6F8FE',
 
   //custom
-  steelgray: '#626262',
+  lightSteelgray: '#607D8B',
 
   lowFatigue: '#78bb07',
   morderateFatigue: '#ff6100',

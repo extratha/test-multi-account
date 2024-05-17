@@ -3,11 +3,11 @@
 import axios, { AxiosResponse, AxiosError } from 'axios';
 import {  getCookie } from 'cookies-next';
 import { staticEnvConfig } from '@/constant/env';
-const axiosForLoginPage = axios.create({
+const axiosPublicInstance = axios.create({
   baseURL: staticEnvConfig.apiUrl,
   
 })
-axiosForLoginPage.interceptors.request.use(
+axiosPublicInstance.interceptors.request.use(
   async (config) => {
     const newConfig = config;
     delete config.headers.Authorization
@@ -17,7 +17,7 @@ axiosForLoginPage.interceptors.request.use(
     console.log(error)
   },
 );
-axiosForLoginPage.interceptors.response.use(
+axiosPublicInstance.interceptors.response.use(
     (response: AxiosResponse) => response,
     (error: AxiosError) => {
       return Promise.reject(error.response?.data  || 'Something went wrong');
@@ -26,4 +26,4 @@ axiosForLoginPage.interceptors.response.use(
 
 export * from 'axios';
 
-export default axiosForLoginPage;
+export default axiosPublicInstance;
