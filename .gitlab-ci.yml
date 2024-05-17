@@ -1,0 +1,10 @@
+include:
+  - project: cloud_arv/health-tech/partner-solution/cariva-playground/playground-dashboard/pipelines
+    ref: main
+    file:
+      - nextjs-pipeline.yml
+      - deployments/playground-dashboard.yml
+
+variables:
+  APPLICATION_NAME: playground-dashboard
+  PROJECT_NAME: playground-dashboard
