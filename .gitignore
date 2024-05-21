@@ -34,5 +34,5 @@ next-env.d.ts
 # Sentry Auth Token
 .sentryclirc
 
-package-lock.json
-yarn.lock
+# package-lock.json
+# yarn.lock
