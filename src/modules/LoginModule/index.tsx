@@ -1,6 +1,6 @@
 'use client'
 
-import { ImaagePlaygrondLogo, ImageCarivaLogo, ImageLandingBg } from "@/assets"
+import { ImagePlaygrondLogo, ImageCarivaLogo, ImageLandingBg } from "@/assets"
 import { Stack, } from "@mui/material"
 import Image from "next/image"
 import LoginForm from "./LoginForm";
@@ -12,7 +12,8 @@ import ProjectCoverLayout from "@/components/ProjectCoverLayout";
 
 
 const LoginModule = () => {
-  const { id, passwordChanged, resetUserProfile } = useUserProfileStore()
+  const { data, resetUserProfile } = useUserProfileStore()
+  const {id, passwordChanged } = data
   const router = useRouter()
   useEffect(() => {
     resetUserProfile();

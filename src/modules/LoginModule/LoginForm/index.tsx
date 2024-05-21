@@ -4,7 +4,7 @@ import { Stack } from '@mui/material'
 import { useEffect, useState } from 'react';
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import { ImaagePlaygrondLogo, ImageCarivaLogo, ImageLandingBg } from "@/assets"
+import { ImagePlaygrondLogo, ImageCarivaLogo, ImageLandingBg } from "@/assets"
 
 import axiosPublicInstance from "@/utils/axios/login";
 import { CustomTextField } from "../styled";
@@ -116,18 +116,25 @@ const LoginForm = () => {
         }
       )
       if (response.data) {
-        const { accessToken, refreshToken, user } = response.data
+        const { accessToken, refreshToken, user, userProfile } = response.data
         if (accessToken) {
           setCookie("accessToken", accessToken)
         }
         if (refreshToken) {
           setCookie('refreshToken', refreshToken)
         }
+        let userValues
         if (user) {
-          setUserProfile(user)
-          if(user.passwordChanged) {
-            router.push('/home')
-          }
+          userValues = user
+        }
+        if (userProfile) {
+          userValues = { ...userValues, ...userProfile }
+        }
+        if (userValues) {
+          setUserProfile(userValues)
+        }
+        if (user.passwordChanged) {
+          router.push('/home')
         }
         setPageLoading(false)
       }

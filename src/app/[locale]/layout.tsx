@@ -6,6 +6,8 @@ import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { ReactNode } from "react";
 import Provider from "./provider";
+import VerticalMenu from "@/components/Menus/VerticalMenu";
+import { Stack } from "@mui/material";
 
 
 type LocaleLayoutProps = {
@@ -30,7 +32,14 @@ const LocaleLayout = async ({ children, params: { locale } }: LocaleLayoutProps)
     <html lang={locale} suppressHydrationWarning>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <Provider> {children}</Provider>
+          <Stack direction='row' width='100%'>
+            <VerticalMenu></VerticalMenu>
+            <Stack width='100%' alignItems={'center'} padding={3}>
+              <Provider>
+                {children}
+              </Provider>
+            </Stack>
+          </Stack>
         </NextIntlClientProvider>
       </body>
     </html>

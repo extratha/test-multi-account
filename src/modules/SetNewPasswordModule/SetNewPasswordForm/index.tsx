@@ -25,7 +25,8 @@ const SetNewPasswordForm = () => {
   const t = useTranslations('Common');
   const theme = useTheme();
   const router = useRouter();
-  const { passwordChanged } = useUserProfileStore()
+  const { data } = useUserProfileStore()
+  const { passwordChanged } = data
   const [errorMessage, setErrorMessage] = useState<string>('');
   const { setPageLoading } = usePageLoadingStore()
   const [newPassword, setNewPassword] = useState<string>('')
@@ -33,7 +34,7 @@ const SetNewPasswordForm = () => {
   const [isDisableSubmit, setIsDisabledSubmit] = useState<boolean>(true)
   const { handleSubmit, control, getValues, setError } = useForm<SetNewPasswordForm>();
   const fetcher: AxiosInstance = passwordChanged ? axiosPublicInstance : axiosInstance
-  const apiUrl : string = passwordChanged ? API.PATH.setNewPassword : API.PATH.changePassword
+  const apiUrl: string = passwordChanged ? API.PATH.setNewPassword : API.PATH.changePassword
   const onSubmit: SubmitHandler<SetNewPasswordForm> = async (data) => {
     setPageLoading(true)
     try {
@@ -57,7 +58,7 @@ const SetNewPasswordForm = () => {
     catch (error: any) {
       if (error.message) {
         setErrorMessage(error.message)
-      }else {
+      } else {
         setErrorMessage(error.error)
       }
       setPageLoading(false)
