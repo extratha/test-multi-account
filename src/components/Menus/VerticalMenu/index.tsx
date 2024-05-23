@@ -11,6 +11,7 @@ import { useState } from "react";
 import { useUserProfileStore } from "@/store";
 import { webPaths } from "@/constant/webPaths";
 import { deleteCookie } from "cookies-next";
+import { useEffect } from "react";
 const VerticalMenu = () => {
   const t = useTranslations('Common')
   const [isMenuExpand, setIsMenuExpand] = useState<number[]>([]);
@@ -18,6 +19,7 @@ const VerticalMenu = () => {
   const theme = useTheme();
   const pathname = usePathname()
   const router = useRouter()
+  const [isShowMenu, setIsShowMenu] = useState<boolean>(false)
   const onClickExpandMenu = (menuIndex: number) => {
     if (isMenuExpand.some((index) => index === menuIndex)) {
       setIsMenuExpand(isMenuExpand.filter((index) => index !== menuIndex));
@@ -30,7 +32,11 @@ const VerticalMenu = () => {
     webPaths.forgetPassword,
     webPaths.setNewPassword,
     webPaths.termsAndCons
-  ]
+  ];
+  useEffect(()=> {
+    const currentPath = pathname.split('/th')[1]
+    setIsShowMenu(!excludePath.includes(currentPath))
+  },[pathname]);
   const handleClickHeadMenu = (menu : MenuItem) => {
     if(menu?.title?.includes(t('menu.logout'))) {
       deleteCookie('accessToken')
@@ -106,7 +112,7 @@ const VerticalMenu = () => {
   return (
     <>
       {
-        !excludePath.includes(pathname.split('/th')[1]) ?
+        isShowMenu ?
           <VerticalMenuContainer>
             <Image alt='' src={ImagePlaygrondLogoColor} style={{ margin: '0 0 1.5rem' }} />
             <Typography variant="bodyLargeSemiBold" >{t('menu.aiMenus')}</Typography>
