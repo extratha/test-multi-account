@@ -9,41 +9,41 @@ export interface MenuItem {
   title: null | string,
   children: (never | MenuItem)[] | null
 }
-export const aiMenuList = (): MenuItem[] => {
-  const t = useTranslations('Common.menu')
+type TFunction = (key: string) => string;
+export const aiMenuList = (t : TFunction): MenuItem[] => {
   return [
     {
       icon: IconHomePage,
       activeIcon: IconHomePageActive,
       path: webPaths.home,
-      title: t('home'),
+      title: t('menu.home'),
       children: [],
     },
     {
       icon: null,
       activeIcon: null,
       path: '',
-      title: t('aiInterpret.title'),
+      title: t('menu.aiInterpret.title'),
       children: [
         {
           icon: null,
           activeIcon: null,
           path: webPaths.aiInterpret.tryExampleData,
-          title: t('aiInterpret.tryExampleData'),
+          title: t('menu.aiInterpret.tryExampleData'),
           children: null
         },
         {
           icon: null,
           activeIcon: null,
           path: webPaths.aiInterpret.tryInputData,
-          title: t('aiInterpret.tryInputData'),
+          title: t('menu.aiInterpret.tryInputData'),
           children: null
         },
         {
           icon: null,
           activeIcon: null,
           path: webPaths.aiInterpret.tryHospitalData,
-          title: t('aiInterpret.tryHospitalData'),
+          title: t('menu.aiInterpret.tryHospitalData'),
           children: null
         },
       ]
@@ -52,7 +52,7 @@ export const aiMenuList = (): MenuItem[] => {
     //   icon: null,
     //   activeIcon: null,
     //   path: '',
-    //   title: t('healthVisualization.title'),
+    //   title: t('menu.healthVisualization.title'),
     //   children: [
     //     {
     //       icon: null,
@@ -67,7 +67,7 @@ export const aiMenuList = (): MenuItem[] => {
     //   icon: null,
     //   activeIcon: null,
     //   path: '',
-    //   title: t('asr.title'),
+    //   title: t('menu.asr.title'),
     //   children: [
     //     {
     //       icon: null,
@@ -82,7 +82,7 @@ export const aiMenuList = (): MenuItem[] => {
     //   icon: null,
     //   activeIcon: null,
     //   path: '',
-    //   title: t('symtomChecker.title'),
+    //   title: t('menu.symtomChecker.title'),
     //   children: [
     //     {
     //       icon: null,
@@ -96,14 +96,13 @@ export const aiMenuList = (): MenuItem[] => {
   ]
 }
 
-export const settingMenuList = () :MenuItem[] => {
-  const t = useTranslations('Common.menu')
+export const settingMenuList = (t : TFunction): MenuItem[] => {
   return [
     // {
     //   icon: IconSetting,
     //   activeIcon: null,
     //   path: '',
-    //   title: t('settingAndOther.title'),
+    //   title: t('menu.settingAndOther.title'),
     //   children: [
     //     {
     //       icon: null,
@@ -118,14 +117,14 @@ export const settingMenuList = () :MenuItem[] => {
     //   icon: IconNotification,
     //   activeIcon: null,
     //   path: "",
-    //   title: t('notification'),
+    //   title: t('menu.notification'),
     //   children: null
     // },
     {
       icon: IconLogout,
       activeIcon: null,
       path: "",
-      title: t('logout'),
+      title: t('menu.logout'),
       children: null
     }
   ]

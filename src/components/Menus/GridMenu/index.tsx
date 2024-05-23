@@ -15,17 +15,24 @@ const GridMenu: React.FC<{ menus: MenuItem[] }> = ({ menus }) => {
     const iconHeight = 48
     return (
       <>
-        {menus.map((menu) => {
+        {menus.map((menu, index) => {
           return (
-            <>
-              <Grid item xs={4} sx={{ display: 'flex', width: '100%', height: '300px' }}>
-                <CustomMenuItemWrapperStyle spacing={2}>
-                  <Image alt='' src={IconMenuItem} style={{ width: iconHeight, height: iconHeight, margin: "0 0 8px 0" }} />
-                  <Typography variant='titleLargeSemiBold' textAlign="center">{menu.title}</Typography>
-                  <Typography variant='bodyLarge' color={theme.palette.grey[600]} >{t('text.interpret')}</Typography>
-                </CustomMenuItemWrapperStyle>
-              </Grid>
-            </>
+            <Grid 
+            item 
+            xs={4} 
+            sx={{ 
+              display: 'flex', 
+              width: '100%', 
+              height: '300px' 
+            }}
+            key={index}
+            >
+              <CustomMenuItemWrapperStyle spacing={2}>
+                <Image alt='' src={IconMenuItem} style={{ width: iconHeight, height: iconHeight, margin: "0 0 8px 0" }} />
+                <Typography variant='titleLargeSemiBold' textAlign="center">{menu.title}</Typography>
+                <Typography variant='bodyLarge' color={theme.palette.grey[600]} >{t('text.interpret')}</Typography>
+              </CustomMenuItemWrapperStyle>
+            </Grid>
           )
         })}
       </>
