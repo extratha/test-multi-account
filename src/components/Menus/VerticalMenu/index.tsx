@@ -110,10 +110,10 @@ const VerticalMenu = () => {
           <VerticalMenuContainer>
             <Image alt='' src={ImagePlaygrondLogoColor} style={{ margin: '0 0 1.5rem' }} />
             <Typography variant="bodyLargeSemiBold" >{t('menu.aiMenus')}</Typography>
-            {MenuRenderer(aiMenuList())}
+            {MenuRenderer(aiMenuList(t))}
             <Divider style={{ marginBottom: '20px' }}></Divider>
             <Typography variant='bodyLargeSemiBold' >{t('menu.settingMenus')}</Typography>
-            {MenuRenderer(settingMenuList())}
+            {MenuRenderer(settingMenuList(t))}
             <Divider style={{ margin: 'auto 0 20px' }}></Divider>
             <ProfileInfoBox>
               <Stack height='100%'>

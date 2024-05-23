@@ -28,7 +28,7 @@ const HomePageModule = () => {
             </Typography>
             <Typography variant='displayMediumSemiBold'>{t('title.pleaseSelectMenu')} </Typography>
           </Stack>
-          <GridMenu menus={aiMenuList().filter((menu: MenuItem) => menu.path !== webPaths.home)}></GridMenu>
+          <GridMenu menus={aiMenuList(t).filter((menu: MenuItem) => menu.path !== webPaths.home)}></GridMenu>
         </CustomContainer>
       </Stack>
 
