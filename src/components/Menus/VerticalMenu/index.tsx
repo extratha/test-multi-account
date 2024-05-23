@@ -37,8 +37,8 @@ const VerticalMenu = () => {
   
   useEffect(() => {
     const currentPath = pathname.split(`/${locale}`)[1]
+    console.log(currentPath)
     setIsShowMenu(!excludePath.includes(currentPath))
-    console.log(isShowMenu, currentPath, excludePath)
   }, [pathname]);
   const handleClickHeadMenu = (menu: MenuItem) => {
     if (menu?.title?.includes(t('menu.logout'))) {

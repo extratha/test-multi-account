@@ -14,6 +14,7 @@ import { useRouter } from 'next/navigation';
 import { API } from '@/constant/api';
 import { setCookie } from 'cookies-next';
 import { usePageLoadingStore, useUserProfileStore } from '@/store';
+import { webPaths } from '@/constant/webPaths';
 
 type LoginForm = {
   email: string | null;
@@ -126,6 +127,7 @@ const LoginForm = () => {
         let userValues
         if (user) {
           userValues = user
+          setCookie('passwordChanged', user.passwordChanged)
         }
         if (userProfile) {
           userValues = { ...userValues, ...userProfile }
@@ -134,7 +136,7 @@ const LoginForm = () => {
           setUserProfile(userValues)
         }
         if (user.passwordChanged) {
-          router.push('/home')
+          router.push(webPaths.home)
         }
         setPageLoading(false)
       }

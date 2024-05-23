@@ -26,9 +26,6 @@ const TermsAndConsModules = () => {
   const { handleSubmit, control, getValues, setError } = useForm<TermsAndConsForm>();
   const termsAndConsRef = useRef<HTMLDivElement>(null);
   const [isDisableAgreement, setIsDisabledAgreement] = useState(true)
-  useEffect(() => {
-    console.log(agreement)
-  }, [agreement])
 
   const handleScroll = () => {
     if (termsAndConsRef.current) {
