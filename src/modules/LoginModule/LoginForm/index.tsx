@@ -137,6 +137,8 @@ const LoginForm = () => {
         }
         if (user.passwordChanged) {
           router.push(webPaths.home)
+        } else {
+          router.replace(webPaths.setNewPassword)
         }
         setPageLoading(false)
       }

@@ -19,11 +19,6 @@ const LoginModule = () => {
       router.replace(webPaths.home)
     }
   }, []);
-  useEffect(() => {
-    if (id && passwordChanged === false) {
-      router.replace(webPaths.setNewPassword)
-    }
-  }, [id, passwordChanged])
   return (
     <>
       <ProjectCoverLayout>

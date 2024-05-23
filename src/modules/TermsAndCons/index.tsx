@@ -55,7 +55,7 @@ const TermsAndConsModules = () => {
     }
   }
   return (
-    <Stack height='100vh' overflow='hidden' >
+    <Stack height='100vh' width="100%" overflow='hidden' >
       <TermsAndConsHeader flex={1}>
         <Typography variant="titleMediumSemiBold" textAlign={'center'}>
           {t('title.termsAndCons')}
