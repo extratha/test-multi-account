@@ -1,5 +1,3 @@
-// import { NEXT_PUBLIC_BASE_API_URL } from '@/libs/env';
-// import { getEnvVariables } from '@/libs/env';
 import axios, { AxiosResponse, AxiosError } from 'axios';
 import {  getCookie } from 'cookies-next';
 import { staticEnvConfig } from '@/constant/env';
