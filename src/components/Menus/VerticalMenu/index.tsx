@@ -1,5 +1,5 @@
 'use client'
-import { usePathname, useRouter } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import { Box, Collapse, Divider, List, ListItem, Stack, Typography, useTheme } from "@mui/material";
 import { ProfileInfoBox, VerticalMenuContainer } from "./styled";
 import { aiMenuList, MenuItem, settingMenuList } from "@/constant/menu";
@@ -18,6 +18,7 @@ const VerticalMenu = () => {
   const { data, resetUserProfile } = useUserProfileStore()
   const theme = useTheme();
   const pathname = usePathname()
+  const {locale} = useParams();
   const router = useRouter()
   const [isShowMenu, setIsShowMenu] = useState<boolean>(false)
   const onClickExpandMenu = (menuIndex: number) => {
@@ -33,8 +34,9 @@ const VerticalMenu = () => {
     webPaths.setNewPassword,
     webPaths.termsAndCons
   ];
+  
   useEffect(() => {
-    const currentPath = pathname.split('/th')[1]
+    const currentPath = pathname.split(`/${locale}`)[1]
     setIsShowMenu(!excludePath.includes(currentPath))
     console.log(isShowMenu, currentPath, excludePath)
   }, [pathname]);
@@ -182,7 +184,6 @@ const VerticalMenu = () => {
               />
             </ProfileInfoBox>
            
-
           </VerticalMenuContainer>
           : null
       }
