@@ -1,17 +1,15 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import { Page } from "@/components/page";
-import { Typography } from "@mui/material";
-import { ColorModeContext } from "@/config/config-mui/RootStyleProvider/ColorModeContext";
-import { useTheme } from "@mui/material";
+import LoginModule from "@/modules/LoginModule";
 
 const LandingPage = () => {
   const t = useTranslations();
   return (
     <Page title={t("Common.pages.landing")}>
-      <Typography>Landing</Typography>
+      <LoginModule></LoginModule>
     </Page>
   );
 };

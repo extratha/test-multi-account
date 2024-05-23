@@ -1,5 +1,6 @@
 import { PaletteMode } from '@mui/material';
 import {
+  CUSTOM_COLORS,
   ERROR,
   NEUTRAL,
   PRIMARY,
@@ -7,6 +8,7 @@ import {
   TERTIARY,
   WARNING,
 } from './colors';
+import { grey } from '@mui/material/colors';
 
 const getDesignTokens = (mode: PaletteMode) => {
   const lightMode = {
@@ -33,6 +35,10 @@ const getDesignTokens = (mode: PaletteMode) => {
       default: NEUTRAL[99],
       neutral: NEUTRAL[50],
     },
+    grey: {
+      ...grey,
+      [300]: CUSTOM_COLORS.lightSteelgray
+    }
   }
   const darkMode = {
     primary: {

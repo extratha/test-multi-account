@@ -1,7 +1,9 @@
 
 export const API = {
   PATH: {
-    
+    login: 'auth/login',
+    setNewPassword: 'auth/reset-password',
+    changePassword: 'auth/change-password'
   },
   HTTP_METHODS: {
     GET: 'GET',
@@ -15,5 +17,11 @@ export const API = {
       MESSAGE: 'unauthenticated',
       CODE: 401,
     },
+    login: {
+      INVALID_CREDENTIAL: {
+        MESSAGE: 'invalid email or password',
+        CODE: 400,
+      },
+    }
   },
 };

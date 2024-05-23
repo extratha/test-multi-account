@@ -7,11 +7,12 @@ import { Page } from "@/components/page";
 import Loading from "@/modules/Loading";
 import { useRouter } from "next/navigation";
 import { webPaths } from "@/constant/webPaths";
+import VerticalMenu from "@/components/Menus/VerticalMenu";
 
 const LocalePage = () => {
   const t = useTranslations();
   const router = useRouter()
-  useEffect(()=> {
+  useEffect(() => {
     router.push(webPaths.landing)
   })
   return (
