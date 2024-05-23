@@ -5,6 +5,7 @@ import { usePageLoadingStore, useUserProfileStore } from "@/store";
 import axiosInstance, { AxiosInstance } from "@/utils/axios";
 import axiosPublicInstance from "@/utils/axios/login";
 import { Button, IconButton, Stack, Typography, useTheme } from "@mui/material";
+import { setCookie } from "cookies-next";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -48,6 +49,7 @@ const SetNewPasswordForm = () => {
         const { data } = response.data
         console.log(data)
       }
+      setCookie('passwordChanged', true) // necessary
       setPageLoading(false)
       if (passwordChanged) {
         router.push(webPaths.home)

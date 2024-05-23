@@ -1,6 +1,7 @@
 import createMiddleware from "next-intl/middleware";
 import { NextRequest, NextResponse } from "next/server";
 import { webPaths } from "./constant/webPaths";
+import TermsAndConsModules from "./modules/TermsAndCons";
 
 const defaultLang = 'th';
 const LOCALES = ['th', 'en'];
@@ -12,12 +13,12 @@ const handleI18nRouting = createMiddleware({
 
 export async function middleware(req: NextRequest) {
   let { pathname } = req.nextUrl;
-  console.log('\n\n\n\n\n\n\'', pathname)
+  console.log('\n\n\n\n\n\'', pathname)
   const passwordChanged = req.cookies.get('passwordChanged')
   const accessToken = req.cookies.get('accessToken')
   const lang = req.cookies.get('NEXT_LOCALE')?.value
-  let pathnameExcludeLang
-  if(LOCALES.includes(pathname.split(`/${lang}`)[0])) {
+  let pathnameExcludeLang = pathname
+  if(pathname.split(`/${lang}`)[1]) {
     pathnameExcludeLang = pathname.split(`/${lang}`)[1]
   }
   const publicPaths = [
@@ -25,7 +26,7 @@ export async function middleware(req: NextRequest) {
     webPaths.setNewPassword,
     webPaths.termsAndCons
   ]
-  console.log(accessToken, pathnameExcludeLang)
+  console.log(accessToken, pathnameExcludeLang, passwordChanged?.value)
   if (!accessToken && pathnameExcludeLang!==webPaths.login ) {
     // redirect to login if no accessToken and the path is not public
     const redirectUrl = new URL(`/${lang}${webPaths.login}`, req.url);
@@ -35,7 +36,7 @@ export async function middleware(req: NextRequest) {
     const redirectUrl = new URL(`/${lang}${webPaths.home}`, req.url);
     return NextResponse.redirect(redirectUrl);
   }
-  if (pathnameExcludeLang && passwordChanged?.value === 'false' && !publicPaths.includes(pathnameExcludeLang)) {
+  if (pathnameExcludeLang && passwordChanged?.value === 'false' && pathnameExcludeLang !== webPaths.setNewPassword) {
     const redirectUrl = new URL(`/${lang}${webPaths.setNewPassword}`, req.url);
     return NextResponse.redirect(redirectUrl);
   }

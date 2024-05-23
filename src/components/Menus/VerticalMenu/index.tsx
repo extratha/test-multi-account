@@ -44,6 +44,7 @@ const VerticalMenu = () => {
     if (menu?.title?.includes(t('menu.logout'))) {
       deleteCookie('accessToken')
       deleteCookie('refreshToken')
+      deleteCookie('passwordChanged')
       resetUserProfile()
       router.replace(webPaths.login)
     }
