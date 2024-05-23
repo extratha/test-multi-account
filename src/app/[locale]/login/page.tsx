@@ -5,7 +5,7 @@ import React from "react";
 import { Page } from "@/components/page";
 import LoginModule from "@/modules/LoginModule";
 
-const LandingPage = () => {
+const LoginPage = () => {
   const t = useTranslations();
   return (
     <Page title={t("Common.pages.landing")}>
@@ -14,4 +14,4 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+export default LoginPage;
