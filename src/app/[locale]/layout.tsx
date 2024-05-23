@@ -34,7 +34,7 @@ const LocaleLayout = async ({ children, params: { locale } }: LocaleLayoutProps)
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Stack direction='row' width='100%'>
             <VerticalMenu></VerticalMenu>
-            <Stack width='100%' alignItems={'center'} padding={3}>
+            <Stack width='100%' alignItems={'center'} >
               <Provider>
                 {children}
               </Provider>

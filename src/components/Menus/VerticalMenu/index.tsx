@@ -106,7 +106,7 @@ const VerticalMenu = () => {
   return (
     <>
       {
-        !excludePath.includes(pathname) ?
+        !excludePath.includes(pathname.split('/th')[1]) ?
           <VerticalMenuContainer>
             <Image alt='' src={ImagePlaygrondLogoColor} style={{ margin: '0 0 1.5rem' }} />
             <Typography variant="bodyLargeSemiBold" >{t('menu.aiMenus')}</Typography>

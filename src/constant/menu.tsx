@@ -1,3 +1,4 @@
+'use client'
 import { useTranslations } from "next-intl"
 import { webPaths } from "./webPaths"
 import { IconHomePage, IconHomePageActive, IconLogout, IconNotification, IconSetting } from "@/assets"
