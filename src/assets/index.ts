@@ -9,7 +9,7 @@ export { default as IconSparkle } from './icons/icon-sparkle.svg'
 export { default as IconCreditCoin } from './icons/icon-credit-coin.svg'
 export { default as IconPerson } from './icons/icon-person.svg'
 
-export { default as ImageLandingBg } from './images/image-landing-bg.jpg'
+export { default as ImageCoverBg } from './images/image-cover-bg.jpg'
 export { default as ImageCarivaLogo } from './images/cariva-logo.svg'
 export { default as ImagePlaygrondLogo } from './images/playground-logo.svg'
 export { default as ImagePlaygrondLogoColor } from './images/playground-logo-color.svg'

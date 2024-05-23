@@ -13,7 +13,7 @@ const LocalePage = () => {
   const t = useTranslations();
   const router = useRouter()
   useEffect(() => {
-    router.push(webPaths.landing)
+    router.push(webPaths.login)
   })
   return (
     <Page title={t("Common.text.loading")}>

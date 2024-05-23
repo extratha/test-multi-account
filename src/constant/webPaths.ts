@@ -1,6 +1,6 @@
 
 export const webPaths = {
-  landing: '/landing',
+  login: '/login',
   home: '/home',
   forgetPassword: '/forget-password',
   setNewPassword: '/set-new-password',

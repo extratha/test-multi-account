@@ -1,6 +1,6 @@
 'use client'
 
-import { ImagePlaygrondLogo, ImageCarivaLogo, ImageLandingBg } from "@/assets"
+import { ImagePlaygrondLogo, ImageCarivaLogo, ImageCoverBg } from "@/assets"
 import { Stack, } from "@mui/material"
 import Image from "next/image"
 import LoginForm from "./LoginForm";

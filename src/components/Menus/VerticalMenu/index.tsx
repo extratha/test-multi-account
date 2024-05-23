@@ -29,7 +29,7 @@ const VerticalMenu = () => {
     }
   }
   const excludePath = [
-    webPaths.landing,
+    webPaths.login,
     webPaths.forgetPassword,
     webPaths.setNewPassword,
     webPaths.termsAndCons
@@ -45,7 +45,7 @@ const VerticalMenu = () => {
       deleteCookie('accessToken')
       deleteCookie('refreshToken')
       resetUserProfile()
-      router.replace(webPaths.landing)
+      router.replace(webPaths.login)
     }
   }
   const MenuRenderer = (meuList: MenuItem[]) => {
@@ -124,20 +124,6 @@ const VerticalMenu = () => {
             <Divider style={{ marginBottom: '20px' }}></Divider>
             <Typography variant='bodyLargeSemiBold' >{t('menu.settingMenus')}</Typography>
             {MenuRenderer(settingMenuList(t))}
-            <Stack  color={theme.palette.background.paper} width="100%">
-              <Typography >
-                {pathname}
-              </Typography>
-              <Typography color={theme.palette.background.paper}>
-                {isShowMenu.toString()}
-              </Typography>
-              <Typography color={theme.palette.background.paper}>
-                {excludePath}
-              </Typography>
-              <Typography color={theme.palette.background.paper}>
-                {pathname.split('/th')[1]}
-              </Typography>
-            </Stack>
             <Divider style={{ margin: 'auto 0 20px' }}></Divider>
             
             <ProfileInfoBox>

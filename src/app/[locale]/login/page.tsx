@@ -8,7 +8,7 @@ import LoginModule from "@/modules/LoginModule";
 const LoginPage = () => {
   const t = useTranslations();
   return (
-    <Page title={t("Common.pages.landing")}>
+    <Page title={t("Common.pages.login")}>
       <LoginModule></LoginModule>
     </Page>
   );

@@ -70,7 +70,7 @@
       "agreement" :"ฉันยอมรับเงื่อนไขและข้อตกลงการให้บริการ"
     },
     "pages" :{ 
-      "landing": "Landing Page",
+      "login": "Login Page",
       "forgetPassword" :"ลืมรหัสผ่าน",
       "setNewPassword" :"ตั้งค่ารหัสผ่านใหม่",
       "home": "หน้าหลัก",

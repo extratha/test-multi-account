@@ -4,7 +4,7 @@ import { Stack } from '@mui/material'
 import { useEffect, useState } from 'react';
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import { ImagePlaygrondLogo, ImageCarivaLogo, ImageLandingBg } from "@/assets"
+import { ImagePlaygrondLogo, ImageCarivaLogo, ImageCoverBg } from "@/assets"
 
 import axiosPublicInstance from "@/utils/axios/login";
 import { CustomTextField } from "../styled";
