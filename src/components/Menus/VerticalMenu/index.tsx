@@ -33,12 +33,13 @@ const VerticalMenu = () => {
     webPaths.setNewPassword,
     webPaths.termsAndCons
   ];
-  useEffect(()=> {
+  useEffect(() => {
     const currentPath = pathname.split('/th')[1]
     setIsShowMenu(!excludePath.includes(currentPath))
-  },[pathname]);
-  const handleClickHeadMenu = (menu : MenuItem) => {
-    if(menu?.title?.includes(t('menu.logout'))) {
+    console.log(isShowMenu, currentPath, excludePath)
+  }, [pathname]);
+  const handleClickHeadMenu = (menu: MenuItem) => {
+    if (menu?.title?.includes(t('menu.logout'))) {
       deleteCookie('accessToken')
       deleteCookie('refreshToken')
       resetUserProfile()
@@ -61,7 +62,7 @@ const VerticalMenu = () => {
                 <Stack
                   direction='row'
                   width='100%'
-                  onClick={()=> handleClickHeadMenu(menu)}
+                  onClick={() => handleClickHeadMenu(menu)}
                 >
                   <Stack flex={1} margin='auto 16px auto 0 ' maxWidth={'24px'} justifyContent={'center'}>
                     {
@@ -114,13 +115,29 @@ const VerticalMenu = () => {
       {
         isShowMenu ?
           <VerticalMenuContainer>
+
             <Image alt='' src={ImagePlaygrondLogoColor} style={{ margin: '0 0 1.5rem' }} />
             <Typography variant="bodyLargeSemiBold" >{t('menu.aiMenus')}</Typography>
             {MenuRenderer(aiMenuList(t))}
             <Divider style={{ marginBottom: '20px' }}></Divider>
             <Typography variant='bodyLargeSemiBold' >{t('menu.settingMenus')}</Typography>
             {MenuRenderer(settingMenuList(t))}
+            <Stack  color={theme.palette.background.paper} width="100%">
+              <Typography >
+                {pathname}
+              </Typography>
+              <Typography color={theme.palette.background.paper}>
+                {isShowMenu.toString()}
+              </Typography>
+              <Typography color={theme.palette.background.paper}>
+                {excludePath}
+              </Typography>
+              <Typography color={theme.palette.background.paper}>
+                {pathname.split('/th')[1]}
+              </Typography>
+            </Stack>
             <Divider style={{ margin: 'auto 0 20px' }}></Divider>
+            
             <ProfileInfoBox>
               <Stack height='100%'>
                 <Stack direction='row'>
@@ -151,6 +168,7 @@ const VerticalMenu = () => {
                   </Stack>
                 </Stack>
               </Stack>
+              
               <Image
                 alt=''
                 src={ImagePlaygroudLogoOverlay}
@@ -163,6 +181,8 @@ const VerticalMenu = () => {
                 }}
               />
             </ProfileInfoBox>
+           
+
           </VerticalMenuContainer>
           : null
       }
