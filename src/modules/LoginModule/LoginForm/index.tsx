@@ -15,6 +15,7 @@ import { API } from '@/constant/api';
 import { setCookie } from 'cookies-next';
 import { usePageLoadingStore, useUserProfileStore } from '@/store';
 import { webPaths } from '@/constant/webPaths';
+import useFieldValidation from '@/hooks/useFieldValidation';
 
 type LoginForm = {
   email: string | null;
@@ -28,8 +29,19 @@ const isValidEmail = (value: string) => {
     return false;
   }
   return true
-
 }
+
+const validateEmail = (value: string) => {
+  if (!value) return 'validation.require';
+  if (!/^\S+@\S+\.\S+$/.test(value.trim())) return 'validation.invalidEmail';
+  return null;
+};
+
+const validatePassword = (value: string) => {
+  if (!value) return 'validation.require';
+  if (value.length < 8) return 'validation.invalidPassword';
+  return null;
+};
 const LoginForm = () => {
 
   const [email, setEmail] = useState<string | null>(null)
@@ -44,127 +56,91 @@ const LoginForm = () => {
   const t = useTranslations('Common')
   const [errorMessage, setErrorMessage] = useState('')
 
-  const EMAIL_FIELD_NAME = 'email'
-  const PASSWORD_FIELD_NAME = 'password'
+  const EMAIL_FIELD_NAME = 'email';
+  const PASSWORD_FIELD_NAME = 'password';
+
+  // useEffect(() => {
+  //   console.log(email, password)
+  //   if (!email || !password) {
+  //     if(!email) {
+  //       setError(EMAIL_FIELD_NAME, {type:'validate', message: t('validation.require')})
+  //     }else {
+  //       setError(EMAIL_FIELD_NAME, {type:'', message: ''})
+  //     }
+  //     if(!password) {
+  //       setError(PASSWORD_FIELD_NAME, {type:'validate', message: t('validation.require')})
+  //     }else {
+  //       setError(PASSWORD_FIELD_NAME, {type:'', message: ''})
+  //     }
+  //     return setIsDisabledSubmit(true)
+  //   }
+  //   setErrorMessage('')
+  //   const isMailValid = isValidField(
+  //     EMAIL_FIELD_NAME,
+  //     email,
+  //     isValidEmail,
+  //     setError,
+  //     t('validation.invalidEmail')
+  //   )
+  //   const isPassValid = isValidField(
+  //     PASSWORD_FIELD_NAME,
+  //     password,
+  //     (value: string) => {
+  //       if (!value) return false
+  //       if (value.length < 8) return false
+  //       return true
+  //     },
+  //     setError,
+  //     t('validation.invalidPassword')
+  //   )
+  //   if (
+  //     !isMailValid || !isPassValid
+  //   ) {
+  //     return setIsDisabledSubmit(true)
+  //   }
+  //   setIsDisabledSubmit(false)
+  // }, [email, password])
+
+
+  const isEmailValid: boolean = useFieldValidation(
+    EMAIL_FIELD_NAME,
+    email,
+    validateEmail,
+    setError
+  );
+
+  const isPasswordValid:boolean = useFieldValidation(
+    PASSWORD_FIELD_NAME,
+    password,
+    validatePassword,
+    setError
+  );
 
   useEffect(() => {
-    console.log(email, password)
-    if (!email || !password) {
-      if(!email) {
-        setError(EMAIL_FIELD_NAME, {type:'validate', message: t('validation.require')})
-      }else {
-        setError(EMAIL_FIELD_NAME, {type:'', message: ''})
-      }
-      if(!password) {
-        setError(PASSWORD_FIELD_NAME, {type:'validate', message: t('validation.require')})
-      }else {
-        setError(PASSWORD_FIELD_NAME, {type:'', message: ''})
-      }
-      return setIsDisabledSubmit(true)
-    }
-    setErrorMessage('')
-    const isMailValid = isValidField(
-      EMAIL_FIELD_NAME,
-      email,
-      isValidEmail,
-      setError,
-      t('validation.invalidEmail')
-    )
-    const isPassValid = isValidField(
-      PASSWORD_FIELD_NAME,
-      password,
-      (value: string) => {
-        if (!value) return false
-        if (value.length < 8) return false
-        return true
-      },
-      setError,
-      t('validation.invalidPassword')
-    )
-    if (
-      !isMailValid || !isPassValid
-    ) {
-      return setIsDisabledSubmit(true)
-    }
-    setIsDisabledSubmit(false)
-  }, [email, password])
+    setIsDisabledSubmit(!(isEmailValid && isPasswordValid));
+  },[isEmailValid, isPasswordValid]);
 
-  const isValidField = <T extends Record<string, any>>(
-    fieldname: keyof T,
-    value: unknown,
-    isValidLogic: (value: any) => boolean,
-    setError: (fieldname: keyof T, error: { type: string; message: string }) => void,
-    errorMessage: string,
-  ) => {
-    if (isValidLogic(value)) {
-      setError(fieldname, { type: '', message: '' });
-      return true
-    } else {
-      setError(fieldname, {
-        type: 'validate',
-        message: errorMessage || '',
-      });
-      return false
-    }
-  }
   const handleToggleShowPassword = () => {
     setShowPassword((prev) => !prev);
   };
   const onSubmit: SubmitHandler<LoginForm> = async (data) => {
-    setPageLoading(true)
+    setPageLoading(true);
     try {
-      const response = await axiosPublicInstance.post(
-        API.PATH.login,
-        {
-          email,
-          password,
-        },
-        {
-          headers: {
-            Authorization: undefined
-          }
-        }
-      )
+      const response = await axiosPublicInstance.post(API.PATH.login, { email, password }, { headers: { Authorization: undefined } });
       if (response.data) {
-        const { accessToken, refreshToken, user, userProfile } = response.data
-        if (accessToken) {
-          setCookie("accessToken", accessToken)
-        }
-        if (refreshToken) {
-          setCookie('refreshToken', refreshToken)
-        }
-        let userValues
+        const { accessToken, refreshToken, user, userProfile } = response.data;
+        if (accessToken) setCookie("accessToken", accessToken);
+        if (refreshToken) setCookie('refreshToken', refreshToken);
         if (user) {
-          userValues = user
-          setCookie('passwordChanged', user.passwordChanged)
+          setCookie('passwordChanged', user.passwordChanged);
+          setUserProfile({ ...user, ...userProfile });
+          router.push(user.passwordChanged ? webPaths.home : webPaths.setNewPassword);
         }
-        if (userProfile) {
-          userValues = { ...userValues, ...userProfile }
-        }
-        if (userValues) {
-          setUserProfile(userValues)
-        }
-        if (user.passwordChanged) {
-          router.push(webPaths.home)
-        } else {
-          router.replace(webPaths.setNewPassword)
-        }
-        setPageLoading(false)
       }
-    }
-    catch (error: any) {
-      if (error?.status) {
-        const errorCode: number = error.status
-        let message = ''
-        switch (errorCode) {
-          case 400: {
-            message = t('responseError.invalidEmailOrPassword')
-          }
-          default: break;
-        }
-        setErrorMessage(message)
-      }
-      setPageLoading(false)
+    } catch (error: any) {
+      setErrorMessage(error?.response?.data?.message || t('responseError.invalidEmailOrPassword'));
+    } finally {
+      setPageLoading(false);
     }
   }
   return (
