@@ -5,7 +5,7 @@ export const VerticalMenuContainer = styled(Stack)(({ theme }) => ({
   maxWidth: "330px",
   minWidth:'330px',
   height: '100vh', 
-  padding: "2rem 2em 2rem",
+  padding: "1.5rem 1.5rem 1rem",
   overflowY: 'scroll',
 }));
 

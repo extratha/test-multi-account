@@ -1,6 +1,6 @@
 'use client'
 
-import { Grid, MenuClassKey, Stack, Typography, useTheme } from "@mui/material";
+import { Grid,  Typography, useTheme } from "@mui/material";
 import { MenuItem } from "@/constant/menu";
 import Image from "next/image";
 import { IconMenuItem } from "@/assets";
@@ -23,7 +23,7 @@ const GridMenu: React.FC<{ menus: MenuItem[] }> = ({ menus }) => {
             sx={{ 
               display: 'flex', 
               width: '100%', 
-              height: '300px' 
+              height: '260px' 
             }}
             key={index}
             >

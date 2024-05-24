@@ -4,11 +4,10 @@ import { Stack } from '@mui/material'
 import { useEffect, useState } from 'react';
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import { ImagePlaygrondLogo, ImageCarivaLogo, ImageCoverBg } from "@/assets"
 
 import axiosPublicInstance from "@/utils/axios/login";
 import { CustomTextField } from "../styled";
-import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { Controller, DeepMap, SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { API } from '@/constant/api';
@@ -20,15 +19,6 @@ import useFieldValidation from '@/hooks/useFieldValidation';
 type LoginForm = {
   email: string | null;
   password: string | null;
-}
-
-const isValidEmail = (value: string) => {
-  if (!value) return false
-  const isValidEmailFormat = value && /^\S+@\S+\.\S+$/.test(value.trim());
-  if (!isValidEmailFormat) {
-    return false;
-  }
-  return true
 }
 
 const validateEmail = (value: string) => {
@@ -43,90 +33,55 @@ const validatePassword = (value: string) => {
   return null;
 };
 const LoginForm = () => {
-
-  const [email, setEmail] = useState<string | null>(null)
-  const [password, setPassword] = useState<string | null>(null)
   const theme = useTheme()
   const { setUserProfile } = useUserProfileStore()
-  const [isDisableSubmit, setIsDisabledSubmit] = useState<boolean>(false)
+  const [isDisableSubmit, setIsDisabledSubmit] = useState<boolean>(true)
   const [showPassword, setShowPassword] = useState(false)
   const { setPageLoading } = usePageLoadingStore()
   const router = useRouter()
-  const { control, setError, handleSubmit } = useForm<LoginForm>()
+  const { control, setError, handleSubmit, formState: { touchedFields } } = useForm<LoginForm>()
   const t = useTranslations('Common')
   const [errorMessage, setErrorMessage] = useState('')
 
   const EMAIL_FIELD_NAME = 'email';
   const PASSWORD_FIELD_NAME = 'password';
+  const {
+    isValid: isEmailValid,
+    value: emailValue,
+    onChange: onEmailChange,
+    onBlur: onEmailBlur,
+    isDirty: isEmailDirty,
+    ref: emailRef,
+    errorMessage: emailErrorMessage,
+  } = useFieldValidation(control, EMAIL_FIELD_NAME, validateEmail, setError);
 
-  // useEffect(() => {
-  //   console.log(email, password)
-  //   if (!email || !password) {
-  //     if(!email) {
-  //       setError(EMAIL_FIELD_NAME, {type:'validate', message: t('validation.require')})
-  //     }else {
-  //       setError(EMAIL_FIELD_NAME, {type:'', message: ''})
-  //     }
-  //     if(!password) {
-  //       setError(PASSWORD_FIELD_NAME, {type:'validate', message: t('validation.require')})
-  //     }else {
-  //       setError(PASSWORD_FIELD_NAME, {type:'', message: ''})
-  //     }
-  //     return setIsDisabledSubmit(true)
-  //   }
-  //   setErrorMessage('')
-  //   const isMailValid = isValidField(
-  //     EMAIL_FIELD_NAME,
-  //     email,
-  //     isValidEmail,
-  //     setError,
-  //     t('validation.invalidEmail')
-  //   )
-  //   const isPassValid = isValidField(
-  //     PASSWORD_FIELD_NAME,
-  //     password,
-  //     (value: string) => {
-  //       if (!value) return false
-  //       if (value.length < 8) return false
-  //       return true
-  //     },
-  //     setError,
-  //     t('validation.invalidPassword')
-  //   )
-  //   if (
-  //     !isMailValid || !isPassValid
-  //   ) {
-  //     return setIsDisabledSubmit(true)
-  //   }
-  //   setIsDisabledSubmit(false)
-  // }, [email, password])
-
-
-  const isEmailValid: boolean = useFieldValidation(
-    EMAIL_FIELD_NAME,
-    email,
-    validateEmail,
-    setError
-  );
-
-  const isPasswordValid:boolean = useFieldValidation(
-    PASSWORD_FIELD_NAME,
-    password,
-    validatePassword,
-    setError
-  );
+  const {
+    isValid: isPasswordValid,
+    value: passwordValue,
+    onChange: onPasswordChange,
+    onBlur: onPasswordBlur,
+    isDirty: isPasswordDirty,
+    ref: passwordRef,
+    errorMessage: passwordErrorMessage,
+  } = useFieldValidation(control, PASSWORD_FIELD_NAME, validatePassword, setError);
 
   useEffect(() => {
-    setIsDisabledSubmit(!(isEmailValid && isPasswordValid));
-  },[isEmailValid, isPasswordValid]);
+    if(!isEmailDirty || !isPasswordDirty) return
+    if (!(isEmailValid && isPasswordValid)) {
+      setIsDisabledSubmit(true)
+    } else {
+      setIsDisabledSubmit(false)
+    }
+  }, [emailValue, passwordValue]);
 
   const handleToggleShowPassword = () => {
     setShowPassword((prev) => !prev);
   };
   const onSubmit: SubmitHandler<LoginForm> = async (data) => {
     setPageLoading(true);
+    setErrorMessage('')
     try {
-      const response = await axiosPublicInstance.post(API.PATH.login, { email, password }, { headers: { Authorization: undefined } });
+      const response = await axiosPublicInstance.post(API.PATH.login, { email: emailValue, password: passwordValue }, { headers: { Authorization: undefined } });
       if (response.data) {
         const { accessToken, refreshToken, user, userProfile } = response.data;
         if (accessToken) setCookie("accessToken", accessToken);
@@ -139,8 +94,7 @@ const LoginForm = () => {
       }
     } catch (error: any) {
       setErrorMessage(error?.response?.data?.message || t('responseError.invalidEmailOrPassword'));
-    } finally {
-      setPageLoading(false);
+      setPageLoading(false)
     }
   }
   return (
@@ -158,7 +112,6 @@ const LoginForm = () => {
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          autoFocus
         >
           <Controller
             name={EMAIL_FIELD_NAME}
@@ -167,15 +120,14 @@ const LoginForm = () => {
               <Stack direction="column" spacing={2} mt={1}>
                 <CustomTextField
                   fullWidth
-                  autoFocus
                   id={EMAIL_FIELD_NAME}
-                  placeholder={!email ? "อีเมล" : ""}
+                  placeholder={!emailValue ? "อีเมล" : ""}
                   name={EMAIL_FIELD_NAME}
-                  value={(email as unknown) ?? ''}
-                  onChange={(event) => setEmail(event?.target?.value)}
-                  InputLabelProps={{
-                    shrink: true
-                  }}
+                  value={emailValue ?? ''}
+                  onChange={onEmailChange}
+                  onBlur={onEmailBlur}
+                  inputRef={emailRef}
+                  InputLabelProps={{ shrink: true }}
                 />
                 <Typography
                   data-testid="error"
@@ -198,16 +150,16 @@ const LoginForm = () => {
               <Stack direction="column" spacing={2} mt={1}>
                 <CustomTextField
                   fullWidth
-                  autoFocus
                   name={PASSWORD_FIELD_NAME}
                   type={showPassword ? "text" : "password"}
                   id={PASSWORD_FIELD_NAME}
-                  placeholder={!password ? "รหัสผ่าน" : ""}
-                  value={(password as unknown) ?? ''}
-                  onChange={(event) => setPassword(event?.target?.value)}
+                  placeholder={!passwordValue ? "รหัสผ่าน" : ""}
+                  value={passwordValue ?? ''}
+                  onChange={onPasswordChange}
+                  onBlur={onPasswordBlur}
+                  inputRef={passwordRef}
                   inputProps={{
                     autoComplete: "password",
-                    autoFocus: true,
                   }}
                   InputProps={{
                     endAdornment: (

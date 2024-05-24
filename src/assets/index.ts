@@ -14,4 +14,5 @@ export { default as ImageCarivaLogo } from './images/cariva-logo.svg'
 export { default as ImagePlaygrondLogo } from './images/playground-logo.svg'
 export { default as ImagePlaygrondLogoColor } from './images/playground-logo-color.svg'
 export { default as ImagePlaygroudLogoOverlay } from './images/playground-logo-overlay.svg'
+export { default as ImageLoadingStack } from './images/loading-stack.gif'
 

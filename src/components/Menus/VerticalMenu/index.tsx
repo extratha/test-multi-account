@@ -12,6 +12,7 @@ import { useUserProfileStore } from "@/store";
 import { webPaths } from "@/constant/webPaths";
 import { deleteCookie } from "cookies-next";
 import { useEffect } from "react";
+import { CUSTOM_COLORS } from "@/config/config-mui/theme/colors";
 const VerticalMenu = () => {
   const t = useTranslations('Common')
   const [isMenuExpand, setIsMenuExpand] = useState<number[]>([]);
@@ -117,7 +118,6 @@ const VerticalMenu = () => {
       {
         isShowMenu ?
           <VerticalMenuContainer>
-
             <Image alt='' src={ImagePlaygrondLogoColor} style={{ margin: '0 0 1.5rem' }} />
             <Typography variant="bodyLargeSemiBold" >{t('menu.aiMenus')}</Typography>
             {MenuRenderer(aiMenuList(t))}
@@ -149,10 +149,10 @@ const VerticalMenu = () => {
                   <Typography variant='bodyLargeSemiBold'> Admin Officer </Typography>
                   <Typography variant='bodyLarge'> {data.email} </Typography>
 
-                  <Typography sx={{ margin: "auto 0 0 0" }} variant='bodyLargeSemiBold'>เครดิตของฉัน </Typography>
+                  <Typography sx={{ margin: "auto 0 8px 0" }} variant='bodyLargeSemiBold'>เครดิตของฉัน </Typography>
                   <Stack direction='row'>
-                    <Image alt='' src={IconCreditCoin} style={{ width: '24px', height: '24px', margin: '0 20px 0 0' }} />
-                    <Typography variant="bodyLargeSemiBold">ใช้ได้ไม่จำกัด</Typography>
+                    <Image alt='' src={IconCreditCoin} style={{ width: '24px', height: '24px', margin: '0 16px 0 0' }} />
+                    <Typography variant="titleLargeSemiBold" color={CUSTOM_COLORS.coin}>ใช้ได้ไม่จำกัด</Typography>
                   </Stack>
                 </Stack>
               </Stack>

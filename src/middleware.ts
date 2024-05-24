@@ -16,23 +16,24 @@ export async function middleware(req: NextRequest) {
   const accessToken = req.cookies.get('accessToken')
   const lang = req.cookies.get('NEXT_LOCALE')?.value
   const pathSegments = pathname.split('/')
-  console.log(pathname)
-  if (!accessToken && pathSegments.every((path) =>  `/${path}` !== webPaths.login)) {
-    // redirect to login if no accessToken and the path is not public
-    const redirectUrl = new URL(`/${lang}${webPaths.login}`, req.url);
-    return NextResponse.redirect(redirectUrl);
+  try {
+    if (!accessToken && pathSegments.every((path) => `/${path}` !== webPaths.login)) {
+      // redirect to login if no accessToken and the path is not public
+      const redirectUrl = new URL(`/${lang}${webPaths.login}`, req.url);
+      return NextResponse.redirect(redirectUrl);
+    }
+    if (pathSegments.some((path) => `/${path}` === webPaths.login) && accessToken?.value) {
+      const redirectUrl = new URL(`/${lang}${webPaths.home}`, req.url);
+      return NextResponse.redirect(redirectUrl);
+    }
+    if (passwordChanged?.value === 'false' && pathSegments.every((path) => `/${path}` !== webPaths.setNewPassword)) {
+      const redirectUrl = new URL(`/${lang}${webPaths.setNewPassword}`, req.url);
+      return NextResponse.redirect(redirectUrl);
+    }
+  } catch (error) {
+    console.log(error)
   }
-  if (pathSegments.some((path) => `/${path}` === webPaths.login) && accessToken?.value) {
-    const redirectUrl = new URL(`/${lang}${webPaths.home}`, req.url);
-    return NextResponse.redirect(redirectUrl);
-  }
-  if (passwordChanged?.value === 'false' && pathSegments.every((path) => `/${path}` !== webPaths.setNewPassword)) {
-    const redirectUrl = new URL(`/${lang}${webPaths.setNewPassword}`, req.url);
-    return NextResponse.redirect(redirectUrl);
-  }
-
-
-
+  
   return handleI18nRouting(req)
 }
 

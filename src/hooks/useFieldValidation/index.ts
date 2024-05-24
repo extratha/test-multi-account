@@ -1,29 +1,38 @@
-import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
-import { FieldValues, UseFormSetError,Path } from 'react-hook-form';
+import { FieldValues, Path, useController, Control, UseFormSetError } from 'react-hook-form';
 
 const useFieldValidation = <T extends FieldValues>(
+  control: Control<T>,
   fieldName: Path<T>,
-  value: unknown,
   validateFn: (value: any) => string | null,
-  setError: UseFormSetError<T>
+  setError: UseFormSetError<T>,
 ) => {
-  const [isValid, setIsValid] = useState<boolean>(true);
   const t = useTranslations('Common');
 
-  useEffect(() => {
-    const errorKey = validateFn(value);
-    if (errorKey) {
-      //ts-ignore-next-line
-      setError(fieldName , { type: 'validate', message: t(errorKey) });
-      setIsValid(false);
-    } else {
+  const {
+    field: { onChange, onBlur, value, ref },
+    fieldState: { error , isDirty},
+  } = useController({
+    name: fieldName,
+    control,
+  });
+  return {
+    isValid: error?.message?.length && error?.message.length > 0 ? false : true,
+    value,
+    onChange: (e: any) => {
       setError(fieldName, { type: '', message: '' });
-      setIsValid(true);
-    }
-  }, [value, fieldName, validateFn, setError, t]);
-
-  return isValid;
+      const errorKey = validateFn(e.target.value)
+      if (errorKey) {
+        setError(fieldName, { type: 'validate', message: t(errorKey) });
+      }
+      onChange(e.target.value);
+      onBlur();
+    },
+    onBlur,
+    isDirty,
+    ref,
+    errorMessage: error?.message || '',
+  };
 };
 
 export default useFieldValidation;

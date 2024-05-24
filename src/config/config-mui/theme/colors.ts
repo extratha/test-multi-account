@@ -168,6 +168,7 @@ export const CUSTOM_COLORS = {
   checkBox: '#0085FF',
   cherry: '#EE6E3A',
   offWhite: '#F7F8F9',
+  coin: "#FFD54F",
   white: '#FFFFFF',
   warning_background: '#FFF3F2',
 

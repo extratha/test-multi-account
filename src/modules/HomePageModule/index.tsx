@@ -10,7 +10,7 @@ const HomePageModule = () => {
   const t = useTranslations('Common')
   return (
     <>
-      <Stack height='100%' width='100%' padding='2rem'>
+      <Stack height='100%' width='100%' padding='1rem'>
         <CustomContainer>
           <Stack padding='2rem' spacing={3}>
             <Typography
