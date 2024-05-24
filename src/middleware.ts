@@ -24,6 +24,7 @@ export async function middleware(req: NextRequest) {
     webPaths.setNewPassword,
     webPaths.termsAndCons
   ]
+  console.log('\n\npath split : ' , pathname.split(`/${lang}`))
   if (!accessToken && pathnameExcludeLang!==webPaths.login ) {
     // redirect to login if no accessToken and the path is not public
     const redirectUrl = new URL(`/${lang}${webPaths.login}`, req.url);
