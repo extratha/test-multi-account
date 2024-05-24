@@ -35,7 +35,7 @@
       "female": "หญิง"
     },
     "validation": {
-      "require" :"จำเป็นต้องใส้ข้อมูล",
+      "require" :"จำเป็นต้องใส่ข้อมูล",
       "invalidInput": "ข้อมูลไม่ถูกต้อง",
       "invalidPhoneNo": "เบอร์โทรศัพท์ไม่ถูกต้อง",
       "invalidFirstName": "ชื่อจริงไม่ถูกต้อง",

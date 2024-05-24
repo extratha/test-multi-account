@@ -37,7 +37,6 @@ const VerticalMenu = () => {
   
   useEffect(() => {
     const currentPath = pathname.split(`/${locale}`)[1]
-    console.log(currentPath)
     setIsShowMenu(!excludePath.includes(currentPath))
   }, [pathname]);
   const handleClickHeadMenu = (menu: MenuItem) => {

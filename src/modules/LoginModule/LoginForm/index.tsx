@@ -48,34 +48,43 @@ const LoginForm = () => {
   const PASSWORD_FIELD_NAME = 'password'
 
   useEffect(() => {
+    console.log(email, password)
     if (!email || !password) {
+      if(!email) {
+        setError(EMAIL_FIELD_NAME, {type:'validate', message: t('validation.require')})
+      }else {
+        setError(EMAIL_FIELD_NAME, {type:'', message: ''})
+      }
+      if(!password) {
+        setError(PASSWORD_FIELD_NAME, {type:'validate', message: t('validation.require')})
+      }else {
+        setError(PASSWORD_FIELD_NAME, {type:'', message: ''})
+      }
       return setIsDisabledSubmit(true)
     }
-    else {
-      setErrorMessage('')
-      const isMailValid = isValidField(
-        EMAIL_FIELD_NAME,
-        email,
-        isValidEmail,
-        setError,
-        t('validation.invalidEmail')
-      )
-      const isPassValid = isValidField(
-        PASSWORD_FIELD_NAME,
-        password,
-        (value: string) => {
-          if (!value) return false
-          if (value.length < 8) return false
-          return true
-        },
-        setError,
-        t('validation.invalidPassword')
-      )
-      if (
-        !isMailValid || !isPassValid
-      ) {
-        return setIsDisabledSubmit(true)
-      }
+    setErrorMessage('')
+    const isMailValid = isValidField(
+      EMAIL_FIELD_NAME,
+      email,
+      isValidEmail,
+      setError,
+      t('validation.invalidEmail')
+    )
+    const isPassValid = isValidField(
+      PASSWORD_FIELD_NAME,
+      password,
+      (value: string) => {
+        if (!value) return false
+        if (value.length < 8) return false
+        return true
+      },
+      setError,
+      t('validation.invalidPassword')
+    )
+    if (
+      !isMailValid || !isPassValid
+    ) {
+      return setIsDisabledSubmit(true)
     }
     setIsDisabledSubmit(false)
   }, [email, password])

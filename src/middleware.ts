@@ -12,7 +12,6 @@ const handleI18nRouting = createMiddleware({
 
 export async function middleware(req: NextRequest) {
   let { pathname } = req.nextUrl;
-  console.log('\n\n\n\n\n\'', pathname)
   const passwordChanged = req.cookies.get('passwordChanged')
   const accessToken = req.cookies.get('accessToken')
   const lang = req.cookies.get('NEXT_LOCALE')?.value
@@ -25,7 +24,6 @@ export async function middleware(req: NextRequest) {
     webPaths.setNewPassword,
     webPaths.termsAndCons
   ]
-  console.log(accessToken, pathnameExcludeLang, passwordChanged?.value)
   if (!accessToken && pathnameExcludeLang!==webPaths.login ) {
     // redirect to login if no accessToken and the path is not public
     const redirectUrl = new URL(`/${lang}${webPaths.login}`, req.url);
