@@ -1,7 +1,6 @@
 import createMiddleware from "next-intl/middleware";
 import { NextRequest, NextResponse } from "next/server";
 import { webPaths } from "./constant/webPaths";
-import TermsAndConsModules from "./modules/TermsAndCons";
 
 const defaultLang = 'th';
 const LOCALES = ['th', 'en'];
