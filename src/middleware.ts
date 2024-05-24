@@ -15,29 +15,23 @@ export async function middleware(req: NextRequest) {
   const passwordChanged = req.cookies.get('passwordChanged')
   const accessToken = req.cookies.get('accessToken')
   const lang = req.cookies.get('NEXT_LOCALE')?.value
-  let pathnameExcludeLang = pathname
-  if(pathname.split(`/${lang}`)[1]) {
-    pathnameExcludeLang = pathname.split(`/${lang}`)[1]
-  }
-  const publicPaths = [
-    webPaths.login,
-    webPaths.setNewPassword,
-    webPaths.termsAndCons
-  ]
-  console.log('\n\npath split : ' , pathname.split(`/${lang}`))
-  if (!accessToken && pathnameExcludeLang!==webPaths.login ) {
+  const pathSegments = pathname.split('/')
+  console.log(pathname)
+  if (!accessToken && pathSegments.every((path) =>  `/${path}` !== webPaths.login)) {
     // redirect to login if no accessToken and the path is not public
     const redirectUrl = new URL(`/${lang}${webPaths.login}`, req.url);
     return NextResponse.redirect(redirectUrl);
   }
-  if (pathnameExcludeLang === webPaths.login && accessToken?.value) {
+  if (pathSegments.some((path) => `/${path}` === webPaths.login) && accessToken?.value) {
     const redirectUrl = new URL(`/${lang}${webPaths.home}`, req.url);
     return NextResponse.redirect(redirectUrl);
   }
-  if (pathnameExcludeLang && passwordChanged?.value === 'false' && pathnameExcludeLang !== webPaths.setNewPassword) {
+  if (passwordChanged?.value === 'false' && pathSegments.every((path) => `/${path}` !== webPaths.setNewPassword)) {
     const redirectUrl = new URL(`/${lang}${webPaths.setNewPassword}`, req.url);
     return NextResponse.redirect(redirectUrl);
   }
+
+
 
   return handleI18nRouting(req)
 }
