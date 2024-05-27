@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import React, { useEffect } from "react";
-import { Page } from "@/components/page";
+import { Page } from "@/components/Page";
 
 import Loading from "@/modules/Loading";
 import { useRouter } from "next/navigation";

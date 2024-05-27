@@ -13,7 +13,8 @@
       "appointmentNotAvailable": "ตารางเต็ม",
       "continue": "ดำเนินการต่อ",
       "forgetPassword": "ลืมรหัสผ่าน",
-      "setNewPassword": "ตั้งรหัสผ่านใหม่"
+      "setNewPassword": "ตั้งรหัสผ่านใหม่",
+      "submitRequest" : "ส่งคำขอ"
     },
     "error": {
       "errorPleaseTryAgain": "เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง",
@@ -60,7 +61,11 @@
     },
     "status": {
       "availableAppointment": "พร้อมนัดหมาย",
-      "notAvailableAppointment": "ตารางเต็ม"
+      "notAvailableAppointment": "ตารางเต็ม",
+      "resetPasswordSuccess":"ส่งลิงค์ไปยังอีเมลของคุณแล้ว !"
+    },
+    "toast" :{
+      "resetPasswordSuccess": "ตั้งค่ารหัสผ่านใหม่สำเร็จ !"
     },
     "file": {
       "fileTooLarge": "กรุณาเลือกรูปที่มีขนาดไม่เกิน {size} {unit}"
@@ -68,6 +73,9 @@
     "field": {
       "optional": "(ถ้ามี)",
       "agreement" :"ฉันยอมรับเงื่อนไขและข้อตกลงการให้บริการ"
+    },
+    "placeholder" :{
+      "completeYourEmail": "กรอกอีเมลของคุณ"
     },
     "pages" :{ 
       "login": "Login Page",
@@ -77,9 +85,14 @@
       "termsAndCons" : "ข้อกำหนดและเงื่อนไข"
     },
     "title" : {
+      "resetPassword":"ตั้งค่ารหัสผ่านใหม่",
       "termsAndCons":"เลื่อนขึ้นเพื่ออ่านข้อความทั้งหมดและดำเนินการต่อ",
       "hello": "สวัสดี",
       "pleaseSelectMenu": "โปรดเลือกเครื่องมือที่คุณต้องการ"
+    },
+    "message":{
+      "resetPassword" :"กรอกอีเมลของคุณเพื่อรับลิงค์สำหรับตั้งรหัสผ่านใหม่",
+      "resetPasswordSuccess":"กรุณาตรวจสอบอีเมลของคุณ"
     },
     "responseError" :{
       "invalidEmailOrPassword": "อีเมลหรือรหัสผ่านไม่ถูกต้อง กรุณาตรวจสอบอีกครั้ง"

@@ -1,6 +1,6 @@
 import { Container, Stack } from "@mui/material";
 
-import Spinner from "@/components/spinner";
+import Spinner from "@/components/Spinner";
 
 const Loading = () => {
   return (

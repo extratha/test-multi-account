@@ -1,4 +1,4 @@
-import { Page } from "@/components/page";
+import { Page } from "@/components/Page";
 import SetNewPasswordModule from "@/modules/SetNewPasswordModule";
 import { useTranslations } from "next-intl";
 

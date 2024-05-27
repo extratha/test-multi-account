@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { usePageLoadingStore } from "@/store";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { webPaths } from "@/constant/webPaths";
+import { SubmitButtonStyle } from "@/components/Button/styled";
 
 interface TermsAndConsForm {
   agreement: boolean
@@ -93,21 +94,18 @@ const TermsAndConsModules = () => {
                     </Stack>
                   )}
                 />
-                <Button
+                <SubmitButtonStyle
                   type="submit"
                   disabled={!agreement}
                   style={{
                     width: "70%",
-                    height: "52px",
                     margin: "2em auto 0",
-                    backgroundColor: !agreement ? theme.palette.grey[200] : "#2196F3",
-                    color: !agreement ? theme.palette.grey[500] : theme.palette.background.paper,
                   }}
                 >
                   <Typography variant="labelExtraLargeSemiBold" >
                     {t('button.next')}
                   </Typography>
-                </Button>
+                </SubmitButtonStyle>
               </Stack>
 
             </form>

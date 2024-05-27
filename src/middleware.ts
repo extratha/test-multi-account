@@ -11,13 +11,23 @@ const handleI18nRouting = createMiddleware({
 });
 
 export async function middleware(req: NextRequest) {
-  let { pathname } = req.nextUrl;
+  let { pathname, searchParams } = req.nextUrl;
   const passwordChanged = req.cookies.get('passwordChanged')
   const accessToken = req.cookies.get('accessToken')
   const lang = req.cookies.get('NEXT_LOCALE')?.value
+  const urlToken = searchParams.get('token')
   const pathSegments = pathname.split('/')
+  const publicPaths = [
+    webPaths.login,
+    webPaths.forgetPassword,
+  ]
+  if (pathname.includes(webPaths.setNewPassword) && (urlToken?.length && urlToken?.length > 0)) {
+    const res = NextResponse.redirect(new URL(pathname, req.url))
+    res.cookies.set({ name: 'resetPasswordToken', value: urlToken })
+    return res
+  }
   try {
-    if (!accessToken && pathSegments.every((path) => `/${path}` !== webPaths.login)) {
+    if (!accessToken && !(req.cookies.get('resetPasswordToken')?.value) && pathSegments.every((path) => !publicPaths.includes(`/${path}`))) {
       // redirect to login if no accessToken and the path is not public
       const redirectUrl = new URL(`/${lang}${webPaths.login}`, req.url);
       return NextResponse.redirect(redirectUrl);
@@ -33,7 +43,6 @@ export async function middleware(req: NextRequest) {
   } catch (error) {
     console.log(error)
   }
-  
   return handleI18nRouting(req)
 }
 
