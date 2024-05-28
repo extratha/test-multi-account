@@ -11,9 +11,9 @@ jest.mock("next/config", () => () => ({
     setConfig: jest.fn(),
     publicRuntimeConfig: {
         apiToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDY2NzUzNDQsImlhdCI6MTcwNjU4ODk0NCwicHJvZmlsZUlkIjoiZDU1YWY3NDUtOTYyZS00MTk2LTkyOTEtZDg2YTliYWNiZWY2In0.sNgwYjIGLYEVAptqILGgRVGXwt9FCPKHRubEZyaodhg",
-        mockBaseApiUrl: "https://www.mock-cariva-health-dashboard.co.th",
-        baseApiUrl: "https://www.mock-cariva-health-dashboard.co.th",
-        globalEndpoint: "line-telehealth-dashboard",
+        mockBaseApiUrl: "https://www.mock-playground-dashboard.co.th",
+        baseApiUrl: "https://www.mock-playground-dashboard.co.th",
+        globalEndpoint: "playground-dashboard",
         publicApiHost: "http://localhost:3000/",
     },
 }));
@@ -28,20 +28,25 @@ beforeAll(() => {
 
 beforeEach(() => {
     const origPush = mockRouter.push.bind({});
-    routerPushSpy = jest.spyOn(mockRouter, "push").mockImplementation(async (...params) => {
+    routerPushSpy = jest.spyOn(mockRouter, 'push').mockImplementation(async (...params) => {
         try {
             return await origPush(...params);
         } catch (error) {
-            // This error is deliberate to abort Next routing and can be ignored.
-            // if (error !== ROUTE_CHANGE_ABORTED) {
-            //   throw error;
-            // }
+            console.log(error)
         }
         return Promise.resolve(true);
     });
 });
 
 
+const originalConsoleError = console.error;
+console.error = (...args) => {
+  if (typeof args[0] === 'string' && args[1].includes('fetchPriority')) {
+    return;
+  }
+
+  originalConsoleError(...args);
+};
 
 afterEach(() => {
     server.resetHandlers();

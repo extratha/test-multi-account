@@ -19,6 +19,9 @@
     "format:fix": "prettier --write --list-different ."
   },
   "dependencies": {
+    "@babel/preset-env": "^7.24.6",
+    "@babel/preset-react": "^7.24.6",
+    "@babel/preset-typescript": "^7.24.6",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.6",
@@ -31,6 +34,7 @@
     "cookies-next": "^4.1.1",
     "dayjs": "^1.11.10",
     "dayjs-plugin-utc": "^0.1.2",
+    "firebase": "^10.12.1",
     "i18next": "^23.7.19",
     "msw": "^1.2.1",
     "next": "^13.5.6",
@@ -46,17 +50,16 @@
     "react-i18next": "^12.3.1",
     "react-infinite-scroller": "^1.2.6",
     "swr": "^2.1.5",
-    "zustand": "^4.5.2",
-    "firebase": "^10.12.1"
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.0.1",
     "@testing-library/dom": "^8.20.0",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
+    "@testing-library/jest-dom": "^6.4.5",
+    "@testing-library/react": "^15.0.7",
     "@testing-library/react-hooks": "^8.0.1",
-    "@testing-library/user-event": "^14.4.3",
-    "@types/jest": "29.5.11",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/jest": "^29.5.12",
     "@types/node": "20",
     "@types/react": "18",
     "@types/react-dom": "18",
@@ -72,7 +75,7 @@
     "jest-preview": "0.3.1",
     "npm-run-all2": "6.1.1",
     "prettier": "3.2.4",
-    "ts-jest": "29.1.2",
+    "ts-jest": "^29.1.4",
     "typescript": "5"
   }
 }

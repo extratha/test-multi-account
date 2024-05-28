@@ -155,6 +155,7 @@ const LoginForm = () => {
                     endAdornment: (
                       <a>
                         <IconButton
+                          data-testid="button-toggle-show-password"
                           aria-label="Toggle show password"
                           onClick={handleToggleShowPassword}
                         >
@@ -200,6 +201,7 @@ const LoginForm = () => {
 
           <SubmitButtonStyle
             type="submit"
+            data-testid="button-login"
             disabled={isDisableSubmit}
           >
             <Typography variant="labelExtraLargeSemiBold" >

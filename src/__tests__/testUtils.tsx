@@ -36,6 +36,7 @@ const renderWithProviders: RenderWithProvider = (
   return render(component, {
     wrapper,
     ...renderOptions,
+    hydrate: false
   });
 };
 
