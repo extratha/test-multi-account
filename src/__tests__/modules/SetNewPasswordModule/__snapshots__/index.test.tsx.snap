@@ -67,6 +67,7 @@ exports[`LoginModule to match snap 1`] = `
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-nz95qv-MuiFormControl-root-MuiTextField-root"
+                data-testid="newPassword"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd css-1qnkz60-MuiInputBase-root-MuiOutlinedInput-root"
@@ -84,6 +85,7 @@ exports[`LoginModule to match snap 1`] = `
                     <button
                       aria-label="Toggle show password"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="button-toggle-show-new-password"
                       tabindex="0"
                       type="button"
                     >
@@ -130,6 +132,7 @@ exports[`LoginModule to match snap 1`] = `
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-nz95qv-MuiFormControl-root-MuiTextField-root"
+                data-testid="confirmNewPassword"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth Mui-focused MuiInputBase-formControl MuiInputBase-adornedEnd css-1qnkz60-MuiInputBase-root-MuiOutlinedInput-root"
@@ -147,6 +150,7 @@ exports[`LoginModule to match snap 1`] = `
                     <button
                       aria-label="Toggle show password"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="button-toggle-show-confirm-password"
                       tabindex="0"
                       type="button"
                     >
@@ -212,6 +216,7 @@ exports[`LoginModule to match snap 1`] = `
             </div>
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary Mui-disabled MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-hgkxr1-MuiButtonBase-root-MuiButton-root"
+              data-testid="button-set-new-password"
               disabled=""
               tabindex="-1"
               type="submit"

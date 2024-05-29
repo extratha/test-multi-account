@@ -63,13 +63,10 @@ const SetNewPasswordForm = () => {
         apiUrl,
         submitParams,
       )
-      if (response.data) {
-        const { data } = response.data
-        console.log(data)
-      }
       if (response?.status === 204) {
-        setCookie('passwordChanged', true) // necessary
-        if (resetPasswordToken) {
+      console.log('\n\n\n\n resetPasswordToken: ', resetPasswordToken, '\n\n\n\n')
+      setCookie('passwordChanged', true) // necessary
+        if (resetPasswordToken && resetPasswordToken?.length > 0) {
           router.push(webPaths.home)
           deleteCookie('resetPasswordToken')
           setToastOpen(true, {
@@ -83,6 +80,7 @@ const SetNewPasswordForm = () => {
       }
     }
     catch (error: any) {
+      console.log('\n\n\n\n error: ', error, '\n\n\n\n')
       if (error.message) {
         setErrorMessage(error.message)
       } else {
@@ -149,6 +147,7 @@ const SetNewPasswordForm = () => {
                   fullWidth
                   autoFocus
                   id={fieldname.NEW_PASSWORD}
+                  data-testid={fieldname.NEW_PASSWORD}
                   type={showPassword ? "text" : "password"}
                   placeholder={!newPassword ? "ตั้งค่ารหัสผ่าน" : ""}
                   name={fieldname.NEW_PASSWORD}
@@ -164,6 +163,7 @@ const SetNewPasswordForm = () => {
                       <a>
                         <IconButton
                           aria-label="Toggle show password"
+                          data-testid="button-toggle-show-new-password"
                           onClick={() => setShowPassword((prev) => !prev)}
                         >
                           {showPassword ? (
@@ -209,6 +209,7 @@ const SetNewPasswordForm = () => {
                   name={fieldname.CONFIRM_NEW_PASSWORD}
                   type={showConfirmPassword ? "text" : "password"}
                   id={fieldname.CONFIRM_NEW_PASSWORD}
+                  data-testid={fieldname.CONFIRM_NEW_PASSWORD}
                   placeholder={!confirmNewPassword ? "ตั้งรหัสผ่านใหม่อีกครั้ง" : ""}
                   value={(confirmNewPassword as unknown) ?? ''}
                   onChange={(event) => {
@@ -221,6 +222,7 @@ const SetNewPasswordForm = () => {
                     endAdornment: (
                       <a>
                         <IconButton
+                          data-testid="button-toggle-show-confirm-password"
                           aria-label="Toggle show password"
                           onClick={() => setShowComfirmPassword((prev) => !prev)}
                         >
@@ -274,6 +276,7 @@ const SetNewPasswordForm = () => {
             </Typography>
           </Stack>
           <SubmitButtonStyle
+            data-testid='button-set-new-password'
             type="submit"
             disabled={isDisableSubmit}
           >

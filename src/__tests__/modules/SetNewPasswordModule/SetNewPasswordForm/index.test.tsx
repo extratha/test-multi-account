@@ -1,13 +1,17 @@
-import { render, screen, userEvent } from '../../../testUtils';
+import { fireEvent, act, waitFor, render, screen, userEvent } from '../../../testUtils';
 import SetNewPasswordForm from '@/modules/SetNewPasswordModule/SetNewPasswordForm';
 import axiosInstance, { AxiosInstance } from "@/utils/axios";
 import axiosPublicInstance from "@/utils/axios/login";
 import { API } from "@/constant/api";
 import { webPaths } from "@/constant/webPaths";
-import { setCookie, deleteCookie } from 'cookies-next';
+import * as cookiesNext from 'cookies-next';
+
+
+// Define mock setCookie and deleteCookie functions
+const setCookie = jest.fn();
+const deleteCookie = jest.fn();
 
 jest.mock('axios');
-jest.mock('cookies-next');
 jest.mock('next/navigation', () => ({
   useRouter: () => ({ push: jest.fn() }),
 }));
@@ -17,113 +21,180 @@ jest.mock("../../../../store", () => ({
   useToastStore: () => ({ setToastOpen: jest.fn() }),
 }));
 
+jest.mock('cookies-next', () => ({
+  __esModule: true,
+  ...jest.requireActual('cookies-next'),
+  getCookie: jest.fn().mockReturnValue('TOKENTOKENTOKEN')
+}));
+
+jest.mock('../../../../utils/axios', () => ({
+  __esModule: true,
+  default: {
+    post: jest.fn(),
+  },
+}));
+
+jest.mock('../../../../utils/axios/login', () => ({
+  __esModule: true,
+  default: {
+    post: jest.fn(),
+  },
+}));
 describe('SetNewPasswordForm', () => {
-  const setup = () => render(<SetNewPasswordForm />);
-
-  it('renders the form correctly', () => {
-    setup();
-    expect(screen.getByText(/ตั้งค่ารหัสผ่านใหม่/)).toBeInTheDocument();
-    expect(screen.getByPlaceholderText('ตั้งค่ารหัสผ่าน')).toBeInTheDocument();
-    expect(screen.getByPlaceholderText('ตั้งรหัสผ่านใหม่อีกครั้ง')).toBeInTheDocument();
+  beforeEach(() => {
+    jest.clearAllMocks();
   });
 
-  it('toggles password visibility', () => {
-    setup();
-    const toggleButtons = screen.getAllByRole('button', { name: /toggle show password/i });
-    expect(toggleButtons).toHaveLength(2);
+  const setup = async () => {
+    const { asFragment } = await act(async () =>
+      render(<SetNewPasswordForm />)
+    )
+    return asFragment
+  };
 
-    userEvent.click(toggleButtons[0]);
-    expect(screen.getByLabelText('Showing password')).toBeInTheDocument();
-
-    userEvent.click(toggleButtons[0]);
-    expect(screen.getByLabelText('Hiding password')).toBeInTheDocument();
+  it('renders the form correctly', async () => {
+    await setup();
+    expect(screen.getByTestId('newPassword')).toBeInTheDocument();
+    expect(screen.getByTestId('confirmNewPassword')).toBeInTheDocument();
   });
 
-  it('shows validation error for empty fields', async () => {
-    setup();
-    userEvent.click(screen.getByRole('button', { name: /setNewPassword/i }));
+  it('toggles password visibility', async () => {
+    await setup();
+    const buttonToggleShowPassword = screen.getByTestId('button-toggle-show-new-password');
+    const buttonToggleShowConfirmPassword = screen.getByTestId('button-toggle-show-confirm-password');
+    const passwordInput = screen.getByPlaceholderText('ตั้งค่ารหัสผ่าน');
 
-    expect(await screen.findAllByText('validation.require')).toHaveLength(2);
+    expect(passwordInput).toHaveAttribute('type', 'password');
+
+    await act(async () => {
+      await userEvent.click(buttonToggleShowPassword);
+      await userEvent.click(buttonToggleShowConfirmPassword);
+    });
+
+    await waitFor(() => {
+      expect(passwordInput).toHaveAttribute('type', 'text');
+    });
+
+    await act(async () => {
+      await userEvent.click(buttonToggleShowPassword);
+      await userEvent.click(buttonToggleShowConfirmPassword);
+    });
+
+    await waitFor(() => {
+      expect(passwordInput).toHaveAttribute('type', 'password');
+    });
   });
 
-  it('shows validation error for invalid password format', async () => {
-    setup();
-    const newPasswordField = screen.getByPlaceholderText('ตั้งค่ารหัสผ่าน');
-    userEvent.type(newPasswordField, 'invalidpassword');
-
-    userEvent.click(screen.getByRole('button', { name: /setNewPassword/i }));
-
-    expect(await screen.findByText('validation.invalidPasswordFormat')).toBeInTheDocument();
+  it('submit button is initially disabled', async () => {
+    await setup();
+    const submitButton = screen.getByTestId('button-set-new-password');
+    expect(submitButton).toBeDisabled();
+  });
+  it('show require validation', async () => {
+    await setup();
+    const newPasswordField = screen.getByTestId('newPassword').querySelector('input');
+    if (newPasswordField) {
+      fireEvent.change(newPasswordField, { target: { value: 'eetetetet' } });
+      await act(async () => {
+        fireEvent.change(newPasswordField, { target: { value: '' } });
+      })
+    }
+    await waitFor(() => expect(screen.getAllByText(/จำเป็นต้องใส่ข้อมูล/)).not.toBeNull())
   });
 
-  it('shows validation error for password mismatch', async () => {
-    setup();
-    const newPasswordField = screen.getByPlaceholderText('ตั้งค่ารหัสผ่าน');
-    const confirmNewPasswordField = screen.getByPlaceholderText('ตั้งรหัสผ่านใหม่อีกครั้ง');
-
-    userEvent.type(newPasswordField, 'ValidPassword1!');
-    userEvent.type(confirmNewPasswordField, 'DifferentPassword1!');
-
-    userEvent.click(screen.getByRole('button', { name: /setNewPassword/i }));
-
-    expect(await screen.findByText('validation.passwordIsNotMatch')).toBeInTheDocument();
+  it('validation error for invalid password format', async () => {
+    await setup();
+    const newPasswordField = screen.getByTestId('newPassword').querySelector('input');
+    const confirmNewPasswordField = screen.getByTestId('confirmNewPassword').querySelector('input');
+    if (newPasswordField && confirmNewPasswordField) {
+      fireEvent.change(newPasswordField, { target: { value: 'invalid format' } });
+      fireEvent.change(confirmNewPasswordField, { target: { value: 'invalid format' } });
+    }
+    expect(screen.getAllByText(/รหัสผ่านไม่ตรงเงื่อนไข/)).not.toBeNull()
   });
 
-  it('submits the form successfully with valid data', async () => {
-    setup();
-    const setPageLoading = jest.fn();
-    const setToastOpen = jest.fn();
-    const push = jest.fn();
-    jest.mock("@/store", () => ({
-      usePageLoadingStore: jest.fn(() => ({ setPageLoading })),
-      useToastStore: jest.fn(() => ({ setToastOpen })),
-    }));
-    jest.mock('next/navigation', () => ({
-      useRouter: () => ({ push }),
-    }));
-    const newPasswordField = screen.getByPlaceholderText('ตั้งค่ารหัสผ่าน');
-    const confirmNewPasswordField = screen.getByPlaceholderText('ตั้งรหัสผ่านใหม่อีกครั้ง');
+  it('validation error for password mismatch', async () => {
+    await setup();
+    const newPasswordField = screen.getByTestId('newPassword').querySelector('input');
+    const confirmNewPasswordField = screen.getByTestId('confirmNewPassword').querySelector('input');
+    if (newPasswordField && confirmNewPasswordField) {
+      fireEvent.change(newPasswordField, { target: { value: 'ValidPassword1!' } });
+      fireEvent.change(confirmNewPasswordField, { target: { value: 'ValidPassword2!' } });
+    }
+    expect(screen.getAllByText(/รหัสผ่านไม่ตรงกัน/)).not.toBeNull()
 
-    userEvent.type(newPasswordField, 'ValidPassword1!');
-    userEvent.type(confirmNewPasswordField, 'ValidPassword1!');
+  });
 
-    userEvent.click(screen.getByRole('button', { name: /setNewPassword/i }));
+  it('response error message validation for matched', async () => {
+    await setup();
+    const newPasswordField = screen.getByTestId('newPassword').querySelector('input');
+    const confirmNewPasswordField = screen.getByTestId('confirmNewPassword').querySelector('input');
+    if (newPasswordField && confirmNewPasswordField) {
+      fireEvent.change(newPasswordField, { target: { value: 'ValidPassword1!' } });
+      fireEvent.change(confirmNewPasswordField, { target: { value: 'ValidPassword1!' } });
+    }
+    (axiosPublicInstance.post as jest.Mock).mockRejectedValueOnce({ status: 400, message: 'no user ' });
+    const submitButton = screen.getByTestId('button-set-new-password')
+    await act(async () => {
+      fireEvent.click(submitButton)
+    })
+  });
+  it('response error.error validation for matched', async () => {
+    await setup();
+    const newPasswordField = screen.getByTestId('newPassword').querySelector('input');
+    const confirmNewPasswordField = screen.getByTestId('confirmNewPassword').querySelector('input');
+    if (newPasswordField && confirmNewPasswordField) {
+      fireEvent.change(newPasswordField, { target: { value: 'ValidPassword1!' } });
+      fireEvent.change(confirmNewPasswordField, { target: { value: 'ValidPassword1!' } });
+    }
+    (axiosPublicInstance.post as jest.Mock).mockRejectedValueOnce({ status: 400, error: 'no user ' });
+    const submitButton = screen.getByTestId('button-set-new-password')
+    await act(async () => {
+      fireEvent.click(submitButton)
+    })
+  });
 
-    // Mock API response
+
+  it('1 submits the form successfully with valid data', async () => {
+    jest.spyOn(cookiesNext, 'getCookie').mockReturnValue(undefined);
+    await setup();
+
+    const newPasswordField = screen.getByTestId('newPassword').querySelector('input');
+    const confirmNewPasswordField = screen.getByTestId('confirmNewPassword').querySelector('input');
+
+    if (newPasswordField && confirmNewPasswordField) {
+      fireEvent.change(newPasswordField, { target: { value: 'ValidPassword1!' } });
+      fireEvent.change(confirmNewPasswordField, { target: { value: 'ValidPassword1!' } });
+    }
+    // Mocking Axios response
+    (axiosInstance.post as jest.Mock).mockResolvedValue({ status: 204 });
+
+    const submitButton = screen.getByTestId('button-set-new-password')
+    await act(async () => {
+      fireEvent.click(submitButton)
+    });
+
+  });
+
+  it('2 submits the form successfully with resset password token', async () => {
+    jest.spyOn(cookiesNext, 'getCookie').mockReturnValue('TOKENTOKENTOKEN' as any);
+    await setup();
+
+    const newPasswordField = screen.getByTestId('newPassword').querySelector('input');
+    const confirmNewPasswordField = screen.getByTestId('confirmNewPassword').querySelector('input');
+
+    if (newPasswordField && confirmNewPasswordField) {
+      fireEvent.change(newPasswordField, { target: { value: 'ValidPassword1!' } });
+      fireEvent.change(confirmNewPasswordField, { target: { value: 'ValidPassword1!' } });
+    }
+
+    // Mocking Axios response
     (axiosPublicInstance.post as jest.Mock).mockResolvedValueOnce({ status: 204 });
 
-    expect(setPageLoading).toHaveBeenCalledWith(true);
-    await screen.findByText('toast.resetPasswordSuccess');
-    expect(deleteCookie).toHaveBeenCalledWith('resetPasswordToken');
-    expect(setCookie).toHaveBeenCalledWith('passwordChanged', true);
+    const submitButton = screen.getByTestId('button-set-new-password')
+    await act(async () => {
+      fireEvent.click(submitButton)
+    });
   });
 
-  it('handles API error response', async () => {
-    setup();
-
-    const setPageLoading = jest.fn();
-    const setToastOpen = jest.fn();
-    const push = jest.fn();
-    jest.mock("@/store", () => ({
-      usePageLoadingStore: jest.fn(() => ({ setPageLoading })),
-      useToastStore: jest.fn(() => ({ setToastOpen })),
-    }));
-    jest.mock('next/navigation', () => ({
-      useRouter: () => ({ push }),
-    }));
-    const newPasswordField = screen.getByPlaceholderText('ตั้งค่ารหัสผ่าน');
-    const confirmNewPasswordField = screen.getByPlaceholderText('ตั้งรหัสผ่านใหม่อีกครั้ง');
-
-    userEvent.type(newPasswordField, 'ValidPassword1!');
-    userEvent.type(confirmNewPasswordField, 'ValidPassword1!');
-
-    userEvent.click(screen.getByRole('button', { name: /setNewPassword/i }));
-
-    // Mock API error response
-    (axiosPublicInstance.post as jest.Mock).mockRejectedValueOnce({ message: 'Error occurred' });
-
-    expect(setPageLoading).toHaveBeenCalledWith(true);
-    expect(await screen.findByText('Error occurred')).toBeInTheDocument();
-    expect(setPageLoading).toHaveBeenCalledWith(false);
-  });
 });

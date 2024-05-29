@@ -1,5 +1,4 @@
 import axios, { AxiosResponse, AxiosError } from 'axios';
-import {  getCookie } from 'cookies-next';
 import { staticEnvConfig } from '@/constant/env';
 const axiosPublicInstance = axios.create({
   baseURL: staticEnvConfig.apiUrl,
