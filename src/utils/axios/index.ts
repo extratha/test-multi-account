@@ -4,7 +4,7 @@ import { staticEnvConfig } from '@/constant/env';
 const axiosInstance = axios.create({
   baseURL: staticEnvConfig.apiUrl,
 });
-axiosInstance.interceptors.request.use(
+axiosInstance?.interceptors.request.use(
   async (config) => {
     const accessToken = getCookie('accessToken');
     const newConfig = config;
@@ -18,7 +18,7 @@ axiosInstance.interceptors.request.use(
   (error) => {},
 );
 
-axiosInstance.interceptors.response.use(
+axiosInstance?.interceptors.response.use(
   (response: AxiosResponse) => response,
   (error: AxiosError) => {
     console.log('ERROR :', error);
