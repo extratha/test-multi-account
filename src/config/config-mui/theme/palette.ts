@@ -5,15 +5,17 @@ import {
   NEUTRAL,
   PRIMARY,
   SECONDARY,
+  STATUS_NORMAL,
   TERTIARY,
   WARNING,
 } from './colors';
-import { grey } from '@mui/material/colors';
+import { grey, lightGreen } from '@mui/material/colors';
 
 const getDesignTokens = (mode: PaletteMode) => {
   const lightMode = {
     primary: {
       main: PRIMARY[50],
+      light: PRIMARY[98]
     },
     secondary: {
       main: SECONDARY[50],
@@ -26,6 +28,7 @@ const getDesignTokens = (mode: PaletteMode) => {
     },
     success: {
       main: TERTIARY[50],
+      light :STATUS_NORMAL[1],
     },
     warning: {
       main: WARNING[50],
@@ -44,6 +47,7 @@ const getDesignTokens = (mode: PaletteMode) => {
     primary: {
       main: PRIMARY[80],
       contrastText: NEUTRAL[95],
+      light: PRIMARY[98]
     },
     secondary: {
       main: SECONDARY[80],
@@ -57,6 +61,7 @@ const getDesignTokens = (mode: PaletteMode) => {
     },
     success: {
       main: TERTIARY[80],
+      light :STATUS_NORMAL[1],
     },
     warning: {
       main: WARNING[80],

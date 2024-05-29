@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import React from "react";
-import { Page } from "@/components/page";
+import { Page } from "@/components/Page";
 import LoginModule from "@/modules/LoginModule";
 
 const LoginPage = () => {

@@ -15,23 +15,13 @@ import { setCookie } from 'cookies-next';
 import { usePageLoadingStore, useUserProfileStore } from '@/store';
 import { webPaths } from '@/constant/webPaths';
 import useFieldValidation from '@/hooks/useFieldValidation';
-
+import { validateEmail, validatePassword } from '@/utils/validation';
+import { SubmitButtonStyle } from '@/components/Button/styled';
 type LoginForm = {
   email: string | null;
   password: string | null;
 }
 
-const validateEmail = (value: string) => {
-  if (!value) return 'validation.require';
-  if (!/^\S+@\S+\.\S+$/.test(value.trim())) return 'validation.invalidEmail';
-  return null;
-};
-
-const validatePassword = (value: string) => {
-  if (!value) return 'validation.require';
-  if (value.length < 8) return 'validation.invalidPassword';
-  return null;
-};
 const LoginForm = () => {
   const theme = useTheme()
   const { setUserProfile } = useUserProfileStore()
@@ -66,7 +56,7 @@ const LoginForm = () => {
   } = useFieldValidation(control, PASSWORD_FIELD_NAME, validatePassword, setError);
 
   useEffect(() => {
-    if(!isEmailDirty || !isPasswordDirty) return
+    if (!isEmailDirty || !isPasswordDirty) return
     if (!(isEmailValid && isPasswordValid)) {
       setIsDisabledSubmit(true)
     } else {
@@ -165,6 +155,7 @@ const LoginForm = () => {
                     endAdornment: (
                       <a>
                         <IconButton
+                          data-testid="button-toggle-show-password"
                           aria-label="Toggle show password"
                           onClick={handleToggleShowPassword}
                         >
@@ -208,21 +199,15 @@ const LoginForm = () => {
             {errorMessage || ''}
           </Typography>
 
-          <Button
+          <SubmitButtonStyle
             type="submit"
+            data-testid="button-login"
             disabled={isDisableSubmit}
-            style={{
-              width: "100%",
-              height: "52px",
-              margin: "2em 0 0",
-              backgroundColor: isDisableSubmit ? theme.palette.grey[400] : "#2196F3",
-              color: theme.palette.background.paper,
-            }}
           >
             <Typography variant="labelExtraLargeSemiBold" >
               {t('text.login')}
             </Typography>
-          </Button>
+          </SubmitButtonStyle>
         </form>
         <Typography
           variant='titleSmallSemiBold'
@@ -232,7 +217,9 @@ const LoginForm = () => {
             textDecoration: 'underline',
             margin: '16px auto 0',
             cursor: 'pointer'
-          }} >
+          }}
+          onClick={()=> router.replace(webPaths.forgetPassword)}
+          >
           {t('button.forgetPassword')}
         </Typography>
       </Stack>

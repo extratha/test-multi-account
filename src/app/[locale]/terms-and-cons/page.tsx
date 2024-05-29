@@ -1,4 +1,4 @@
-import { Page } from "@/components/page";
+import { Page } from "@/components/Page";
 import TermsAndConsModules from "@/modules/TermsAndCons";
 import { useTranslations } from "next-intl";
 

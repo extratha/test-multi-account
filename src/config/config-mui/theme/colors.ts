@@ -9,6 +9,7 @@ export const PRIMARY = {
   80: '#80B2FD',
   90: '#B4D1FF',
   95: '#CCE0FE',
+  98: '#2196F3',
   99: '#F2F7FF',
   100: '#FFFFFF',
 };
@@ -39,6 +40,7 @@ export const TERTIARY = {
   80: '#D9F180',
   90: '#E6F6AB',
   95: '#F0F9CC',
+  98: '#4CAF50',
   99: '#FBFFE9',
   100: '#FFFFFF',
 };

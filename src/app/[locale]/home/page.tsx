@@ -1,4 +1,4 @@
-import { Page } from "@/components/page"
+import { Page } from "@/components/Page"
 import HomePageModule from "@/modules/HomePageModule"
 import { useTranslations } from "next-intl"
 

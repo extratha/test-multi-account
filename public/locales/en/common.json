@@ -5,11 +5,16 @@
       "back": "Back",
       "continue": "ดำเนินการต่อ",
       "forgetPassword": "Forget Password",
-      "setNewPassword": "Set new password"
+      "setNewPassword": "Set new password",
+      "submitRequest" : "Submit Request"
     },
     "status": {
       "availableAppointment": "พร้อมนัดหมาย",
-      "notAvailableAppointment": "ตารางเต็ม"
+      "notAvailableAppointment": "ตารางเต็ม",
+      "resetPasswordSuccess":"The URL has been sent to your email."
+    },
+    "toast" :{
+      "resetPasswordSuccess": "Reset password success !"
     },
     "validation": {
       "require" :"This field is required.",
@@ -38,6 +43,9 @@
       "optional": "(ถ้ามี)",
       "agreement" :"ฉันยอมรับเงื่อนไขและข้อตกลงการให้บริการ"
     },
+    "placeholder" :{
+      "completeYourEmail": "Complete your email"
+    },
     "pages": {
       "login": "Login Page",
       "forgetPassword": "Forget Password",
@@ -46,9 +54,14 @@
       "termsAndCons" : "Terms And Conditions"
     },
     "title" : {
+      "resetPassword":"Reset Password",
       "termsAndCons":"Scroll up to read the full message and follow.",
       "hello" :"Hello",
       "pleaseSelectMenu": "Please select menu."
+    },
+    "message":{
+      "resetPassword" :"Complete your email to get url for reset password",
+      "resetPasswordSuccess":"Please check your mailbox."
     },
     "responseError": {
       "invalidEmailOrPassword": "Invalid email or password."
