@@ -1,5 +1,5 @@
 import React from 'react';
-import { act, waitFor,render } from '../../testUtils';
+import { act, waitFor, render } from '../../testUtils';
 import ProjectCoverLayout from '@/components/ProjectCoverLayout';
 import { ImagePlaygrondLogo, ImageCarivaLogo, ImageCoverBg } from "@/assets";
 import { screen } from '@testing-library/react';
@@ -18,13 +18,13 @@ describe('ProjectCoverLayout', () => {
     const { asFragment } = await act(async () =>
       render(
         <ProjectCoverLayout>
-        <div>Child Component</div>
-      </ProjectCoverLayout>,
+          <div>Child Component</div>
+        </ProjectCoverLayout>,
       ),
     );
     await waitFor(() => {
       expect(asFragment()).toMatchSnapshot()
     });
   })
- 
+
 });
