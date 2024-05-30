@@ -7,7 +7,6 @@ import { webPaths } from "@/constant/webPaths";
 import * as cookiesNext from 'cookies-next';
 
 
-// Define mock setCookie and deleteCookie functions
 const setCookie = jest.fn();
 const deleteCookie = jest.fn();
 
@@ -166,7 +165,6 @@ describe('SetNewPasswordForm', () => {
       fireEvent.change(newPasswordField, { target: { value: 'ValidPassword1!' } });
       fireEvent.change(confirmNewPasswordField, { target: { value: 'ValidPassword1!' } });
     }
-    // Mocking Axios response
     (axiosInstance.post as jest.Mock).mockResolvedValue({ status: 204 });
 
     const submitButton = screen.getByTestId('button-set-new-password')
@@ -188,7 +186,6 @@ describe('SetNewPasswordForm', () => {
       fireEvent.change(confirmNewPasswordField, { target: { value: 'ValidPassword1!' } });
     }
 
-    // Mocking Axios response
     (axiosPublicInstance.post as jest.Mock).mockResolvedValueOnce({ status: 204 });
 
     const submitButton = screen.getByTestId('button-set-new-password')

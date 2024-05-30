@@ -46,7 +46,6 @@ describe('ProjectCoverLayout', () => {
     );
 
     expect(screen.getByText(/เครื่องมือวิเคราะห์ข้อมูลด้วย AI/)).toBeInTheDocument();
-    // Check if Setting Menu title is rendered
     expect(screen.getByText(/การตั้งค่าและอื่นๆ/)).toBeInTheDocument();
   });
 
@@ -86,8 +85,6 @@ describe('ProjectCoverLayout', () => {
     await act(async () =>
       render(<VerticalMenu />),
     );
-
-    // Click on the logout menu item
     fireEvent.click(screen.getByText(/ออกจากระบบ/));
 
     await waitFor(() => {

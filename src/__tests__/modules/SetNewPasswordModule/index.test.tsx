@@ -2,7 +2,6 @@ import React from 'react';
 import { act, waitFor, render } from '../../testUtils';
 import SetNewPasswordModule from '@/modules/SetNewPasswordModule';
 
-// Mock the module
 jest.mock('next/navigation', () => ({
   ...jest.requireActual('next/navigation'),
   useRouter: jest.fn(),
