@@ -42,6 +42,7 @@ const ForgetPasswordForm = () => {
     catch (error: any) {
       if(error.status === 404) {
         setShowSuccess(true)
+        return
       }
       if (error.message) {
         setErrorMessage(error.message)
