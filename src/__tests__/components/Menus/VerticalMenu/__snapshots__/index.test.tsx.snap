@@ -1,0 +1,344 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProjectCoverLayout to match snap 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiStack-root css-17qrmk3-MuiStack-root"
+    data-testid="vertical-menu-container"
+  >
+    <img
+      alt=""
+      data-nimg="1"
+      decoding="async"
+      height="40"
+      loading="lazy"
+      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+      style="color: transparent; margin: 0px 0px 1.5rem;"
+      width="40"
+    />
+    <span
+      class="MuiTypography-root MuiTypography-bodyLargeSemiBold css-97t0fk-MuiTypography-root"
+    >
+      เครื่องมือวิเคราะห์ข้อมูลด้วย AI
+    </span>
+    <ul
+      class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
+    >
+      <li
+        class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-vi26r3-MuiListItem-root"
+      >
+        <div
+          class="MuiStack-root css-alzq08-MuiStack-root"
+        >
+          <div
+            class="MuiStack-root css-94iksa-MuiStack-root"
+          >
+            <div
+              class="MuiStack-root css-1lrvra5-MuiStack-root"
+            >
+              <img
+                alt=""
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent; width: 24px; height: 24px;"
+                width="40"
+              />
+            </div>
+            <div
+              class="MuiStack-root css-7eaud4-MuiStack-root"
+            >
+              <h3
+                class="MuiTypography-root MuiTypography-titleMedium css-1hsltpu-MuiTypography-root"
+              >
+                หน้าหลัก
+              </h3>
+            </div>
+          </div>
+          <div
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
+            data-testid="menu-group-collapse-0"
+            style="min-height: 0px;"
+          >
+            <div
+              class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
+            >
+              <div
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
+              >
+                <ul
+                  class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-vi26r3-MuiListItem-root"
+      >
+        <div
+          class="MuiStack-root css-alzq08-MuiStack-root"
+        >
+          <div
+            class="MuiStack-root css-94iksa-MuiStack-root"
+          >
+            <div
+              class="MuiStack-root css-1lrvra5-MuiStack-root"
+            >
+              <img
+                alt=""
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent; width: 24px; height: 24px;"
+                width="40"
+              />
+            </div>
+            <div
+              class="MuiStack-root css-7eaud4-MuiStack-root"
+            >
+              <h3
+                class="MuiTypography-root MuiTypography-titleMedium css-1hsltpu-MuiTypography-root"
+              >
+                AI Interpret
+              </h3>
+            </div>
+            <div
+              class="MuiStack-root css-1ejxx6h-MuiStack-root"
+              data-testid="icon-expand"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="KeyboardArrowDownIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
+            data-testid="menu-group-collapse-1"
+            style="min-height: 0px;"
+          >
+            <div
+              class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
+            >
+              <div
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
+              >
+                <ul
+                  class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
+                >
+                  <li
+                    class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1460576-MuiListItem-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-bodyLarge css-17ms9lw-MuiTypography-root"
+                    >
+                      ทดลองใช้ข้อมูลตัวอย่าง
+                    </span>
+                  </li>
+                  <li
+                    class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1460576-MuiListItem-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-bodyLarge css-17ms9lw-MuiTypography-root"
+                    >
+                      ทดลองใส่ข้อมูลเอง
+                    </span>
+                  </li>
+                  <li
+                    class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1460576-MuiListItem-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-bodyLarge css-17ms9lw-MuiTypography-root"
+                    >
+                      ใช้ข้อมูลจากโรงพยาบาล
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <hr
+      class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+      style="margin-bottom: 20px;"
+    />
+    <span
+      class="MuiTypography-root MuiTypography-bodyLargeSemiBold css-97t0fk-MuiTypography-root"
+    >
+      การตั้งค่าและอื่นๆ
+    </span>
+    <ul
+      class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
+    >
+      <li
+        class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-vi26r3-MuiListItem-root"
+      >
+        <div
+          class="MuiStack-root css-alzq08-MuiStack-root"
+        >
+          <div
+            class="MuiStack-root css-94iksa-MuiStack-root"
+          >
+            <div
+              class="MuiStack-root css-1lrvra5-MuiStack-root"
+            >
+              <img
+                alt=""
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent; width: 24px; height: 24px;"
+                width="40"
+              />
+            </div>
+            <div
+              class="MuiStack-root css-7eaud4-MuiStack-root"
+            >
+              <h3
+                class="MuiTypography-root MuiTypography-titleMedium css-1hsltpu-MuiTypography-root"
+              >
+                ออกจากระบบ
+              </h3>
+            </div>
+          </div>
+          <div
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
+            data-testid="menu-group-collapse-0"
+            style="min-height: 0px;"
+          >
+            <div
+              class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
+            >
+              <div
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
+              >
+                <ul
+                  class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <hr
+      class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+      style="margin: auto 0px 20px;"
+    />
+    <div
+      class="MuiStack-root css-v9kfn1-MuiStack-root"
+    >
+      <div
+        class="MuiStack-root css-1rzuxdl-MuiStack-root"
+      >
+        <div
+          class="MuiStack-root css-m69qwo-MuiStack-root"
+        >
+          <img
+            alt=""
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent; width: 20px; height: 20px;"
+            width="40"
+          />
+          <div
+            class="MuiStack-root css-150zi9p-MuiStack-root"
+          >
+            <img
+              alt=""
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent; width: 24px; height: 24px; margin: auto 10px auto 0px;"
+              width="40"
+            />
+            <span
+              class="MuiTypography-root MuiTypography-bodyLargeSemiBold css-13orwky-MuiTypography-root"
+            >
+              แอดมิน
+            </span>
+          </div>
+        </div>
+        <div
+          class="MuiStack-root css-18vm5st-MuiStack-root"
+        >
+          <span
+            class="MuiTypography-root MuiTypography-bodyLargeSemiBold css-97t0fk-MuiTypography-root"
+          >
+             Admin Officer 
+          </span>
+          <span
+            class="MuiTypography-root MuiTypography-bodyLarge css-17ms9lw-MuiTypography-root"
+          >
+             admin@example.com 
+          </span>
+          <span
+            class="MuiTypography-root MuiTypography-bodyLargeSemiBold css-17g1ne0-MuiTypography-root"
+          >
+            เครดิตของฉัน 
+          </span>
+          <div
+            class="MuiStack-root css-m69qwo-MuiStack-root"
+          >
+            <img
+              alt=""
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent; width: 24px; height: 24px; margin: 0px 16px 0px 0px;"
+              width="40"
+            />
+            <h3
+              class="MuiTypography-root MuiTypography-titleLargeSemiBold css-xcokf-MuiTypography-root"
+            >
+              ใช้ได้ไม่จำกัด
+            </h3>
+          </div>
+        </div>
+      </div>
+      <img
+        alt=""
+        data-nimg="1"
+        decoding="async"
+        height="40"
+        loading="lazy"
+        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+        style="color: transparent; position: absolute; right: 0px; bottom: 0px; width: 140px; height: 140px;"
+        width="40"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -1,22 +1,17 @@
 import React from 'react';
 import { act, waitFor, render } from '../../testUtils';
-import SetNewPasswordModule from '@/modules/SetNewPasswordModule';
+import HomePageModule from '@/modules/HomePageModule';
 
-// Mock the module
 jest.mock('next/navigation', () => ({
   ...jest.requireActual('next/navigation'),
   useRouter: jest.fn(),
 }));
 
-describe('LoginModule', () => {
-  
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
+describe('HomePageModule', () => {
   it('to match snap', async () => {
     const { asFragment } = await act(async () =>
       render(
-        <SetNewPasswordModule />,
+        <HomePageModule />,
       ),
     );
     await waitFor(() => {

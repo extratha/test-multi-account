@@ -64,7 +64,6 @@ const SetNewPasswordForm = () => {
         submitParams,
       )
       if (response?.status === 204) {
-      console.log('\n\n\n\n resetPasswordToken: ', resetPasswordToken, '\n\n\n\n')
       setCookie('passwordChanged', true) // necessary
         if (resetPasswordToken && resetPasswordToken?.length > 0) {
           router.push(webPaths.home)
@@ -80,7 +79,6 @@ const SetNewPasswordForm = () => {
       }
     }
     catch (error: any) {
-      console.log('\n\n\n\n error: ', error, '\n\n\n\n')
       if (error.message) {
         setErrorMessage(error.message)
       } else {

@@ -41,7 +41,7 @@ beforeEach(() => {
 
 const originalConsoleError = console.error;
 console.error = (...args) => {
-  if (typeof args[0] === 'string' && args[1].includes('fetchPriority')) {
+  if (typeof args[0] === 'string' && args[1] && args[1].includes('fetchPriority')) {
     return;
   }
 

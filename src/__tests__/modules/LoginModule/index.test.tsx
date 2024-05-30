@@ -4,11 +4,11 @@ import LoginModule from '@/modules/LoginModule';
 import { webPaths } from '@/constant/webPaths';
 import * as cookiesNext from 'cookies-next';
 // Import the module to mock
-import * as nextRouter from 'next/router';
+import * as nextRouter from 'next/navigation';
 
 // Mock the module
-jest.mock('next/router', () => ({
-  ...jest.requireActual('next/router'),
+jest.mock('next/navigation', () => ({
+  ...jest.requireActual('next/navigation'),
   useRouter: jest.fn(),
 }));
 

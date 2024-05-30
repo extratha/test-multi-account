@@ -19,7 +19,7 @@ const VerticalMenu = () => {
   const { data, resetUserProfile } = useUserProfileStore()
   const theme = useTheme();
   const pathname = usePathname()
-  const {locale} = useParams();
+  const { locale } = useParams();
   const router = useRouter()
   const [isShowMenu, setIsShowMenu] = useState<boolean>(false)
   const onClickExpandMenu = (menuIndex: number) => {
@@ -28,6 +28,7 @@ const VerticalMenu = () => {
     } else {
       setIsMenuExpand([...isMenuExpand, menuIndex])
     }
+
   }
   const excludePath = [
     webPaths.login,
@@ -35,7 +36,7 @@ const VerticalMenu = () => {
     webPaths.setNewPassword,
     webPaths.termsAndCons
   ];
-  
+
   useEffect(() => {
     const currentPath = pathname.split(`/${locale}`)[1]
     setIsShowMenu(!excludePath.includes(currentPath))
@@ -80,7 +81,10 @@ const VerticalMenu = () => {
                     </Typography>
                   </Stack>
                   {menu.children && menu.children.length > 0 ?
-                    <Stack sx={{ marginLeft: 'auto' }} onClick={() => onClickExpandMenu(index)}>
+                    <Stack
+                      sx={{ marginLeft: 'auto' }}
+                      data-testid="icon-expand"
+                      onClick={() => onClickExpandMenu(index)}>
                       <>
                         {isMenuExpand.some((number) => number === index) ?
                           <KeyboardArrowUp />
@@ -91,7 +95,9 @@ const VerticalMenu = () => {
                     : null
                   }
                 </Stack>
-                <Collapse in={isMenuExpand.some((number) => number === index)}>
+                <Collapse
+                  in={isMenuExpand.some((number) => number === index)}
+                  data-testid={`menu-group-collapse-${index}`}>
                   <List>
                     {menu.children?.map((childrenItem, childrenIndex) => {
                       return (
@@ -117,7 +123,7 @@ const VerticalMenu = () => {
     <>
       {
         isShowMenu ?
-          <VerticalMenuContainer>
+          <VerticalMenuContainer data-testid="vertical-menu-container">
             <Image alt='' src={ImagePlaygrondLogoColor} style={{ margin: '0 0 1.5rem' }} />
             <Typography variant="bodyLargeSemiBold" >{t('menu.aiMenus')}</Typography>
             {MenuRenderer(aiMenuList(t))}
@@ -125,7 +131,7 @@ const VerticalMenu = () => {
             <Typography variant='bodyLargeSemiBold' >{t('menu.settingMenus')}</Typography>
             {MenuRenderer(settingMenuList(t))}
             <Divider style={{ margin: 'auto 0 20px' }}></Divider>
-            
+
             <ProfileInfoBox>
               <Stack height='100%'>
                 <Stack direction='row'>
@@ -156,7 +162,7 @@ const VerticalMenu = () => {
                   </Stack>
                 </Stack>
               </Stack>
-              
+
               <Image
                 alt=''
                 src={ImagePlaygroudLogoOverlay}
@@ -169,7 +175,7 @@ const VerticalMenu = () => {
                 }}
               />
             </ProfileInfoBox>
-           
+
           </VerticalMenuContainer>
           : null
       }
