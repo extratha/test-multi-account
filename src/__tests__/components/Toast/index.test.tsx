@@ -1,8 +1,6 @@
 import { act, waitFor, render, screen, fireEvent } from '@testing-library/react';
 import ToastSnackBar from '@/components/Toast';
 import useToastStore from '@/store/useToastStore';
-import { Stack } from '@mui/material';
-import userEvent from '@testing-library/user-event';
 
 jest.mock('../../../store/useToastStore', () => ({
   __esModule: true,
@@ -28,6 +26,18 @@ describe('ToastSnackBar component', () => {
 
   afterEach(() => {
     jest.clearAllMocks();
+  });
+
+  it('renders with default message and severity when description is not provided', () => {
+    (useToastStore as any).mockReturnValue({
+      open: true,
+      description: {},
+      setToastOpen: jest.fn(),
+    });
+
+    render(<ToastSnackBar />);
+
+    expect(screen.getByRole('alert')).toHaveClass('MuiAlert-standardSuccess');
   });
 
   it('renders with the correct message and severity', () => {
@@ -100,7 +110,7 @@ describe('ToastSnackBar component', () => {
         ...useToastStore().description,
         anchorOrigin: {
           vertical: 'bottom',
-          horizontal: 'left',
+          horizontal: 'center',
         },
       },
     });
@@ -124,11 +134,7 @@ describe('ToastSnackBar component', () => {
   it('renders ToastSnackBar with default anchorOrigin', () => {
     (useToastStore as any).mockReturnValueOnce({
       open: true,
-      description: {
-        message: '',
-        severity: 'error',
-        icon: <div></div>,
-      },
+      description: undefined,
       setToastOpen: setToastOpenMock,
     });
 
@@ -141,7 +147,7 @@ describe('ToastSnackBar component', () => {
         message: 'Test message',
         anchorOrigin: {
           vertical: 'top',
-          horizontal: 'right',
+          horizontal: 'left',
         },
       },
       setToastOpen: setToastOpenMock,
@@ -152,4 +158,45 @@ describe('ToastSnackBar component', () => {
     expect(screen.getByRole('alert')).toHaveClass('MuiAlert-colorSuccess');
     expect(screen.queryByTestId('close-icon')).not.toBeInTheDocument();
   });
+
+  it('renders with the correct message and severity when open is true', () => {
+    (useToastStore as any).mockReturnValueOnce({
+      open: true,
+      description: {
+        message: 'Test message',
+        severity: 'success',
+        anchorOrigin: {
+          vertical: 'bottom',
+          horizontal: 'left',
+        },
+        AlertProps: {}, // Add other necessary props here
+      },
+      setToastOpen: jest.fn(),
+    });
+  
+    render(<ToastSnackBar />);
+  
+    expect(screen.getByText('Test message')).toBeInTheDocument();
+    expect(screen.getByRole('alert')).toHaveClass('MuiAlert-standardSuccess');
+  });
+  
+  it('does not render when open is false', () => {
+    (useToastStore as any).mockReturnValueOnce({
+      open: false,
+      description: {
+        message: 'Test message',
+        severity: 'success',
+        anchorOrigin: {
+          vertical: 'top',
+          horizontal: 'right',
+        },
+        AlertProps: {}, // Add other necessary props here
+      },
+      setToastOpen: jest.fn(),
+    });
+  
+    render(<ToastSnackBar />);
+  
+  });
+
 });

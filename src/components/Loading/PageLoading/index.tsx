@@ -8,20 +8,21 @@ import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 
 const PageLoading = () => {
-  const { isPageLoading, setPageLoading} = usePageLoadingStore();
+  const { isPageLoading, setPageLoading } = usePageLoadingStore();
   const pathname = usePathname()
-  useEffect(()=> {
+  useEffect(() => {
     setPageLoading(false)
-  },[pathname])
+  }, [pathname])
   return (
     <span>
       <Backdrop
+        data-testid="backdrop-loading"
         sx={{
           zIndex: (theme) => theme.zIndex.tooltip + 1,
         }}
         open={isPageLoading}
       >
-        <Image alt='' src={ImageLoadingStack} style={{width: '70px', height: '70px'}}></Image>
+        <Image data-testid="img-loading-stack" alt='' src={ImageLoadingStack} style={{ width: '70px', height: '70px' }}></Image>
       </Backdrop>
     </span>
   );

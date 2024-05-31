@@ -27,9 +27,10 @@ exports[`HomePageModule to match snap 1`] = `
       >
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-au940r-MuiGrid-root"
+          data-testid="menu-item-0"
         >
           <div
-            class="MuiStack-root css-kk7l7a-MuiStack-root"
+            class="MuiStack-root css-qrw920-MuiStack-root"
           >
             <img
               alt=""
