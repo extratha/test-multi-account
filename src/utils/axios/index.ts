@@ -15,7 +15,9 @@ axiosInstance?.interceptors.request.use(
     }
     return newConfig;
   },
-  (error) => {},
+  (error) => {
+    console.log(error)
+  },
 );
 
 axiosInstance?.interceptors.response.use(
