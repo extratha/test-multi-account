@@ -23,7 +23,7 @@ jest.mock("../../../../store", () => ({
 jest.mock('cookies-next', () => ({
   __esModule: true,
   ...jest.requireActual('cookies-next'),
-  getCookie: jest.fn().mockReturnValue('TOKENTOKENTOKEN')
+  getCookie: jest.fn().mockReturnValue('MOCK_ACCESS_TOKEN')
 }));
 
 jest.mock('../../../../utils/axios', () => ({
@@ -178,7 +178,7 @@ describe('SetNewPasswordForm', () => {
   });
 
   it('2 submits the form successfully with resset password token', async () => {
-    jest.spyOn(cookiesNext, 'getCookie').mockReturnValue('TOKENTOKENTOKEN' as any);
+    jest.spyOn(cookiesNext, 'getCookie').mockReturnValue('MOCK_ACCESS_TOKEN' as any);
     await setup();
 
     const newPasswordField = screen.getByTestId('newPassword').querySelector('input');

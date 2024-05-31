@@ -22,7 +22,7 @@ describe('LoginModule', () => {
   it('redirects to home page if accessToken exists', () => {
     const replaceMock = jest.fn();
     (nextRouter.useRouter as any).mockReturnValue({ replace: replaceMock });
-    jest.spyOn(cookiesNext, 'getCookie').mockReturnValue('TOKENTOKENTOKEN' as any);
+    jest.spyOn(cookiesNext, 'getCookie').mockReturnValue('MOCK_ACCESS_TOKEN' as any);
 
     render(<LoginModule />);
 

@@ -17,3 +17,6 @@ export const mockLoginResponse = {
     isActive: true,
   },
 };
+
+
+export const MOCK_ACCESS_TOKEN = 'TOKENTOKENTOKEN'
