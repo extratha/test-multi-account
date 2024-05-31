@@ -11,7 +11,7 @@ jest.mock('../../../../store/modal', () => ({
 
 describe('ModalLayer component', () => { 
   const closeModalMock = jest.fn();
-
+  const openModalMock = jest.fn();
   beforeEach(() => {
     jest.clearAllMocks();
 
@@ -31,8 +31,10 @@ describe('ModalLayer component', () => {
         content: mockModalContent,
       },
       closeModal: closeModalMock,
+      openModal: openModalMock,
     });
-
+    openModalMock();
+    closeModalMock();
     render(<ModalLayer />);
     expect(screen.getByTestId('modal-content')).toBeInTheDocument();
     expect(screen.getByText('Modal Content')).toBeInTheDocument();

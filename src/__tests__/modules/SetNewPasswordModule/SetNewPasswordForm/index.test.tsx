@@ -92,10 +92,13 @@ describe('SetNewPasswordForm', () => {
   it('show require validation', async () => {
     await setup();
     const newPasswordField = screen.getByTestId('newPassword').querySelector('input');
-    if (newPasswordField) {
+    const confirmNewPasswordField = screen.getByTestId('confirmNewPassword').querySelector('input');
+    if (newPasswordField && confirmNewPasswordField) {
       fireEvent.change(newPasswordField, { target: { value: 'eetetetet' } });
+      fireEvent.change(confirmNewPasswordField, { target: { value: 'eetetetet' } });
       await act(async () => {
-        fireEvent.change(newPasswordField, { target: { value: '' } });
+        fireEvent.change(newPasswordField, { target: { value: null } });
+        fireEvent.change(confirmNewPasswordField, { target: { value: null } });
       })
     }
     await waitFor(() => expect(screen.getAllByText(/จำเป็นต้องใส่ข้อมูล/)).not.toBeNull())

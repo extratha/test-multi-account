@@ -27,6 +27,7 @@ const config = {
     "!src/__test__/testUtils.tsx",
     "!src/app/**/*.*",
     "!src/middleware.ts",
+    "!src/config/**",
     "!<rootDir>/node_modules/",
     "!**/*.{css,scss}",
   ],
