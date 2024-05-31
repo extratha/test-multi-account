@@ -4,7 +4,7 @@ const createJestConfig = nextJest({
   // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
   dir: './',
 })
-const BASE_COVERAGE = 10
+const BASE_COVERAGE = 50
 // Add any custom config to be passed to Jest
 /** @type {import('jest').Config} */
 const config = {
@@ -26,6 +26,7 @@ const config = {
     "src/**/*.{ts,tsx}",
     "!src/__test__/testUtils.tsx",
     "!src/app/**/*.*",
+    "!src/middleware.ts",
     "!<rootDir>/node_modules/",
     "!**/*.{css,scss}",
   ],

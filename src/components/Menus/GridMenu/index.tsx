@@ -18,6 +18,7 @@ const GridMenu: React.FC<{ menus: MenuItem[] }> = ({ menus }) => {
         {menus.map((menu, index) => {
           return (
             <Grid 
+            data-testid={`menu-item-${index}`}
             item 
             xs={4} 
             sx={{ 

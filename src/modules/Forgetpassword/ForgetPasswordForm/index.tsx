@@ -40,6 +40,10 @@ const ForgetPasswordForm = () => {
       }
     }
     catch (error: any) {
+      if(error.status === 404) {
+        setShowSuccess(true)
+        return
+      }
       if (error.message) {
         setErrorMessage(error.message)
       } else {
@@ -75,6 +79,7 @@ const ForgetPasswordForm = () => {
                     {...field}
                     fullWidth
                     autoFocus
+                    data-testid={EMAIL}
                     id={EMAIL}
                     placeholder={!getValues(EMAIL) ? t('placeholder.completeYourEmail') : ""}
                     name={EMAIL}
@@ -121,6 +126,7 @@ const ForgetPasswordForm = () => {
             </Typography>
 
             <SubmitButtonStyle
+              data-testid={'button-submit'}
               type="submit"
               disabled={isDisableSubmit}
             >
@@ -136,6 +142,7 @@ const ForgetPasswordForm = () => {
           <Typography variant="titleLarge" color={theme.palette.grey[600]} mb={2}>{t('message.resetPasswordSuccess')}</Typography>
           <Typography variant="titleLargeSemiBold" color={theme.palette.grey[600]} mb={2}>{getValues(EMAIL)}</Typography>
           <SubmitButtonStyle
+            data-testid={'button-go-login'}
             onClick={() => {
               setPageLoading(true)
               router.replace(webPaths.login)

@@ -114,9 +114,7 @@ describe('LoginForm Component', () => {
   });
 
   it('submits the form with valid inputs', async () => {
-    // Mock the axios response data
     const responseData = mockLoginResponse;
-    // Provide a mock implementation for axios.post
     (axiosPublicInstance.post as jest.Mock).mockResolvedValueOnce({ data: responseData });
 
     render(<LoginForm />);
@@ -137,10 +135,8 @@ describe('LoginForm Component', () => {
   });
 
   it('submits the form with valid inputs with password changed false', async () => {
-    // Mock the axios response data
     const responseData = mockLoginResponse;
     responseData.user.passwordChanged = false;
-    // Provide a mock implementation for axios.post
     (axiosPublicInstance.post as jest.Mock).mockResolvedValueOnce({ data: responseData });
 
     render(<LoginForm />);

@@ -1,5 +1,5 @@
 import { Page } from "@/components/Page"
-import ForgetPasswordModule from "@/modules/Forgetpassword"
+import ForgetPasswordModule from "@/modules/ForgetPassword"
 import { useTranslations } from "next-intl"
 
 const ForgetPasswordPage = () => {

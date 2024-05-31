@@ -28,7 +28,6 @@ export async function middleware(req: NextRequest) {
   }
   try {
     if (!accessToken && !(req.cookies.get('resetPasswordToken')?.value) && pathSegments.every((path) => !publicPaths.includes(`/${path}`))) {
-      // redirect to login if no accessToken and the path is not public
       const redirectUrl = new URL(`/${lang}${webPaths.login}`, req.url);
       return NextResponse.redirect(redirectUrl);
     }

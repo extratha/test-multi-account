@@ -62,7 +62,7 @@
     "status": {
       "availableAppointment": "พร้อมนัดหมาย",
       "notAvailableAppointment": "ตารางเต็ม",
-      "resetPasswordSuccess":"ส่งลิงค์ไปยังอีเมลของคุณแล้ว !"
+      "resetPasswordSuccess":"ส่งลิงก์ไปยังอีเมลของคุณแล้ว !"
     },
     "toast" :{
       "resetPasswordSuccess": "ตั้งค่ารหัสผ่านใหม่สำเร็จ !"
@@ -91,7 +91,7 @@
       "pleaseSelectMenu": "โปรดเลือกเครื่องมือที่คุณต้องการ"
     },
     "message":{
-      "resetPassword" :"กรอกอีเมลของคุณเพื่อรับลิงค์สำหรับตั้งรหัสผ่านใหม่",
+      "resetPassword" :"กรอกอีเมลของคุณเพื่อรับลิงก์สำหรับตั้งรหัสผ่านใหม่",
       "resetPasswordSuccess":"กรุณาตรวจสอบอีเมลของคุณ"
     },
     "responseError" :{

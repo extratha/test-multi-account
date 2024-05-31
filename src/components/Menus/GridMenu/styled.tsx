@@ -8,4 +8,5 @@ export const CustomMenuItemWrapperStyle = styled(Stack)(({ theme }) => ({
   alignItems:'center',
   height:'100%',
   width:'100%',
+  cursor: 'pointer',
 }));

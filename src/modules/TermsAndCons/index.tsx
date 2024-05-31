@@ -32,8 +32,9 @@ const TermsAndConsModules = () => {
     if (termsAndConsRef.current) {
       const { scrollTop, scrollHeight, clientHeight } = termsAndConsRef.current;
       const isScrollEnd = Math.floor(scrollTop + clientHeight) === scrollHeight;
-      if (isScrollEnd)
+      if (isScrollEnd) {
         setIsDisabledAgreement(!isScrollEnd);
+      }
     }
   };
   useEffect(() => {
@@ -43,18 +44,14 @@ const TermsAndConsModules = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   const onSubmit: SubmitHandler<TermsAndConsForm> = async (data) => {
     setPageLoading(true)
-    try {
-      router.push(webPaths.home)
-      setPageLoading(false)
-    }
-    catch (error: any) {
-      if (error.message) {
-        console.log(error.message)
-      }
-    }
+    router.push(webPaths.home)
+    setPageLoading(false)
   }
+  useEffect(() => {
+  }, [agreement])
   return (
     <Stack height='100vh' width="100%" overflow='hidden' >
       <TermsAndConsHeader flex={1}>
@@ -68,7 +65,7 @@ const TermsAndConsModules = () => {
             {t('pages.termsAndCons')}
           </Typography>
           <Divider sx={{ margin: '16px 0' }} />
-          <TermsAndConstMessage ref={termsAndConsRef} onScroll={handleScroll}>
+          <TermsAndConstMessage data-testid="terms-and-cons-content" ref={termsAndConsRef} onScroll={handleScroll}>
             {t('text.termsAndConsContent')}
           </TermsAndConstMessage>
           <Stack flex={1} mt={1}>
@@ -83,6 +80,7 @@ const TermsAndConsModules = () => {
                     <Stack direction="row" justifyContent={'start'}>
                       <Checkbox
                         {...field}
+                        data-testid={fieldname.AGREEMENT}
                         id={fieldname.AGREEMENT}
                         name={fieldname.AGREEMENT}
                         onChange={(event) => { setAgreement(event?.target?.checked) }}
@@ -95,6 +93,7 @@ const TermsAndConsModules = () => {
                   )}
                 />
                 <SubmitButtonStyle
+                  data-testid="button-next"
                   type="submit"
                   disabled={!agreement}
                   style={{
