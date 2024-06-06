@@ -111,6 +111,7 @@ export const NEUTRAL = {
   94: '#EDEEF1',
   95: '#F0F1F3',
   96: '#F3F4F5',
+  97: '#FAFAFA',
   98: '#F9F9FA',
   99: '#ECEFF1',
   100: '#FFFFFF',
@@ -198,7 +199,7 @@ export const CUSTOM_COLORS = {
   electricBlue: '#003CDE',
   border: '#E8ECF4',
   disabled: '#F6F8FE',
-
+  iconActive: '#1E99FF',
   //custom
   lightSteelgray: '#607D8B',
 

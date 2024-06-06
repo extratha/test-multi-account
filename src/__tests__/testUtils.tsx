@@ -6,6 +6,8 @@ import { ThemeProvider as MUIThemeProvider } from '@mui/material/styles';
 import { NextIntlClientProvider } from 'next-intl';
 import commonTh from '../../public/locales/th/common.json';
 import commonEn from '../../public/locales/th/common.json';
+import aiInterpretTh from '../../public/locales/th/aiInterpret.json';
+import aiInterpretEn from '../../public/locales/en/aiInterpret.json';
 type RenderWithProvider = (
   elm: React.ReactElement,
   renderOptions?: ProviderOptions,
@@ -18,6 +20,8 @@ export type ProviderOptions = {
 const messages = {
   ...commonTh,
   ...commonEn,
+  ...aiInterpretTh,
+  ...aiInterpretEn,
 };
 
 const renderWithProviders: RenderWithProvider = (

@@ -48,6 +48,15 @@ const VerticalMenu = () => {
       deleteCookie('passwordChanged')
       resetUserProfile()
       router.replace(webPaths.login)
+      return
+    }
+    if (menu.path) {
+      router.push(menu.path)
+    }
+  }
+  const handleClickSubmenu = (subMenu: MenuItem) => {
+    if (subMenu.path) {
+      router.push(subMenu.path)
     }
   }
   const MenuRenderer = (meuList: MenuItem[]) => {
@@ -71,8 +80,8 @@ const VerticalMenu = () => {
                   <Stack flex={1} margin='auto 16px auto 0 ' maxWidth={'24px'} justifyContent={'center'}>
                     {
                       menu.path && pathname.includes(menu.path) ?
-                        <Image style={{ width: '24px', height: '24px' }} alt='' src={menu.activeIcon || IconMenuItemActive} />
-                        : < Image style={{ width: '24px', height: '24px' }} alt='' src={menu.icon || IconMenuItem} />
+                        <Image style={{ width: '24px', height: '24px' }} alt='icon-menu-item-active' src={menu.activeIcon || IconMenuItemActive} />
+                        : < Image style={{ width: '24px', height: '24px' }} alt='icon-menu-item' src={menu.icon || IconMenuItem} />
                     }
                   </Stack>
                   <Stack justifySelf={'start'}>
@@ -101,8 +110,13 @@ const VerticalMenu = () => {
                   <List>
                     {menu.children?.map((childrenItem, childrenIndex) => {
                       return (
-                        <ListItem key={childrenIndex}
-                          sx={{ padding: '16px 40px' }}
+                        <ListItem
+                          key={childrenIndex}
+                          sx={{
+                            padding: '16px 40px',
+                            color: childrenItem.path && pathname.includes(childrenItem.path) ? theme.palette.action.active : 'inherit'
+                          }}
+                          onClick={() => handleClickSubmenu(childrenItem)}
                         >
                           <Typography variant="bodyLarge">
                             {childrenItem.title}

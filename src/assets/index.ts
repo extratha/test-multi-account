@@ -1,3 +1,4 @@
+export { default as IconAiInterpret } from './icons/icon-ai-interpret.svg'
 export { default as IconHomePage } from './icons/icon-home-page.svg'
 export { default as IconHomePageActive } from './icons/icon-home-page-active.svg'
 export { default as IconLogout } from './icons/icon-logout.svg'
@@ -8,6 +9,7 @@ export { default as IconSetting } from './icons/icon-setting.svg'
 export { default as IconSparkle } from './icons/icon-sparkle.svg'
 export { default as IconCreditCoin } from './icons/icon-credit-coin.svg'
 export { default as IconPerson } from './icons/icon-person.svg'
+export { default as IconPen } from './icons/icon-pen.svg'
 
 export { default as ImageCoverBg } from './images/image-cover-bg.jpg'
 export { default as ImageCarivaLogo } from './images/cariva-logo.svg'

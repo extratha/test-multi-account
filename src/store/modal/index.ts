@@ -21,11 +21,9 @@ const modalDefault = { isVisible: false, content: () => null };
 const useModal = create<ModalState>((set) => ({
   modal: modalDefault,
   openModal: (getContent) => {
-    console.log('open modal')
     set(() => ({ modal: { isVisible: true, content: getContent } }));
   },
   closeModal: () => {
-    console.log('close modal')
     set(() => ({ modal: modalDefault }));
   },
 }));

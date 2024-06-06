@@ -41,6 +41,9 @@ const getDesignTokens = (mode: PaletteMode) => {
     grey: {
       ...grey,
       [300]: CUSTOM_COLORS.lightSteelgray
+    },
+    action: {
+      active: CUSTOM_COLORS.iconActive
     }
   }
   const darkMode = {
@@ -80,6 +83,7 @@ const getDesignTokens = (mode: PaletteMode) => {
       disabled: 'rgba(240, 241, 243, 0.38)',
       hoverOpacity: 0.08,
       disabledOpacity: 0,
+      active: CUSTOM_COLORS.iconActive
     },
   }
   const colorMode = mode ==='light' ? lightMode : darkMode

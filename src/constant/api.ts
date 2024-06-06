@@ -5,6 +5,7 @@ export const API = {
     setNewPassword: 'auth/reset-password',
     changePassword: 'auth/change-password',
     forgotPassword: 'auth/forgot-password',
+    exampleDataList: 'lab/examples',
   },
   HTTP_METHODS: {
     GET: 'GET',
