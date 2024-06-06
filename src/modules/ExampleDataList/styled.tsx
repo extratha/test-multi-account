@@ -19,5 +19,5 @@ export const ButtonInterpretDataStyled = styled(Button)(({theme}) => ({
     height:40,
     borderRadius: '10px',
     boxShadow: `2px 2px 6px 0px ${NEUTRAL[80]}`,
-    background: 'linear-gradient(180deg, rgba(0,89,214,1) 0%, rgba(2,141,245,1) 50%, rgba(0,203,221,1) 100%)',
+    background: 'linear-gradient(90deg, rgba(0,89,214,1) 0%, rgba(2,141,245,1) 50%, rgba(0,203,221,1) 100%)',
 }));

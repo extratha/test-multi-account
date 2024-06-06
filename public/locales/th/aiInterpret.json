@@ -1,7 +1,7 @@
 {
   "AiInterpret": {
     "button" :{ 
-      "editData" :"ปรับแต่งข่้อมูล",
+      "editData" :"ปรับแต่งข้อมูล",
       "interpretData":"แปลและสรุปข้อมูล"
     },
     "pages": {
@@ -15,10 +15,11 @@
     "field": {
       "gender" :"เพศ",
       "age":"อายุ",
-      "modelVersion" :"Model Version"
+      "modelVersion" :"Model Version",
+      "yearsOld" :"ปี"
     },
     "message" : {
-      "noExampleData" : "ไม่พบตัวอย่างข้มูล"
+      "noExampleData" : "ไม่พบตัวอย่างข้อมูล"
     },
     "text" : {
       "male" :"ชาย",

@@ -56,8 +56,8 @@ const EmployeeDataList = () => {
               <Typography variant="headlineSmallSemiBold" mt={2}>
                 {tAi('pages.tryExampleData')}
               </Typography>
-              <Stack direction="row" >
-                <Typography variant="titleLargeSemiBold" mr={1}>
+              <Stack direction="row" mt={2}>
+                <Typography variant="titleLargeSemiBold" mr={1} >
                   {tAi('label.exampleData')}
                 </Typography>
                 {
@@ -124,7 +124,7 @@ const EmployeeDataList = () => {
                                 {
                                   data.age ?
                                     <Typography variant="labelLargeSemiBold">
-                                      {`${tAi('field.age')} ${data.age}`}
+                                      {`${tAi('field.age')} ${data.age} ${tAi('field.yearsOld')}`}
                                     </Typography>
                                     : null
                                 }
