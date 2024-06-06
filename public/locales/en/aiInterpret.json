@@ -15,7 +15,8 @@
     "field": {
       "gender" :"Gender",
       "age":"Age",
-      "modelVersion" :"Model Version"
+      "modelVersion" :"Model Version",
+      "yearsOld" :"years old"
     },
     "message" : {
       "noExampleData" : "No example data."
