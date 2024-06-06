@@ -124,7 +124,7 @@ const EmployeeDataList = () => {
                                 {
                                   data.age ?
                                     <Typography variant="labelLargeSemiBold">
-                                      {`${tAi('field.age')} ${data.age} ${tAi('yearsOld')}`}
+                                      {`${tAi('field.age')} ${data.age} ${tAi('field.yearsOld')}`}
                                     </Typography>
                                     : null
                                 }
