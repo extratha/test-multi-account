@@ -110,6 +110,7 @@ const LoginForm = () => {
               <Stack direction="column" spacing={2} mt={1}>
                 <CustomTextField
                   fullWidth
+                  data-testid={EMAIL_FIELD_NAME}
                   id={EMAIL_FIELD_NAME}
                   placeholder={!emailValue ? "อีเมล" : ""}
                   name={EMAIL_FIELD_NAME}
@@ -142,6 +143,7 @@ const LoginForm = () => {
                   fullWidth
                   name={PASSWORD_FIELD_NAME}
                   type={showPassword ? "text" : "password"}
+                  data-testid={PASSWORD_FIELD_NAME}
                   id={PASSWORD_FIELD_NAME}
                   placeholder={!passwordValue ? "รหัสผ่าน" : ""}
                   value={passwordValue ?? ''}

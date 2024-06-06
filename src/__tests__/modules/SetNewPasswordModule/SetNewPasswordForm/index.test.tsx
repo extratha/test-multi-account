@@ -23,7 +23,7 @@ jest.mock("../../../../store", () => ({
 jest.mock('cookies-next', () => ({
   __esModule: true,
   ...jest.requireActual('cookies-next'),
-  getCookie: jest.fn().mockReturnValue('TOKENTOKENTOKEN')
+  getCookie: jest.fn().mockReturnValue('MOCK_ACCESS_TOKEN')
 }));
 
 jest.mock('../../../../utils/axios', () => ({
@@ -92,10 +92,13 @@ describe('SetNewPasswordForm', () => {
   it('show require validation', async () => {
     await setup();
     const newPasswordField = screen.getByTestId('newPassword').querySelector('input');
-    if (newPasswordField) {
+    const confirmNewPasswordField = screen.getByTestId('confirmNewPassword').querySelector('input');
+    if (newPasswordField && confirmNewPasswordField) {
       fireEvent.change(newPasswordField, { target: { value: 'eetetetet' } });
+      fireEvent.change(confirmNewPasswordField, { target: { value: 'eetetetet' } });
       await act(async () => {
-        fireEvent.change(newPasswordField, { target: { value: '' } });
+        fireEvent.change(newPasswordField, { target: { value: null } });
+        fireEvent.change(confirmNewPasswordField, { target: { value: null } });
       })
     }
     await waitFor(() => expect(screen.getAllByText(/จำเป็นต้องใส่ข้อมูล/)).not.toBeNull())
@@ -175,7 +178,7 @@ describe('SetNewPasswordForm', () => {
   });
 
   it('2 submits the form successfully with resset password token', async () => {
-    jest.spyOn(cookiesNext, 'getCookie').mockReturnValue('TOKENTOKENTOKEN' as any);
+    jest.spyOn(cookiesNext, 'getCookie').mockReturnValue('MOCK_ACCESS_TOKEN' as any);
     await setup();
 
     const newPasswordField = screen.getByTestId('newPassword').querySelector('input');

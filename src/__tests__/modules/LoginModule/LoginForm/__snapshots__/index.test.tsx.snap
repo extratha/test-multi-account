@@ -24,6 +24,7 @@ exports[`LoginForm Component to match snap 1`] = `
         >
           <div
             class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-8qddx0-MuiFormControl-root-MuiTextField-root"
+            data-testid="email"
           >
             <div
               class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-249s3f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -63,6 +64,7 @@ exports[`LoginForm Component to match snap 1`] = `
         >
           <div
             class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-nz95qv-MuiFormControl-root-MuiTextField-root"
+            data-testid="password"
           >
             <div
               class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd css-1qnkz60-MuiInputBase-root-MuiOutlinedInput-root"

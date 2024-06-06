@@ -8,7 +8,7 @@ import { webPaths } from '@/constant/webPaths';
 jest.mock('../../../../utils/axios/login');
 
 describe('ForgetPasswordForm', () => {
-  it('renders the form correctly',async () => {
+  it('renders the form correctly', async () => {
     render(<ForgetPasswordForm />);
 
     expect(screen.getByText(/ตั้งค่ารหัสผ่านใหม่/)).toBeInTheDocument();
@@ -21,7 +21,7 @@ describe('ForgetPasswordForm', () => {
     render(<ForgetPasswordForm />);
 
     const emailInput = screen.getByPlaceholderText(/กรอกอีเมลของคุณ/);
-    await act(()=>fireEvent.change(emailInput, { target: { value: 'invalid-email' } }));
+    await act(() => fireEvent.change(emailInput, { target: { value: 'invalid-email' } }));
 
     await waitFor(() => {
       expect(screen.getByText(/อีเมลไม่ถูกต้อง/)).toBeInTheDocument();
@@ -58,6 +58,37 @@ describe('ForgetPasswordForm', () => {
 
     await waitFor(() => {
       expect(screen.getByText('Error occurred')).toBeInTheDocument();
+    });
+  });
+  it('displays error.error on failed submission', async () => {
+    (axiosPublicInstance.post as jest.Mock).mockRejectedValue({ status: 400, error: 'Error occurred' });
+
+    render(<ForgetPasswordForm />);
+
+    const emailInput = screen.getByPlaceholderText(/กรอกอีเมลของคุณ/);
+    fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
+
+    const submitButton = screen.getByTestId('button-submit');
+    fireEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(screen.getByText('Error occurred')).toBeInTheDocument();
+    });
+  });
+  it('show success message even got 404 not found user', async () => {
+    (axiosPublicInstance.post as jest.Mock).mockRejectedValue({ status: 404, message: 'no user found' });
+
+    render(<ForgetPasswordForm />);
+
+    const emailInput = screen.getByPlaceholderText(/กรอกอีเมลของคุณ/);
+    fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
+
+    const submitButton = screen.getByTestId('button-submit');
+    fireEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(screen.getByText(/ส่งลิงก์ไปยังอีเมลของคุณแล้ว !/)).toBeInTheDocument();
+      expect(screen.getByText(/กรุณาตรวจสอบอีเมลของคุณ/)).toBeInTheDocument();
     });
   });
 

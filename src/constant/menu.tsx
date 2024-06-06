@@ -22,7 +22,7 @@ export const aiMenuList = (t : TFunction): MenuItem[] => {
     {
       icon: null,
       activeIcon: null,
-      path: '',
+      path: webPaths.aiInterpret.tryExampleData,
       title: t('menu.aiInterpret.title'),
       children: [
         {

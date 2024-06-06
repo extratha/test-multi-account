@@ -19,6 +19,7 @@ const getMessages = async (locale: string) => {
   try {
     return {
       ...(await import(`../../../public/locales/${locale}/common.json`)).default,
+      ...(await import(`../../../public/locales/${locale}/aiInterpret.json`)).default,
     };
   } catch (error) {
     notFound()

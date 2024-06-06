@@ -1,0 +1,29 @@
+{
+  "AiInterpret": {
+    "button" :{ 
+      "editData" :"ปรับแต่งข่้อมูล",
+      "interpretData":"แปลและสรุปข้อมูล"
+    },
+    "pages": {
+      "aiInterpret" :"AI Interpret",
+      "tryExampleData": "ทดลองใช้ข้อมูลตัวอย่าง"
+    },
+    "label" : {
+      "aiInterpret" :"แปลและสรุปผลสุขภาพ",
+      "exampleData" :"ตัวอย่างข้อมูล"
+    },
+    "field": {
+      "gender" :"เพศ",
+      "age":"อายุ",
+      "modelVersion" :"Model Version"
+    },
+    "message" : {
+      "noExampleData" : "ไม่พบตัวอย่างข้มูล"
+    },
+    "text" : {
+      "male" :"ชาย",
+      "female" : "หญิง",
+      "other" :"อื่น ๆ"
+    }
+  }
+}
