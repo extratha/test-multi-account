@@ -1,5 +1,6 @@
 import "@testing-library/jest-dom";
 import "jest-canvas-mock";
+
 import { MockImage } from "../__mocks__/NextImage";
 
 jest.mock("next/navigation", () => require("next-router-mock"));
