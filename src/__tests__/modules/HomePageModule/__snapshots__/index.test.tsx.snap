@@ -1,55 +1,282 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HomePageModule to match snap 1`] = `
+exports[`HomePageModule should render correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="MuiStack-root css-11ifw6v-MuiStack-root"
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  max-height: 100vh;
+  width: 100%;
+  padding: 1rem;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 20px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.emotion-2>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-2>:not(style)~:not(style) {
+  margin-top: 24px;
+}
+
+.emotion-3 {
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 52px;
+  font-size: 45px;
+  font-family: NotoSansThai-SemiBold,sans-serif;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background: linear-gradient(90deg, #023781 0%, #028DF5 50%, #01EAFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+
+.emotion-4 {
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 52px;
+  font-size: 45px;
+  font-family: NotoSansThai-SemiBold,sans-serif;
+}
+
+.emotion-5 {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin-top: -24px;
+  width: calc(100% + 24px);
+  margin-left: -24px;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.emotion-5>.MuiGrid-item {
+  padding-top: 24px;
+}
+
+.emotion-5>.MuiGrid-item {
+  padding-left: 24px;
+}
+
+.emotion-6 {
+  box-sizing: border-box;
+  margin: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-basis: 33.333333%;
+  -ms-flex-preferred-size: 33.333333%;
+  flex-basis: 33.333333%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  max-width: 33.333333%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 260px;
+}
+
+@media (min-width:600px) {
+  .emotion-6 {
+    -webkit-flex-basis: 33.333333%;
+    -ms-flex-preferred-size: 33.333333%;
+    flex-basis: 33.333333%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    max-width: 33.333333%;
+  }
+}
+
+@media (min-width:905px) {
+  .emotion-6 {
+    -webkit-flex-basis: 33.333333%;
+    -ms-flex-preferred-size: 33.333333%;
+    flex-basis: 33.333333%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    max-width: 33.333333%;
+  }
+}
+
+@media (min-width:1240px) {
+  .emotion-6 {
+    -webkit-flex-basis: 33.333333%;
+    -ms-flex-preferred-size: 33.333333%;
+    flex-basis: 33.333333%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    max-width: 33.333333%;
+  }
+}
+
+@media (min-width:1440px) {
+  .emotion-6 {
+    -webkit-flex-basis: 33.333333%;
+    -ms-flex-preferred-size: 33.333333%;
+    flex-basis: 33.333333%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    max-width: 33.333333%;
+  }
+}
+
+.emotion-7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border: 1px solid #bdbdbd;
+  border-radius: 20px;
+  padding: 16px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
+.emotion-7>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-7>:not(style)~:not(style) {
+  margin-top: 16px;
+}
+
+.emotion-8 {
+  margin: 0;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0;
+  font-size: 20px;
+  font-family: NotoSansThai-SemiBold,sans-serif;
+  text-align: center;
+}
+
+.emotion-9 {
+  margin: 0;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  font-size: 16px;
+  font-family: NotoSansThai-Regular,sans-serif;
+  color: #757575;
+}
+
+<div
+    class="MuiStack-root emotion-0"
   >
     <div
-      class="MuiStack-root css-16ptvjd-MuiStack-root"
+      class="MuiStack-root emotion-1"
     >
       <div
-        class="MuiStack-root css-1f3kc6o-MuiStack-root"
+        class="MuiStack-root emotion-2"
       >
         <h1
-          class="MuiTypography-root MuiTypography-displayMediumSemiBold css-16c1pey-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-displayMediumSemiBold emotion-3"
         >
           สวัสดี แอดมิน
         </h1>
         <h1
-          class="MuiTypography-root MuiTypography-displayMediumSemiBold css-1p3qgsj-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-displayMediumSemiBold emotion-4"
         >
           โปรดเลือกเครื่องมือที่คุณต้องการ 
         </h1>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1vp1qdv-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 emotion-5"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-au940r-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 emotion-6"
           data-testid="menu-item-0"
         >
           <div
-            class="MuiStack-root css-qrw920-MuiStack-root"
+            class="MuiStack-root emotion-7"
           >
             <img
               alt=""
-              data-nimg="1"
-              decoding="async"
-              height="40"
-              loading="lazy"
-              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-              style="color: transparent; width: 48px; height: 48px; margin: 0px 0px 8px 0px;"
-              width="40"
+              src="/img.jpg"
+              style="width: 48px; height: 48px; margin: 0px 0px 8px 0px;"
             />
             <h3
-              class="MuiTypography-root MuiTypography-titleLargeSemiBold css-1puhohr-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-8"
             >
               AI Interpret
             </h3>
             <span
-              class="MuiTypography-root MuiTypography-bodyLarge css-uzzo47-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-bodyLarge emotion-9"
             >
               แปลและสรุปผลสุขภาพ
             </span>

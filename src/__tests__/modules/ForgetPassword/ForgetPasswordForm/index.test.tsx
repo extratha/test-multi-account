@@ -1,14 +1,16 @@
-import React from 'react';
-import { fireEvent, screen, act, waitFor, render } from '../../../testUtils';
-import ForgetPasswordForm from '@/modules/ForgetPassword/ForgetPasswordForm';
-import axiosPublicInstance from '@/utils/axios/login';
-import mockRouter from 'next-router-mock'
-import { webPaths } from '@/constant/webPaths';
+// TODO: refactor
+/* eslint-disable testing-library/no-wait-for-multiple-assertions */
 
-jest.mock('../../../../utils/axios/login');
+import { webPaths } from "@/constant/webPaths";
+import ForgetPasswordForm from "@/modules/ForgetPassword/ForgetPasswordForm";
+import axiosPublicInstance from "@/utils/axios/login";
+import mockRouter from "next-router-mock";
+import { fireEvent, render, screen, waitFor } from "../../../testUtils";
 
-describe('ForgetPasswordForm', () => {
-  it('renders the form correctly', async () => {
+jest.mock("../../../../utils/axios/login");
+
+describe("ForgetPasswordForm", () => {
+  it("renders the form correctly", async () => {
     render(<ForgetPasswordForm />);
 
     expect(screen.getByText(/ตั้งค่ารหัสผ่านใหม่/)).toBeInTheDocument();
@@ -17,26 +19,26 @@ describe('ForgetPasswordForm', () => {
     expect(screen.getByText(/ส่งคำขอ/)).toBeInTheDocument();
   });
 
-  it('validates email correctly', async () => {
+  it("validates email correctly", async () => {
     render(<ForgetPasswordForm />);
 
     const emailInput = screen.getByPlaceholderText(/กรอกอีเมลของคุณ/);
-    await act(() => fireEvent.change(emailInput, { target: { value: 'invalid-email' } }));
+    fireEvent.change(emailInput, { target: { value: "invalid-email" } });
 
     await waitFor(() => {
       expect(screen.getByText(/อีเมลไม่ถูกต้อง/)).toBeInTheDocument();
     });
   });
 
-  it('submits the form successfully', async () => {
+  it("submits the form successfully", async () => {
     (axiosPublicInstance.post as jest.Mock).mockResolvedValue({ status: 204 });
 
     render(<ForgetPasswordForm />);
 
     const emailInput = screen.getByPlaceholderText(/กรอกอีเมลของคุณ/);
-    fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
+    fireEvent.change(emailInput, { target: { value: "test@example.com" } });
 
-    const submitButton = screen.getByTestId('button-submit');
+    const submitButton = screen.getByTestId("button-submit");
     fireEvent.click(submitButton);
 
     await waitFor(() => {
@@ -45,45 +47,45 @@ describe('ForgetPasswordForm', () => {
     });
   });
 
-  it('displays error message on failed submission', async () => {
-    (axiosPublicInstance.post as jest.Mock).mockRejectedValue({ status: 400, message: 'Error occurred' });
+  it("displays error message on failed submission", async () => {
+    (axiosPublicInstance.post as jest.Mock).mockRejectedValue({ status: 400, message: "Error occurred" });
 
     render(<ForgetPasswordForm />);
 
     const emailInput = screen.getByPlaceholderText(/กรอกอีเมลของคุณ/);
-    fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
+    fireEvent.change(emailInput, { target: { value: "test@example.com" } });
 
-    const submitButton = screen.getByTestId('button-submit');
+    const submitButton = screen.getByTestId("button-submit");
     fireEvent.click(submitButton);
 
     await waitFor(() => {
-      expect(screen.getByText('Error occurred')).toBeInTheDocument();
+      expect(screen.getByText("Error occurred")).toBeInTheDocument();
     });
   });
-  it('displays error.error on failed submission', async () => {
-    (axiosPublicInstance.post as jest.Mock).mockRejectedValue({ status: 400, error: 'Error occurred' });
+  it("displays error.error on failed submission", async () => {
+    (axiosPublicInstance.post as jest.Mock).mockRejectedValue({ status: 400, error: "Error occurred" });
 
     render(<ForgetPasswordForm />);
 
     const emailInput = screen.getByPlaceholderText(/กรอกอีเมลของคุณ/);
-    fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
+    fireEvent.change(emailInput, { target: { value: "test@example.com" } });
 
-    const submitButton = screen.getByTestId('button-submit');
+    const submitButton = screen.getByTestId("button-submit");
     fireEvent.click(submitButton);
 
     await waitFor(() => {
-      expect(screen.getByText('Error occurred')).toBeInTheDocument();
+      expect(screen.getByText("Error occurred")).toBeInTheDocument();
     });
   });
-  it('show success message even got 404 not found user', async () => {
-    (axiosPublicInstance.post as jest.Mock).mockRejectedValue({ status: 404, message: 'no user found' });
+  it("show success message even got 404 not found user", async () => {
+    (axiosPublicInstance.post as jest.Mock).mockRejectedValue({ status: 404, message: "no user found" });
 
     render(<ForgetPasswordForm />);
 
     const emailInput = screen.getByPlaceholderText(/กรอกอีเมลของคุณ/);
-    fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
+    fireEvent.change(emailInput, { target: { value: "test@example.com" } });
 
-    const submitButton = screen.getByTestId('button-submit');
+    const submitButton = screen.getByTestId("button-submit");
     fireEvent.click(submitButton);
 
     await waitFor(() => {
@@ -92,16 +94,15 @@ describe('ForgetPasswordForm', () => {
     });
   });
 
-  it('shows success message and navigates to login on button click', async () => {
+  it("shows success message and navigates to login on button click", async () => {
     (axiosPublicInstance.post as jest.Mock).mockResolvedValue({ status: 204 });
 
-
     render(<ForgetPasswordForm />);
 
     const emailInput = screen.getByPlaceholderText(/กรอกอีเมลของคุณ/);
-    fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
+    fireEvent.change(emailInput, { target: { value: "test@example.com" } });
 
-    const submitButton = screen.getByTestId('button-submit');
+    const submitButton = screen.getByTestId("button-submit");
     fireEvent.click(submitButton);
 
     await waitFor(() => {
@@ -109,7 +110,7 @@ describe('ForgetPasswordForm', () => {
       expect(screen.getByText(/กรุณาตรวจสอบอีเมลของคุณ/)).toBeInTheDocument();
     });
 
-    const loginButton = screen.getByTestId('button-go-login');
+    const loginButton = screen.getByTestId("button-go-login");
     fireEvent.click(loginButton);
 
     await waitFor(() => {

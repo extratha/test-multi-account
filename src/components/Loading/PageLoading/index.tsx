@@ -1,18 +1,17 @@
-'use client'
-import { Box, CircularProgress, Stack, Typography } from '@mui/material';
-import Backdrop from '@mui/material/Backdrop';
-import Image from 'next/image';
-import { usePageLoadingStore } from '@/store';
-import { ImageLoadingStack } from '@/assets';
-import { usePathname } from 'next/navigation';
-import { useEffect } from 'react';
+"use client";
+import { ImageLoadingStack } from "@/assets";
+import { usePageLoadingStore } from "@/store";
+import Backdrop from "@mui/material/Backdrop";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 
 const PageLoading = () => {
   const { isPageLoading, setPageLoading } = usePageLoadingStore();
-  const pathname = usePathname()
+  const pathname = usePathname();
   useEffect(() => {
-    setPageLoading(false)
-  }, [pathname])
+    setPageLoading(false);
+  }, [pathname]);
   return (
     <span>
       <Backdrop
@@ -22,7 +21,12 @@ const PageLoading = () => {
         }}
         open={isPageLoading}
       >
-        <Image data-testid="img-loading-stack" alt='' src={ImageLoadingStack} style={{ width: '70px', height: '70px' }}></Image>
+        <Image
+          data-testid="img-loading-stack"
+          alt=""
+          src={ImageLoadingStack}
+          style={{ width: "70px", height: "70px" }}
+        ></Image>
       </Backdrop>
     </span>
   );

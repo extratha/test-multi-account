@@ -1,40 +1,38 @@
-
-import { Button, IconButton, Typography, useTheme } from '@mui/material';
-import { Stack } from '@mui/material'
-import { useEffect, useState } from 'react';
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { IconButton, Stack, Typography, useTheme } from "@mui/material";
+import { useEffect, useState } from "react";
 
+import { SubmitButtonStyle } from "@/components/Button/styled";
+import { API } from "@/constant/api";
+import { webPaths } from "@/constant/webPaths";
+import useFieldValidation from "@/hooks/useFieldValidation";
+import { usePageLoadingStore, useUserProfileStore } from "@/store";
 import axiosPublicInstance from "@/utils/axios/login";
+import { validateEmail, validatePassword } from "@/utils/validation";
+import { setCookie } from "cookies-next";
+import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { CustomTextField } from "../styled";
-import { Controller, DeepMap, SubmitHandler, useForm } from 'react-hook-form';
-import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
-import { API } from '@/constant/api';
-import { setCookie } from 'cookies-next';
-import { usePageLoadingStore, useUserProfileStore } from '@/store';
-import { webPaths } from '@/constant/webPaths';
-import useFieldValidation from '@/hooks/useFieldValidation';
-import { validateEmail, validatePassword } from '@/utils/validation';
-import { SubmitButtonStyle } from '@/components/Button/styled';
 type LoginForm = {
   email: string | null;
   password: string | null;
-}
+};
 
 const LoginForm = () => {
-  const theme = useTheme()
-  const { setUserProfile } = useUserProfileStore()
-  const [isDisableSubmit, setIsDisabledSubmit] = useState<boolean>(true)
-  const [showPassword, setShowPassword] = useState(false)
-  const { setPageLoading } = usePageLoadingStore()
-  const router = useRouter()
-  const { control, setError, handleSubmit, formState: { touchedFields } } = useForm<LoginForm>()
-  const t = useTranslations('Common')
-  const [errorMessage, setErrorMessage] = useState('')
+  const theme = useTheme();
+  const { setUserProfile } = useUserProfileStore();
+  const [isDisableSubmit, setIsDisabledSubmit] = useState<boolean>(true);
+  const [showPassword, setShowPassword] = useState(false);
+  const { setPageLoading } = usePageLoadingStore();
+  const router = useRouter();
+  const { control, setError, handleSubmit } = useForm<LoginForm>();
+  const t = useTranslations("Common");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const EMAIL_FIELD_NAME = 'email';
-  const PASSWORD_FIELD_NAME = 'password';
+  const EMAIL_FIELD_NAME = "email";
+  const PASSWORD_FIELD_NAME = "password";
   const {
     isValid: isEmailValid,
     value: emailValue,
@@ -42,7 +40,6 @@ const LoginForm = () => {
     onBlur: onEmailBlur,
     isDirty: isEmailDirty,
     ref: emailRef,
-    errorMessage: emailErrorMessage,
   } = useFieldValidation(control, EMAIL_FIELD_NAME, validateEmail, setError);
 
   const {
@@ -52,57 +49,63 @@ const LoginForm = () => {
     onBlur: onPasswordBlur,
     isDirty: isPasswordDirty,
     ref: passwordRef,
-    errorMessage: passwordErrorMessage,
   } = useFieldValidation(control, PASSWORD_FIELD_NAME, validatePassword, setError);
 
   useEffect(() => {
-    if (!isEmailDirty || !isPasswordDirty) return
+    if (!isEmailDirty || !isPasswordDirty) return;
     if (!(isEmailValid && isPasswordValid)) {
-      setIsDisabledSubmit(true)
+      setIsDisabledSubmit(true);
     } else {
-      setIsDisabledSubmit(false)
+      setIsDisabledSubmit(false);
     }
   }, [emailValue, passwordValue]);
 
   const handleToggleShowPassword = () => {
     setShowPassword((prev) => !prev);
   };
-  const onSubmit: SubmitHandler<LoginForm> = async (data) => {
+
+  const onSubmit: SubmitHandler<LoginForm> = async () => {
     setPageLoading(true);
-    setErrorMessage('')
+    setErrorMessage("");
     try {
-      const response = await axiosPublicInstance.post(API.PATH.login, { email: emailValue, password: passwordValue }, { headers: { Authorization: undefined } });
+      const response = await axiosPublicInstance.post(
+        API.PATH.login,
+        { email: emailValue, password: passwordValue },
+        { headers: { Authorization: undefined } }
+      );
       if (response.data) {
         const { accessToken, refreshToken, user, userProfile } = response.data;
         if (accessToken) setCookie("accessToken", accessToken);
-        if (refreshToken) setCookie('refreshToken', refreshToken);
+        if (refreshToken) setCookie("refreshToken", refreshToken);
         if (user) {
-          setCookie('passwordChanged', user.passwordChanged);
+          setCookie("passwordChanged", user.passwordChanged);
           setUserProfile({ ...user, ...userProfile });
           router.push(user.passwordChanged ? webPaths.home : webPaths.setNewPassword);
         }
       }
     } catch (error: any) {
-      setErrorMessage(error?.response?.data?.message || t('responseError.invalidEmailOrPassword'));
-      setPageLoading(false)
+      setErrorMessage(error?.response?.data?.message || t("responseError.invalidEmailOrPassword"));
+      setPageLoading(false);
     }
-  }
+  };
   return (
     <Stack
       useFlexGap
       spacing={2}
       sx={{
         width: "66%",
-        margin: 'auto'
+        margin: "auto",
       }}
     >
       <Stack>
-        <Typography variant="headlineSmallSemiBold" color={theme.palette.grey[600]} mb={2}>{t('text.login')}</Typography>
-        <Typography variant="headlineLargeSemiBold" mb={2}>Cariva Playground</Typography>
+        <Typography variant="headlineSmallSemiBold" color={theme.palette.grey[600]} mb={2}>
+          {t("text.login")}
+        </Typography>
+        <Typography variant="headlineLargeSemiBold" mb={2}>
+          Cariva Playground
+        </Typography>
 
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-        >
+        <form onSubmit={handleSubmit(onSubmit)}>
           <Controller
             name={EMAIL_FIELD_NAME}
             control={control}
@@ -114,7 +117,7 @@ const LoginForm = () => {
                   id={EMAIL_FIELD_NAME}
                   placeholder={!emailValue ? "อีเมล" : ""}
                   name={EMAIL_FIELD_NAME}
-                  value={emailValue ?? ''}
+                  value={emailValue ?? ""}
                   onChange={onEmailChange}
                   onBlur={onEmailBlur}
                   inputRef={emailRef}
@@ -124,11 +127,11 @@ const LoginForm = () => {
                   data-testid="error"
                   variant="bodyLarge"
                   sx={{
-                    textAlign: 'left',
+                    textAlign: "left",
                     color: theme.palette.error.main,
                   }}
                 >
-                  {error?.message || ''}
+                  {error?.message || ""}
                 </Typography>
               </Stack>
             )}
@@ -146,7 +149,7 @@ const LoginForm = () => {
                   data-testid={PASSWORD_FIELD_NAME}
                   id={PASSWORD_FIELD_NAME}
                   placeholder={!passwordValue ? "รหัสผ่าน" : ""}
-                  value={passwordValue ?? ''}
+                  value={passwordValue ?? ""}
                   onChange={onPasswordChange}
                   onBlur={onPasswordBlur}
                   inputRef={passwordRef}
@@ -171,7 +174,7 @@ const LoginForm = () => {
                     ),
                   }}
                   InputLabelProps={{
-                    shrink: true
+                    shrink: true,
                   }}
                   sx={{
                     marginTop: "2em",
@@ -181,11 +184,11 @@ const LoginForm = () => {
                   data-testid="error"
                   variant="bodyLarge"
                   sx={{
-                    textAlign: 'left',
+                    textAlign: "left",
                     color: theme.palette.error.main,
                   }}
                 >
-                  {error?.message || ''}
+                  {error?.message || ""}
                 </Typography>
               </Stack>
             )}
@@ -194,39 +197,33 @@ const LoginForm = () => {
           <Typography
             variant="bodyLarge"
             sx={{
-              textAlign: 'left',
+              textAlign: "left",
               color: theme.palette.error.main,
             }}
           >
-            {errorMessage || ''}
+            {errorMessage || ""}
           </Typography>
 
-          <SubmitButtonStyle
-            type="submit"
-            data-testid="button-login"
-            disabled={isDisableSubmit}
-          >
-            <Typography variant="labelExtraLargeSemiBold" >
-              {t('text.login')}
-            </Typography>
+          <SubmitButtonStyle type="submit" data-testid="button-login" disabled={isDisableSubmit}>
+            <Typography variant="labelExtraLargeSemiBold">{t("text.login")}</Typography>
           </SubmitButtonStyle>
         </form>
         <Typography
-          variant='titleSmallSemiBold'
-          textTransform={'none'}
+          variant="titleSmallSemiBold"
+          textTransform={"none"}
           color={theme.palette.text.primary}
           sx={{
-            textDecoration: 'underline',
-            margin: '16px auto 0',
-            cursor: 'pointer'
+            textDecoration: "underline",
+            margin: "16px auto 0",
+            cursor: "pointer",
           }}
-          onClick={()=> router.replace(webPaths.forgetPassword)}
-          >
-          {t('button.forgetPassword')}
+          onClick={() => router.replace(webPaths.forgetPassword)}
+        >
+          {t("button.forgetPassword")}
         </Typography>
       </Stack>
     </Stack>
-  )
-}
+  );
+};
 
 export default LoginForm;
