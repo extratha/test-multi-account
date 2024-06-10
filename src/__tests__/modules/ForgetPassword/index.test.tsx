@@ -1,16 +1,9 @@
-import React from 'react';
-import { act, waitFor, render } from '../../testUtils';
-import ForgetpasswordModule from '@/modules/ForgetPassword';
+import ForgetpasswordModule from "@/modules/ForgetPassword";
+import { render } from "../../testUtils";
 
-describe('ForgetPassword Module', () => {
-  it('to match snap', async () => {
-    const { asFragment } = await act(async () =>
-      render(
-        <ForgetpasswordModule />,
-      ),
-    );
-    await waitFor(() => {
-      expect(asFragment()).toMatchSnapshot()
-    });
-  })
+describe("ForgetPassword Module", () => {
+  it("should render correctly", async () => {
+    const { asFragment } = render(<ForgetpasswordModule />);
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

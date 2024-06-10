@@ -1,21 +1,12 @@
-import { PaletteMode } from '@mui/material';
-import {
-  CUSTOM_COLORS,
-  ERROR,
-  NEUTRAL,
-  PRIMARY,
-  SECONDARY,
-  STATUS_NORMAL,
-  TERTIARY,
-  WARNING,
-} from './colors';
-import { grey, lightGreen } from '@mui/material/colors';
+import { PaletteMode } from "@mui/material";
+import { grey } from "@mui/material/colors";
+import { CUSTOM_COLORS, ERROR, NEUTRAL, PRIMARY, SECONDARY, STATUS_NORMAL, TERTIARY, WARNING } from "./colors";
 
 const getDesignTokens = (mode: PaletteMode) => {
   const lightMode = {
     primary: {
       main: PRIMARY[50],
-      light: PRIMARY[98]
+      light: PRIMARY[98],
     },
     secondary: {
       main: SECONDARY[50],
@@ -28,7 +19,7 @@ const getDesignTokens = (mode: PaletteMode) => {
     },
     success: {
       main: TERTIARY[50],
-      light :STATUS_NORMAL[1],
+      light: STATUS_NORMAL[1],
     },
     warning: {
       main: WARNING[50],
@@ -40,17 +31,17 @@ const getDesignTokens = (mode: PaletteMode) => {
     },
     grey: {
       ...grey,
-      [300]: CUSTOM_COLORS.lightSteelgray
+      [300]: CUSTOM_COLORS.lightSteelgray,
     },
     action: {
-      active: CUSTOM_COLORS.iconActive
-    }
-  }
+      active: CUSTOM_COLORS.iconActive,
+    },
+  };
   const darkMode = {
     primary: {
       main: PRIMARY[80],
       contrastText: NEUTRAL[95],
-      light: PRIMARY[98]
+      light: PRIMARY[98],
     },
     secondary: {
       main: SECONDARY[80],
@@ -64,7 +55,7 @@ const getDesignTokens = (mode: PaletteMode) => {
     },
     success: {
       main: TERTIARY[80],
-      light :STATUS_NORMAL[1],
+      light: STATUS_NORMAL[1],
     },
     warning: {
       main: WARNING[80],
@@ -72,7 +63,7 @@ const getDesignTokens = (mode: PaletteMode) => {
     text: {
       primary: NEUTRAL[100],
       secondary: NEUTRAL[90],
-      disabled: 'rgba(240, 241, 243, 0.38)',
+      disabled: "rgba(240, 241, 243, 0.38)",
     },
     background: {
       paper: NEUTRAL[6],
@@ -80,19 +71,19 @@ const getDesignTokens = (mode: PaletteMode) => {
       neutral: NEUTRAL[100],
     },
     action: {
-      disabled: 'rgba(240, 241, 243, 0.38)',
+      disabled: "rgba(240, 241, 243, 0.38)",
       hoverOpacity: 0.08,
       disabledOpacity: 0,
-      active: CUSTOM_COLORS.iconActive
+      active: CUSTOM_COLORS.iconActive,
     },
-  }
-  const colorMode = mode ==='light' ? lightMode : darkMode
+  };
+  const colorMode = mode === "light" ? lightMode : darkMode;
   return {
     palette: {
       mode,
-      ...colorMode
+      ...colorMode,
     },
-  }
+  };
 };
 
 export default getDesignTokens;

@@ -1,25 +1,17 @@
-import React from 'react';
-import { act, waitFor, render } from '../../testUtils';
-import SetNewPasswordModule from '@/modules/SetNewPasswordModule';
+import SetNewPasswordModule from "@/modules/SetNewPasswordModule";
+import { render } from "../../testUtils";
 
-jest.mock('next/navigation', () => ({
-  ...jest.requireActual('next/navigation'),
+jest.mock("next/navigation", () => ({
+  ...jest.requireActual("next/navigation"),
   useRouter: jest.fn(),
 }));
 
-describe('LoginModule', () => {
-  
+describe("LoginModule", () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
-  it('to match snap', async () => {
-    const { asFragment } = await act(async () =>
-      render(
-        <SetNewPasswordModule />,
-      ),
-    );
-    await waitFor(() => {
-      expect(asFragment()).toMatchSnapshot()
-    });
-  })
+  it("should render correctly", async () => {
+    const { asFragment } = render(<SetNewPasswordModule />);
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

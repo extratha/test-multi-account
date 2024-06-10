@@ -1,9 +1,9 @@
-import { render } from '../../testUtils';
-import useResponsive from '@/hooks/useResponsive';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import useResponsive from "@/hooks/useResponsive";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { render, screen } from "../../testUtils";
 
-describe('useResponsive', () => {
-  it('run through all breakpoints', () => {
+describe("useResponsive", () => {
+  it("run through all breakpoints", () => {
     const theme = createTheme({
       breakpoints: {
         values: {
@@ -19,53 +19,59 @@ describe('useResponsive', () => {
     const TestComponent = () => {
       const isUps = [
         {
-          breakpoint: 'xs',
-          isUp: useResponsive('up', 'xs'),
-          isDown:  useResponsive('down', 'xs'),
-          isBetween: useResponsive('between', 'xs')
+          breakpoint: "xs",
+          isUp: useResponsive("up", "xs"),
+          isDown: useResponsive("down", "xs"),
+          isBetween: useResponsive("between", "xs"),
         },
         {
-          breakpoint: 'sm',
-          isUp: useResponsive('up', 'sm'),
-          isDown:  useResponsive('down', 'sm'),
-          isBetween: useResponsive('between', 'sm')
-        }, {
-          breakpoint: 'md',
-          isUp: useResponsive('up', 'md'),
-          isDown:  useResponsive('down', 'md'),
-          isBetween: useResponsive('between', 'md')
-        }, {
-          breakpoint: 'lg',
-          isUp: useResponsive('up', 'lg'),
-          isDown:  useResponsive('down', 'lg'),
-          isBetween: useResponsive('between', 'lg')
-        }, {
-          breakpoint: 'xl',
-          isUp: useResponsive('up', 'xl'),
-          isDown:  useResponsive('down', 'xl'),
-          isBetween: useResponsive('between', 'xl')
+          breakpoint: "sm",
+          isUp: useResponsive("up", "sm"),
+          isDown: useResponsive("down", "sm"),
+          isBetween: useResponsive("between", "sm"),
         },
+        {
+          breakpoint: "md",
+          isUp: useResponsive("up", "md"),
+          isDown: useResponsive("down", "md"),
+          isBetween: useResponsive("between", "md"),
+        },
+        {
+          breakpoint: "lg",
+          isUp: useResponsive("up", "lg"),
+          isDown: useResponsive("down", "lg"),
+          isBetween: useResponsive("between", "lg"),
+        },
+        {
+          breakpoint: "xl",
+          isUp: useResponsive("up", "xl"),
+          isDown: useResponsive("down", "xl"),
+          isBetween: useResponsive("between", "xl"),
+        },
+      ];
 
-      ]
-
-      return <div>
+      return (
         <div>
-          {isUps.map((scale) => {
-            return(
-              <span key={scale.breakpoint}>{scale.breakpoint} {scale.isUp}</span>
-            )
-          })}
+          <div>
+            {isUps.map((scale) => {
+              return (
+                <span key={scale.breakpoint}>
+                  {scale.breakpoint} {scale.isUp}
+                </span>
+              );
+            })}
+          </div>
         </div>
-      </div>;
+      );
     };
 
-    const { getByText } = render(
+    render(
       <ThemeProvider theme={theme}>
         <TestComponent />
       </ThemeProvider>
     );
 
-    expect(getByText('lg')).toBeInTheDocument();
+    expect(screen.getByText("lg")).toBeInTheDocument();
   });
 
   // Add similar tests for other media query types ('down', 'between', 'only')

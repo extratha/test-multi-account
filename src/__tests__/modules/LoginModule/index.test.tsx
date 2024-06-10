@@ -1,50 +1,37 @@
-import React from 'react';
-import { act, waitFor, render } from '../../testUtils';
-import LoginModule from '@/modules/LoginModule';
-import { webPaths } from '@/constant/webPaths';
-import * as cookiesNext from 'cookies-next';
-import * as nextRouter from 'next/navigation';
+import LoginModule from "@/modules/LoginModule";
+import * as cookiesNext from "cookies-next";
+import * as nextRouter from "next/navigation";
+import { render } from "../../testUtils";
 
-jest.mock('next/navigation', () => ({
-  ...jest.requireActual('next/navigation'),
+jest.mock("next/navigation", () => ({
+  ...jest.requireActual("next/navigation"),
   useRouter: jest.fn(),
 }));
 
-describe('LoginModule', () => {
+describe("LoginModule", () => {
   beforeEach(() => {
-    jest.spyOn(cookiesNext, 'getCookie').mockReturnValue('accessToken');
+    (nextRouter.useRouter as any).mockReturnValue({ replace: jest.fn() });
+    jest.spyOn(cookiesNext, "getCookie").mockReturnValue("accessToken");
   });
 
   afterEach(() => {
     jest.clearAllMocks();
   });
 
-  it('redirects to home page if accessToken exists', () => {
-    const replaceMock = jest.fn();
-    (nextRouter.useRouter as any).mockReturnValue({ replace: replaceMock });
-    jest.spyOn(cookiesNext, 'getCookie').mockReturnValue('MOCK_ACCESS_TOKEN' as any);
-
-    render(<LoginModule />);
-
+  it("should render correctly", async () => {
+    const { asFragment } = render(<LoginModule />);
+    expect(asFragment()).toMatchSnapshot();
   });
 
-  it('renders login form if accessToken does not exist', () => {
-    const replaceMock = jest.fn();
-    (nextRouter.useRouter as any).mockReturnValue({ replace: replaceMock });
-
-    jest.spyOn(cookiesNext, 'getCookie').mockReturnValue(null as any);
+  it("redirects to home page if accessToken exists", () => {
+    jest.spyOn(cookiesNext, "getCookie").mockReturnValue("MOCK_ACCESS_TOKEN" as any);
 
     render(<LoginModule />);
-
   });
-  it('to match snap', async () => {
-    const { asFragment } = await act(async () =>
-      render(
-        <LoginModule />,
-      ),
-    );
-    await waitFor(() => {
-      expect(asFragment()).toMatchSnapshot()
-    });
-  })
+
+  it("renders login form if accessToken does not exist", () => {
+    jest.spyOn(cookiesNext, "getCookie").mockReturnValue(null as any);
+
+    render(<LoginModule />);
+  });
 });

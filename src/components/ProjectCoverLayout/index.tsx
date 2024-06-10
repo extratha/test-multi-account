@@ -1,8 +1,8 @@
-'use client'
+"use client";
+import { ImageCarivaLogo, ImageCoverBg, ImagePlaygrondLogo } from "@/assets";
 import { Stack, useTheme } from "@mui/material";
 import Image from "next/image";
 import { ReactNode } from "react";
-import { ImagePlaygrondLogo, ImageCarivaLogo, ImageCoverBg } from "@/assets";
 
 interface ProjectCoverLayoutProps {
   children: ReactNode;
@@ -12,31 +12,31 @@ const ProjectCoverLayout = ({ children }: ProjectCoverLayoutProps) => {
   const theme = useTheme();
 
   return (
-    <Stack direction="row" width={'100vw'} height={"100vh"}>
+    <Stack direction="row" width={"100vw"} height={"100vh"}>
       <Stack position="relative" flex={1}>
         <Image
           style={{
-            position: 'absolute',
+            position: "absolute",
             zIndex: -1,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover'
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
           }}
-          alt=''
+          alt=""
           src={ImageCoverBg}
         />
         <Image
           style={{
-            margin: '40vh auto 0'
+            margin: "40vh auto 0",
           }}
-          alt=''
+          alt=""
           src={ImagePlaygrondLogo}
         />
         <Image
           style={{
-            margin: 'auto auto 3rem'
+            margin: "auto auto 3rem",
           }}
-          alt=''
+          alt=""
           src={ImageCarivaLogo}
         />
       </Stack>

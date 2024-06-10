@@ -1,17 +1,15 @@
-import { RenderOptions, RenderResult, render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { SWRConfig } from 'swr';
-import { theme } from '@/config/config-mui/theme';
-import { ThemeProvider as MUIThemeProvider } from '@mui/material/styles';
-import { NextIntlClientProvider } from 'next-intl';
-import commonTh from '../../public/locales/th/common.json';
-import commonEn from '../../public/locales/th/common.json';
-import aiInterpretTh from '../../public/locales/th/aiInterpret.json';
-import aiInterpretEn from '../../public/locales/en/aiInterpret.json';
-type RenderWithProvider = (
-  elm: React.ReactElement,
-  renderOptions?: ProviderOptions,
-) => RenderResult;
+import { theme } from "@/config/config-mui/theme";
+import { ThemeProvider as MUIThemeProvider } from "@mui/material/styles";
+import { RenderOptions, RenderResult, act, render } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import flushPromises from "flush-promises";
+import { NextIntlClientProvider } from "next-intl";
+import { SWRConfig } from "swr";
+import aiInterpretEn from "../../public/locales/en/aiInterpret.json";
+import aiInterpretTh from "../../public/locales/th/aiInterpret.json";
+import { default as commonEn, default as commonTh } from "../../public/locales/th/common.json";
+
+type RenderWithProvider = (elm: React.ReactElement, renderOptions?: ProviderOptions) => RenderResult;
 
 export type ProviderOptions = {
   formOptions?: Record<string, unknown>;
@@ -24,11 +22,7 @@ const messages = {
   ...aiInterpretEn,
 };
 
-const renderWithProviders: RenderWithProvider = (
-  component,
-  renderOptions?,
-  locale = 'th',
-) => {
+const renderWithProviders: RenderWithProvider = (component, renderOptions?, locale = "th") => {
   const wrapper = ({ children }: { children: React.ReactNode }) => (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <MUIThemeProvider theme={theme}>
@@ -40,9 +34,15 @@ const renderWithProviders: RenderWithProvider = (
   return render(component, {
     wrapper,
     ...renderOptions,
-    hydrate: false
+    hydrate: false,
   });
 };
 
+export * from "@testing-library/react";
 export { renderWithProviders as render, userEvent };
-export * from '@testing-library/react';
+
+export const flushPromise = async () => {
+  await act(async () => {
+    await flushPromises();
+  });
+};

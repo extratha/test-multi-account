@@ -1,65 +1,210 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GridMenu Component to match snap 1`] = `
+exports[`GridMenu Component should render correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1vp1qdv-MuiGrid-root"
+  .emotion-0 {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin-top: -24px;
+  width: calc(100% + 24px);
+  margin-left: -24px;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.emotion-0>.MuiGrid-item {
+  padding-top: 24px;
+}
+
+.emotion-0>.MuiGrid-item {
+  padding-left: 24px;
+}
+
+.emotion-1 {
+  box-sizing: border-box;
+  margin: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-basis: 33.333333%;
+  -ms-flex-preferred-size: 33.333333%;
+  flex-basis: 33.333333%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  max-width: 33.333333%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 260px;
+}
+
+@media (min-width:600px) {
+  .emotion-1 {
+    -webkit-flex-basis: 33.333333%;
+    -ms-flex-preferred-size: 33.333333%;
+    flex-basis: 33.333333%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    max-width: 33.333333%;
+  }
+}
+
+@media (min-width:905px) {
+  .emotion-1 {
+    -webkit-flex-basis: 33.333333%;
+    -ms-flex-preferred-size: 33.333333%;
+    flex-basis: 33.333333%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    max-width: 33.333333%;
+  }
+}
+
+@media (min-width:1240px) {
+  .emotion-1 {
+    -webkit-flex-basis: 33.333333%;
+    -ms-flex-preferred-size: 33.333333%;
+    flex-basis: 33.333333%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    max-width: 33.333333%;
+  }
+}
+
+@media (min-width:1440px) {
+  .emotion-1 {
+    -webkit-flex-basis: 33.333333%;
+    -ms-flex-preferred-size: 33.333333%;
+    flex-basis: 33.333333%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    max-width: 33.333333%;
+  }
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border: 1px solid #bdbdbd;
+  border-radius: 20px;
+  padding: 16px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
+.emotion-2>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-2>:not(style)~:not(style) {
+  margin-top: 16px;
+}
+
+.emotion-3 {
+  margin: 0;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0;
+  font-size: 20px;
+  font-family: NotoSansThai-SemiBold,sans-serif;
+  text-align: center;
+}
+
+.emotion-4 {
+  margin: 0;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  font-size: 16px;
+  font-family: NotoSansThai-Regular,sans-serif;
+  color: #757575;
+}
+
+<div
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 emotion-0"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-au940r-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 emotion-1"
       data-testid="menu-item-0"
     >
       <div
-        class="MuiStack-root css-qrw920-MuiStack-root"
+        class="MuiStack-root emotion-2"
       >
         <img
           alt=""
-          data-nimg="1"
-          decoding="async"
-          height="40"
-          loading="lazy"
-          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-          style="color: transparent; width: 48px; height: 48px; margin: 0px 0px 8px 0px;"
-          width="40"
+          src="/img.jpg"
+          style="width: 48px; height: 48px; margin: 0px 0px 8px 0px;"
         />
         <h3
-          class="MuiTypography-root MuiTypography-titleLargeSemiBold css-1puhohr-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-3"
         >
           menu.home
         </h3>
         <span
-          class="MuiTypography-root MuiTypography-bodyLarge css-uzzo47-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-bodyLarge emotion-4"
         >
           แปลและสรุปผลสุขภาพ
         </span>
       </div>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-au940r-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 emotion-1"
       data-testid="menu-item-1"
     >
       <div
-        class="MuiStack-root css-qrw920-MuiStack-root"
+        class="MuiStack-root emotion-2"
       >
         <img
           alt=""
-          data-nimg="1"
-          decoding="async"
-          height="40"
-          loading="lazy"
-          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-          style="color: transparent; width: 48px; height: 48px; margin: 0px 0px 8px 0px;"
-          width="40"
+          src="/img.jpg"
+          style="width: 48px; height: 48px; margin: 0px 0px 8px 0px;"
         />
         <h3
-          class="MuiTypography-root MuiTypography-titleLargeSemiBold css-1puhohr-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-3"
         >
           menu.aiInterpret.title
         </h3>
         <span
-          class="MuiTypography-root MuiTypography-bodyLarge css-uzzo47-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-bodyLarge emotion-4"
         >
           แปลและสรุปผลสุขภาพ
         </span>

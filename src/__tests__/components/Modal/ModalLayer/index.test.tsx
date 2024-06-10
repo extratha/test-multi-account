@@ -1,11 +1,8 @@
-import { waitFor, act, render, screen } from '@testing-library/react';
-import useModal from '@/store/modal';
-import { renderHook } from '@testing-library/react';
-import ModalLayer from '@/components/Modal/ModalLayer';
+import ModalLayer from "@/components/Modal/ModalLayer";
+import useModal from "@/store/modal";
+import { act, render, renderHook, screen } from "@testing-library/react";
 
-
-
-jest.mock('../../../../store/modal', () => {
+jest.mock("../../../../store/modal", () => {
   return {
     __esModule: true,
     default: jest.fn(() => ({
@@ -16,12 +13,14 @@ jest.mock('../../../../store/modal', () => {
   };
 });
 
-describe('ModalLayer component', () => {
+describe("ModalLayer component", () => {
   const closeModalMock = jest.fn();
   const openModalMock = jest.fn();
+
   beforeEach(() => {
-    jest.clearAllMocks();
+    // jest.clearAllMocks();
   });
+
   const mockModalContent = () => (
     <div data-testid="modal-content">
       Modal Content
@@ -29,8 +28,7 @@ describe('ModalLayer component', () => {
     </div>
   );
 
-  it('renders the modal when visible', () => {
-
+  it("renders the modal when visible", () => {
     (useModal as any).mockReturnValue({
       modal: {
         isVisible: true,
@@ -42,25 +40,23 @@ describe('ModalLayer component', () => {
     openModalMock();
     closeModalMock();
     render(<ModalLayer />);
-    expect(screen.getByTestId('modal-content')).toBeInTheDocument();
-    expect(screen.getByText('Modal Content')).toBeInTheDocument();
+    expect(screen.getByTestId("modal-content")).toBeInTheDocument();
+    expect(screen.getByText("Modal Content")).toBeInTheDocument();
   });
 
-  it('opens the modal with the correct content', () => {
+  it("opens the modal with the correct content", () => {
     const { result } = renderHook(() => useModal());
 
     act(() => {
       result.current.openModal(mockModalContent);
       result.current.modal.isVisible = true;
-
     });
 
     const { asFragment } = render(<ModalLayer />);
     expect(asFragment()).toMatchSnapshot();
   });
 
-
-  it('closes the modal', async () => {
+  it("closes the modal", async () => {
     const { result } = renderHook(() => useModal());
 
     act(() => {

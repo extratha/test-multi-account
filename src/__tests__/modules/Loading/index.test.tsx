@@ -1,16 +1,9 @@
-import React from 'react';
-import { act, waitFor, render } from '../../testUtils';
-import Loading from '@/modules/Loading';
+import Loading from "@/modules/Loading";
+import { render } from "../../testUtils";
 
-describe('LoadingModule', () => {
-  it('to match snap', async () => {
-    const { asFragment } = await act(async () =>
-      render(
-        <Loading />,
-      ),
-    );
-    await waitFor(() => {
-      expect(asFragment()).toMatchSnapshot()
-    });
-  })
+describe("LoadingModule", () => {
+  it("should render correctly", async () => {
+    const { asFragment } = render(<Loading />);
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

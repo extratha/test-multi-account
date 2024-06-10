@@ -1,28 +1,26 @@
-'use client'
+"use client";
 
-import LoginForm from "./LoginForm";
-import { useEffect, useMemo } from "react";
-import { useRouter } from "next/navigation";
-import { webPaths } from "@/constant/webPaths";
 import ProjectCoverLayout from "@/components/ProjectCoverLayout";
+import { webPaths } from "@/constant/webPaths";
 import { getCookie } from "cookies-next";
-
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import LoginForm from "./LoginForm";
 
 const LoginModule = () => {
-  const router = useRouter()
+  const router = useRouter();
+
   useEffect(() => {
-    const accessToken = getCookie('accessToken')
-    if(accessToken) {
-      router.replace(webPaths.home)
+    const accessToken = getCookie("accessToken");
+    if (accessToken) {
+      router.replace(webPaths.home);
     }
   }, []);
+
   return (
-    <>
-      <ProjectCoverLayout>
-        <LoginForm />
-      </ProjectCoverLayout>
-      
-    </>
-  )
-}
-export default LoginModule
+    <ProjectCoverLayout>
+      <LoginForm />
+    </ProjectCoverLayout>
+  );
+};
+export default LoginModule;

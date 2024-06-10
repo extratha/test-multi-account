@@ -1,6 +1,6 @@
-import { PaletteColor, PaletteColorOptions } from '@mui/material';
+import "@mui/material";
 
-declare module '@mui/material/styles/createPalette' {
+declare module "@mui/material/styles/createPalette" {
   interface TypeBackground {
     neutral: string;
   }
@@ -14,15 +14,15 @@ declare module '@mui/material/styles/createPalette' {
   }
   interface Palette {
     gradients: GradientsPaletteOptions;
-    neutral: Palette['primary'];
+    neutral: Palette["primary"];
   }
   interface PaletteOptions {
     gradients: GradientsPaletteOptions;
-    neutral: PaletteOptions['primary'];
+    neutral: PaletteOptions["primary"];
   }
 }
 
-declare module '@mui/material' {
+declare module "@mui/material" {
   type Color = {
     0: string;
     25: string;
@@ -39,19 +39,19 @@ declare module '@mui/material' {
   };
 }
 
-declare module '@mui/material/Avatar' {
+declare module "@mui/material/Avatar" {
   interface AvatarPropsVariantOverrides {
     lightRounded: true;
   }
 }
 
-declare module '@mui/material/Chip' {
+declare module "@mui/material/Chip" {
   export interface ChipPropsColorOverrides {
     neutral: true;
   }
 }
 
-declare module '@mui/material/styles' {
+declare module "@mui/material/styles" {
   interface TypographyVariants {
     displayLargeSemiBold: React.CSSProperties;
     displayLarge: React.CSSProperties;
@@ -133,7 +133,7 @@ declare module '@mui/material/styles' {
 }
 
 // Update the Typography's variant prop options
-declare module '@mui/material/Typography' {
+declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
     displayLargeSemiBold: true;
     displayLarge: true;
@@ -187,7 +187,7 @@ declare module '@mui/material/Typography' {
   }
 }
 
-declare module '@mui/material/styles' {
+declare module "@mui/material/styles" {
   interface Theme {
     mui3: {
       sys: {
