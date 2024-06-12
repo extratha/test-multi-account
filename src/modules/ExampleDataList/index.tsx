@@ -1,11 +1,12 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+import { CircularProgress, Divider, List, ListItem, Stack, Typography, useTheme } from "@mui/material";
+
 import { IconAiInterpret, IconPen, IconSparkle } from "@/assets";
 import { NEUTRAL } from "@/config/config-mui/theme/colors";
 import { useGetExampleDataList } from "@/hooks/services/useGetExampleDataList";
 import { ExampleData } from "@/types/aiInterpret";
-import { CircularProgress, Divider, List, ListItem, Stack, Typography, useTheme } from "@mui/material";
-import { useTranslations } from "next-intl";
 import { ContentContainer, ContentContainerWrapper, TypographyPageHeadline } from "../HomePageModule/styled";
 import { ButtonEditDataStyled, ButtonInterpretDataStyled, TagValueStyle } from "./styled";
 
@@ -58,7 +59,7 @@ const EmployeeDataList = () => {
               {exampleData.length > 0 && <Typography variant="titleLargeSemiBold">({exampleData.length})</Typography>}
             </Stack>
 
-            {exampleData.length > 0 && (
+            {exampleData.length === 0 && (
               <Typography variant="titleLargeSemiBold" textAlign={"center"}>
                 {getExampleDataError?.message ?? tAi("message.noExampleData")}
               </Typography>
