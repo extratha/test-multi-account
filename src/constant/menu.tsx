@@ -10,11 +10,18 @@ export interface MenuItem {
   children: (never | MenuItem)[] | null;
 }
 type TFunction = (key: string) => string;
+
+export const iconSize = 24;
+export const iconStyles = {
+  width: iconSize,
+  height: iconSize,
+};
+
 export const aiMenuList = (t: TFunction): MenuItem[] => {
   return [
     {
-      icon: IconHomePage,
-      activeIcon: IconHomePageActive,
+      icon: <IconHomePage style={iconStyles} />,
+      activeIcon: <IconHomePageActive style={iconStyles} />,
       path: webPaths.home,
       title: t("menu.home"),
       children: [],
@@ -121,7 +128,7 @@ export const settingMenuList = (t: TFunction): MenuItem[] => {
     //   children: null
     // },
     {
-      icon: IconLogout,
+      icon: <IconLogout style={iconStyles} />,
       activeIcon: null,
       path: "",
       title: t("menu.logout"),

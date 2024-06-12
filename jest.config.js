@@ -20,4 +20,8 @@ module.exports = createJestConfig({
   collectCoverageFrom: ["src/**/*.{ts,tsx}", "!src/**/*.d.ts", "!src/testUtils/**/*"],
   snapshotSerializers: ["@emotion/jest/serializer"],
   watchPlugins: ["jest-watch-typeahead/filename", "jest-watch-typeahead/testname"],
+  moduleNameMapper: {
+    "^@/(.*)$": "<rootDir>/src/$1",
+    "^.+\\.(svg)$": "<rootDir>/src/__tests__/__mocks__/SvgMock.tsx",
+  },
 });

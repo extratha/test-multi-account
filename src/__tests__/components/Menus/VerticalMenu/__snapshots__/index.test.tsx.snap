@@ -348,9 +348,7 @@ exports[`ProjectCoverLayout to match snap 1`] = `
     class="MuiStack-root emotion-0"
     data-testid="vertical-menu-container"
   >
-    <img
-      alt=""
-      src="/img.jpg"
+    <svg
       style="margin: 0px 0px 1.5rem;"
     />
     <span
@@ -373,9 +371,7 @@ exports[`ProjectCoverLayout to match snap 1`] = `
             <div
               class="MuiStack-root emotion-6"
             >
-              <img
-                alt="icon-menu-item-active"
-                src="/img.jpg"
+              <svg
                 style="width: 24px; height: 24px;"
               />
             </div>
@@ -420,9 +416,7 @@ exports[`ProjectCoverLayout to match snap 1`] = `
             <div
               class="MuiStack-root emotion-6"
             >
-              <img
-                alt="icon-menu-item"
-                src="/img.jpg"
+              <svg
                 style="width: 24px; height: 24px;"
               />
             </div>
@@ -524,9 +518,7 @@ exports[`ProjectCoverLayout to match snap 1`] = `
             <div
               class="MuiStack-root emotion-6"
             >
-              <img
-                alt="icon-menu-item"
-                src="/img.jpg"
+              <svg
                 style="width: 24px; height: 24px;"
               />
             </div>
@@ -573,17 +565,13 @@ exports[`ProjectCoverLayout to match snap 1`] = `
         <div
           class="MuiStack-root emotion-47"
         >
-          <img
-            alt=""
-            src="/img.jpg"
+          <svg
             style="width: 20px; height: 20px;"
           />
           <div
             class="MuiStack-root emotion-48"
           >
-            <img
-              alt=""
-              src="/img.jpg"
+            <svg
               style="width: 24px; height: 24px; margin: auto 10px auto 0px;"
             />
             <span
@@ -614,10 +602,8 @@ exports[`ProjectCoverLayout to match snap 1`] = `
           <div
             class="MuiStack-root emotion-47"
           >
-            <img
-              alt=""
-              src="/img.jpg"
-              style="width: 24px; height: 24px; margin: 0px 16px 0px 0px;"
+            <svg
+              style="width: 24px; height: 24px; margin: 0px 1rem 0px 0px;"
             />
             <h3
               class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-55"
@@ -627,9 +613,7 @@ exports[`ProjectCoverLayout to match snap 1`] = `
           </div>
         </div>
       </div>
-      <img
-        alt=""
-        src="/img.jpg"
+      <svg
         style="position: absolute; right: 0px; bottom: 0px; width: 140px; height: 140px;"
       />
     </div>
