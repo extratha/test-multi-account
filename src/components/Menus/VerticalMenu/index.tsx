@@ -5,18 +5,17 @@ import {
   IconMenuItemActive,
   IconPerson,
   IconSparkle,
-  ImagePlaygrondLogoColor,
-  ImagePlaygroudLogoOverlay,
+  ImagePlaygroundLogoColor,
+  ImagePlaygroundLogoOverlay,
 } from "@/assets";
 import { CUSTOM_COLORS } from "@/config/config-mui/theme/colors";
-import { MenuItem, aiMenuList, settingMenuList } from "@/constant/menu";
+import { MenuItem, aiMenuList, iconStyles, settingMenuList } from "@/constant/menu";
 import { webPaths } from "@/constant/webPaths";
 import { useUserProfileStore } from "@/store";
 import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
 import { Collapse, Divider, List, ListItem, Stack, Typography, useTheme } from "@mui/material";
 import { deleteCookie } from "cookies-next";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 import { useParams, usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ProfileInfoBox, VerticalMenuContainer } from "./styled";
@@ -70,17 +69,9 @@ const VerticalMenu = () => {
                 <Stack direction="row" width="100%" onClick={() => handleClickHeadMenu(menu)}>
                   <Stack flex={1} margin="auto 16px auto 0 " maxWidth={"24px"} justifyContent={"center"}>
                     {menu.path && pathname.includes(menu.path) ? (
-                      <Image
-                        style={{ width: "24px", height: "24px" }}
-                        alt="icon-menu-item-active"
-                        src={menu.activeIcon || IconMenuItemActive}
-                      />
+                      <>{menu?.activeIcon || <IconMenuItemActive style={iconStyles} />}</>
                     ) : (
-                      <Image
-                        style={{ width: "24px", height: "24px" }}
-                        alt="icon-menu-item"
-                        src={menu.icon || IconMenuItem}
-                      />
+                      <>{menu?.icon || <IconMenuItem style={iconStyles} />}</>
                     )}
                   </Stack>
                   <Stack justifySelf={"start"}>
@@ -137,7 +128,7 @@ const VerticalMenu = () => {
     <>
       {isShowMenu ? (
         <VerticalMenuContainer data-testid="vertical-menu-container">
-          <Image alt="" src={ImagePlaygrondLogoColor} style={{ margin: "0 0 1.5rem" }} />
+          <ImagePlaygroundLogoColor style={{ margin: "0 0 1.5rem" }} />
           <Typography variant="bodyLargeSemiBold">{t("menu.aiMenus")}</Typography>
           {MenuRenderer(aiMenuList(t))}
           <Divider style={{ marginBottom: "20px" }}></Divider>
@@ -148,7 +139,7 @@ const VerticalMenu = () => {
           <ProfileInfoBox>
             <Stack height="100%">
               <Stack direction="row">
-                <Image alt="" src={IconSparkle} style={{ width: "20px", height: "20px" }}></Image>
+                <IconSparkle style={{ width: 20, height: 20 }} />
                 <Stack
                   direction="row"
                   sx={{
@@ -158,11 +149,7 @@ const VerticalMenu = () => {
                     padding: "8px 16px",
                   }}
                 >
-                  <Image
-                    alt=""
-                    src={IconPerson}
-                    style={{ width: "24px", height: "24px", margin: "auto 10px auto 0 " }}
-                  />
+                  <IconPerson style={{ width: 24, height: 24, margin: "auto 10px auto 0" }} />
                   <Typography variant="bodyLargeSemiBold" color={theme.palette.background.paper}>
                     {t("roles.admin")}
                   </Typography>
@@ -176,17 +163,14 @@ const VerticalMenu = () => {
                   เครดิตของฉัน{" "}
                 </Typography>
                 <Stack direction="row">
-                  <Image alt="" src={IconCreditCoin} style={{ width: "24px", height: "24px", margin: "0 16px 0 0" }} />
+                  <IconCreditCoin style={{ width: "24px", height: "24px", margin: "0 1rem 0 0" }} />
                   <Typography variant="titleLargeSemiBold" color={CUSTOM_COLORS.coin}>
                     ใช้ได้ไม่จำกัด
                   </Typography>
                 </Stack>
               </Stack>
             </Stack>
-
-            <Image
-              alt=""
-              src={ImagePlaygroudLogoOverlay}
+            <ImagePlaygroundLogoOverlay
               style={{
                 position: "absolute",
                 right: 0,

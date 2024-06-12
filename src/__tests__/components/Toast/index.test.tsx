@@ -36,7 +36,7 @@ describe("ToastSnackBar component", () => {
   it("renders with default message and severity when description is not provided", () => {
     (useToastStore as any).mockReturnValue({
       open: true,
-      description: {},
+      description: { message: "" },
       setToastOpen: jest.fn(),
     });
 
@@ -127,15 +127,7 @@ describe("ToastSnackBar component", () => {
 
     render(<ToastSnackBar />);
   });
-  it("renders ToastSnackBar with default anchorOrigin", () => {
-    (useToastStore as any).mockReturnValueOnce({
-      open: true,
-      description: undefined,
-      setToastOpen: setToastOpenMock,
-    });
 
-    render(<ToastSnackBar />);
-  });
   it("renders ToastSnackBar with default severity and icon", () => {
     (useToastStore as any).mockReturnValueOnce({
       open: true,

@@ -39,7 +39,6 @@ const renderWithProviders: RenderWithProvider = (component, renderOptions?, loca
   });
 };
 
-
 export const flushPromise = async () => {
   await act(async () => {
     await flushPromises();

@@ -32,27 +32,31 @@ module.exports = withNextIntl({
       measurementId: env.FIREBASE.MEASUREMENT_ID,
     },
   },
+
   webpack(config) {
-    const fileLoaderRule = config.module.rules.find((rule) => rule.test?.test?.(".svg"));
-    config.module.rules.push(
-      {
-        ...fileLoaderRule,
-        test: /\.svg$/i,
-        resourceQuery: /url/, // *.svg?url
-      },
-      {
-        test: /\.svg$/i,
-        resourceQuery: { not: /url/ },
-        use: {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: [
+        {
           loader: "@svgr/webpack",
           options: {
-            typescript: true,
+            prettier: false,
+            svgo: false,
+            svgoConfig: {
+              plugins: [{ removeViewBox: false }],
+            },
+            titleProp: true,
+            ref: true,
           },
         },
-      }
-    );
-
-    fileLoaderRule.exclude = /\.svg$/i;
+        {
+          loader: "file-loader",
+          options: {
+            name: "static/media/[name].[hash].[ext]",
+          },
+        },
+      ],
+    });
 
     return config;
   },
