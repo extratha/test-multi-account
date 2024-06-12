@@ -1,30 +1,38 @@
 {
   "AiInterpret": {
-    "button" :{ 
-      "editData" :"Edit Data",
-      "interpretData" :"Interpret Data"
+    "button": {
+      "editData": "Edit Data",
+      "interpretData": "Interpret Data",
+      "backToHomePage": "Back To Home Page",
+      "useExampleData": "Use Example Data"
     },
-    "pages" : {
-      "aiInterpret" :"AI Interpret",
-      "tryExampleData" :"Example Data"
+    "pages": {
+      "aiInterpret": "AI Interpret",
+      "tryExampleData": "Example Data",
+      "tryInputData": "Input Data"
     },
-    "label" : {
-      "aiInterpret" :"แปลและสรุปผลสุขภาพ",
-      "exampleData" :"Example Data"
+    "title": {
+      "tryInputData": "Entering data yourself."
+    },
+    "label": {
+      "aiInterpret": "แปลและสรุปผลสุขภาพ",
+      "exampleData": "Example Data"
     },
     "field": {
-      "gender" :"Gender",
-      "age":"Age",
-      "modelVersion" :"Model Version",
-      "yearsOld" :"years old"
+      "gender": "Gender",
+      "age": "Age",
+      "modelVersion": "Model Version",
+      "yearsOld": "years old"
     },
-    "message" : {
-      "noExampleData" : "No example data."
+    "message": {
+      "noExampleData": "No example data."
     },
-    "text" : {
-      "male" :"Male",
-      "female" : "Female",
-      "other" :"Other"
+    "text": {
+      "male": "Male",
+      "female": "Female",
+      "other": "Other",
+      "myCredit": "My credit",
+      "unlimited": "Unlimited"
     }
   }
 }

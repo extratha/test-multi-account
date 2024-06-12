@@ -1,30 +1,38 @@
 {
   "AiInterpret": {
-    "button" :{ 
-      "editData" :"ปรับแต่งข้อมูล",
-      "interpretData":"แปลและสรุปข้อมูล"
+    "button": {
+      "editData": "ปรับแต่งข้อมูล",
+      "interpretData": "แปลและสรุปข้อมูล",
+      "backToHomePage": "กลับหน้าหลัก",
+      "useExampleData": "ใช้ข้อมูลตัวอย่าง"
     },
     "pages": {
-      "aiInterpret" :"AI Interpret",
-      "tryExampleData": "ทดลองใช้ข้อมูลตัวอย่าง"
+      "aiInterpret": "AI Interpret",
+      "tryExampleData": "ทดลองใช้ข้อมูลตัวอย่าง",
+      "tryInputData": "ทดลองใส่ข้อมูลเอง"
     },
-    "label" : {
-      "aiInterpret" :"แปลและสรุปผลสุขภาพ",
-      "exampleData" :"ตัวอย่างข้อมูล"
+    "title": {
+      "tryInputData": "ทดลองใส่ข้อมูลเอง"
+    },
+    "label": {
+      "aiInterpret": "แปลและสรุปผลสุขภาพ",
+      "exampleData": "ตัวอย่างข้อมูล"
     },
     "field": {
-      "gender" :"เพศ",
-      "age":"อายุ",
-      "modelVersion" :"Model Version",
-      "yearsOld" :"ปี"
+      "gender": "เพศ",
+      "age": "อายุ",
+      "modelVersion": "Model Version",
+      "yearsOld": "ปี"
     },
-    "message" : {
-      "noExampleData" : "ไม่พบตัวอย่างข้อมูล"
+    "message": {
+      "noExampleData": "ไม่พบตัวอย่างข้อมูล"
     },
-    "text" : {
-      "male" :"ชาย",
-      "female" : "หญิง",
-      "other" :"อื่น ๆ"
+    "text": {
+      "male": "ชาย",
+      "female": "หญิง",
+      "other": "อื่น ๆ",
+      "myCredit": "เครดิตของฉัน",
+      "unlimited": "ใช้ได้ไม่จำกัด"
     }
   }
 }
