@@ -6,6 +6,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { SWRConfig } from "swr";
 
 import { theme } from "@/config/config-mui/theme";
+import { InterpretInputDataProvider } from "@/contexts/InterpretInputDataContext";
 import aiInterpretEn from "../../public/locales/en/aiInterpret.json";
 import aiInterpretTh from "../../public/locales/th/aiInterpret.json";
 import { default as commonEn, default as commonTh } from "../../public/locales/th/common.json";
@@ -27,7 +28,9 @@ const renderWithProviders: RenderWithProvider = (component, renderOptions?, loca
   const wrapper = ({ children }: { children: React.ReactNode }) => (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <MUIThemeProvider theme={theme}>
-        <SWRConfig value={{ provider: () => new Map() }}>{children}</SWRConfig>
+        <InterpretInputDataProvider>
+          <SWRConfig value={{ provider: () => new Map() }}>{children}</SWRConfig>
+        </InterpretInputDataProvider>
       </MUIThemeProvider>
     </NextIntlClientProvider>
   );
