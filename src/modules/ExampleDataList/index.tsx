@@ -2,20 +2,42 @@
 
 import { IconAiInterpret, IconPen, IconSparkle } from "@/assets";
 import { NEUTRAL } from "@/config/config-mui/theme/colors";
+import { webPaths } from "@/constant/webPaths";
 import { useGetExampleDataList } from "@/hooks/services/useGetExampleDataList";
 import { ExampleData } from "@/types/aiInterpret";
 import { CircularProgress, Divider, List, ListItem, Stack, Typography, useTheme } from "@mui/material";
 import { useTranslations } from "next-intl";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useCallback } from "react";
 import { ContentContainer, ContentContainerWrapper, TypographyPageHeadline } from "../HomePageModule/styled";
 import { ButtonEditDataStyled, ButtonInterpretDataStyled, TagValueStyle } from "./styled";
 
 const EmployeeDataList = () => {
   const tAi = useTranslations("AiInterpret");
   const theme = useTheme();
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const { data, isLoading: isGetExampleDataLoading, error: getExampleDataError } = useGetExampleDataList(true);
 
   const exampleData = data || [];
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams.toString());
+      params.set(name, value);
 
+      return params.toString();
+    },
+    [searchParams]
+  );
+  const handleClickEditData = (exampleData: ExampleData) => {
+    const { id } = exampleData;
+    try {
+      if (!id) throw "no data id.";
+      router.push(`${webPaths.aiInterpret.tryInputData}?${createQueryString("id", id)}`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <ContentContainer>
       <ContentContainerWrapper>
@@ -111,7 +133,7 @@ const EmployeeDataList = () => {
                     </Stack>
                     <Stack minWidth={"48%"} margin={"0 0 0 auto"}>
                       <Stack direction="row" justifyContent={"end"} spacing={1}>
-                        <ButtonEditDataStyled>
+                        <ButtonEditDataStyled onClick={() => handleClickEditData(item)}>
                           <IconPen />
                           <Typography variant="labelLargeSemiBold" color={theme.palette.grey[700]} ml={1}>
                             {tAi("button.editData")}
