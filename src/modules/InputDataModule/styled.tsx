@@ -8,7 +8,6 @@ export const CommonButton = styled(Button)(({ theme }) => ({
   borderRadius: "10px",
   border: `1px solid ${theme.palette.grey[500]}`,
   width: "fit-content",
-  margin: "0 0 10px 0",
   color: CUSTOM_COLORS.buttonText,
 }));
 

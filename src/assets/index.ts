@@ -9,6 +9,7 @@ export { ReactComponent as IconNotification } from "./icons/icon-notification.sv
 export { ReactComponent as IconPen } from "./icons/icon-pen.svg";
 export { ReactComponent as IconPerson } from "./icons/icon-person.svg";
 export { ReactComponent as IconSetting } from "./icons/icon-setting.svg";
+export { ReactComponent as IconSparkleDisabled } from "./icons/icon-sparkle-disabled.svg";
 export { ReactComponent as IconSparkle } from "./icons/icon-sparkle.svg";
 
 export { ReactComponent as ImageCarivaLogo } from "./images/cariva-logo.svg";

@@ -1,4 +1,4 @@
-import { NEUTRAL } from "@/config/config-mui/theme/colors";
+import { CUSTOM_COLORS, NEUTRAL } from "@/config/config-mui/theme/colors";
 import { Button, Stack, styled } from "@mui/material";
 
 export const TagValueStyle = styled(Stack)(() => ({
@@ -14,11 +14,14 @@ export const ButtonEditDataStyled = styled(Button)(({ theme }) => ({
   border: `1px solid ${theme.palette.grey[400]}`,
 }));
 
-export const ButtonInterpretDataStyled = styled(Button)(({ theme }) => ({
+export const ButtonInterpretDataStyled = styled(Button)(({ theme, disabled }) => ({
   padding: 10,
   height: 40,
+  border: `${disabled ? "1px" : 0} solid ${theme.palette.grey[600]}`,
   borderRadius: "10px",
-  boxShadow: `2px 2px 6px 0px ${NEUTRAL[80]}`,
-  background: "linear-gradient(90deg, rgba(0,89,214,1) 0%, rgba(2,141,245,1) 50%, rgba(0,203,221,1) 100%)",
-  color: theme.palette.background.paper,
+  boxShadow: disabled ? "none" : `2px 2px 6px 0px ${NEUTRAL[80]}`,
+  background: disabled
+    ? NEUTRAL[97]
+    : "linear-gradient(90deg, rgba(0,89,214,1) 0%, rgba(2,141,245,1) 50%, rgba(0,203,221,1) 100%)",
+  color: disabled ? CUSTOM_COLORS.buttonTextDisabled : theme.palette.background.paper,
 }));

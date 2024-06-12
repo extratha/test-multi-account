@@ -42,7 +42,7 @@ exports[`InputDataModule should render correctly 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  margin-bottom: 8px;
+  margin-bottom: 24px;
 }
 
 .emotion-3 {
@@ -97,7 +97,6 @@ exports[`InputDataModule should render correctly 1`] = `
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  margin: 0 0 10px 0;
   color: #212121;
 }
 
@@ -173,6 +172,7 @@ exports[`InputDataModule should render correctly 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  margin-top: 24px;
 }
 
 .emotion-8 {
@@ -213,6 +213,10 @@ exports[`InputDataModule should render correctly 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: end;
+  justify-content: end;
 }
 
 .emotion-11>:not(style):not(style) {
@@ -318,6 +322,53 @@ exports[`InputDataModule should render correctly 1`] = `
   margin-left: 8px;
 }
 
+.emotion-18 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin-top: 16px;
+}
+
+.emotion-19 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-19>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-19>:not(style)~:not(style) {
+  margin-left: 8px;
+}
+
+.emotion-20 {
+  margin: 0;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  font-size: 16px;
+  font-family: NotoSansThai-Regular,sans-serif;
+}
+
+.emotion-21 {
+  margin: 0;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  font-size: 16px;
+  font-family: NotoSansThai-SemiBold,sans-serif;
+}
+
 <div
     class="MuiStack-root emotion-0"
   >
@@ -342,10 +393,10 @@ exports[`InputDataModule should render correctly 1`] = `
             class="MuiTouchRipple-root emotion-5"
           />
         </button>
-        <hr
-          class="MuiDivider-root MuiDivider-fullWidth emotion-6"
-        />
       </div>
+      <hr
+        class="MuiDivider-root MuiDivider-fullWidth emotion-6"
+      />
       <div
         class="MuiStack-root emotion-7"
       >
@@ -392,6 +443,24 @@ exports[`InputDataModule should render correctly 1`] = `
                   class="MuiTouchRipple-root emotion-5"
                 />
               </button>
+            </div>
+            <div
+              class="MuiStack-root emotion-18"
+            >
+              <div
+                class="MuiStack-root emotion-19"
+              >
+                <span
+                  class="MuiTypography-root MuiTypography-bodyLarge emotion-20"
+                >
+                  My credit
+                </span>
+                <span
+                  class="MuiTypography-root MuiTypography-bodyLargeSemiBold emotion-21"
+                >
+                  Unlimited
+                </span>
+              </div>
             </div>
           </div>
         </div>

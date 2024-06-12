@@ -199,4 +199,5 @@ export const CUSTOM_COLORS = {
   limeGreen: "#00BA34",
   lapislazuli: "#264189",
   buttonText: "#212121",
+  buttonTextDisabled: "#B0BEC5",
 };
