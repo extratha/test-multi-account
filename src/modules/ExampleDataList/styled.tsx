@@ -17,7 +17,7 @@ export const ButtonEditDataStyled = styled(Button)(({ theme }) => ({
 export const ButtonInterpretDataStyled = styled(Button)(({ theme, disabled }) => ({
   padding: 10,
   height: 40,
-  border: `${disabled ? "1px" : 0} solid ${theme.palette.grey[600]}`,
+  border: `${disabled ? "1px" : 0} solid ${theme.palette.grey[400]}`,
   borderRadius: "10px",
   boxShadow: disabled ? "none" : `2px 2px 6px 0px ${NEUTRAL[80]}`,
   background: disabled
