@@ -3,7 +3,7 @@
     "button": {
       "editData": "Edit Data",
       "interpretData": "Interpret Data",
-      "backToHomePage": "Back To Home Page",
+      "backToMain": "Back",
       "useExampleData": "Use Example Data"
     },
     "pages": {

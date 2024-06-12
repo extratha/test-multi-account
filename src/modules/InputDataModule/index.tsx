@@ -22,8 +22,8 @@ const InputDataModule = () => {
     <ContentContainer>
       <ContentContainerWrapper>
         <Stack mb={1}>
-          <CommonButton onClick={() => handleClickBackButton}>
-            {<Typography variant="labelLargeSemiBold">{tAi("button.backToHomePage")}</Typography>}
+          <CommonButton data-testid="back-button" onClick={handleClickBackButton}>
+            {<Typography variant="labelLargeSemiBold">{tAi("button.backToMain")}</Typography>}
           </CommonButton>
           <Divider></Divider>
         </Stack>

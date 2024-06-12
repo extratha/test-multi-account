@@ -3,7 +3,7 @@
     "button": {
       "editData": "ปรับแต่งข้อมูล",
       "interpretData": "แปลและสรุปข้อมูล",
-      "backToHomePage": "กลับหน้าหลัก",
+      "backToMain": "กลับหน้าหลัก",
       "useExampleData": "ใช้ข้อมูลตัวอย่าง"
     },
     "pages": {
