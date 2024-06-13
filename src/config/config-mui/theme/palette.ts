@@ -6,6 +6,7 @@ import {
   NEUTRAL,
   PRIMARY,
   SECONDARY,
+  STATUS_ABNORMAL,
   STATUS_NORMAL,
   TERTIARY,
   WARNING,
@@ -27,6 +28,7 @@ const getDesignTokens = (mode: PaletteMode) => {
     },
     error: {
       main: ERROR[50],
+      light: STATUS_ABNORMAL[2],
     },
     success: {
       main: TERTIARY[50],

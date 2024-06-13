@@ -48,6 +48,47 @@
         "edit": "ปรับแต่งข้อมูล",
         "copy": "คัดลอกข้อความ"
       }
+    },
+
+    "en": {
+      "groupName": {
+        "generalCheckUp": "General Check-up"
+      },
+      "placeholder": {
+        "gender": "Select Gender"
+      },
+      "field": {
+        "age": "Age",
+        "gender": "Gender",
+        "body_weight": "Body Weight",
+        "body_height": "Body Height",
+        "waist_line": "Waistline",
+        "blood_pressure_systolic": "Blood Pressure Systolic",
+        "blood_pressure_diastolic": "Blood Pressure Diastolic",
+        "pulse": "Pulse",
+        "respiratory_rate": "Respiratory Rate",
+        "temperature": "Temperature"
+      }
+    },
+    "th": {
+      "groupName": {
+        "generalCheckUp": "การตรวจสุขภาพทั่วไป"
+      },
+      "placeholder": {
+        "gender": "เลือกเพศ"
+      },
+      "field": {
+        "age": "อายุ",
+        "gender": "เพศ",
+        "body_weight": "น้ำหนัก",
+        "body_height": "ส่วนสูง",
+        "waist_line": "เส้นรอบเอว",
+        "blood_pressure_systolic": "ความดันโลหิตขณะบีบตัว (ตัวบน)",
+        "blood_pressure_diastolic": "ความดันโลหิตขณะคลายตัว (ตัวล่าง)",
+        "pulse": "อัตราการเต้นหัวใจ",
+        "respiratory_rate": "อัตราการหายใจ",
+        "temperature": "อุณหภูมิร่างกาย"
+      }
     }
   }
 }
