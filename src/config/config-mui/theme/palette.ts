@@ -1,6 +1,16 @@
 import { PaletteMode } from "@mui/material";
 import { grey } from "@mui/material/colors";
-import { CUSTOM_COLORS, ERROR, NEUTRAL, PRIMARY, SECONDARY, STATUS_NORMAL, TERTIARY, WARNING } from "./colors";
+import {
+  CUSTOM_COLORS,
+  ERROR,
+  NEUTRAL,
+  PRIMARY,
+  SECONDARY,
+  STATUS_NORMAL,
+  TERTIARY,
+  WARNING,
+  linearGradient,
+} from "./colors";
 
 const getDesignTokens = (mode: PaletteMode) => {
   const lightMode = {
@@ -34,7 +44,10 @@ const getDesignTokens = (mode: PaletteMode) => {
       ...grey,
       [300]: CUSTOM_COLORS.lightSteelgray,
     },
-  }
+    gradients: {
+      main: linearGradient.main,
+    },
+  };
   const darkMode = {
     primary: {
       main: PRIMARY[80],
@@ -73,6 +86,9 @@ const getDesignTokens = (mode: PaletteMode) => {
       disabled: "rgba(240, 241, 243, 0.38)",
       hoverOpacity: 0.08,
       disabledOpacity: 0,
+    },
+    gradients: {
+      main: linearGradient.main,
     },
   };
   const colorMode = mode === "light" ? lightMode : darkMode;

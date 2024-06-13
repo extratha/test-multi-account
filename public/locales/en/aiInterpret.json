@@ -33,6 +33,21 @@
       "other": "Other",
       "myCredit": "My credit",
       "unlimited": "Unlimited"
+    },
+    "AiInterpretResult": {
+      "modalVersion": "Model Version",
+      "example": "Example data {num}",
+      "gender": {
+        "male": "Male",
+        "female": "Female"
+      },
+      "age": "Age {age}",
+      "title": "แปลและสรุปข้อมูลได้ดังนี้",
+      "button": {
+        "back": "Back to menu",
+        "edit": "Edit",
+        "copy": "Copy"
+      }
     }
   }
 }

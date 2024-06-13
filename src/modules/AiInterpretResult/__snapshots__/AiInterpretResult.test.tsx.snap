@@ -1,0 +1,624 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AiInterpretResult should render correctly 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 24px;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  padding: 24px 30px;
+  border-radius: 16px;
+  overflow-y: auto;
+  background-color: #fff;
+}
+
+.emotion-1 .MuiButton-root {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 40px;
+  padding: 10px 16px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #CFD8DC;
+  font-size: 12px;
+  font-weight: 700;
+  color: #212121;
+}
+
+.emotion-1>.MuiButton-startIcon {
+  margin-right: 8px;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  font-family: NotoSansThai-Regular,sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #1976d2;
+}
+
+.emotion-3::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-3.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-3 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-3:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(25, 118, 210, 0.04);
+}
+
+@media (hover: none) {
+  .emotion-3:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-3.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.emotion-4 {
+  display: inherit;
+  margin-right: 8px;
+  margin-left: -4px;
+}
+
+.emotion-4>*:nth-of-type(1) {
+  font-size: 20px;
+}
+
+.emotion-5 {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+}
+
+.emotion-9 {
+  margin: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  border-width: 0;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.12);
+  border-bottom-width: thin;
+  margin: 8px 0px;
+}
+
+.emotion-10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 16px 0px;
+}
+
+.emotion-10>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-10>:not(style)~:not(style) {
+  margin-top: 16px;
+}
+
+.emotion-11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 2px;
+  border-radius: 24px;
+}
+
+.emotion-12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: start;
+  justify-content: start;
+  border-radius: 22px;
+  background: #fff;
+}
+
+.emotion-13 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.emotion-13>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-13>:not(style)~:not(style) {
+  margin-top: 8px;
+}
+
+.emotion-15 {
+  margin: 0;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  font-size: 12px;
+  font-family: NotoSansThai-Medium,sans-serif;
+  font-weight: 600;
+}
+
+.emotion-16 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-16>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-16>:not(style)~:not(style) {
+  margin-left: 4px;
+}
+
+.emotion-17 {
+  margin: 0;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+  font-size: 12px;
+  font-family: NotoSansThai-Regular,sans-serif;
+}
+
+.emotion-19 {
+  margin: 0;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0;
+  font-size: 20px;
+  font-family: NotoSansThai-SemiBold,sans-serif;
+  font-weight: 700;
+  color: #212121;
+}
+
+.emotion-20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-20>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-20>:not(style)~:not(style) {
+  margin-left: 8px;
+}
+
+.emotion-21 {
+  padding: 4px 8px;
+  background: #ECEFF1;
+  border-radius: 4px;
+}
+
+.emotion-22 {
+  margin: 0;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  font-size: 14px;
+  font-family: NotoSansThai-SemiBold,sans-serif;
+}
+
+.emotion-25 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 16px 0px 0px 0px;
+}
+
+.emotion-26 {
+  padding: 1px 0px;
+  margin: 0px 0px -18px 0px;
+  background-image: linear-gradient(to right, #CFD8DC 50%, #ffffff 0%);
+  -webkit-background-position: top;
+  background-position: top;
+  -webkit-background-size: 10px 1px;
+  background-size: 10px 1px;
+  background-repeat: repeat-x;
+}
+
+.emotion-27 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 8px 16px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  border-radius: 32px;
+}
+
+.emotion-27>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-27>:not(style)~:not(style) {
+  margin-left: 6px;
+}
+
+.emotion-28 {
+  margin: 0;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  font-size: 12px;
+  font-family: NotoSansThai-Medium,sans-serif;
+  font-weight: 700;
+  color: #fff;
+}
+
+.emotion-29 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.emotion-29>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-29>:not(style)~:not(style) {
+  margin-top: 24px;
+}
+
+.emotion-30 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-30>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-30>:not(style)~:not(style) {
+  margin-top: 16px;
+}
+
+.emotion-31 {
+  margin: 0;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  font-size: 16px;
+  font-family: NotoSansThai-SemiBold,sans-serif;
+  font-weight: 600;
+}
+
+.emotion-32 {
+  margin: 0;
+  font-family: NotoSansThai-Regular,sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #212121;
+}
+
+<div
+    class="MuiStack-root emotion-0"
+  >
+    <div
+      class="MuiStack-root emotion-1"
+    >
+      <div
+        class="MuiStack-root emotion-2"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-3"
+          data-testid="ai-interpret-button-back"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-startIcon MuiButton-iconSizeMedium emotion-4"
+          >
+            <svg />
+          </span>
+          Back to menu
+          <span
+            class="MuiTouchRipple-root emotion-5"
+          />
+        </button>
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-3"
+          data-testid="ai-interpret-button-edit"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-startIcon MuiButton-iconSizeMedium emotion-4"
+          >
+            <svg />
+          </span>
+          Edit
+          <span
+            class="MuiTouchRipple-root emotion-5"
+          />
+        </button>
+      </div>
+      <hr
+        class="MuiDivider-root MuiDivider-fullWidth emotion-9"
+      />
+      <div
+        class="MuiStack-root emotion-10"
+      >
+        <div
+          class="MuiStack-root emotion-11"
+        >
+          <div
+            class="MuiStack-root emotion-12"
+          >
+            <div
+              class="MuiStack-root emotion-13"
+            >
+              <div
+                class="MuiStack-root emotion-2"
+              >
+                <span
+                  class="MuiTypography-root MuiTypography-labelMedium emotion-15"
+                  data-testid="ai-interpret-example-rank"
+                >
+                  Example data 1
+                </span>
+                <div
+                  class="MuiStack-root emotion-16"
+                >
+                  <span
+                    class="MuiTypography-root MuiTypography-bodySmall emotion-17"
+                  >
+                    Model Version
+                  </span>
+                  <span
+                    class="MuiTypography-root MuiTypography-labelMedium emotion-15"
+                    data-testid="ai-interpret-version"
+                  >
+                    1.0.0
+                  </span>
+                </div>
+              </div>
+              <h3
+                class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-19"
+                data-testid="ai-interpret-example-name"
+              >
+                case name
+              </h3>
+              <div
+                class="MuiStack-root emotion-20"
+              >
+                <div
+                  class="MuiBox-root emotion-21"
+                >
+                  <span
+                    class="MuiTypography-root MuiTypography-labelLargeSemiBold emotion-22"
+                    data-testid="ai-interpret-gender-tag"
+                  >
+                    Female
+                  </span>
+                </div>
+                <div
+                  class="MuiBox-root emotion-21"
+                >
+                  <span
+                    class="MuiTypography-root MuiTypography-labelLargeSemiBold emotion-22"
+                    data-testid="ai-interpret-age-tag"
+                  >
+                    Age 29
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="MuiStack-root emotion-25"
+            >
+              <div
+                class="emotion-26"
+              />
+              <div
+                class="MuiStack-root emotion-27"
+              >
+                <svg />
+                <span
+                  class="MuiTypography-root MuiTypography-labelMedium emotion-28"
+                  data-testid="ai-interpret-title"
+                >
+                  แปลและสรุปข้อมูลได้ดังนี้
+                </span>
+              </div>
+            </div>
+            <div
+              class="MuiStack-root emotion-29"
+            >
+              <div
+                class="MuiStack-root emotion-30"
+              >
+                <span
+                  class="MuiTypography-root MuiTypography-labelExtraLargeSemiBold emotion-31"
+                  data-testid="ai-interpret-title-0"
+                >
+                  1. title-ai-result
+                </span>
+                <p
+                  class="MuiTypography-root MuiTypography-body1 emotion-32"
+                  data-testid="ai-interpret-description-0"
+                >
+                  description-ai-result
+                </p>
+                <button
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-3"
+                  data-testid="ai-interpret-button-copy-0"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-startIcon MuiButton-iconSizeMedium emotion-4"
+                  >
+                    <svg />
+                  </span>
+                  Copy
+                  <span
+                    class="MuiTouchRipple-root emotion-5"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

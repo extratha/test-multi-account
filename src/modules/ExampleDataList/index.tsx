@@ -1,35 +1,40 @@
 "use client";
 
-import { IconAiInterpret, IconPen, IconSparkle } from "@/assets";
-import { NEUTRAL } from "@/config/config-mui/theme/colors";
-import { webPaths } from "@/constant/webPaths";
-import { useGetExampleDataList } from "@/hooks/services/useGetExampleDataList";
-import { ExampleData } from "@/types/aiInterpret";
 import { CircularProgress, Divider, List, ListItem, Stack, Typography, useTheme } from "@mui/material";
 import { useTranslations } from "next-intl";
 import { useRouter, useSearchParams } from "next/navigation";
+
+import { IconAiInterpret, IconPen, IconSparkle } from "@/assets";
+import { NEUTRAL } from "@/config/config-mui/theme/colors";
+import { webPaths } from "@/constant/webPaths";
+import { useGetLabExampleList } from "@/hooks/useApi";
+import { ExampleDataResult } from "@/types/aiInterpret";
 import { useCallback } from "react";
 import { ContentContainer, ContentContainerWrapper, TypographyPageHeadline } from "../HomePageModule/styled";
 import { ButtonEditDataStyled, ButtonInterpretDataStyled, TagValueStyle } from "./styled";
 
 const EmployeeDataList = () => {
+  const router = useRouter();
   const tAi = useTranslations("AiInterpret");
   const theme = useTheme();
-  const router = useRouter();
   const searchParams = useSearchParams();
-  const { data, isLoading: isGetExampleDataLoading, error: getExampleDataError } = useGetExampleDataList(true);
 
-  const exampleData = data || [];
+  const { data, isLoading, error } = useGetLabExampleList();
+
+  const exampleData = data?.data || [];
+
+  const handleClickAiInterpret = (id: string) => {
+    router.push(`${webPaths.aiInterpret.tryExampleData}/${id}`);
+  };
   const createQueryString = useCallback(
     (name: string, value: string) => {
       const params = new URLSearchParams(searchParams.toString());
       params.set(name, value);
-
       return params.toString();
     },
     [searchParams]
   );
-  const handleClickEditData = (exampleData: ExampleData) => {
+  const handleClickEditData = (exampleData: ExampleDataResult) => {
     const { id } = exampleData;
     try {
       if (!id) throw "no data id.";
@@ -41,7 +46,7 @@ const EmployeeDataList = () => {
   return (
     <ContentContainer>
       <ContentContainerWrapper>
-        {isGetExampleDataLoading ? (
+        {isLoading ? (
           <Stack width="100%" height="100%">
             <CircularProgress data-testid="progression" style={{ margin: "auto" }} />
           </Stack>
@@ -80,9 +85,9 @@ const EmployeeDataList = () => {
               {exampleData.length > 0 && <Typography variant="titleLargeSemiBold">({exampleData.length})</Typography>}
             </Stack>
 
-            {exampleData.length > 0 && (
+            {exampleData.length === 0 && (
               <Typography variant="titleLargeSemiBold" textAlign={"center"}>
-                {getExampleDataError?.message ?? tAi("message.noExampleData")}
+                {error?.message ?? tAi("message.noExampleData")}
               </Typography>
             )}
 
@@ -93,7 +98,7 @@ const EmployeeDataList = () => {
                 overflowY: "auto",
               }}
             >
-              {exampleData.map((item: ExampleData, index: number) => (
+              {exampleData.map((item: ExampleDataResult, index: number) => (
                 <ListItem
                   key={index}
                   sx={{
@@ -139,7 +144,11 @@ const EmployeeDataList = () => {
                             {tAi("button.editData")}
                           </Typography>
                         </ButtonEditDataStyled>
-                        <ButtonInterpretDataStyled>
+                        <ButtonInterpretDataStyled
+                          onClick={() => {
+                            handleClickAiInterpret(item.id);
+                          }}
+                        >
                           <IconSparkle />
                           <Typography variant="labelLargeSemiBold" color={theme.palette.background.paper} ml={1}>
                             {tAi("button.interpretData")}

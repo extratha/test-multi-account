@@ -18,4 +18,10 @@ jest.mock("next/config", () => () => ({
   },
 }));
 
+jest.mock("cookies-next", () => ({
+  __esModule: true,
+  ...jest.requireActual("cookies-next"),
+  getCookie: jest.fn().mockReturnValue("MOCK_ACCESS_TOKEN"),
+}));
+
 jest.setTimeout(100000);

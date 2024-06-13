@@ -200,4 +200,10 @@ export const CUSTOM_COLORS = {
   lapislazuli: "#264189",
   buttonText: "#212121",
   buttonTextDisabled: "#B0BEC5",
+  textHighEmp: "#212121",
+};
+
+export const linearGradient = {
+  main: "linear-gradient(90deg, #0059D6 0%, #028DF5 50%, #00CBDD 100%)",
+  dashed: "linear-gradient(to right, #CFD8DC 50%, #ffffff 0%)",
 };

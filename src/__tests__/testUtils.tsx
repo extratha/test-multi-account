@@ -3,6 +3,7 @@ import { RenderOptions, RenderResult, act, render } from "@testing-library/react
 import userEvent from "@testing-library/user-event";
 import flushPromises from "flush-promises";
 import { NextIntlClientProvider } from "next-intl";
+import * as NextNavigation from "next/navigation";
 import { SWRConfig } from "swr";
 
 import { theme } from "@/config/config-mui/theme";
@@ -50,3 +51,30 @@ export const flushPromise = async () => {
 
 export * from "@testing-library/react";
 export { renderWithProviders as render, userEvent };
+
+jest.mock("next/navigation", () => ({
+  ...jest.requireActual("next/navigation"),
+  useRouter: jest.fn(),
+  useParams: jest.fn(),
+}));
+
+export interface SpyUseRouter {
+  replace: jest.Mock;
+  push: jest.Mock;
+}
+
+export const spyUseParams = () => {
+  jest.spyOn(NextNavigation, "useParams").mockReturnValue({});
+  return NextNavigation.useParams as jest.Mock;
+};
+
+export const spyUseRouter = (): SpyUseRouter => {
+  const replace = jest.fn();
+  const push = jest.fn();
+  jest.spyOn(NextNavigation, "useRouter").mockReturnValue({ replace, push } as any);
+  return { replace, push };
+};
+
+export const API = {
+  AI_INTERPRET_URL: "/lab/examples/interpretId",
+};
