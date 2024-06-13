@@ -6,6 +6,7 @@ export const API = {
     changePassword: 'auth/change-password',
     forgotPassword: 'auth/forgot-password',
     exampleDataList: 'lab/examples',
+    interpret: 'lab/examples/',
   },
   HTTP_METHODS: {
     GET: 'GET',

@@ -25,6 +25,21 @@
       "male" :"ชาย",
       "female" : "หญิง",
       "other" :"อื่น ๆ"
+    },
+    "AiInterpretResult":{
+      "modalVersion":"Model Version",
+      "example":"ตัวอย่างข้อมูล {num}",
+      "gender":{
+        "male" :"เพศ ชาย",
+        "female" : "เพศ หญิง"
+      },
+      "age":"อายุ {age}",
+      "title":"แปลและสรุปข้อมูลได้ดังนี้",
+      "button":{
+        "back":"กลับหน้าหลัก",
+        "edit":"ปรับแต่งข้อมูล",
+        "copy":"คัดลอกข้อความ"
+      }
     }
   }
 }

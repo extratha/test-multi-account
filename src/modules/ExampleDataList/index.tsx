@@ -1,26 +1,33 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import { CircularProgress, Divider, List, ListItem, Stack, Typography, useTheme } from "@mui/material";
+import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 
 import { IconAiInterpret, IconPen, IconSparkle } from "@/assets";
 import { NEUTRAL } from "@/config/config-mui/theme/colors";
-import { useGetExampleDataList } from "@/hooks/services/useGetExampleDataList";
-import { ExampleData } from "@/types/aiInterpret";
+import { webPaths } from "@/constant/webPaths";
+import { useGetLabExampleList } from "@/hooks/useApi";
+import { ExampleDataResult } from "@/types/aiInterpret";
 import { ContentContainer, ContentContainerWrapper, TypographyPageHeadline } from "../HomePageModule/styled";
 import { ButtonEditDataStyled, ButtonInterpretDataStyled, TagValueStyle } from "./styled";
 
 const EmployeeDataList = () => {
+  const router = useRouter();
   const tAi = useTranslations("AiInterpret");
   const theme = useTheme();
-  const { data, isLoading: isGetExampleDataLoading, error: getExampleDataError } = useGetExampleDataList(true);
+  const { data, isLoading, error } = useGetLabExampleList();
 
-  const exampleData = data || [];
+  const exampleData = data?.data || [];
+
+  const handleClickAiInterpret = (id: string) => {
+    router.push(`${webPaths.aiInterpret.tryExampleData}/${id}`);
+  };
 
   return (
     <ContentContainer>
       <ContentContainerWrapper>
-        {isGetExampleDataLoading ? (
+        {isLoading ? (
           <Stack width="100%" height="100%">
             <CircularProgress data-testid="progression" style={{ margin: "auto" }} />
           </Stack>
@@ -61,7 +68,7 @@ const EmployeeDataList = () => {
 
             {exampleData.length === 0 && (
               <Typography variant="titleLargeSemiBold" textAlign={"center"}>
-                {getExampleDataError?.message ?? tAi("message.noExampleData")}
+                {error?.message ?? tAi("message.noExampleData")}
               </Typography>
             )}
 
@@ -72,7 +79,7 @@ const EmployeeDataList = () => {
                 overflowY: "auto",
               }}
             >
-              {exampleData.map((item: ExampleData, index: number) => (
+              {exampleData.map((item: ExampleDataResult, index: number) => (
                 <ListItem
                   key={index}
                   sx={{
@@ -118,7 +125,11 @@ const EmployeeDataList = () => {
                             {tAi("button.editData")}
                           </Typography>
                         </ButtonEditDataStyled>
-                        <ButtonInterpretDataStyled>
+                        <ButtonInterpretDataStyled
+                          onClick={() => {
+                            handleClickAiInterpret(item.id);
+                          }}
+                        >
                           <IconSparkle />
                           <Typography variant="labelLargeSemiBold" color={theme.palette.background.paper} ml={1}>
                             {tAi("button.interpretData")}
