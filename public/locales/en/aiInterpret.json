@@ -1,30 +1,45 @@
 {
   "AiInterpret": {
-    "button" :{ 
-      "editData" :"Edit Data",
-      "interpretData" :"Interpret Data"
+    "button": {
+      "editData": "Edit Data",
+      "interpretData": "Interpret Data"
     },
-    "pages" : {
-      "aiInterpret" :"AI Interpret",
-      "tryExampleData" :"Example Data"
+    "pages": {
+      "aiInterpret": "AI Interpret",
+      "tryExampleData": "Example Data"
     },
-    "label" : {
-      "aiInterpret" :"แปลและสรุปผลสุขภาพ",
-      "exampleData" :"Example Data"
+    "label": {
+      "aiInterpret": "แปลและสรุปผลสุขภาพ",
+      "exampleData": "Example Data"
     },
     "field": {
-      "gender" :"Gender",
-      "age":"Age",
-      "modelVersion" :"Model Version",
-      "yearsOld" :"years old"
+      "gender": "Gender",
+      "age": "Age",
+      "modelVersion": "Model Version",
+      "yearsOld": "years old"
     },
-    "message" : {
-      "noExampleData" : "No example data."
+    "message": {
+      "noExampleData": "No example data."
     },
-    "text" : {
-      "male" :"Male",
-      "female" : "Female",
-      "other" :"Other"
+    "text": {
+      "male": "Male",
+      "female": "Female",
+      "other": "Other"
+    },
+    "AiInterpretResult": {
+      "modalVersion": "Model Version",
+      "example": "Example data {num}",
+      "gender": {
+        "male": "Male",
+        "female": "Female"
+      },
+      "age": "Age {age}",
+      "title": "แปลและสรุปข้อมูลได้ดังนี้",
+      "button": {
+        "back": "Back to menu",
+        "edit": "Edit",
+        "copy": "Copy"
+      }
     }
   }
 }

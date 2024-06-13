@@ -6,6 +6,7 @@ export const webPaths = {
   setNewPassword: '/set-new-password',
   termsAndCons: '/terms-and-cons',
   aiInterpret: {
+    aiInterpretResult: '/ai-interpret/try-example-data/',
     tryExampleData: '/ai-interpret/try-example-data',
     tryInputData: '/ai-interpret/try-input-data',
     tryHospitalData: '/ai-interpret/try-hospital-data',
