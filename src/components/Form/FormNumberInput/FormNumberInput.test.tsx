@@ -97,14 +97,4 @@ describe("FormNumberInput", () => {
     await userEvent.click(screen.getByTestId("submit-button"));
     expect(screen.queryByTestId(error.message.max)).toBeNull();
   });
-  // it("no optional props", async () => {
-  //   props = { name: "test", label: "Test" };
-  //   console.log(props);
-  //   await renderComponent(props);
-  //   const textField = screen.getByTestId("input-number-test");
-
-  //   await userEvent.type(textField, "0");
-  //   await userEvent.click(screen.getByTestId("submit-button"));
-  //   expect(screen.queryByTestId("error-field-test")).toBeNull();
-  // });
 });
