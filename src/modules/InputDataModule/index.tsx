@@ -14,7 +14,7 @@ import { useMemo, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { ButtonInterpretDataStyled } from "../ExampleDataList/styled";
 import { ContentContainer } from "../HomePageModule/styled";
-import { inputDataFieldYupSchema } from "./InputDataShcema";
+import { inputDataFieldYupSchema } from "./InputDataSchema";
 import {
   CommonButton,
   ContentContainerWrapper,
@@ -27,8 +27,9 @@ import {
 type FormValues = Record<string, unknown>;
 const InputDataModule = () => {
   // const { interpretDataFields } = useInterpretInputData();
+  const tCommon = useTranslations("Common");
   const inputConfig = useInterpretInputDataConfig();
-  const validateSchema = inputDataFieldYupSchema(inputConfig);
+  const validateSchema = inputDataFieldYupSchema(inputConfig, tCommon as (key: string) => string);
   const tAi = useTranslations("AiInterpret");
   const router = useRouter();
   const [modelVersion] = useState<string | null>(null);

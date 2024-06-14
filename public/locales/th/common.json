@@ -47,7 +47,11 @@
       "invalidEmail": "อีเมลไม่ถูกต้อง",
       "invalidPassword": "รหัสผ่านต้องมีอย่างน้อย 8 หลัก",
       "invalidPasswordFormat": "รหัสผ่านไม่ตรงเงื่อนไข",
-      "passwordIsNotMatch": "รหัสผ่านไม่ตรงกัน"
+      "passwordIsNotMatch": "รหัสผ่านไม่ตรงกัน",
+      "valueMustBeInRange": "ข้อมูลต้องอยู่ในช่วง",
+      "only": "เท่านั้น",
+      "selectRequire": "จำเป็นต้องเลือกข้อมูล",
+      "characters": "ตัวอักษร"
     },
     "text": {
       "noOptions": "ไม่พบข้อมูล",

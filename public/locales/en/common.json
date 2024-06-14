@@ -21,7 +21,11 @@
       "invalidEmail": "Invalid email.",
       "invalidPassword": "Password must be at least 8 digits.",
       "invalidPasswordFormat": "รหัสผ่านไม่ตรงเงื่อนไข",
-      "passwordIsNotMatch": "รหัสผ่านไม่ตรงกัน"
+      "passwordIsNotMatch": "รหัสผ่านไม่ตรงกัน",
+      "valueMustBeInRange": "Value must be in range",
+      "only": "only.",
+      "selectRequire": "This field is required.",
+      "characters": "characters"
     },
     "text": {
       "noOptions": "ไม่พบข้อมูล",
