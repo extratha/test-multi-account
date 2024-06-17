@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Autocomplete should render correctly 1`] = `
+exports[`FormAutocomplete should render correctly 1`] = `
 <DocumentFragment>
   .emotion-0 {
   min-width: 200px;
