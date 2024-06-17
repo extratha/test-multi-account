@@ -1,9 +1,7 @@
 import { KeyboardArrowDown } from "@mui/icons-material";
-import { TextField, Typography, useTheme } from "@mui/material";
+import { Autocomplete as MuiAutocomplete, styled, TextField, Typography } from "@mui/material";
 import { useTranslations } from "next-intl";
-import React from "react";
 import { useController, useFormContext } from "react-hook-form";
-import { AutocompleteCustomStyle } from "./styled";
 
 export interface Option {
   label: string;
@@ -18,21 +16,28 @@ export interface FormAutocompleteProps {
   placeholder?: string;
 }
 
-const FormAutocomplete: React.FC<FormAutocompleteProps> = ({ name, options, required = false, placeholder }) => {
+interface AutocompleteCustomStyleProps {
+  onChange: (event: React.ChangeEvent<"object">, data: Option | null) => void;
+}
+
+export const Autocomplete = styled(MuiAutocomplete)<AutocompleteCustomStyleProps>(() => ({
+  minWidth: "200px",
+}));
+
+const FormAutocomplete = ({ name, options, required = false, placeholder }: FormAutocompleteProps) => {
+  const t = useTranslations("Common");
+
   const { control } = useFormContext();
   const { field, fieldState } = useController({ name, control });
   const error = fieldState.error?.message || "";
 
-  const t = useTranslations("Common");
-
-  const theme = useTheme();
   return (
     <>
-      <AutocompleteCustomStyle
+      <Autocomplete
         {...field}
         data-testid={`autocomplete-${name}`}
         options={options || []}
-        getOptionLabel={(option: any) => option?.label || ""}
+        // TODO : Refactor
         isOptionEqualToValue={(option: any, value: any) => option.id === value.id}
         noOptionsText={t("text.noOptions")}
         renderInput={(params) => (
@@ -44,10 +49,10 @@ const FormAutocomplete: React.FC<FormAutocompleteProps> = ({ name, options, requ
           />
         )}
         onChange={(_, data: any) => field.onChange(data?.value || null)}
-        popupIcon={<KeyboardArrowDown data-testid="drop-icon"></KeyboardArrowDown>}
+        popupIcon={<KeyboardArrowDown data-testid="drop-icon" />}
       />
       {error && (
-        <Typography data-testid={`error-field-${name}`} variant="bodyLarge" color={theme.palette.error.light}>
+        <Typography data-testid={`error-field-${name}`} variant="bodyLarge" color="error.light">
           {error}
         </Typography>
       )}

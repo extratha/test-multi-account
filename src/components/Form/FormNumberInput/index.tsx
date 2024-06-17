@@ -1,6 +1,5 @@
-import { TextField, Typography, useTheme } from "@mui/material";
+import { TextField, Typography } from "@mui/material";
 import { useTranslations } from "next-intl";
-import React from "react";
 import { useController, useFormContext } from "react-hook-form";
 
 export interface FormNumberInputProps {
@@ -12,14 +11,13 @@ export interface FormNumberInputProps {
   max?: number;
 }
 
-const FormNumberInput: React.FC<FormNumberInputProps> = ({ name, decimalScale, min, max }) => {
+const FormNumberInput = ({ name, decimalScale, min, max }: FormNumberInputProps) => {
   const { control } = useFormContext();
   const { field, fieldState } = useController({ name, control });
   const error = fieldState.error?.message || "";
 
   const t = useTranslations("Common");
 
-  const theme = useTheme();
   return (
     <>
       <TextField
@@ -38,7 +36,7 @@ const FormNumberInput: React.FC<FormNumberInputProps> = ({ name, decimalScale, m
         }}
       />
       {error && (
-        <Typography data-testid={`error-field-${name}`} variant="bodyLarge" color={theme.palette.error.light}>
+        <Typography data-testid={`error-field-${name}`} variant="bodyLarge" color="error.light">
           {error}
         </Typography>
       )}

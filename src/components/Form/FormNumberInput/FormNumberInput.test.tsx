@@ -2,12 +2,13 @@ import MockForm, { MockFormProps } from "@/__tests__/__mocks__/MockForm";
 import * as yup from "yup";
 import FormNumberInput, { FormNumberInputProps } from ".";
 import { flushPromise, render, screen, userEvent } from "../../../__tests__/testUtils";
+
+// TODO: Refactor
 describe("FormNumberInput", () => {
   const props: FormNumberInputProps = {
     name: "test",
     label: "Test",
   };
-  let form: MockFormProps;
   const error = {
     message: {
       require: "this field is require",
@@ -16,8 +17,10 @@ describe("FormNumberInput", () => {
       invalidType: "invalid type",
     },
   };
+
+  let form: MockFormProps;
+
   let fieldSchema = yup.number();
-  beforeEach(() => {});
   const renderComponent = async (props: FormNumberInputProps) => {
     fieldSchema = fieldSchema.typeError(error.message.invalidType);
     if (props.required) {
