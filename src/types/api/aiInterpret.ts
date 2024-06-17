@@ -1,9 +1,10 @@
-import { HttpStatusCode } from 'axios';
-import { ExampleData } from '../aiInterpret';
-export type ExampleDataResponse = {
+import { HttpStatusCode } from "axios";
+import { ExampleDataResult } from "../aiInterpret";
+
+export interface ExampleDataResponse {
   meta: {
     code: HttpStatusCode;
     message: string;
   };
-  data: ExampleData[];
-};
+  data: ExampleDataResult[];
+}
