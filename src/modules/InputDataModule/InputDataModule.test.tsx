@@ -10,7 +10,7 @@ describe("InputDataModule", () => {
   it("should render correctly", async () => {
     // eslint-disable-next-line testing-library/no-unnecessary-act
     await act(async () => {
-      const { asFragment } = render(<InputDataModule />);
+      const { asFragment } = await render(<InputDataModule />);
       expect(asFragment()).toMatchSnapshot();
     });
   });
