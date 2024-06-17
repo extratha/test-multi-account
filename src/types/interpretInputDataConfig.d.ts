@@ -1,9 +1,9 @@
-export type normalRange = {
+export interface normalRange {
   value: string;
   description: string;
-};
+}
 
-export type Field = {
+export interface Field {
   key: string;
   value: string;
   unit: string;
@@ -14,11 +14,11 @@ export type Field = {
   dropdownValue?: string[];
   range: normalRange[];
   placeholder?: string;
-};
+}
 
-export type Group = {
+export interface Group {
   groupName: string;
   data: Field[];
-};
+}
 
 export type FieldConfig = Group[];
