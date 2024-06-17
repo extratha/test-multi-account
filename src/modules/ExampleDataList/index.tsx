@@ -2,14 +2,13 @@
 
 import { CircularProgress, Divider, List, ListItem, Stack, Typography, useTheme } from "@mui/material";
 import { useTranslations } from "next-intl";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import { IconAiInterpret, IconPen, IconSparkle } from "@/assets";
 import { NEUTRAL } from "@/config/config-mui/theme/colors";
 import { webPaths } from "@/constant/webPaths";
 import { useGetLabExampleList } from "@/hooks/useApi";
 import { ExampleDataResult } from "@/types/aiInterpret";
-import { useCallback } from "react";
 import { ContentContainer, ContentContainerWrapper, TypographyPageHeadline } from "../HomePageModule/styled";
 import { ButtonEditDataStyled, ButtonInterpretDataStyled, TagValueStyle } from "./styled";
 
@@ -17,32 +16,24 @@ const EmployeeDataList = () => {
   const router = useRouter();
   const tAi = useTranslations("AiInterpret");
   const theme = useTheme();
-  const searchParams = useSearchParams();
 
   const { data, isLoading, error } = useGetLabExampleList();
-
   const exampleData = data?.data || [];
 
   const handleClickAiInterpret = (id: string) => {
     router.push(`${webPaths.aiInterpret.tryExampleData}/${id}`);
   };
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams.toString());
-      params.set(name, value);
-      return params.toString();
-    },
-    [searchParams]
-  );
+
   const handleClickEditData = (exampleData: ExampleDataResult) => {
     const { id } = exampleData;
     try {
       if (!id) throw "no data id.";
-      router.push(`${webPaths.aiInterpret.tryInputData}?${createQueryString("id", id)}`);
+      router.push(`${webPaths.aiInterpret.tryInputData}?id=${id}`);
     } catch (error) {
       console.log(error);
     }
   };
+
   return (
     <ContentContainer>
       <ContentContainerWrapper>
