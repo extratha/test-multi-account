@@ -3,7 +3,7 @@ import * as yup from "yup";
 import FormNumberInput, { FormNumberInputProps } from ".";
 import { flushPromise, render, screen, userEvent } from "../../../__tests__/testUtils";
 describe("FormNumberInput", () => {
-  let props: FormNumberInputProps = {
+  const props: FormNumberInputProps = {
     name: "test",
     label: "Test",
   };

@@ -18,7 +18,7 @@ export interface FormAutocompleteProps {
   placeholder?: string;
 }
 
-const FormAutocomplete: React.FC<FormAutocompleteProps> = ({ name, label, options, required = false, placeholder }) => {
+const FormAutocomplete: React.FC<FormAutocompleteProps> = ({ name, options, required = false, placeholder }) => {
   const { control } = useFormContext();
   const { field, fieldState } = useController({ name, control });
   const error = fieldState.error?.message || "";

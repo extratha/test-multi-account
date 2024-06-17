@@ -12,7 +12,7 @@ export interface FormNumberInputProps {
   max?: number;
 }
 
-const FormNumberInput: React.FC<FormNumberInputProps> = ({ name, label, required = false, decimalScale, min, max }) => {
+const FormNumberInput: React.FC<FormNumberInputProps> = ({ name, decimalScale, min, max }) => {
   const { control } = useFormContext();
   const { field, fieldState } = useController({ name, control });
   const error = fieldState.error?.message || "";

@@ -3,7 +3,7 @@ import * as yup from "yup";
 import FormAutocomplete, { FormAutocompleteProps } from ".";
 import { fireEvent, flushPromise, render, screen, userEvent } from "../../../__tests__/testUtils";
 describe("Autocomplete", () => {
-  let props: FormAutocompleteProps = {
+  const props: FormAutocompleteProps = {
     name: "test",
     label: "Test",
     options: [
@@ -56,7 +56,7 @@ describe("Autocomplete", () => {
     await renderComponent(props);
     expect(screen.getByTestId("autocomplete-test")).toBeInTheDocument();
   });
-  it("should set value when select. ", async () => {
+  it("should set value when select.", async () => {
     await renderComponent(props);
     const autocomplete = screen.getByRole("combobox");
     fireEvent.click(autocomplete);

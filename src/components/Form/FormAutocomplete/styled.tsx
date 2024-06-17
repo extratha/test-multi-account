@@ -4,7 +4,7 @@ import { Option } from ".";
 
 interface AutocompleteCustomStyleProps {
   getOptionLabel: (option: Option) => string;
-  onChange: (event: React.ChangeEvent<{}>, data: Option | null) => void;
+  onChange: (event: React.ChangeEvent<"object">, data: Option | null) => void;
 }
 
 export const AutocompleteCustomStyle = styled(Autocomplete)<AutocompleteCustomStyleProps>(() => ({
