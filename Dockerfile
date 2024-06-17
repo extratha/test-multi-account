@@ -41,8 +41,4 @@ COPY --from=builder --chown=nextjs:nodejs /app/entrypoint.sh ./entrypoint.sh
 RUN chmod +x ./entrypoint.sh
 
 ENTRYPOINT ["./entrypoint.sh"]
-
-ENV TZ Asia/Bangkok
-EXPOSE 3000
-
-CMD ["npm", "run", "start"]
+CMD ["node", "server.js"]
