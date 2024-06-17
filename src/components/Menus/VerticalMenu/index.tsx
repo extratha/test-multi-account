@@ -35,7 +35,13 @@ const VerticalMenu = () => {
       setIsMenuExpand([...isMenuExpand, menuIndex]);
     }
   };
-  const excludePath = [webPaths.login, webPaths.forgetPassword, webPaths.setNewPassword, webPaths.termsAndCons];
+  const excludePath = [
+    webPaths.login,
+    webPaths.forgetPassword,
+    webPaths.setNewPassword,
+    webPaths.termsAndCons,
+    webPaths.aiInterpret.tryInputData,
+  ];
 
   useEffect(() => {
     const currentPath = pathname.split(`/${locale}`)[1];

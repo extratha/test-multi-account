@@ -2,11 +2,17 @@
   "AiInterpret": {
     "button": {
       "editData": "Edit Data",
-      "interpretData": "Interpret Data"
+      "interpretData": "Interpret Data",
+      "backToMain": "Back",
+      "useExampleData": "Use Example Data"
     },
     "pages": {
       "aiInterpret": "AI Interpret",
-      "tryExampleData": "Example Data"
+      "tryExampleData": "Example Data",
+      "tryInputData": "Input Data"
+    },
+    "title": {
+      "tryInputData": "Entering data yourself."
     },
     "label": {
       "aiInterpret": "แปลและสรุปผลสุขภาพ",
@@ -24,7 +30,9 @@
     "text": {
       "male": "Male",
       "female": "Female",
-      "other": "Other"
+      "other": "Other",
+      "myCredit": "My credit",
+      "unlimited": "Unlimited"
     },
     "AiInterpretResult": {
       "modalVersion": "Model Version",
@@ -39,6 +47,46 @@
         "back": "Back to menu",
         "edit": "Edit",
         "copy": "Copy"
+      }
+    },
+    "en": {
+      "groupName": {
+        "generalCheckUp": "General Check-up"
+      },
+      "placeholder": {
+        "gender": "Select Gender"
+      },
+      "field": {
+        "age": "Age",
+        "gender": "Gender",
+        "body_weight": "Body Weight",
+        "body_height": "Body Height",
+        "waist_line": "Waistline",
+        "blood_pressure_systolic": "Blood Pressure Systolic",
+        "blood_pressure_diastolic": "Blood Pressure Diastolic",
+        "pulse": "Pulse",
+        "respiratory_rate": "Respiratory Rate",
+        "temperature": "Temperature"
+      }
+    },
+    "th": {
+      "groupName": {
+        "generalCheckUp": "การตรวจสุขภาพทั่วไป"
+      },
+      "placeholder": {
+        "gender": "เลือกเพศ"
+      },
+      "field": {
+        "age": "อายุ",
+        "gender": "เพศ",
+        "body_weight": "น้ำหนัก",
+        "body_height": "ส่วนสูง",
+        "waist_line": "เส้นรอบเอว",
+        "blood_pressure_systolic": "ความดันโลหิตขณะบีบตัว (ตัวบน)",
+        "blood_pressure_diastolic": "ความดันโลหิตขณะคลายตัว (ตัวล่าง)",
+        "pulse": "อัตราการเต้นหัวใจ",
+        "respiratory_rate": "อัตราการหายใจ",
+        "temperature": "อุณหภูมิร่างกาย"
       }
     }
   }

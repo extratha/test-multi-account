@@ -16,12 +16,22 @@ const EmployeeDataList = () => {
   const router = useRouter();
   const tAi = useTranslations("AiInterpret");
   const theme = useTheme();
-  const { data, isLoading, error } = useGetLabExampleList();
 
+  const { data, isLoading, error } = useGetLabExampleList();
   const exampleData = data?.data || [];
 
   const handleClickAiInterpret = (id: string) => {
     router.push(`${webPaths.aiInterpret.tryExampleData}/${id}`);
+  };
+
+  const handleClickEditData = (exampleData: ExampleDataResult) => {
+    const { id } = exampleData;
+    try {
+      if (!id) throw "no data id.";
+      router.push(`${webPaths.aiInterpret.tryInputData}?id=${id}`);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -119,7 +129,7 @@ const EmployeeDataList = () => {
                     </Stack>
                     <Stack minWidth={"48%"} margin={"0 0 0 auto"}>
                       <Stack direction="row" justifyContent={"end"} spacing={1}>
-                        <ButtonEditDataStyled>
+                        <ButtonEditDataStyled onClick={() => handleClickEditData(item)}>
                           <IconPen />
                           <Typography variant="labelLargeSemiBold" color={theme.palette.grey[700]} ml={1}>
                             {tAi("button.editData")}

@@ -1,44 +1,93 @@
 {
   "AiInterpret": {
-    "button" :{ 
-      "editData" :"ปรับแต่งข้อมูล",
-      "interpretData":"แปลและสรุปข้อมูล"
+    "button": {
+      "editData": "ปรับแต่งข้อมูล",
+      "interpretData": "แปลและสรุปข้อมูล",
+      "backToMain": "กลับหน้าหลัก",
+      "useExampleData": "ใช้ข้อมูลตัวอย่าง"
     },
     "pages": {
-      "aiInterpret" :"AI Interpret",
-      "tryExampleData": "ทดลองใช้ข้อมูลตัวอย่าง"
+      "aiInterpret": "AI Interpret",
+      "tryExampleData": "ทดลองใช้ข้อมูลตัวอย่าง",
+      "tryInputData": "ทดลองใส่ข้อมูลเอง"
     },
-    "label" : {
-      "aiInterpret" :"แปลและสรุปผลสุขภาพ",
-      "exampleData" :"ตัวอย่างข้อมูล"
+    "title": {
+      "tryInputData": "ทดลองใส่ข้อมูลเอง"
+    },
+    "label": {
+      "aiInterpret": "แปลและสรุปผลสุขภาพ",
+      "exampleData": "ตัวอย่างข้อมูล"
     },
     "field": {
-      "gender" :"เพศ",
-      "age":"อายุ",
-      "modelVersion" :"Model Version",
-      "yearsOld" :"ปี"
+      "gender": "เพศ",
+      "age": "อายุ",
+      "modelVersion": "Model Version",
+      "yearsOld": "ปี"
     },
-    "message" : {
-      "noExampleData" : "ไม่พบตัวอย่างข้อมูล"
+    "message": {
+      "noExampleData": "ไม่พบตัวอย่างข้อมูล"
     },
-    "text" : {
-      "male" :"ชาย",
-      "female" : "หญิง",
-      "other" :"อื่น ๆ"
+    "text": {
+      "male": "ชาย",
+      "female": "หญิง",
+      "other": "อื่น ๆ",
+      "myCredit": "เครดิตของฉัน",
+      "unlimited": "ใช้ได้ไม่จำกัด"
     },
-    "AiInterpretResult":{
-      "modalVersion":"Model Version",
-      "example":"ตัวอย่างข้อมูล {num}",
-      "gender":{
-        "male" :"เพศ ชาย",
-        "female" : "เพศ หญิง"
+    "AiInterpretResult": {
+      "modalVersion": "Model Version",
+      "example": "ตัวอย่างข้อมูล {num}",
+      "gender": {
+        "male": "เพศ ชาย",
+        "female": "เพศ หญิง"
       },
-      "age":"อายุ {age}",
-      "title":"แปลและสรุปข้อมูลได้ดังนี้",
-      "button":{
-        "back":"กลับหน้าหลัก",
-        "edit":"ปรับแต่งข้อมูล",
-        "copy":"คัดลอกข้อความ"
+      "age": "อายุ {age}",
+      "title": "แปลและสรุปข้อมูลได้ดังนี้",
+      "button": {
+        "back": "กลับหน้าหลัก",
+        "edit": "ปรับแต่งข้อมูล",
+        "copy": "คัดลอกข้อความ"
+      }
+    },
+
+    "en": {
+      "groupName": {
+        "generalCheckUp": "General Check-up"
+      },
+      "placeholder": {
+        "gender": "Select Gender"
+      },
+      "field": {
+        "age": "Age",
+        "gender": "Gender",
+        "body_weight": "Body Weight",
+        "body_height": "Body Height",
+        "waist_line": "Waistline",
+        "blood_pressure_systolic": "Blood Pressure Systolic",
+        "blood_pressure_diastolic": "Blood Pressure Diastolic",
+        "pulse": "Pulse",
+        "respiratory_rate": "Respiratory Rate",
+        "temperature": "Temperature"
+      }
+    },
+    "th": {
+      "groupName": {
+        "generalCheckUp": "การตรวจสุขภาพทั่วไป"
+      },
+      "placeholder": {
+        "gender": "เลือกเพศ"
+      },
+      "field": {
+        "age": "อายุ",
+        "gender": "เพศ",
+        "body_weight": "น้ำหนัก",
+        "body_height": "ส่วนสูง",
+        "waist_line": "เส้นรอบเอว",
+        "blood_pressure_systolic": "ความดันโลหิตขณะบีบตัว (ตัวบน)",
+        "blood_pressure_diastolic": "ความดันโลหิตขณะคลายตัว (ตัวล่าง)",
+        "pulse": "อัตราการเต้นหัวใจ",
+        "respiratory_rate": "อัตราการหายใจ",
+        "temperature": "อุณหภูมิร่างกาย"
       }
     }
   }
