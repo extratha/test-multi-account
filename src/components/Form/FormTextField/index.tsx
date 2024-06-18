@@ -3,16 +3,15 @@ import { useTranslations } from "next-intl";
 import { useController, useFormContext } from "react-hook-form";
 import { FieldErrorMessage } from "../FieldErrorMessage";
 
-export interface FormNumberInputProps {
+export interface FormTextFieldProps {
   name: string;
   label: string;
+  placeholder?: string;
   required?: boolean;
-  decimalScale?: number;
-  min?: number;
-  max?: number;
+  maxLength?: number;
 }
 
-const FormNumberInput = ({ name, decimalScale, min, max }: FormNumberInputProps) => {
+const FormTextField = ({ name, label, required, maxLength }: FormTextFieldProps) => {
   const { control } = useFormContext();
   const { field, fieldState } = useController({ name, control });
   const error = fieldState.error?.message || "";
@@ -24,20 +23,18 @@ const FormNumberInput = ({ name, decimalScale, min, max }: FormNumberInputProps)
       <TextField
         {...field}
         value={field.value}
+        required={required}
         fullWidth
         error={!!error}
         placeholder={t("placeholder.enterValue")}
         InputProps={{
           inputProps: {
-            min,
-            max,
-            step: decimalScale ? 1 / Math.pow(10, decimalScale) : 1,
-            "data-testid": `input-number-${name}`,
+            "data-testid": `input-text-${name}`,
           },
         }}
       />
       {error && (
-        <FieldErrorMessage color="error.light" data-testid={`error-field-${name}`} variant="bodyLarge">
+        <FieldErrorMessage data-testid={`error-field-${name}`} variant="bodyLarge">
           {error}
         </FieldErrorMessage>
       )}
@@ -45,4 +42,4 @@ const FormNumberInput = ({ name, decimalScale, min, max }: FormNumberInputProps)
   );
 };
 
-export default FormNumberInput;
+export default FormTextField;

@@ -1,7 +1,8 @@
 import { KeyboardArrowDown } from "@mui/icons-material";
-import { Autocomplete as MuiAutocomplete, styled, TextField, Typography } from "@mui/material";
+import { Autocomplete as MuiAutocomplete, styled, TextField } from "@mui/material";
 import { useTranslations } from "next-intl";
 import { useController, useFormContext } from "react-hook-form";
+import { FieldErrorMessage } from "../FieldErrorMessage";
 
 export interface Option {
   label: string;
@@ -52,9 +53,9 @@ const FormAutocomplete = ({ name, options, required = false, placeholder }: Form
         popupIcon={<KeyboardArrowDown data-testid="drop-icon" />}
       />
       {error && (
-        <Typography data-testid={`error-field-${name}`} variant="bodyLarge" color="error.light">
+        <FieldErrorMessage data-testid={`error-field-${name}`} variant="bodyLarge">
           {error}
-        </Typography>
+        </FieldErrorMessage>
       )}
     </>
   );
