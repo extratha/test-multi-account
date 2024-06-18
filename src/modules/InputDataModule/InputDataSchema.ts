@@ -1,16 +1,19 @@
-import { FieldConfig } from "@/types/interpretInputDataConfig";
 import { useTranslations } from "next-intl";
 import { useMemo } from "react";
 import * as Yup from "yup";
 
-export const useInputDataFieldYupSchema = (config: FieldConfig) => {
+import { InputGroupConfig } from "@/types/interpretInputDataConfig";
+
+export const useInputDataFieldYupSchema = (config: InputGroupConfig[]) => {
   const t = useTranslations("Common");
 
   const fieldConfig = useMemo(() => {
     const shape: Record<string, Yup.AnySchema> = {};
+
     config.forEach((group) => {
       group.data.forEach((field) => {
-        let schema: Yup.AnySchema = Yup.string();
+        let schema: Yup.AnySchema;
+
         const error = {
           message: {
             require: t("validation.require"),
@@ -20,6 +23,7 @@ export const useInputDataFieldYupSchema = (config: FieldConfig) => {
             length: `${t("validation.valueMustNotExceed")} ${field.maxLength} ${t("validation.characters")} `,
           },
         };
+
         switch (field.fieldType) {
           case "Number":
             schema = Yup.number().typeError(error.message.invalidInput);

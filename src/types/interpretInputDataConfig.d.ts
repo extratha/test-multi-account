@@ -3,7 +3,7 @@ export interface normalRange {
   description: string;
 }
 
-export interface Field {
+export interface InputDataConfig {
   key: string;
   value: string;
   unit: string;
@@ -17,9 +17,7 @@ export interface Field {
   placeholder?: string;
 }
 
-export interface Group {
+export interface InputGroupConfig {
   groupName: string;
-  data: Field[];
+  data: InputDataConfig[];
 }
-
-export type FieldConfig = Group[];

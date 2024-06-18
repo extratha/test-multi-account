@@ -52,7 +52,17 @@
 
     "en": {
       "groupName": {
-        "generalCheckUp": "General Check-up"
+        "generalCheckUp": "General Check-up",
+        "hematologyBloodGroup": "Hematology (Blood Group)",
+        "hematologyCBC": "Hematology (CBC)",
+        "lipidProfile": "Lipid Profile",
+        "bloodChemistry": "Blood Chemistry",
+        "renalFunctionTest": "Renal Function Test",
+        "liverFunctionTest": "Liver Function Test",
+        "urineAnalysis": "Urine Analysis",
+        "stoolExamination": "Stool Examination",
+        "papSmear": "Pap Smear",
+        "tumorMarker": "Tumor marker"
       },
       "placeholder": {
         "gender": "Select Gender"
@@ -126,7 +136,17 @@
     },
     "th": {
       "groupName": {
-        "generalCheckUp": "การตรวจสุขภาพทั่วไป"
+        "generalCheckUp": "การตรวจสุขภาพทั่วไป",
+        "hematologyBloodGroup": "Hematology (Blood Group)",
+        "hematologyCBC": "Hematology (CBC)",
+        "lipidProfile": "Lipid Profile",
+        "bloodChemistry": "Blood Chemistry",
+        "renalFunctionTest": "Renal Function Test",
+        "liverFunctionTest": "Liver Function Test",
+        "urineAnalysis": "Urine Analysis",
+        "stoolExamination": "Stool Examination",
+        "papSmear": "Pap Smear",
+        "tumorMarker": "Tumor marker"
       },
       "placeholder": {
         "gender": "เลือกเพศ"

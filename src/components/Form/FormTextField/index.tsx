@@ -1,22 +1,17 @@
 import { TextField } from "@mui/material";
-import { useTranslations } from "next-intl";
 import { useController, useFormContext } from "react-hook-form";
 import { FieldErrorMessage } from "../FieldErrorMessage";
 
 export interface FormTextFieldProps {
   name: string;
-  label: string;
   placeholder?: string;
   required?: boolean;
-  maxLength?: number;
 }
 
-const FormTextField = ({ name, required }: FormTextFieldProps) => {
+const FormTextField = ({ name, placeholder, required }: FormTextFieldProps) => {
   const { control } = useFormContext();
   const { field, fieldState } = useController({ name, control });
   const error = fieldState.error?.message || "";
-
-  const t = useTranslations("Common");
 
   return (
     <>
@@ -26,7 +21,7 @@ const FormTextField = ({ name, required }: FormTextFieldProps) => {
         required={required}
         fullWidth
         error={!!error}
-        placeholder={t("placeholder.enterValue")}
+        placeholder={placeholder}
         InputProps={{
           inputProps: {
             "data-testid": `input-text-${name}`,

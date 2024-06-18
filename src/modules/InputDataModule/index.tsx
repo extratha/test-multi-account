@@ -10,8 +10,9 @@ import { FormProvider, useForm } from "react-hook-form";
 import { IconArrowLeft, IconImportExampleData, IconSparkle, IconSparkleDisabled } from "@/assets";
 import { theme } from "@/config/config-mui";
 import { CUSTOM_COLORS, NEUTRAL } from "@/config/config-mui/theme/colors";
-import useInterpretInputDataConfig from "@/hooks/useInterpretInputDataConfig";
-import { Field, FieldConfig, Group } from "@/types/interpretInputDataConfig";
+import { remoteConfigKey } from "@/constant/firebase";
+import { InputDataConfig, InputGroupConfig } from "@/types/interpretInputDataConfig";
+import { remoteConfig } from "@/utils/firebase";
 import { ButtonInterpretDataStyled } from "../ExampleDataList/styled";
 import { ContentContainer } from "../HomePageModule/styled";
 import InputDataFieldType from "./InputDataFieldType";
@@ -63,12 +64,12 @@ const CircularLoading = styled(CircularProgress)({
 const InputDataModule = () => {
   const router = useRouter();
   const tAi = useTranslations("AiInterpret");
-  const inputConfig = useInterpretInputDataConfig();
-  const validateSchema = useInputDataFieldYupSchema(inputConfig);
 
   const [modelVersion] = useState<string | null>(null);
-  const [fieldConfig, setFieldConfig] = useState<null | FieldConfig>(null);
-  const [isDisableInterpretButton, setIsDisableInterpretButton] = useState(true);
+  const [inputGroupConfigs, setInputGroupConfigs] = useState<InputGroupConfig[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const validateSchema = useInputDataFieldYupSchema(inputGroupConfigs);
 
   const methods = useForm<FormValues>({
     resolver: yupResolver(validateSchema),
@@ -76,17 +77,8 @@ const InputDataModule = () => {
     mode: "onChange",
   });
 
-  useEffect(() => {
-    if (inputConfig) {
-      setFieldConfig(inputConfig);
-    }
-  }, [inputConfig]);
-
-  useEffect(() => {
-    setIsDisableInterpretButton(!formState.isValid);
-  });
-
   const { handleSubmit, formState } = methods;
+  const isDisableInterpretButton = isLoading || !formState.isValid;
 
   const handleClickBackButton = () => {
     router.back();
@@ -95,6 +87,18 @@ const InputDataModule = () => {
   const onSubmit = (data: FormValues) => {
     console.log(data);
   };
+
+  const fetchConfigData = async () => {
+    setIsLoading(true);
+    const remoteConfigData = await remoteConfig.getString(remoteConfigKey.LAB_INTERPRET_REQUIRE_FIELDS);
+
+    setInputGroupConfigs(JSON.parse(remoteConfigData));
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    fetchConfigData();
+  }, []);
 
   return (
     <ContentContainer>
@@ -113,13 +117,17 @@ const InputDataModule = () => {
             <Typography variant="headlineSmallSemiBold">{tAi("pages.tryInputData")}</Typography>
             <Stack ml="auto">
               <Stack direction="row" spacing={2} justifyContent={"end"}>
-                <CommonButton>
+                <CommonButton data-testid="use-exmple-data-button">
                   <IconImportExampleData />
                   <Typography ml={1} variant="labelLargeSemiBold">
                     {tAi("button.useExampleData")}
                   </Typography>
                 </CommonButton>
-                <ButtonInterpretDataStyled disabled={isDisableInterpretButton} onClick={() => handleSubmit(onSubmit)()}>
+                <ButtonInterpretDataStyled
+                  data-testid="interpret-data-button"
+                  disabled={isDisableInterpretButton}
+                  onClick={() => handleSubmit(onSubmit)()}
+                >
                   {isDisableInterpretButton ? <IconSparkleDisabled /> : <IconSparkle />}
                   <Typography
                     variant="labelLargeSemiBold"
@@ -147,10 +155,14 @@ const InputDataModule = () => {
         </Stack>
 
         <Stack>
-          {fieldConfig !== null ? (
+          {isLoading ? (
+            <Stack width="100%">
+              <CircularLoading />
+            </Stack>
+          ) : (
             <FormProvider {...methods}>
               <form onSubmit={methods.handleSubmit(onSubmit)}>
-                {fieldConfig.map((group: Group, groupIndex: number) => (
+                {inputGroupConfigs.map((group: InputGroupConfig, groupIndex: number) => (
                   <InputDataGroupContainer key={groupIndex}>
                     <InputDataGroupHeader>
                       <Typography variant="titleLargeSemiBold">{tAi(`th.groupName.${group.groupName}`)}</Typography>
@@ -160,7 +172,7 @@ const InputDataModule = () => {
                       >{`(${tAi(`en.groupName.${group.groupName}`)})`}</Typography>
                     </InputDataGroupHeader>
                     <InputDataGroupContent>
-                      {group.data.map((field: Field, fieldIndex: number) => (
+                      {group.data.map((field: InputDataConfig, fieldIndex: number) => (
                         <InputDataFieldType key={fieldIndex} field={field} />
                       ))}
                     </InputDataGroupContent>
@@ -168,10 +180,6 @@ const InputDataModule = () => {
                 ))}
               </form>
             </FormProvider>
-          ) : (
-            <Stack width="100%">
-              <CircularLoading />
-            </Stack>
           )}
         </Stack>
       </ContentContainerWrapper>

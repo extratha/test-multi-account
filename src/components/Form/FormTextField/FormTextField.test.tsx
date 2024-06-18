@@ -1,82 +1,50 @@
 import MockForm, { MockFormProps } from "@/__tests__/__mocks__/MockForm";
 import * as yup from "yup";
 import FormTextField, { FormTextFieldProps } from ".";
-import { flushPromise, render, screen, userEvent } from "../../../__tests__/testUtils";
+import { render, screen, userEvent } from "../../../__tests__/testUtils";
 
-// TODO: Refactor
 describe("FormTextField", () => {
-  const props: FormTextFieldProps = {
-    name: "test",
-    label: "Test",
-  };
-  const error = {
-    message: {
-      require: "this field is require",
-      maxLength: "error max length",
-    },
-  };
-
   let form: MockFormProps;
+  let props: FormTextFieldProps;
 
-  let fieldSchema = yup.string();
-  const renderComponent = async (props: FormTextFieldProps) => {
-    if (props.required) {
-      fieldSchema = fieldSchema.required(error.message.require);
-    }
-    if (props.maxLength) {
-      fieldSchema = fieldSchema.max(Number(props.maxLength), error.message.maxLength);
-    }
+  const errorMessage = "Error Message";
+
+  beforeEach(() => {
+    props = {
+      name: "test",
+      required: true,
+    };
+
     form = {
       initValues: { test: "" },
-      resolver: yup.object({ test: fieldSchema }),
+      resolver: yup.object({ test: yup.string().required(errorMessage) }),
       onSubmit: jest.fn(),
     };
-    const view = render(
+  });
+
+  const renderFormTextField = () => {
+    return render(
       <MockForm {...form}>
         <FormTextField {...props} />
       </MockForm>
     );
-    await flushPromise();
-    return view;
   };
 
-  it("should render correctly", async () => {
-    const { asFragment } = await renderComponent(props);
+  it("should render correctly", () => {
+    const { asFragment } = renderFormTextField();
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it("should display correctly", async () => {
-    await renderComponent(props);
-    expect(screen.getByTestId("input-text-test")).toBeInTheDocument();
-  });
+  it("should show/hide error correctly", async () => {
+    renderFormTextField();
 
-  it("should not show error after submit valid value", async () => {
-    await renderComponent(props);
-    const textField = screen.getByTestId("input-text-test");
-
-    await userEvent.type(textField, "20");
     await userEvent.click(screen.getByTestId("submit-button"));
-    expect(screen.queryByTestId("error-field-test")).toBeNull();
-  });
+    expect(screen.getByTestId("error-field-test")).toHaveTextContent(errorMessage);
 
-  it("should display require error", async () => {
-    props.required = true;
-    await renderComponent(props);
-    const textField = screen.getByTestId("input-text-test");
-
-    await userEvent.type(textField, "1");
-    await userEvent.clear(textField);
+    await userEvent.type(screen.getByTestId("input-text-test"), "Input Text");
     await userEvent.click(screen.getByTestId("submit-button"));
-    expect(screen.getByText(error.message.require)).toBeInTheDocument();
-  });
 
-  it("should display maxLength error", async () => {
-    props.maxLength = 5;
-    await renderComponent(props);
-    const textField = screen.getByTestId("input-text-test");
-
-    await userEvent.type(textField, "123456789");
-    await userEvent.click(screen.getByTestId("submit-button"));
-    expect(screen.getByText(error.message.maxLength)).toBeInTheDocument();
+    expect(screen.getByTestId("input-text-test")).toHaveDisplayValue("Input Text");
+    expect(screen.queryByTestId("error-field-test")).not.toBeInTheDocument();
   });
 });

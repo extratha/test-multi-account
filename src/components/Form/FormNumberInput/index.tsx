@@ -1,23 +1,20 @@
 import { TextField } from "@mui/material";
-import { useTranslations } from "next-intl";
 import { useController, useFormContext } from "react-hook-form";
 import { FieldErrorMessage } from "../FieldErrorMessage";
 
 export interface FormNumberInputProps {
   name: string;
-  label: string;
+  placeholder?: string;
   required?: boolean;
   decimalScale?: number;
   min?: number;
   max?: number;
 }
 
-const FormNumberInput = ({ name, decimalScale, min, max }: FormNumberInputProps) => {
+const FormNumberInput = ({ name, placeholder, decimalScale, min, max }: FormNumberInputProps) => {
   const { control } = useFormContext();
   const { field, fieldState } = useController({ name, control });
   const error = fieldState.error?.message || "";
-
-  const t = useTranslations("Common");
 
   return (
     <>
@@ -26,7 +23,7 @@ const FormNumberInput = ({ name, decimalScale, min, max }: FormNumberInputProps)
         value={field.value}
         fullWidth
         error={!!error}
-        placeholder={t("placeholder.enterValue")}
+        placeholder={placeholder}
         InputProps={{
           inputProps: {
             min,
