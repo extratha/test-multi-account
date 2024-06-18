@@ -67,7 +67,7 @@ const InputDataModule = () => {
   const validateSchema = useInputDataFieldYupSchema(inputConfig);
 
   const [modelVersion] = useState<string | null>(null);
-  const [configState, setConfigState] = useState<null | FieldConfig>(null);
+  const [fieldConfig, setFieldConfig] = useState<null | FieldConfig>(null);
   const [isDisableInterpretButton, setIsDisableInterpretButton] = useState(true);
 
   const methods = useForm<FormValues>({
@@ -78,7 +78,7 @@ const InputDataModule = () => {
 
   useEffect(() => {
     if (inputConfig) {
-      setConfigState(inputConfig);
+      setFieldConfig(inputConfig);
     }
   }, [inputConfig]);
 
@@ -147,10 +147,10 @@ const InputDataModule = () => {
         </Stack>
 
         <Stack>
-          {configState !== null ? (
+          {fieldConfig !== null ? (
             <FormProvider {...methods}>
               <form onSubmit={methods.handleSubmit(onSubmit)}>
-                {configState.map((group: Group, groupIndex: number) => (
+                {fieldConfig.map((group: Group, groupIndex: number) => (
                   <InputDataGroupContainer key={groupIndex}>
                     <InputDataGroupHeader>
                       <Typography variant="titleLargeSemiBold">{tAi(`th.groupName.${group.groupName}`)}</Typography>

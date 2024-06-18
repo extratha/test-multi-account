@@ -1,18 +1,32 @@
 import "firebase/remote-config";
 import { useRouter } from "next/navigation";
 import InputDataModule from ".";
-import { act, render, screen, userEvent } from "../../__tests__/testUtils";
+import { flushPromise, render, screen, userEvent } from "../../__tests__/testUtils";
+
 jest.mock("next/navigation", () => ({
   useRouter: jest.fn(),
-  useSearchParams: jest.fn().mockReturnValue({ id: "" }),
 }));
+
 describe("InputDataModule", () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  const renderInputDataModule = async () => {
+    const view = render(<InputDataModule />);
+    await flushPromise();
+    return view;
+  };
+
   it("should render correctly", async () => {
-    // eslint-disable-next-line testing-library/no-unnecessary-act
-    await act(async () => {
-      const { asFragment } = await render(<InputDataModule />);
-      expect(asFragment()).toMatchSnapshot();
-    });
+    const { asFragment } = await renderInputDataModule();
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("should render page title", async () => {
+    await renderInputDataModule();
+    const pageTitle = await screen.findByText(/Interpret Data/i);
+    expect(pageTitle).toBeInTheDocument();
   });
 
   it("call router back when click back", async () => {
@@ -21,16 +35,11 @@ describe("InputDataModule", () => {
     mockUseRouter.mockReturnValue({
       back: mockBack,
     });
-    // eslint-disable-next-line testing-library/no-unnecessary-act
-    await act(async () => {
-      render(<InputDataModule />);
-    });
-    // eslint-disable-next-line testing-library/no-unnecessary-act
-    await act(async () => {
-      const backButton = screen.getByTestId("back-button");
-      await userEvent.click(backButton);
+    await renderInputDataModule();
 
-      expect(mockBack).toHaveBeenCalledTimes(1);
-    });
+    const backButton = await screen.findByTestId("back-button");
+    await userEvent.click(backButton);
+
+    expect(mockBack).toHaveBeenCalledTimes(1);
   });
 });
