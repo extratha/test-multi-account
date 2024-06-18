@@ -3,11 +3,12 @@ import { useTranslations } from "next-intl";
 
 import FormAutocomplete from "@/components/Form/FormAutocomplete";
 import FormNumberInput from "@/components/Form/FormNumberInput";
+import FormTextField from "@/components/Form/FormTextField";
 import { CONFIG_FIELD_TYPES } from "@/constant/constant";
-import { Field } from "@/types/interpretInputDataConfig";
+import { InputDataConfig } from "@/types/interpretInputDataConfig";
 
 interface InputDataFieldTypeProps {
-  field: Field;
+  field: InputDataConfig;
 }
 // TODO: Unit test
 
@@ -22,6 +23,7 @@ const TypoUnit = styled(Typography)(({ theme }) => ({
 }));
 
 const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {
+  const t = useTranslations("Common");
   const tAi = useTranslations("AiInterpret");
 
   const getPlaceholder = () => {
@@ -39,7 +41,7 @@ const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {
     }));
   };
 
-  const displayUnit = (field: Field) => {
+  const displayUnit = (field: InputDataConfig) => {
     if (field.key === "age") return tAi("field.yearsOld");
     return field.unit;
   };
@@ -65,12 +67,15 @@ const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {
                 name={field.key}
                 label={tAi(`th.field.${field.key}`)}
                 options={getDropdownOptions()}
-                required={field.required}
                 placeholder={getPlaceholder()}
+                required={field.required}
               />
             )}
             {field.fieldType === CONFIG_FIELD_TYPES.NUMBER && (
-              <FormNumberInput name={field.key} label={tAi(`th.field.${field.key}`)} required={field.required} />
+              <FormNumberInput name={field.key} placeholder={t("placeholder.enterValue")} required={field.required} />
+            )}
+            {field.fieldType === CONFIG_FIELD_TYPES.STRING && (
+              <FormTextField name={field.key} placeholder={t("placeholder.enterValue")} required={field.required} />
             )}
           </Grid>
           <Grid xs={2}>

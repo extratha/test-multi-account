@@ -4,6 +4,7 @@ export const GENDER = {
 };
 
 export const CONFIG_FIELD_TYPES = {
-  DROPDOWN: "Dropdown",
+  STRING: "String",
   NUMBER: "Number",
+  DROPDOWN: "Dropdown",
 };

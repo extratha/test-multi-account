@@ -3,22 +3,21 @@ export interface normalRange {
   description: string;
 }
 
-export interface Field {
+export interface InputDataConfig {
   key: string;
   value: string;
   unit: string;
   required: boolean;
   fieldType: string;
-  minLength?: string;
   maxLength?: string;
+  minValue: string;
+  maxValue: string;
   dropdownValue?: string[];
   range: normalRange[];
   placeholder?: string;
 }
 
-export interface Group {
+export interface InputGroupConfig {
   groupName: string;
-  data: Field[];
+  data: InputDataConfig[];
 }
-
-export type FieldConfig = Group[];

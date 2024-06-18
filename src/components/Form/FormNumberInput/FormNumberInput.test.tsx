@@ -7,7 +7,6 @@ import { flushPromise, render, screen, userEvent } from "../../../__tests__/test
 describe("FormNumberInput", () => {
   const props: FormNumberInputProps = {
     name: "test",
-    label: "Test",
   };
   const error = {
     message: {

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FormNumberInput should render correctly 1`] = `
+exports[`FormTextField should render correctly 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;
@@ -218,10 +218,10 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-2:focus::-ms-input-p
         <input
           aria-invalid="false"
           class="MuiInputBase-input MuiOutlinedInput-input emotion-2"
-          data-testid="input-number-test"
+          data-testid="input-text-test"
           id=":r0:"
           name="test"
-          step="1"
+          required=""
           type="text"
           value=""
         />

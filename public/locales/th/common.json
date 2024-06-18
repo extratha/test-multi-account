@@ -49,6 +49,7 @@
       "invalidPasswordFormat": "รหัสผ่านไม่ตรงเงื่อนไข",
       "passwordIsNotMatch": "รหัสผ่านไม่ตรงกัน",
       "valueMustBeInRange": "ข้อมูลต้องอยู่ในช่วง",
+      "valueMustNotExceed": "ข้อมูลต้องไม่เกิน",
       "only": "เท่านั้น",
       "selectRequire": "จำเป็นต้องเลือกข้อมูล",
       "characters": "ตัวอักษร"

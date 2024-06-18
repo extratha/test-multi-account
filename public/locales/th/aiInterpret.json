@@ -52,7 +52,17 @@
 
     "en": {
       "groupName": {
-        "generalCheckUp": "General Check-up"
+        "generalCheckUp": "General Check-up",
+        "hematologyBloodGroup": "Hematology (Blood Group)",
+        "hematologyCBC": "Hematology (CBC)",
+        "lipidProfile": "Lipid Profile",
+        "bloodChemistry": "Blood Chemistry",
+        "renalFunctionTest": "Renal Function Test",
+        "liverFunctionTest": "Liver Function Test",
+        "urineAnalysis": "Urine Analysis",
+        "stoolExamination": "Stool Examination",
+        "papSmear": "Pap Smear",
+        "tumorMarker": "Tumor marker"
       },
       "placeholder": {
         "gender": "Select Gender"
@@ -67,12 +77,76 @@
         "blood_pressure_diastolic": "Blood Pressure Diastolic",
         "pulse": "Pulse",
         "respiratory_rate": "Respiratory Rate",
-        "temperature": "Temperature"
+        "temperature": "Temperature",
+
+        "blood_group": "ABO",
+        "blood_group_rh": "Rh",
+
+        "hb_value": "Hb",
+        "hct_value": "Hct",
+        "rbc_morphology_value": "RBC Morphology",
+        "mcv_value": "MCV",
+        "mch_value": "MCH",
+        "mchc_value": "MCHC",
+        "wbc_value": "WBC",
+        "neutrophil_value": "Neutrophil",
+        "lymphocyte_value": "Lymphocyte",
+        "monocyte_value": "Monocyte",
+        "eosinophil_value": "Eosinophil",
+        "basophil_value": "Basophil",
+        "platelet_count_value": "Platelet",
+
+        "cholesterol_value": "Cholesterol",
+        "triglyceride_value": "Triglyceride",
+        "hdl_value": "HDL",
+        "ldl_value": "LDL",
+
+        "uric_acid_value": "Uric Acid Test",
+        "fbs_value": "Fasting Blood Sugar",
+
+        "creatinine_value": "Creatinine",
+        "bun_value": "BUN",
+
+        "sgot_value": "SGOT",
+        "sgpt_value": "SGPT",
+        "alp_value": "ALK Phosphatase",
+
+        "urine_color_value": "Color",
+        "urine_sp_gr_value": "SpGr",
+        "urine_ph_value": "pH",
+        "urine_wbc_value": "WBC",
+        "urine_protein_value": "Protein",
+        "urine_glucose_value": "Glucose",
+        "urine_erythrocyte_value": "Erythrocyte",
+        "urine_rbc_value": "RBC",
+
+        "stool_color": "Color",
+        "stool_wbc": "WBC",
+        "stool_rbc": "RBC",
+        "stool_parasite": "Parasite",
+        "stool_occult_blood": "Occult Blood",
+        "stool_culture": "Stool Culture",
+
+        "papsmear_finding": "Liquid Based Pap Test",
+
+        "afp_value": "AFP",
+        "psa_value": "PSA",
+        "cea_value": "CEA"
       }
     },
     "th": {
       "groupName": {
-        "generalCheckUp": "การตรวจสุขภาพทั่วไป"
+        "generalCheckUp": "การตรวจสุขภาพทั่วไป",
+        "hematologyBloodGroup": "Hematology (Blood Group)",
+        "hematologyCBC": "Hematology (CBC)",
+        "lipidProfile": "Lipid Profile",
+        "bloodChemistry": "Blood Chemistry",
+        "renalFunctionTest": "Renal Function Test",
+        "liverFunctionTest": "Liver Function Test",
+        "urineAnalysis": "Urine Analysis",
+        "stoolExamination": "Stool Examination",
+        "papSmear": "Pap Smear",
+        "tumorMarker": "Tumor marker"
       },
       "placeholder": {
         "gender": "เลือกเพศ"
@@ -87,7 +161,61 @@
         "blood_pressure_diastolic": "ความดันโลหิตขณะคลายตัว (ตัวล่าง)",
         "pulse": "อัตราการเต้นหัวใจ",
         "respiratory_rate": "อัตราการหายใจ",
-        "temperature": "อุณหภูมิร่างกาย"
+        "temperature": "อุณหภูมิร่างกาย",
+
+        "blood_group": "หมู่เลือด ABO",
+        "blood_group_rh": "หมู่เลือด Rh",
+
+        "hb_value": "Hb",
+        "hct_value": "Hct",
+        "rbc_morphology_value": "ลักษณะเม็ดเลือดแดง",
+        "mcv_value": "MCV",
+        "mch_value": "MCH",
+        "mchc_value": "MCHC",
+        "wbc_value": "WBC",
+        "neutrophil_value": "Neutrophil",
+        "lymphocyte_value": "Lymphocyte",
+        "monocyte_value": "Monocyte",
+        "eosinophil_value": "Eosinophil",
+        "basophil_value": "Basophil",
+        "platelet_count_value": "Platelet",
+
+        "cholesterol_value": "Cholesterol",
+        "triglyceride_value": "Triglyceride",
+        "hdl_value": "HDL",
+        "ldl_value": "LDL",
+
+        "uric_acid_value": "Uric Acid Test",
+        "fbs_value": "Fasting Blood Sugar",
+
+        "creatinine_value": "Creatinine",
+        "bun_value": "BUN",
+
+        "sgot_value": "SGOT",
+        "sgpt_value": "SGPT",
+        "alp_value": "ALK Phosphatase",
+
+        "urine_color_value": "Color",
+        "urine_sp_gr_value": "SpGr",
+        "urine_ph_value": "pH",
+        "urine_wbc_value": "WBC",
+        "urine_protein_value": "Protein",
+        "urine_glucose_value": "Glucose",
+        "urine_erythrocyte_value": "Erythrocyte",
+        "urine_rbc_value": "RBC",
+
+        "stool_color": "Color",
+        "stool_wbc": "WBC",
+        "stool_rbc": "RBC",
+        "stool_parasite": "Parasite",
+        "stool_occult_blood": "Occult Blood",
+        "stool_culture": "การตรวจเพาะเชื้ออุจจาระ",
+
+        "papsmear_finding": "การตรวจมะเร็งปากมดลูก",
+
+        "afp_value": "สารบ่งชี้มะเร็งตับ",
+        "psa_value": "สารบ่งชี้มะเร็งต่อมลูกหมาก",
+        "cea_value": "สารบ่งชี้มะเร็งลำไส้"
       }
     }
   }
