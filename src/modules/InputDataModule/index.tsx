@@ -4,14 +4,14 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, CircularProgress, Divider, Stack, styled, Typography } from "@mui/material";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
 import { IconArrowLeft, IconImportExampleData, IconSparkle, IconSparkleDisabled } from "@/assets";
 import { theme } from "@/config/config-mui";
 import { CUSTOM_COLORS, NEUTRAL } from "@/config/config-mui/theme/colors";
 import useInterpretInputDataConfig from "@/hooks/useInterpretInputDataConfig";
-import { Field, Group } from "@/types/interpretInputDataConfig";
+import { Field, FieldConfig, Group } from "@/types/interpretInputDataConfig";
 import { ButtonInterpretDataStyled } from "../ExampleDataList/styled";
 import { ContentContainer } from "../HomePageModule/styled";
 import InputDataFieldType from "./InputDataFieldType";
@@ -67,6 +67,13 @@ const InputDataModule = () => {
   const validateSchema = useInputDataFieldYupSchema(inputConfig);
 
   const [modelVersion] = useState<string | null>(null);
+  const [configState, setConfigState] = useState<null | FieldConfig>(null);
+
+  useEffect(() => {
+    if (inputConfig) {
+      setConfigState(inputConfig);
+    }
+  }, [inputConfig]);
 
   const methods = useForm<FormValues>({
     resolver: yupResolver(validateSchema),
@@ -136,10 +143,10 @@ const InputDataModule = () => {
         </Stack>
 
         <Stack>
-          {inputConfig.length > 0 ? (
+          {configState !== null ? (
             <FormProvider {...methods}>
               <form onSubmit={methods.handleSubmit(onSubmit)}>
-                {inputConfig.map((group: Group, groupIndex: number) => (
+                {configState.map((group: Group, groupIndex: number) => (
                   <InputDataGroupContainer key={groupIndex}>
                     <InputDataGroupHeader>
                       <Typography variant="titleLargeSemiBold">{tAi(`th.groupName.${group.groupName}`)}</Typography>
