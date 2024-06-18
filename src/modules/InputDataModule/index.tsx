@@ -68,6 +68,13 @@ const InputDataModule = () => {
 
   const [modelVersion] = useState<string | null>(null);
   const [configState, setConfigState] = useState<null | FieldConfig>(null);
+  const [isDisableInterpretButton, setIsDisableInterpretButton] = useState(true);
+
+  const methods = useForm<FormValues>({
+    resolver: yupResolver(validateSchema),
+    defaultValues: {},
+    mode: "onChange",
+  });
 
   useEffect(() => {
     if (inputConfig) {
@@ -75,14 +82,11 @@ const InputDataModule = () => {
     }
   }, [inputConfig]);
 
-  const methods = useForm<FormValues>({
-    resolver: yupResolver(validateSchema),
-    defaultValues: {},
-    mode: "onChange",
+  useEffect(() => {
+    setIsDisableInterpretButton(!formState.isValid);
   });
-  const { handleSubmit, formState } = methods;
 
-  const isDisableInterpretButton = !formState.isValid;
+  const { handleSubmit, formState } = methods;
 
   const handleClickBackButton = () => {
     router.back();
