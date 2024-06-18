@@ -428,6 +428,7 @@ exports[`InputDataModule should render correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-3"
+                data-testid="use-exmple-data-button"
                 tabindex="0"
                 type="button"
               >
@@ -443,6 +444,7 @@ exports[`InputDataModule should render correctly 1`] = `
               </button>
               <button
                 class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-15"
+                data-testid="interpret-data-button"
                 disabled=""
                 tabindex="-1"
                 type="button"

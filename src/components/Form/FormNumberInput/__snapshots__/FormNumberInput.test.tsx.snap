@@ -221,7 +221,6 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-2:focus::-ms-input-p
           data-testid="input-number-test"
           id=":r0:"
           name="test"
-          placeholder="กรอกข้อมูล"
           step="1"
           type="text"
           value=""
