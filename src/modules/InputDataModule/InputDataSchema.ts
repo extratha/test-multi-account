@@ -15,9 +15,9 @@ export const useInputDataFieldYupSchema = (config: FieldConfig) => {
           message: {
             require: t("validation.require"),
             selectRequire: t("validation.selectRequire"),
-            range: `${t("validation.valueMustBeInRange")} ${field.minLength}-${field.maxLength} ${t("validation.only")}`,
+            range: `${t("validation.valueMustBeInRange")} ${field.minValue}-${field.maxValue} ${t("validation.only")}`,
             invalidInput: t("validation.invalidInput"),
-            length: `${t("validation.valueMustBeInRange")} ${field.minLength}-${field.maxLength} ${t("validation.characters")} `,
+            length: `${t("validation.valueMustNotExceed")} ${field.maxLength} ${t("validation.characters")} `,
           },
         };
         switch (field.fieldType) {
@@ -26,11 +26,11 @@ export const useInputDataFieldYupSchema = (config: FieldConfig) => {
             if (field.required) {
               schema = schema.transform((value) => (isNaN(value) ? undefined : value)).required(error.message.require);
             }
-            if (field.minLength) {
-              schema = (schema as Yup.NumberSchema).min(Number(field.minLength), error.message.range);
+            if (field.minValue) {
+              schema = (schema as Yup.NumberSchema).min(Number(field.minValue), error.message.range);
             }
-            if (field.maxLength) {
-              schema = (schema as Yup.NumberSchema).max(Number(field.maxLength), error.message.range);
+            if (field.maxValue) {
+              schema = (schema as Yup.NumberSchema).max(Number(field.maxValue), error.message.range);
             }
 
             break;
@@ -47,9 +47,6 @@ export const useInputDataFieldYupSchema = (config: FieldConfig) => {
             schema = Yup.string();
             if (field.required) {
               schema = schema.required(error.message.require);
-            }
-            if (field.minLength) {
-              schema = (schema as Yup.StringSchema).min(Number(field.minLength), error.message.length);
             }
             if (field.maxLength) {
               schema = (schema as Yup.StringSchema).max(Number(field.maxLength), error.message.length);

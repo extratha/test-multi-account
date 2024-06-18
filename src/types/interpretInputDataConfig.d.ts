@@ -9,8 +9,9 @@ export interface Field {
   unit: string;
   required: boolean;
   fieldType: string;
-  minLength?: string;
   maxLength?: string;
+  minValue: string;
+  maxValue: string;
   dropdownValue?: string[];
   range: normalRange[];
   placeholder?: string;

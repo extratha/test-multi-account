@@ -23,6 +23,7 @@
       "invalidPasswordFormat": "รหัสผ่านไม่ตรงเงื่อนไข",
       "passwordIsNotMatch": "รหัสผ่านไม่ตรงกัน",
       "valueMustBeInRange": "Value must be in range",
+      "valueMustNotExceed": "Value must not exceed",
       "only": "only.",
       "selectRequire": "This field is required.",
       "characters": "characters"
