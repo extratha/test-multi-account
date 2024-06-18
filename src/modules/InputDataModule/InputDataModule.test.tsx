@@ -25,7 +25,7 @@ describe("InputDataModule", () => {
 
   it("should render page title", async () => {
     await renderInputDataModule();
-    const pageTitle = await screen.findByText(/Interpret Data/i);
+    const pageTitle = await screen.getByTestId("page-title");
     expect(pageTitle).toBeInTheDocument();
   });
 

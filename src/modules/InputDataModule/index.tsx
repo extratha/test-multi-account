@@ -114,7 +114,9 @@ const InputDataModule = () => {
         <Divider></Divider>
         <Stack mt={3}>
           <Stack direction="row">
-            <Typography variant="headlineSmallSemiBold">{tAi("pages.tryInputData")}</Typography>
+            <Typography data-testid="page-title" variant="headlineSmallSemiBold">
+              {tAi("pages.tryInputData")}
+            </Typography>
             <Stack ml="auto">
               <Stack direction="row" spacing={2} justifyContent={"end"}>
                 <CommonButton data-testid="use-exmple-data-button">

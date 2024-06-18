@@ -417,6 +417,7 @@ exports[`InputDataModule should render correctly 1`] = `
         >
           <h2
             class="MuiTypography-root MuiTypography-headlineSmallSemiBold emotion-9"
+            data-testid="page-title"
           >
             Input Data
           </h2>
