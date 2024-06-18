@@ -11,7 +11,7 @@ export interface FormTextFieldProps {
   maxLength?: number;
 }
 
-const FormTextField = ({ name, label, required, maxLength }: FormTextFieldProps) => {
+const FormTextField = ({ name, required }: FormTextFieldProps) => {
   const { control } = useFormContext();
   const { field, fieldState } = useController({ name, control });
   const error = fieldState.error?.message || "";
