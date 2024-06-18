@@ -23,13 +23,13 @@ describe("InputDataModule", () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it("should render page title", async () => {
+  it("should display page title", async () => {
     await renderInputDataModule();
     const pageTitle = screen.getByTestId("page-title");
     expect(pageTitle).toBeInTheDocument();
   });
 
-  it("call router back when click back", async () => {
+  it("should call router back when click back button", async () => {
     const mockBack = jest.fn();
     const mockUseRouter = useRouter as jest.Mock;
     mockUseRouter.mockReturnValue({
