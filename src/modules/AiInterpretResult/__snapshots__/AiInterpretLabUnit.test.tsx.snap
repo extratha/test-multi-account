@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AiInterpretLabUnit should render correctly 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+}
+
+.emotion-1>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-1>:not(style)~:not(style) {
+  margin-top: 8px;
+}
+
+.emotion-2 {
+  margin: 0;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+  font-size: 16px;
+  font-family: NotoSansThai-Medium,sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 25%;
+}
+
+.emotion-4 {
+  margin: 0;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+  font-size: 16px;
+  font-family: NotoSansThai-Medium,sans-serif;
+  font-weight: 700;
+  color: #F44336;
+  text-align: end;
+}
+
+.emotion-5 {
+  margin: 0;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  font-size: 14px;
+  font-family: NotoSansThai-Regular,sans-serif;
+  text-align: end;
+}
+
+<div
+    class="MuiStack-root emotion-0"
+  >
+    <div
+      class="MuiStack-root emotion-1"
+    >
+      <h3
+        class="MuiTypography-root MuiTypography-titleMedium emotion-2"
+        data-testid="lab-unit-lipidProfile-cholesterol_value-label"
+      >
+        Cholesterol
+      </h3>
+    </div>
+    <div
+      class="MuiStack-root emotion-3"
+    >
+      <h3
+        class="MuiTypography-root MuiTypography-titleMedium emotion-4"
+        data-testid="lab-unit-lipidProfile-cholesterol_value-value"
+        status="abnormal"
+      >
+        200
+      </h3>
+      <span
+        class="MuiTypography-root MuiTypography-bodyMedium emotion-5"
+        data-testid="lab-unit-lipidProfile-cholesterol_value-unit"
+      >
+        (- mg/dL)
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;

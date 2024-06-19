@@ -41,6 +41,7 @@ const VerticalMenu = () => {
     webPaths.setNewPassword,
     webPaths.termsAndCons,
     webPaths.aiInterpret.tryInputData,
+    webPaths.aiInterpret.aiInterpretResult,
   ];
 
   useEffect(() => {

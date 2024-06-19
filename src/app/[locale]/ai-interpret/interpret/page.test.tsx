@@ -1,16 +1,14 @@
-import { flushPromise, render, spyUseParams } from "@/__tests__/testUtils";
+import { SpyUseSearchParams, flushPromise, render, spyUseSearchParams } from "@/__tests__/testUtils";
 import AiInterpretResultPage from "./page";
-import { ConfigurationInterpretParams } from "@/modules/AiInterpretResult";
 
 describe("AiInterpretResultPage", () => {
-  let params: ConfigurationInterpretParams;
+  let spySearchParams: SpyUseSearchParams;
 
   beforeEach(() => {
-    params = {
-      interpretId: "interpretId",
-    };
-
-    spyUseParams().mockReturnValue(params);
+    spySearchParams = spyUseSearchParams();
+    spySearchParams.get.mockImplementation((key: string) => {
+      if (key === "id") return "id";
+    });
   });
 
   const renderAiInterpretResultPage = () => {
