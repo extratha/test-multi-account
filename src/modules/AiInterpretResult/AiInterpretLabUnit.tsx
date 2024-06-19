@@ -1,9 +1,7 @@
 import { Stack, Typography } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import { useTranslations } from "next-intl";
 
-import { STATUS_ABNORMAL, STATUS_NORMAL } from "@/config/config-mui/theme/colors";
-import { LAB_STATUS, RESULT, UNIT_LAB } from "@/constant/constant";
+import { RESULT, UNIT_LAB } from "@/constant/constant";
 import { InputData } from "@/types/aiInterpret";
 
 export interface AiInterpretLabUnitProps {
@@ -12,20 +10,11 @@ export interface AiInterpretLabUnitProps {
   inputData: InputData;
 }
 
-interface ColorNormal {
-  status: string;
-}
-
 const UNIT_NO_SHOW = [UNIT_LAB.BLOOD, UNIT_LAB.MG_DL, UNIT_LAB.U_L, UNIT_LAB.NO_UNIT];
 
 const RESULT_POSITIVE_NEGATIVE = [RESULT.NEGATIVE, RESULT.POSITIVE];
 
 const LAB_COLOR_STATUS = ["White", "Yellow", "Turbid", "Amber", "Brown", "Red", "Green", "Orange"];
-
-const ValueLabColor = styled(Typography)<ColorNormal>(({ status }) => ({
-  color: status === LAB_STATUS.NORMAL ? STATUS_NORMAL[1] : STATUS_ABNORMAL[2],
-  textAlign: "end",
-}));
 
 const AiInterpretLabUnit = (props: AiInterpretLabUnitProps) => {
   const { name, groupName, inputData } = props;
@@ -58,14 +47,14 @@ const AiInterpretLabUnit = (props: AiInterpretLabUnitProps) => {
         </Typography>
       </Stack>
       <Stack width="25%">
-        <ValueLabColor
+        <Typography
           variant="titleMedium"
           fontWeight={700}
-          status={inputData.range[0].description}
+          textAlign="end"
           data-testid={`${name}-${groupName}-${inputData.key}-value`}
         >
           {getValue()}
-        </ValueLabColor>
+        </Typography>
         <Typography variant="bodyMedium" textAlign="end" data-testid={`${name}-${groupName}-${inputData.key}-unit`}>
           {inputData.unit && `(${inputData.range[0].value} ${inputData.unit})`}
         </Typography>
