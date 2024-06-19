@@ -64,7 +64,6 @@ exports[`AiInterpretLabUnit should render correctly 1`] = `
   font-size: 16px;
   font-family: NotoSansThai-Medium,sans-serif;
   font-weight: 700;
-  color: #F44336;
   text-align: end;
 }
 
@@ -97,7 +96,6 @@ exports[`AiInterpretLabUnit should render correctly 1`] = `
       <h3
         class="MuiTypography-root MuiTypography-titleMedium emotion-4"
         data-testid="lab-unit-lipidProfile-cholesterol_value-value"
-        status="abnormal"
       >
         200
       </h3>

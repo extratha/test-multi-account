@@ -22,7 +22,8 @@ const ContentContainer = styled(Stack)({
 });
 
 const ContentContainerWrapper = styled(Stack)(({ theme }) => ({
-  width: "100%",
+  maxWidth: "1080px",
+  margin: "auto",
   padding: "24px 30px",
   borderRadius: "16px",
   overflowY: "auto",
