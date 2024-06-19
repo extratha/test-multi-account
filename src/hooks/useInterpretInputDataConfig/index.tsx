@@ -1,10 +1,10 @@
 import { remoteConfigKey } from "@/constant/firebase";
-import { FieldConfig } from "@/types/interpretInputDataConfig";
+import { InputGroupConfig } from "@/types/interpretInputDataConfig";
 import { remoteConfig } from "@/utils/firebase";
 import { useEffect, useState } from "react";
 
 const useInterpretInputDataConfig = () => {
-  const [configData, setConfigData] = useState<FieldConfig>([]);
+  const [configData, setConfigData] = useState<InputGroupConfig[]>([]);
 
   useEffect(() => {
     const fetchConfigData = async () => {
