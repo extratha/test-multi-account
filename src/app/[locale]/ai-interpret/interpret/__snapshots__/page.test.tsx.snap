@@ -2,6 +2,9 @@
 
 exports[`AiInterpretResultPage should render correctly 1`] = `
 <DocumentFragment>
+  <title>
+    AI Interpret Result
+  </title>
   @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);

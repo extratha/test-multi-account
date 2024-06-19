@@ -21,7 +21,7 @@ const EmployeeDataList = () => {
   const exampleData = data?.data || [];
 
   const handleClickAiInterpret = (id: string) => {
-    router.push(`${webPaths.aiInterpret.tryExampleData}/${id}`);
+    router.push(`${webPaths.aiInterpret.aiInterpretResult}?id=${id}`);
   };
 
   const handleClickEditData = (exampleData: ExampleDataResult) => {
@@ -135,11 +135,7 @@ const EmployeeDataList = () => {
                             {tAi("button.editData")}
                           </Typography>
                         </ButtonEditDataStyled>
-                        <ButtonInterpretDataStyled
-                          onClick={() => {
-                            handleClickAiInterpret(item.id);
-                          }}
-                        >
+                        <ButtonInterpretDataStyled onClick={() => handleClickAiInterpret(item.id)}>
                           <IconSparkle />
                           <Typography variant="labelLargeSemiBold" color={theme.palette.background.paper} ml={1}>
                             {tAi("button.interpretData")}

@@ -9,7 +9,8 @@
     "pages": {
       "aiInterpret": "AI Interpret",
       "tryExampleData": "Example Data",
-      "tryInputData": "Input Data"
+      "tryInputData": "Input Data",
+      "aiInterpretResult": "AI Interpret Result"
     },
     "title": {
       "tryInputData": "Entering data yourself."
@@ -34,7 +35,7 @@
       "myCredit": "My credit",
       "unlimited": "Unlimited"
     },
-    "AiInterpretResult": {
+    "aiInterpretResult": {
       "modalVersion": "Model Version",
       "example": "Example data {num}",
       "gender": {
@@ -47,6 +48,226 @@
         "back": "Back to menu",
         "edit": "Edit",
         "copy": "Copy"
+      },
+      "general": {
+        "title": "General Check-up",
+        "information": {
+          "age": {
+            "title": "Age",
+            "unit": "year"
+          },
+          "gender": {
+            "title": "Gender",
+            "male": "Male",
+            "female": "Female"
+          },
+          "body_weight": {
+            "title": "Body Weight"
+          },
+          "body_height": {
+            "title": "Body Height"
+          },
+          "waist_line": {
+            "title": "Waist Line"
+          },
+          "blood_pressure_systolic": {
+            "title": "Blood Pressure Systolic"
+          },
+          "blood_pressure_diastolic": {
+            "title": "Blood Pressure Diastolic"
+          },
+          "pulse": {
+            "title": "Pulse"
+          },
+          "respiratory_rate": {
+            "title": "Respiratory Rate"
+          },
+          "temperature": {
+            "title": "Temperature"
+          }
+        }
+      },
+      "lab": {
+        "seeResults": "More",
+        "color": {
+          "White": "White",
+          "Yellow": "Yellow",
+          "Turbid": "Turbid",
+          "Amber": "Amber",
+          "Brown": "Brown",
+          "Red": "Red",
+          "Green": "Green",
+          "Orange": "Orange"
+        },
+        "result": {
+          "negative": "Negative",
+          "positive": "Positive"
+        },
+        "group": {
+          "hematologyBG": {
+            "blood_group": {
+              "label": "ABO"
+            },
+            "blood_group_rh": {
+              "label": "Rh"
+            }
+          },
+          "hematologyCBC": {
+            "title": "Hematology",
+            "hemoglobin": "Hemoglobin concentration",
+            "redBlood": "Red Blood Cell Morphology",
+            "whiteBlood": "White blood cell and differentiation",
+            "hb_value": {
+              "label": "Hb"
+            },
+            "hct_value": {
+              "label": "HCT"
+            },
+            "rbc_morphology_value": {
+              "label": "RBC Morphology"
+            },
+            "wbc_value": {
+              "label": "WBC"
+            },
+            "lymphocyte_value": {
+              "label": "Lymphocyte"
+            },
+            "neutrophil_value": {
+              "label": "Neutrophil"
+            },
+            "monocyte_value": {
+              "label": "Monocyte "
+            },
+            "eosinophil_value": {
+              "label": "Eosinophil"
+            },
+            "basophil_value": {
+              "label": "Basophil"
+            },
+            "mcv_value": {
+              "label": "MCV"
+            },
+            "mch_value": {
+              "label": "MCH"
+            },
+            "mchc_value": {
+              "label": "MCHC"
+            },
+            "platelet_count_value": {
+              "label": "Platelet Count"
+            }
+          },
+          "lipidProfile": {
+            "title": "Lipid Profile",
+            "cholesterol_value": {
+              "label": "Cholesterol"
+            },
+            "triglyceride_value": {
+              "label": "Triglyceride"
+            },
+            "hdl_value": {
+              "label": "HDL"
+            },
+            "ldl_value": {
+              "label": "LDL"
+            }
+          },
+          "bloodChemistry": {
+            "title": "Blood Chemistry",
+            "uric_acid_value": {
+              "label": "Uric Acid Test"
+            },
+            "fbs_value": {
+              "label": "Fasting Blood Sugar"
+            }
+          },
+          "renalFunctionTest": {
+            "title": "Renal Function Test",
+            "creatinine_value": {
+              "label": "Creatinine"
+            },
+            "bun_value": {
+              "label": "BUN"
+            }
+          },
+          "liverFunctionTest": {
+            "title": "Liver Function Test",
+            "sgot_value": {
+              "label": "SGOT"
+            },
+            "sgpt_value": {
+              "label": "SGPT"
+            },
+            "alp_value": {
+              "label": "ALK Phosphatase"
+            }
+          },
+          "urineAnalysis": {
+            "title": "Urine Analysis",
+            "urine_color_value": {
+              "label": "Color"
+            },
+            "urine_sp_gr_value": {
+              "label": "SpGr"
+            },
+            "urine_ph_value": {
+              "label": "pH"
+            },
+            "urine_wbc_value": {
+              "label": "WBC"
+            },
+            "urine_protein_value": {
+              "label": "Protein"
+            },
+            "urine_glucose_value": {
+              "label": "Glucose"
+            },
+            "urine_erythrocyte_value": {
+              "label": "Erythrocyte"
+            },
+            "urine_rbc_value": {
+              "label": "RBC"
+            }
+          },
+          "stool_examination": {
+            "title": "Stool Examination",
+            "stool_color": {
+              "label": "Color"
+            },
+            "stool_wbc": {
+              "label": "WBC"
+            },
+            "stool_rbc": {
+              "label": "RBC"
+            },
+            "stool_parasite": {
+              "label": "Parasite"
+            },
+            "stool_occult_blood": {
+              "label": "Occult Blood"
+            },
+            "stool_culture": {
+              "label": "Stool Culture"
+            }
+          },
+          "papSmear": {
+            "title": "Pap Smear",
+            "papsmear_finding": {
+              "label": "Liquid Based Pap Test"
+            }
+          },
+          "tumorMarker": {
+            "afp_value": {
+              "label": "AFP"
+            },
+            "psa_value": {
+              "label": "PSA "
+            },
+            "cea_value": {
+              "label": "CEA"
+            }
+          }
+        }
       }
     },
     "en": {

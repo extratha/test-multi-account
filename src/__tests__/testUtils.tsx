@@ -53,7 +53,12 @@ jest.mock("next/navigation", () => ({
   ...jest.requireActual("next/navigation"),
   useRouter: jest.fn(),
   useParams: jest.fn(),
+  useSearchParams: jest.fn(),
 }));
+
+export interface SpyUseSearchParams {
+  get: jest.Mock;
+}
 
 export interface SpyUseRouter {
   replace: jest.Mock;
@@ -70,6 +75,14 @@ export const spyUseRouter = (): SpyUseRouter => {
   const push = jest.fn();
   jest.spyOn(NextNavigation, "useRouter").mockReturnValue({ replace, push } as any);
   return { replace, push };
+};
+
+export const spyUseSearchParams = (): SpyUseSearchParams => {
+  const get = jest.fn();
+  jest.spyOn(NextNavigation, "useSearchParams").mockReturnValue({ get } as any);
+  return {
+    get,
+  };
 };
 
 export const API = {

@@ -14,6 +14,11 @@ export { ReactComponent as IconPerson } from "./icons/icon-person.svg";
 export { ReactComponent as IconSetting } from "./icons/icon-setting.svg";
 export { ReactComponent as IconSparkleDisabled } from "./icons/icon-sparkle-disabled.svg";
 export { ReactComponent as IconSparkle } from "./icons/icon-sparkle.svg";
+export { ReactComponent as IconLabStatusBlack } from "./icons/icon-lab-status-black.svg";
+export { ReactComponent as IconLabStatusGreen } from "./icons/icon-lab-status-green.svg";
+export { ReactComponent as IconLabStatusRed } from "./icons/icon-lab-status-red.svg";
+export { ReactComponent as IconChevronDown } from "./icons/icon-chevron-down.svg";
+export { ReactComponent as IconChevronUp } from "./icons/icon-chevron-up.svg";
 
 export { ReactComponent as ImageCarivaLogo } from "./images/cariva-logo.svg";
 export { ReactComponent as ImagePlaygroundLogoColor } from "./images/playground-logo-color.svg";

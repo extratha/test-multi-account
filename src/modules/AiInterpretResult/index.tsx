@@ -1,21 +1,19 @@
 "use client";
 
-import { Button, CircularProgress, Divider, Stack, Typography, styled } from "@mui/material";
+import { Button, CircularProgress, Divider, Stack, Typography } from "@mui/material";
 import { useTranslations } from "next-intl";
-import { useParams, useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useMemo } from "react";
+import { styled } from "@mui/material/styles";
 
 import { IconArrowLeft, IconCopy, IconPen, IconSparkle } from "@/assets";
 import Tag from "@/components/Tag";
-import { CUSTOM_COLORS, linearGradient } from "@/config/config-mui/theme/colors";
-import { GENDER } from "@/constant/constant";
+import { CUSTOM_COLORS, NEUTRAL, linearGradient } from "@/config/config-mui/theme/colors";
+import { GENDER, GENERAL_CHECK_UP, GROUP_NAME } from "@/constant/constant";
 import { webPaths } from "@/constant/webPaths";
 import { useGetLabExampleId } from "@/hooks/useApi";
-
-export interface ConfigurationInterpretParams {
-  [key: string]: string | string[];
-  interpretId: string;
-}
+import { GroupName, InputData } from "@/types/aiInterpret";
+import AiInterpretLabResult from "./AiInterpretLebResult";
 
 const ContentContainer = styled(Stack)({
   height: "100%",
@@ -113,21 +111,72 @@ const DescriptionResult = styled(Typography)({
   color: CUSTOM_COLORS.textHighEmp,
 });
 
+const General = styled(Stack)({
+  color: CUSTOM_COLORS.textHighEmp,
+  border: `1px solid ${NEUTRAL[99]}`,
+  borderRadius: "8px",
+  overflow: "hidden",
+});
+
+const GeneralHeader = styled(Stack)({
+  padding: "24px 24px 12px 24px",
+  backgroundColor: NEUTRAL[97],
+});
+
+const GeneralTitle = styled(Typography)({
+  fontSize: "18px",
+  fontWeight: 700,
+});
+
+const GeneralInformation = styled(Stack)({
+  padding: "12px 24px 24px",
+});
+
+const GeneralInformationUnit = styled(Typography)({
+  width: "60px",
+  color: CUSTOM_COLORS.lightSteelgray,
+});
+
 const AiInterpretResult = () => {
-  const params = useParams<ConfigurationInterpretParams>();
-  const interpretId = params.interpretId || "";
+  const searchParams = useSearchParams()
+  const interpretId =  searchParams.get('id') || '';
   const tAi = useTranslations("AiInterpret");
   const router = useRouter();
 
   const { data, isLoading } = useGetLabExampleId(interpretId);
   const interpretData = data?.data;
-  const aiResultData = interpretData?.aiResult.data || [];
 
-  const gender = useMemo(() => {
-    return interpretData?.gender === GENDER.MALE
-      ? tAi("AiInterpretResult.gender.male")
-      : tAi("AiInterpretResult.gender.female");
-  }, []);
+  const aiResultData = interpretData?.aiResult.data || [];
+  const inputDataResultData = interpretData?.inputData || [];
+
+  const gender: Record<string, string> = {
+    [GENDER.MALE]: tAi("aiInterpretResult.gender.male"),
+    [GENDER.FEMALE]: tAi("aiInterpretResult.gender.female"),
+  };
+
+  const informationGender: Record<string, string> = {
+    [GENDER.MALE]: tAi("aiInterpretResult.general.information.gender.male"),
+    [GENDER.FEMALE]: tAi("aiInterpretResult.general.information.gender.female"),
+  };
+
+  const { generalData, labData } = useMemo(() => {
+    const generalData: GroupName[] = [];
+    const labData: GroupName[] = [];
+
+    inputDataResultData.forEach((item) => {
+      if (item.groupName === GROUP_NAME.GENERAL_CHECK_UP) {
+        generalData.push(item);
+      } else {
+        labData.push(item);
+      }
+    });
+
+    return { generalData, labData };
+  }, [inputDataResultData.length]);
+
+  const handleClickEdit = () => {
+    router.push(`${webPaths.aiInterpret.tryInputData}?id=${interpretId}`);
+  };
 
   const handleClickBack = () => {
     router.push(webPaths.aiInterpret.tryExampleData);
@@ -135,6 +184,24 @@ const AiInterpretResult = () => {
 
   const handleClickCopy = (text: string) => {
     navigator.clipboard.writeText(text);
+  };
+
+  const getInformationValue = (item: InputData) => {
+    switch (item.key) {
+      case GENERAL_CHECK_UP.GENDER:
+        return informationGender[item.value];
+      default:
+        return item.value;
+    }
+  };
+
+  const getInformationUnit = (item: InputData) => {
+    switch (item.key) {
+      case GENERAL_CHECK_UP.AGE:
+        return tAi("aiInterpretResult.general.information.age.unit");
+      default:
+        return item.unit;
+    }
   };
 
   return (
@@ -147,10 +214,10 @@ const AiInterpretResult = () => {
         <ContentContainerWrapper>
           <Stack direction="row" justifyContent="space-between">
             <Button startIcon={<IconArrowLeft />} onClick={handleClickBack} data-testid="ai-interpret-button-back">
-              {tAi("AiInterpretResult.button.back")}
+              {tAi("aiInterpretResult.button.back")}
             </Button>
-            <Button startIcon={<IconPen />} data-testid="ai-interpret-button-edit">
-              {tAi("AiInterpretResult.button.edit")}
+            <Button startIcon={<IconPen />} onClick={handleClickEdit} data-testid="ai-interpret-button-edit">
+              {tAi("aiInterpretResult.button.edit")}
             </Button>
           </Stack>
           <DividerLine />
@@ -160,10 +227,10 @@ const AiInterpretResult = () => {
                 <Stack padding="24px" spacing="8px">
                   <Stack direction="row" justifyContent="space-between">
                     <Example variant="labelMedium" data-testid="ai-interpret-example-rank">
-                      {tAi("AiInterpretResult.example", { num: interpretData?.ranking })}
+                      {tAi("aiInterpretResult.example", { num: interpretData?.ranking })}
                     </Example>
                     <ModelVersion direction="row" spacing="4px">
-                      <Typography variant="bodySmall">{tAi("AiInterpretResult.modalVersion")}</Typography>
+                      <Typography variant="bodySmall">{tAi("aiInterpretResult.modalVersion")}</Typography>
                       <Version variant="labelMedium" data-testid="ai-interpret-version">
                         {interpretData?.aiModelVersion}
                       </Version>
@@ -173,8 +240,8 @@ const AiInterpretResult = () => {
                     {interpretData?.caseName}
                   </Name>
                   <Stack direction="row" spacing="8px">
-                    <Tag name="ai-interpret-gender" text={gender} />
-                    <Tag name="ai-interpret-age" text={tAi("AiInterpretResult.age", { age: interpretData?.age })} />
+                    <Tag name="ai-interpret-gender" text={gender[interpretData?.gender || ""]} />
+                    <Tag name="ai-interpret-age" text={tAi("aiInterpretResult.age", { age: interpretData?.age })} />
                   </Stack>
                 </Stack>
                 {aiResultData.length > 0 && (
@@ -184,7 +251,7 @@ const AiInterpretResult = () => {
                       <InterpretTile direction="row" spacing="6px">
                         <IconSparkle />
                         <Title variant="labelMedium" data-testid="ai-interpret-title">
-                          {tAi("AiInterpretResult.title")}
+                          {tAi("aiInterpretResult.title")}
                         </Title>
                       </InterpretTile>
                     </Stack>
@@ -204,7 +271,7 @@ const AiInterpretResult = () => {
                             }}
                             data-testid={`ai-interpret-button-copy-${index}`}
                           >
-                            {tAi("AiInterpretResult.button.copy")}
+                            {tAi("aiInterpretResult.button.copy")}
                           </Button>
                         </Stack>
                       ))}
@@ -213,6 +280,42 @@ const AiInterpretResult = () => {
                 )}
               </InformationBox>
             </InformationBackground>
+            {inputDataResultData.length > 0 && (
+              <General>
+                <GeneralHeader>
+                  <GeneralTitle variant="titleMediumBold">{tAi("aiInterpretResult.general.title")}</GeneralTitle>
+                </GeneralHeader>
+                {generalData[0].data.map((item, index) => (
+                  <GeneralInformation key={`general-${index}`} direction="row" justifyContent="space-between">
+                    <Typography
+                      variant="titleMediumBold"
+                      fontWeight={700}
+                      data-testid={`ai-interpret-general-information-title-${item.key}`}
+                    >
+                      {tAi(`aiInterpretResult.general.information.${item.key}.title`)}
+                    </Typography>
+
+                    <Stack direction="row" spacing="36px">
+                      <Typography
+                        variant="bodyMedium"
+                        data-testid={`ai-interpret-general-information-${item.key}-value`}
+                      >
+                        {getInformationValue(item)}
+                      </Typography>
+                      <GeneralInformationUnit
+                        variant="bodyMedium"
+                        data-testid={`ai-interpret-general-information-${item.key}-unit`}
+                      >
+                        {getInformationUnit(item)}
+                      </GeneralInformationUnit>
+                    </Stack>
+                  </GeneralInformation>
+                ))}
+              </General>
+            )}
+            {labData.map((item, index) => (
+              <AiInterpretLabResult key={`ai-interpret-lab-${index}`} name="ai-interpret-lab" group={item} />
+            ))}
           </Stack>
         </ContentContainerWrapper>
       )}

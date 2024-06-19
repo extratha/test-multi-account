@@ -4,28 +4,29 @@ import { mockAiInterpretResult } from "@/__tests__/__mocks__/data";
 import {
   API,
   SpyUseRouter,
+  SpyUseSearchParams,
   flushPromise,
   render,
   screen,
-  spyUseParams,
   spyUseRouter,
+  spyUseSearchParams,
   userEvent,
 } from "@/__tests__/testUtils";
 import axiosInstance from "@/utils/axios";
-import AiInterpretResult, { ConfigurationInterpretParams } from ".";
+import AiInterpretResult from ".";
 
 describe("AiInterpretResult", () => {
-  let params: ConfigurationInterpretParams;
+  let spySearchParams: SpyUseSearchParams;
   let mockApiAdapter: MockAdapter;
   let spyRouter: SpyUseRouter;
 
   beforeEach(() => {
-    params = {
-      interpretId: "interpretId",
-    };
-
-    spyUseParams().mockReturnValue(params);
+    spySearchParams = spyUseSearchParams();
     spyRouter = spyUseRouter();
+
+    spySearchParams.get.mockImplementation((key: string) => {
+      if (key === "id") return "interpretId";
+    });
 
     mockApiAdapter = new MockAdapter(axiosInstance);
     mockApiAdapter.onGet(API.AI_INTERPRET_URL).reply(200, mockAiInterpretResult);
@@ -48,6 +49,33 @@ describe("AiInterpretResult", () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
+  it("should display general information", async () => {
+    await renderAiInterpretResult();
+
+    expect(screen.getByTestId("ai-interpret-general-information-title-age")).toHaveTextContent("Age");
+    expect(screen.getByTestId("ai-interpret-general-information-age-unit")).toHaveTextContent("year");
+
+    expect(screen.getByTestId("ai-interpret-general-information-gender-value")).toHaveTextContent("Male");
+    expect(screen.getByTestId("ai-interpret-general-information-gender-unit")).toHaveTextContent("");
+
+    expect(screen.getByTestId("ai-interpret-general-information-temperature-value")).toHaveTextContent("38.00");
+    expect(screen.getByTestId("ai-interpret-general-information-temperature-unit")).toHaveTextContent("°C");
+  });
+
+  it("should display lab information", async () => {
+    await renderAiInterpretResult();
+
+    expect(screen.getByTestId("ai-interpret-lab-title-hematologyCBC")).toHaveTextContent("Hematology");
+    expect(screen.getByTestId("ai-interpret-lab-hematologyCBC-hb_value-label")).toHaveTextContent("Hb");
+    expect(screen.getByTestId("ai-interpret-lab-hematologyCBC-hb_value-value")).toHaveTextContent("13.80(g/dL)");
+    expect(screen.getByTestId("ai-interpret-lab-hematologyCBC-hb_value-unit")).toHaveTextContent("(- g/dL)");
+
+    expect(screen.getByTestId("ai-interpret-lab-title-bloodChemistry")).toHaveTextContent("Blood Chemistry");
+    expect(screen.getByTestId("ai-interpret-lab-bloodChemistry-uric_acid_value-label")).toHaveTextContent(
+      "Uric Acid Test"
+    );
+  });
+
   it("should navigate to example data when click back button", async () => {
     await renderAiInterpretResult();
 
@@ -56,6 +84,15 @@ describe("AiInterpretResult", () => {
     expect(spyRouter.push).toHaveBeenCalled();
   });
 
+  it("should navigate to edit data when click edit button", async () => {
+    await renderAiInterpretResult();
+
+    await userEvent.click(screen.getByTestId("ai-interpret-button-edit"));
+
+    expect(spyRouter.push).toHaveBeenCalled();
+  });
+
+
   it("should copy to example data when click copy button", async () => {
     await renderAiInterpretResult();
 
@@ -63,4 +100,5 @@ describe("AiInterpretResult", () => {
 
     expect(navigator.clipboard.writeText).toHaveBeenCalledWith("description-ai-result");
   });
+
 });
