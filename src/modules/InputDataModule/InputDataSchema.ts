@@ -23,12 +23,14 @@ export const useInputDataFieldYupSchema = (config: InputGroupConfig[]) => {
             length: `${t("validation.valueMustNotExceed")} ${field.maxLength} ${t("validation.characters")} `,
           },
         };
-
         switch (field.fieldType) {
           case "Number":
-            schema = Yup.number().typeError(error.message.invalidInput);
+            schema = Yup.number()
+              .typeError(error.message.invalidInput)
+              .transform((value, originalValue) => (originalValue === "" ? undefined : value));
+
             if (field.required) {
-              schema = schema.transform((value) => (isNaN(value) ? undefined : value)).required(error.message.require);
+              schema = schema.required(error.message.require);
             }
             if (field.minValue) {
               schema = (schema as Yup.NumberSchema).min(Number(field.minValue), error.message.range);
@@ -36,7 +38,6 @@ export const useInputDataFieldYupSchema = (config: InputGroupConfig[]) => {
             if (field.maxValue) {
               schema = (schema as Yup.NumberSchema).max(Number(field.maxValue), error.message.range);
             }
-
             break;
           case "Dropdown":
             schema = Yup.string();

@@ -112,9 +112,7 @@ const VerticalMenu = () => {
                           sx={{
                             padding: "16px 40px",
                             color:
-                              childrenItem.path && pathname.includes(childrenItem.path)
-                                ? theme.palette.action.active
-                                : "inherit",
+                              childrenItem.path && pathname.includes(childrenItem.path) ? "primary.lighter" : "inherit",
                           }}
                           onClick={() => handleClickSubmenu(childrenItem)}
                         >

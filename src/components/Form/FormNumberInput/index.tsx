@@ -15,7 +15,6 @@ const FormNumberInput = ({ name, placeholder, decimalScale, min, max }: FormNumb
   const { control } = useFormContext();
   const { field, fieldState } = useController({ name, control });
   const error = fieldState.error?.message || "";
-
   return (
     <>
       <TextField

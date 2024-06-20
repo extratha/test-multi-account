@@ -63,6 +63,7 @@ export interface SpyUseSearchParams {
 export interface SpyUseRouter {
   replace: jest.Mock;
   push: jest.Mock;
+  back: jest.Mock;
 }
 
 export const spyUseParams = () => {
@@ -73,8 +74,9 @@ export const spyUseParams = () => {
 export const spyUseRouter = (): SpyUseRouter => {
   const replace = jest.fn();
   const push = jest.fn();
-  jest.spyOn(NextNavigation, "useRouter").mockReturnValue({ replace, push } as any);
-  return { replace, push };
+  const back = jest.fn();
+  jest.spyOn(NextNavigation, "useRouter").mockReturnValue({ replace, push, back } as any);
+  return { replace, push, back };
 };
 
 export const spyUseSearchParams = (): SpyUseSearchParams => {
@@ -87,6 +89,7 @@ export const spyUseSearchParams = (): SpyUseSearchParams => {
 
 export const API = {
   AI_INTERPRET_URL: "/lab/examples/interpretId",
+  SUBMIT_HEALTH_DATA_URI: "/lab/interprets",
 };
 
 const MockMarkdown = (props: any) => {
