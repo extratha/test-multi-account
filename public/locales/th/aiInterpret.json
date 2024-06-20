@@ -217,7 +217,7 @@
               "label": "RBC"
             }
           },
-          "stool_examination": {
+          "stoolExamination": {
             "title": "การวิเคราะห์อุจจาระ",
             "stool_color": {
               "label": "Color"
