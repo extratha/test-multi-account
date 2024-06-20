@@ -16,6 +16,8 @@ export const GROUP_NAME = {
   BLOOD_CHEMISTRY: "bloodChemistry",
   RENAL_FUNCTION_TEST: "renalFunctionTest",
   LIVER_FUNCTION_TEST: "liverFunctionTest",
+  URINE_ANALYSIS: "urineAnalysis",
+  STOOL_EXAMINATION: "stoolExamination",
   PAP_SMEAR: "papSmear",
   TUMOR_MARKER: "tumorMarker",
 };

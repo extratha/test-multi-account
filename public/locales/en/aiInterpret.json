@@ -217,7 +217,7 @@
               "label": "RBC"
             }
           },
-          "stool_examination": {
+          "stoolExamination": {
             "title": "Stool Examination",
             "stool_color": {
               "label": "Color"
