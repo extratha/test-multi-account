@@ -97,7 +97,7 @@ exports[`AiInterpretLabUnit should render correctly 1`] = `
         class="MuiTypography-root MuiTypography-titleMedium emotion-4"
         data-testid="lab-unit-lipidProfile-cholesterol_value-value"
       >
-        200
+        200(mg/dL)
       </h3>
       <span
         class="MuiTypography-root MuiTypography-bodyMedium emotion-5"

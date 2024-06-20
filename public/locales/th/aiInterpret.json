@@ -89,22 +89,10 @@
       },
       "lab": {
         "seeResults": "ดูผล",
-        "color": {
-          "White": "ขาว",
-          "Yellow": "เหลือง",
-          "Turbid": "ขุ่น",
-          "Amber": "เหลืองอำพัน",
-          "Brown": "น้ำตาล",
-          "Red": "แดง",
-          "Green": "เขียว",
-          "Orange": "ส้ม"
-        },
-        "result": {
-          "negative": "ผิดปกติ",
-          "positive": "ปกติ"
-        },
         "group": {
           "hematologyBG": {
+            "title": "หมู่เลือด",
+            "bloodGroup": "หมู่เลือด",
             "blood_group": {
               "label": "หมู่เลือด (ABO):"
             },

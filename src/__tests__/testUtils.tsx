@@ -88,3 +88,9 @@ export const spyUseSearchParams = (): SpyUseSearchParams => {
 export const API = {
   AI_INTERPRET_URL: "/lab/examples/interpretId",
 };
+
+const MockMarkdown = (props: any) => {
+  return <div {...props} />;
+};
+
+jest.mock("react-markdown", () => MockMarkdown);

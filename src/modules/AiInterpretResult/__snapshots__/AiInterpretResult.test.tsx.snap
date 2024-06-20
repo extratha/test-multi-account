@@ -441,11 +441,8 @@ exports[`AiInterpretResult should render correctly 1`] = `
 }
 
 .emotion-32 {
-  margin: 0;
-  font-family: NotoSansThai-Regular,sans-serif;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 16px;
+  white-space: normal;
   color: #212121;
 }
 
@@ -967,12 +964,12 @@ exports[`AiInterpretResult should render correctly 1`] = `
                 >
                   1. title-ai-result
                 </span>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 emotion-32"
+                <div
+                  class="emotion-32"
                   data-testid="ai-interpret-description-0"
                 >
                   description-ai-result
-                </p>
+                </div>
                 <button
                   class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-3"
                   data-testid="ai-interpret-button-copy-0"
@@ -1209,6 +1206,109 @@ exports[`AiInterpretResult should render correctly 1`] = `
                     />
                     <div
                       class="MuiStack-root emotion-30"
+                      data-testid="ai-interpret-lab-title-sub-hematologyCBC-redBlood"
+                    >
+                      <h3
+                        class="MuiTypography-root MuiTypography-titleMediumBold emotion-68"
+                      >
+                        Red Blood Cell Morphology
+                      </h3>
+                      <div
+                        class="MuiStack-root emotion-2"
+                      >
+                        <div
+                          class="MuiStack-root emotion-70"
+                        >
+                          <h3
+                            class="MuiTypography-root MuiTypography-titleMedium emotion-71"
+                            data-testid="ai-interpret-lab-hematologyCBC-mcv_value-label"
+                          >
+                            MCV
+                          </h3>
+                        </div>
+                        <div
+                          class="MuiStack-root emotion-72"
+                        >
+                          <h3
+                            class="MuiTypography-root MuiTypography-titleMedium emotion-73"
+                            data-testid="ai-interpret-lab-hematologyCBC-mcv_value-value"
+                          >
+                            82.70(fl)
+                          </h3>
+                          <span
+                            class="MuiTypography-root MuiTypography-bodyMedium emotion-74"
+                            data-testid="ai-interpret-lab-hematologyCBC-mcv_value-unit"
+                          >
+                            (- fl)
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        class="MuiStack-root emotion-2"
+                      >
+                        <div
+                          class="MuiStack-root emotion-70"
+                        >
+                          <h3
+                            class="MuiTypography-root MuiTypography-titleMedium emotion-71"
+                            data-testid="ai-interpret-lab-hematologyCBC-mch_value-label"
+                          >
+                            MCH
+                          </h3>
+                        </div>
+                        <div
+                          class="MuiStack-root emotion-72"
+                        >
+                          <h3
+                            class="MuiTypography-root MuiTypography-titleMedium emotion-73"
+                            data-testid="ai-interpret-lab-hematologyCBC-mch_value-value"
+                          >
+                            28.10(pg)
+                          </h3>
+                          <span
+                            class="MuiTypography-root MuiTypography-bodyMedium emotion-74"
+                            data-testid="ai-interpret-lab-hematologyCBC-mch_value-unit"
+                          >
+                            (- pg)
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        class="MuiStack-root emotion-2"
+                      >
+                        <div
+                          class="MuiStack-root emotion-70"
+                        >
+                          <h3
+                            class="MuiTypography-root MuiTypography-titleMedium emotion-71"
+                            data-testid="ai-interpret-lab-hematologyCBC-mchc_value-label"
+                          >
+                            MCHC
+                          </h3>
+                        </div>
+                        <div
+                          class="MuiStack-root emotion-72"
+                        >
+                          <h3
+                            class="MuiTypography-root MuiTypography-titleMedium emotion-73"
+                            data-testid="ai-interpret-lab-hematologyCBC-mchc_value-value"
+                          >
+                            34.00(g/dL)
+                          </h3>
+                          <span
+                            class="MuiTypography-root MuiTypography-bodyMedium emotion-74"
+                            data-testid="ai-interpret-lab-hematologyCBC-mchc_value-unit"
+                          >
+                            (- g/dL)
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <hr
+                      class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem emotion-81"
+                    />
+                    <div
+                      class="MuiStack-root emotion-30"
                       data-testid="ai-interpret-lab-title-sub-hematologyCBC-whiteBlood"
                     >
                       <h3
@@ -1236,7 +1336,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                             class="MuiTypography-root MuiTypography-titleMedium emotion-73"
                             data-testid="ai-interpret-lab-hematologyCBC-wbc_value-value"
                           >
-                            5.08
+                            5.08(*10^3/mm^3)
                           </h3>
                           <span
                             class="MuiTypography-root MuiTypography-bodyMedium emotion-74"
@@ -1396,109 +1496,6 @@ exports[`AiInterpretResult should render correctly 1`] = `
                           </span>
                         </div>
                       </div>
-                    </div>
-                    <hr
-                      class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem emotion-81"
-                    />
-                    <div
-                      class="MuiStack-root emotion-30"
-                      data-testid="ai-interpret-lab-title-sub-hematologyCBC-redBlood"
-                    >
-                      <h3
-                        class="MuiTypography-root MuiTypography-titleMediumBold emotion-68"
-                      >
-                        Red Blood Cell Morphology
-                      </h3>
-                      <div
-                        class="MuiStack-root emotion-2"
-                      >
-                        <div
-                          class="MuiStack-root emotion-70"
-                        >
-                          <h3
-                            class="MuiTypography-root MuiTypography-titleMedium emotion-71"
-                            data-testid="ai-interpret-lab-hematologyCBC-mcv_value-label"
-                          >
-                            MCV
-                          </h3>
-                        </div>
-                        <div
-                          class="MuiStack-root emotion-72"
-                        >
-                          <h3
-                            class="MuiTypography-root MuiTypography-titleMedium emotion-73"
-                            data-testid="ai-interpret-lab-hematologyCBC-mcv_value-value"
-                          >
-                            82.70(fl)
-                          </h3>
-                          <span
-                            class="MuiTypography-root MuiTypography-bodyMedium emotion-74"
-                            data-testid="ai-interpret-lab-hematologyCBC-mcv_value-unit"
-                          >
-                            (- fl)
-                          </span>
-                        </div>
-                      </div>
-                      <div
-                        class="MuiStack-root emotion-2"
-                      >
-                        <div
-                          class="MuiStack-root emotion-70"
-                        >
-                          <h3
-                            class="MuiTypography-root MuiTypography-titleMedium emotion-71"
-                            data-testid="ai-interpret-lab-hematologyCBC-mch_value-label"
-                          >
-                            MCH
-                          </h3>
-                        </div>
-                        <div
-                          class="MuiStack-root emotion-72"
-                        >
-                          <h3
-                            class="MuiTypography-root MuiTypography-titleMedium emotion-73"
-                            data-testid="ai-interpret-lab-hematologyCBC-mch_value-value"
-                          >
-                            28.10(pg)
-                          </h3>
-                          <span
-                            class="MuiTypography-root MuiTypography-bodyMedium emotion-74"
-                            data-testid="ai-interpret-lab-hematologyCBC-mch_value-unit"
-                          >
-                            (- pg)
-                          </span>
-                        </div>
-                      </div>
-                      <div
-                        class="MuiStack-root emotion-2"
-                      >
-                        <div
-                          class="MuiStack-root emotion-70"
-                        >
-                          <h3
-                            class="MuiTypography-root MuiTypography-titleMedium emotion-71"
-                            data-testid="ai-interpret-lab-hematologyCBC-mchc_value-label"
-                          >
-                            MCHC
-                          </h3>
-                        </div>
-                        <div
-                          class="MuiStack-root emotion-72"
-                        >
-                          <h3
-                            class="MuiTypography-root MuiTypography-titleMedium emotion-73"
-                            data-testid="ai-interpret-lab-hematologyCBC-mchc_value-value"
-                          >
-                            34.00(g/dL)
-                          </h3>
-                          <span
-                            class="MuiTypography-root MuiTypography-bodyMedium emotion-74"
-                            data-testid="ai-interpret-lab-hematologyCBC-mchc_value-unit"
-                          >
-                            (- g/dL)
-                          </span>
-                        </div>
-                      </div>
                       <div
                         class="MuiStack-root emotion-2"
                       >
@@ -1519,7 +1516,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                             class="MuiTypography-root MuiTypography-titleMedium emotion-73"
                             data-testid="ai-interpret-lab-hematologyCBC-platelet_count_value-value"
                           >
-                            243
+                            243(*10^3/mm^3)
                           </h3>
                           <span
                             class="MuiTypography-root MuiTypography-bodyMedium emotion-74"
@@ -1605,7 +1602,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                         class="MuiTypography-root MuiTypography-titleMedium emotion-73"
                         data-testid="ai-interpret-lab-lipidProfile-cholesterol_value-value"
                       >
-                        208
+                        208(mg/dL)
                       </h3>
                       <span
                         class="MuiTypography-root MuiTypography-bodyMedium emotion-74"
@@ -1635,7 +1632,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                         class="MuiTypography-root MuiTypography-titleMedium emotion-73"
                         data-testid="ai-interpret-lab-lipidProfile-triglyceride_value-value"
                       >
-                        72
+                        72(mg/dL)
                       </h3>
                       <span
                         class="MuiTypography-root MuiTypography-bodyMedium emotion-74"
@@ -1665,7 +1662,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                         class="MuiTypography-root MuiTypography-titleMedium emotion-73"
                         data-testid="ai-interpret-lab-lipidProfile-hdl_value-value"
                       >
-                        45.00
+                        45.00(mg/dL)
                       </h3>
                       <span
                         class="MuiTypography-root MuiTypography-bodyMedium emotion-74"
@@ -1695,7 +1692,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                         class="MuiTypography-root MuiTypography-titleMedium emotion-73"
                         data-testid="ai-interpret-lab-lipidProfile-ldl_value-value"
                       >
-                        155
+                        155(mg/dL)
                       </h3>
                       <span
                         class="MuiTypography-root MuiTypography-bodyMedium emotion-74"
@@ -1779,7 +1776,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                         class="MuiTypography-root MuiTypography-titleMedium emotion-73"
                         data-testid="ai-interpret-lab-bloodChemistry-uric_acid_value-value"
                       >
-                        6.80
+                        6.80(mg/dL)
                       </h3>
                       <span
                         class="MuiTypography-root MuiTypography-bodyMedium emotion-74"
@@ -1809,7 +1806,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                         class="MuiTypography-root MuiTypography-titleMedium emotion-73"
                         data-testid="ai-interpret-lab-bloodChemistry-fbs_value-value"
                       >
-                        93
+                        93(mg/dL)
                       </h3>
                       <span
                         class="MuiTypography-root MuiTypography-bodyMedium emotion-74"
@@ -1893,7 +1890,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                         class="MuiTypography-root MuiTypography-titleMedium emotion-73"
                         data-testid="ai-interpret-lab-renalFunctionTest-creatinine_value-value"
                       >
-                        0.89
+                        0.89(mg/dL)
                       </h3>
                       <span
                         class="MuiTypography-root MuiTypography-bodyMedium emotion-74"
@@ -1923,7 +1920,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                         class="MuiTypography-root MuiTypography-titleMedium emotion-73"
                         data-testid="ai-interpret-lab-renalFunctionTest-bun_value-value"
                       >
-                        10.70
+                        10.70(mg/dL)
                       </h3>
                       <span
                         class="MuiTypography-root MuiTypography-bodyMedium emotion-74"
@@ -2007,7 +2004,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                         class="MuiTypography-root MuiTypography-titleMedium emotion-73"
                         data-testid="ai-interpret-lab-liverFunctionTest-sgot_value-value"
                       >
-                        18
+                        18(U/L)
                       </h3>
                       <span
                         class="MuiTypography-root MuiTypography-bodyMedium emotion-74"
@@ -2037,7 +2034,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                         class="MuiTypography-root MuiTypography-titleMedium emotion-73"
                         data-testid="ai-interpret-lab-liverFunctionTest-sgpt_value-value"
                       >
-                        17
+                        17(U/L)
                       </h3>
                       <span
                         class="MuiTypography-root MuiTypography-bodyMedium emotion-74"
@@ -2067,7 +2064,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                         class="MuiTypography-root MuiTypography-titleMedium emotion-73"
                         data-testid="ai-interpret-lab-liverFunctionTest-alp_value-value"
                       >
-                        71
+                        71(U/L)
                       </h3>
                       <span
                         class="MuiTypography-root MuiTypography-bodyMedium emotion-74"

@@ -33,14 +33,13 @@ export const GENERAL_CHECK_UP = {
   TEMPERATURE: "temperature",
 };
 
-export const LAB_STATUS = {
-  NORMAL: "normal",
-  ABNORMAL: "abnormal",
+export const HEMATOLOGY_BLOOD = {
+  BLOOD_GROUP: "blood_group",
+  BLOOD_GROUP_RH: "blood_group_rh",
 };
 
-export const RESULT = {
-  NEGATIVE: "Negative",
-  POSITIVE: "Positive",
+export const HEMATOLOGY_BLOOD_GROUP = {
+  HEMATOLOGY_BLOOD: "bloodGroup",
 };
 
 export const HEMATOLOGY_CBC = {
@@ -64,11 +63,4 @@ export const HEMATOLOGY_CBC_GROUP = {
   HEMOGLOBIN: "hemoglobin",
   WHITE_BLOOD: "whiteBlood",
   RED_BLOOD: "redBlood",
-};
-
-export const UNIT_LAB = {
-  BLOOD: "*10^3/mm^3",
-  MG_DL: "mg/dL",
-  U_L: "U/L",
-  NO_UNIT: "",
 };
