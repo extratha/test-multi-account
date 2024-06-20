@@ -245,6 +245,7 @@
             }
           },
           "tumorMarker": {
+            "title": "Tumor marker",
             "afp_value": {
               "label": "สารบ่งชี้มะเร็งตับ"
             },
