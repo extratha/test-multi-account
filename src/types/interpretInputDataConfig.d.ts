@@ -21,3 +21,17 @@ export interface InputGroupConfig {
   groupName: string;
   data: InputDataConfig[];
 }
+
+interface FieldValuesForSubmit {
+  key: string;
+  value: unknown;
+  unit: string;
+  range: normalRange[];
+}
+interface LabInfoType {
+  groupName: string;
+  data: FieldValuesForSubmit[];
+}
+export interface SubmitHealthDataType {
+  labInfo: LabInfoType[];
+}

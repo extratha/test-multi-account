@@ -72,7 +72,6 @@ axiosInstance.interceptors.response.use(
         isRefreshing = false;
       }
     }
-
     return Promise.reject(response?.data || "Something went wrong");
   }
 );

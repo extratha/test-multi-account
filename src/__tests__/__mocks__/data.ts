@@ -1,4 +1,5 @@
 import { ExampleDataResult, InterpretResult } from "@/types/aiInterpret";
+import { SubmitHealthDataType } from "@/types/interpretInputDataConfig";
 
 export const mockLoginResponse = {
   accessToken: "mockAccessToken",
@@ -60,6 +61,28 @@ export const mockAiInterpretResult: InterpretResult = {
         {
           key: "gender",
           value: "Male",
+          unit: "",
+          range: [
+            {
+              value: "-",
+              description: "abnormal",
+            },
+          ],
+        },
+        {
+          key: "body_weight",
+          value: "40",
+          unit: "",
+          range: [
+            {
+              value: "-",
+              description: "abnormal",
+            },
+          ],
+        },
+        {
+          key: "body_height",
+          value: "150",
           unit: "",
           range: [
             {
@@ -397,7 +420,7 @@ export const mockAiInterpretResult: InterpretResult = {
         },
         {
           key: "urine_wbc_value",
-          value: "0-1 Cells/HPF",
+          value: "0-5",
           unit: "",
           range: [
             {
@@ -419,7 +442,7 @@ export const mockAiInterpretResult: InterpretResult = {
         },
         {
           key: "urine_glucose_value",
-          value: "0-1 Cells/HPF",
+          value: "Negative",
           unit: "",
           range: [
             {
@@ -441,7 +464,7 @@ export const mockAiInterpretResult: InterpretResult = {
         },
         {
           key: "urine_rbc_value",
-          value: "0-1 Cells/HPF",
+          value: "0-5",
           unit: "",
           range: [
             {
@@ -457,7 +480,7 @@ export const mockAiInterpretResult: InterpretResult = {
       data: [
         {
           key: "papsmear_finding",
-          value: "-1",
+          value: "Normal",
           unit: "",
           range: [
             {
@@ -486,4 +509,269 @@ export const mockAiInterpretResult: InterpretResult = {
   aiModelVersion: "1.0.0",
   createdAt: "",
   updatedAt: "",
+};
+
+export const mockInputFieldConfig = JSON.stringify([
+  {
+    groupName: "generalCheckUp",
+    data: [
+      {
+        key: "age",
+        value: "",
+        unit: "Year",
+        required: true,
+        fieldType: "Number",
+        minValue: "15",
+        maxValue: "150",
+      },
+      {
+        key: "gender",
+        value: "",
+        unit: "",
+        required: true,
+        fieldType: "Dropdown",
+        dropdownValue: ["Male", "Female"],
+      },
+      {
+        key: "body_weight",
+        value: "",
+        unit: "Kg",
+        required: true,
+        fieldType: "Number",
+        minValue: "20",
+        maxValue: "650",
+      },
+      {
+        key: "body_height",
+        value: "",
+        unit: "Cm",
+        required: true,
+        fieldType: "Number",
+        minValue: "100",
+        maxValue: "250",
+      },
+      {
+        key: "waist_line",
+        value: "",
+        unit: "Cm",
+        required: false,
+        fieldType: "Number",
+        minValue: "50",
+        maxValue: "250",
+        range: [
+          { value: "<90", description: "normal", type: "male" },
+          { value: "<80", description: "normal", type: "female" },
+        ],
+      },
+      {
+        key: "blood_pressure_systolic",
+        value: "",
+        unit: "mmhg",
+        required: false,
+        fieldType: "Number",
+        minValue: "70",
+        maxValue: "250",
+        range: [
+          { value: "<135", description: "normal", type: "male" },
+          { value: "<120", description: "normal", type: "female" },
+        ],
+      },
+      {
+        key: "blood_pressure_diastolic",
+        value: "",
+        unit: "mmhg",
+        required: false,
+        fieldType: "Number",
+        minValue: "50",
+        maxValue: "130",
+        range: [
+          { value: "60-90", description: "normal", type: "male" },
+          { value: "60-90", description: "normal", type: "female" },
+        ],
+      },
+      {
+        key: "pulse",
+        value: "",
+        unit: "Bpm",
+        required: false,
+        fieldType: "Number",
+        minValue: "40",
+        maxValue: "220",
+        range: [
+          { value: "60-100", description: "normal", type: "male" },
+          { value: "60-100", description: "normal", type: "female" },
+        ],
+      },
+      {
+        key: "respiratory_rate",
+        value: "",
+        unit: "Bpm",
+        required: false,
+        fieldType: "Number",
+        minValue: "10",
+        maxValue: "30",
+        range: [
+          { value: "16-18", description: "normal", type: "male" },
+          { value: "16-18", description: "normal", type: "female" },
+        ],
+      },
+      {
+        key: "temperature",
+        value: "",
+        unit: "°C",
+        required: false,
+        fieldType: "Number",
+        minValue: "33",
+        maxValue: "42",
+        range: [
+          { value: "36.5-37.5", description: "normal", type: "male" },
+          { value: "36.5-37.5", description: "normal", type: "female" },
+        ],
+      },
+    ],
+  },
+]);
+
+export const mockSubmitHealthDataBody: SubmitHealthDataType = {
+  labInfo: [
+    {
+      groupName: "generalCheckUp",
+      data: [
+        {
+          key: "age",
+          unit: "Year",
+          value: "20",
+          range: [
+            {
+              value: "",
+              description: "",
+            },
+          ],
+        },
+        {
+          key: "gender",
+          unit: "",
+          value: "Male",
+          range: [
+            {
+              value: "",
+              description: "",
+            },
+          ],
+        },
+        {
+          key: "body_weight",
+          unit: "Kg",
+          value: "40",
+          range: [
+            {
+              value: "",
+              description: "",
+            },
+          ],
+        },
+        {
+          key: "body_height",
+          unit: "Cm",
+          value: "150",
+          range: [
+            {
+              value: "",
+              description: "",
+            },
+          ],
+        },
+        {
+          key: "waist_line",
+          unit: "Cm",
+          value: undefined,
+          range: [
+            {
+              description: "normal",
+              value: "<90",
+            },
+            {
+              description: "normal",
+              value: "<80",
+            },
+          ],
+        },
+        {
+          key: "blood_pressure_systolic",
+          unit: "mmhg",
+          value: undefined,
+          range: [
+            {
+              description: "normal",
+              value: "<135",
+            },
+            {
+              description: "normal",
+              value: "<120",
+            },
+          ],
+        },
+        {
+          key: "blood_pressure_diastolic",
+          unit: "mmhg",
+          value: undefined,
+          range: [
+            {
+              description: "normal",
+              value: "60-90",
+            },
+            {
+              description: "normal",
+              value: "60-90",
+            },
+          ],
+        },
+        {
+          key: "pulse",
+          unit: "Bpm",
+          value: undefined,
+          range: [
+            {
+              description: "normal",
+              value: "60-100",
+            },
+            {
+              description: "normal",
+              value: "60-100",
+            },
+          ],
+        },
+        {
+          key: "respiratory_rate",
+          unit: "Bpm",
+          value: undefined,
+          range: [
+            {
+              description: "normal",
+              value: "16-18",
+            },
+            {
+              description: "normal",
+              value: "16-18",
+            },
+          ],
+        },
+        {
+          key: "temperature",
+          unit: "°C",
+          value: "38",
+          range: [
+            {
+              description: "normal",
+              value: "36.5-37.5",
+            },
+            {
+              description: "normal",
+              value: "36.5-37.5",
+            },
+          ],
+        },
+      ],
+    },
+  ],
 };

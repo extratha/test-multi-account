@@ -3,15 +3,19 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, CircularProgress, Divider, Stack, styled, Typography } from "@mui/material";
 import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
+import { postSubmitHealthData } from "@/api/api";
 import { IconArrowLeft, IconImportExampleData, IconSparkle, IconSparkleDisabled } from "@/assets";
 import { theme } from "@/config/config-mui";
 import { CUSTOM_COLORS, NEUTRAL } from "@/config/config-mui/theme/colors";
 import { remoteConfigKey } from "@/constant/firebase";
-import { InputDataConfig, InputGroupConfig } from "@/types/interpretInputDataConfig";
+import { webPaths } from "@/constant/webPaths";
+import { useGetLabExampleId } from "@/hooks/useApi";
+import { GroupName } from "@/types/aiInterpret";
+import { InputDataConfig, InputGroupConfig, SubmitHealthDataType } from "@/types/interpretInputDataConfig";
 import { remoteConfig } from "@/utils/firebase";
 import { ButtonInterpretDataStyled } from "../ExampleDataList/styled";
 import { ContentContainer } from "../HomePageModule/styled";
@@ -19,6 +23,9 @@ import InputDataFieldType from "./InputDataFieldType";
 import { useInputDataFieldYupSchema } from "./InputDataSchema";
 
 type FormValues = Record<string, unknown>;
+interface DefaultValues {
+  [key: string]: string;
+}
 
 const CommonButton = styled(Button)(({ theme }) => ({
   padding: 10,
@@ -64,11 +71,14 @@ const CircularLoading = styled(CircularProgress)({
 const InputDataModule = () => {
   const router = useRouter();
   const tAi = useTranslations("AiInterpret");
+  const searchParams = useSearchParams();
+  const interpretId = searchParams.get("id");
 
-  const [modelVersion] = useState<string | null>(null);
+  const [modelVersion, setModelVersion] = useState<string | null>(null);
   const [inputGroupConfigs, setInputGroupConfigs] = useState<InputGroupConfig[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const { data, isLoading: isGetLabExampleIdLoading } = useGetLabExampleId(interpretId || "");
   const validateSchema = useInputDataFieldYupSchema(inputGroupConfigs);
 
   const methods = useForm<FormValues>({
@@ -77,15 +87,56 @@ const InputDataModule = () => {
     mode: "onChange",
   });
 
-  const { handleSubmit, formState } = methods;
-  const isDisableInterpretButton = isLoading || !formState.isValid;
+  const { handleSubmit, formState, setValue, trigger } = methods;
+  const isDisableInterpretButton = isGetLabExampleIdLoading || isLoading || !formState.isValid;
 
-  const handleClickBackButton = () => {
-    router.back();
+  const convertLabInputDataToFieldData = (inputData: GroupName[]): DefaultValues => {
+    const result: DefaultValues = {};
+    inputData.forEach((group) => {
+      group.data.forEach((item) => {
+        result[item.key] = item.value;
+      });
+    });
+    return result;
   };
 
-  const onSubmit = (data: FormValues) => {
-    console.log(data);
+  const handleClickBackButton = () => {
+    router.push(webPaths.aiInterpret.tryExampleData);
+  };
+
+  const onSubmit = async (formValues: FormValues) => {
+    try {
+      setIsLoading(true);
+      const transformBody: SubmitHealthDataType = {
+        labInfo: inputGroupConfigs.map((group) => ({
+          groupName: group.groupName,
+          data: group.data.map((data) => ({
+            key: data.key,
+            value: transformValueTypes(formValues[data.key]),
+            unit: data.unit,
+            range: data.range,
+          })),
+        })),
+      };
+      const response = await postSubmitHealthData(transformBody);
+      console.log("RESPONSE ::: ", response);
+    } catch (error) {
+      console.log("ERROR ::: ", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const transformValueTypes = (value: unknown) => {
+    const valueType = typeof value;
+    switch (valueType) {
+      case "number": {
+        return JSON.stringify(value);
+      }
+      default: {
+        return value;
+      }
+    }
   };
 
   const fetchConfigData = async () => {
@@ -96,9 +147,27 @@ const InputDataModule = () => {
     setIsLoading(false);
   };
 
+  const defaultInputData: DefaultValues = useMemo(() => {
+    const inputData = data?.data?.inputData || [];
+    return convertLabInputDataToFieldData(inputData);
+  }, [data]);
+
   useEffect(() => {
     fetchConfigData();
+    if (data?.data) {
+      setModelVersion(data.data.aiModelVersion);
+    }
   }, []);
+
+  useEffect(() => {
+    const fieldnames = Object.keys(defaultInputData);
+    if (defaultInputData && fieldnames.length > 0) {
+      fieldnames.forEach((fieldname) => {
+        setValue(fieldname, defaultInputData[fieldname]);
+        trigger(fieldname);
+      });
+    }
+  }, [defaultInputData]);
 
   return (
     <ContentContainer>
@@ -119,7 +188,7 @@ const InputDataModule = () => {
             </Typography>
             <Stack ml="auto">
               <Stack direction="row" spacing={2} justifyContent={"end"}>
-                <CommonButton data-testid="use-exmple-data-button">
+                <CommonButton data-testid="use-example-data-button">
                   <IconImportExampleData />
                   <Typography ml={1} variant="labelLargeSemiBold">
                     {tAi("button.useExampleData")}
@@ -148,7 +217,7 @@ const InputDataModule = () => {
                 {modelVersion && (
                   <Stack direction="row" ml={2} spacing={1}>
                     <Typography variant="bodyLarge">{tAi("field.modelVersion")}</Typography>
-                    <Typography variant="bodyLargeSemiBold">{}</Typography>
+                    <Typography variant="bodyLargeSemiBold">{modelVersion}</Typography>
                   </Stack>
                 )}
               </Stack>

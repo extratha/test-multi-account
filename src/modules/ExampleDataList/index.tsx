@@ -106,7 +106,7 @@ const EmployeeDataList = () => {
                     }}
                   >
                     <Stack spacing={1}>
-                      <Typography variant="titleMediumSemiBold" color={theme.palette.action.active}>
+                      <Typography variant="titleMediumSemiBold" color="primary.lighter">
                         {`${tAi("label.exampleData")} ${index + 1}`}
                       </Typography>
                       <Typography variant="titleLargeSemiBold">{item.caseName}</Typography>
@@ -127,7 +127,7 @@ const EmployeeDataList = () => {
                         </TagValueStyle>
                       </Stack>
                     </Stack>
-                    <Stack minWidth={"48%"} margin={"0 0 0 auto"}>
+                    <Stack minWidth="48%" margin="10px 0 0 auto">
                       <Stack direction="row" justifyContent={"end"} spacing={1}>
                         <ButtonEditDataStyled onClick={() => handleClickEditData(item)}>
                           <IconPen />
@@ -142,7 +142,7 @@ const EmployeeDataList = () => {
                           </Typography>
                         </ButtonInterpretDataStyled>
                       </Stack>
-                      <Stack direction="row" spacing={1} margin={"10px 0 0 auto"} color={theme.palette.action.active}>
+                      <Stack direction="row" spacing={1} margin="10px 0 0 auto" color="primary.lighter">
                         <Typography variant="labelLarge">{tAi("field.modelVersion")}</Typography>
                         <Typography variant="labelLargeSemiBold">{item.aiModelVersion}</Typography>
                       </Stack>

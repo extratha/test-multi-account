@@ -61,7 +61,7 @@ const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {
       </Grid>
       <Grid item xs={4}>
         <Grid container>
-          <Grid xs={10} pr={2}>
+          <Grid item xs={10} pr={2}>
             {field.fieldType === CONFIG_FIELD_TYPES.DROPDOWN && (
               <FormAutocomplete
                 name={field.key}
@@ -78,7 +78,7 @@ const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {
               <FormTextField name={field.key} placeholder={t("placeholder.enterValue")} required={field.required} />
             )}
           </Grid>
-          <Grid xs={2}>
+          <Grid item xs={2}>
             <TypoUnit variant="bodyLarge">{displayUnit(field)}</TypoUnit>
           </Grid>
         </Grid>

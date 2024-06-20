@@ -1,15 +1,39 @@
+import MockAdapter from "axios-mock-adapter";
 import "firebase/remote-config";
-import { useRouter } from "next/navigation";
-import InputDataModule from ".";
-import { flushPromise, render, screen, userEvent } from "../../__tests__/testUtils";
 
-jest.mock("next/navigation", () => ({
-  useRouter: jest.fn(),
-}));
+import { mockAiInterpretResult } from "@/__tests__/__mocks__/data";
+import {
+  API,
+  flushPromise,
+  render,
+  screen,
+  spyUseRouter,
+  SpyUseRouter,
+  spyUseSearchParams,
+  SpyUseSearchParams,
+  userEvent,
+  waitFor,
+} from "@/__tests__/testUtils";
+import axiosInstance from "@/utils/axios";
+import InputDataModule from ".";
 
 describe("InputDataModule", () => {
+  let spySearchParams: SpyUseSearchParams;
+  let spyRouter: SpyUseRouter;
+  let mockApiAdapter: MockAdapter;
+
   beforeEach(() => {
-    jest.clearAllMocks();
+    spySearchParams = spyUseSearchParams();
+    spyRouter = spyUseRouter();
+
+    spySearchParams.get.mockImplementation((key: string) => {
+      if (key === "id") return "interpretId";
+    });
+
+    mockApiAdapter = new MockAdapter(axiosInstance);
+    mockApiAdapter.onGet(API.AI_INTERPRET_URL).reply(200, mockAiInterpretResult);
+    mockApiAdapter.onPost(API.SUBMIT_HEALTH_DATA_URI).reply(200, mockAiInterpretResult);
+    // jest.spyOn(Api, "postSubmitHealthData");
   });
 
   const renderInputDataModule = async () => {
@@ -30,16 +54,46 @@ describe("InputDataModule", () => {
   });
 
   it("should call router back when click back button", async () => {
-    const mockBack = jest.fn();
-    const mockUseRouter = useRouter as jest.Mock;
-    mockUseRouter.mockReturnValue({
-      back: mockBack,
-    });
     await renderInputDataModule();
 
-    const backButton = await screen.findByTestId("back-button");
+    const backButton = screen.getByTestId("back-button");
     await userEvent.click(backButton);
 
-    expect(mockBack).toHaveBeenCalledTimes(1);
+    await waitFor(() => expect(spyRouter.push).toHaveBeenCalledTimes(1));
+  });
+
+  it("should render and handle click on use example data button", async () => {
+    await renderInputDataModule();
+
+    const exampleDataButton = screen.getByTestId("use-example-data-button");
+    expect(exampleDataButton).toBeInTheDocument();
+  });
+
+  it("should render interpret data button and be disabled", async () => {
+    await renderInputDataModule();
+    const ageField = screen.getByTestId("input-number-age");
+    await userEvent.clear(ageField);
+
+    const interpretDataButton = screen.getByTestId("interpret-data-button");
+    expect(interpretDataButton).toBeInTheDocument();
+    expect(interpretDataButton).toBeDisabled();
+  });
+
+  it("should render interpret data button and enable after form data is valid", async () => {
+    await renderInputDataModule();
+
+    const ageField = screen.getByTestId("input-number-age");
+
+    await userEvent.clear(ageField);
+    await userEvent.type(ageField, "20");
+
+    await flushPromise();
+
+    const interpretDataButton = await screen.findByTestId("interpret-data-button");
+
+    expect(interpretDataButton).toBeInTheDocument();
+    expect(interpretDataButton).not.toBeDisabled();
+
+    await userEvent.click(interpretDataButton);
   });
 });
