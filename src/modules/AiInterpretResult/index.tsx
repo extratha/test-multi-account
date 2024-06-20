@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 import { styled } from "@mui/material/styles";
+import ReactMarkdown from "react-markdown";
 
 import { IconArrowLeft, IconCopy, IconPen, IconSparkle } from "@/assets";
 import Tag from "@/components/Tag";
@@ -108,7 +109,9 @@ const TitleResult = styled(Typography)(({ theme }) => ({
   color: theme.palette.primary.lighter,
 }));
 
-const DescriptionResult = styled(Typography)({
+const Markdown = styled(ReactMarkdown)({
+  fontSize: "16px",
+  whiteSpace: "normal",
   color: CUSTOM_COLORS.textHighEmp,
 });
 
@@ -139,8 +142,8 @@ const GeneralInformationUnit = styled(Typography)({
 });
 
 const AiInterpretResult = () => {
-  const searchParams = useSearchParams()
-  const interpretId =  searchParams.get('id') || '';
+  const searchParams = useSearchParams();
+  const interpretId = searchParams.get("id") || "";
   const tAi = useTranslations("AiInterpret");
   const router = useRouter();
 
@@ -262,9 +265,7 @@ const AiInterpretResult = () => {
                           <TitleResult variant="labelExtraLargeSemiBold" data-testid={`ai-interpret-title-${index}`}>
                             {index + 1}. {option.title}
                           </TitleResult>
-                          <DescriptionResult data-testid={`ai-interpret-description-${index}`}>
-                            {option.description}
-                          </DescriptionResult>
+                          <Markdown data-testid={`ai-interpret-description-${index}`}>{option.description}</Markdown>
                           <Button
                             startIcon={<IconCopy />}
                             onClick={() => {

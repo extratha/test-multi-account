@@ -5,7 +5,7 @@ import { useMemo, useState } from "react";
 
 import { IconChevronDown, IconChevronUp, IconLabStatusBlack } from "@/assets";
 import { CUSTOM_COLORS, NEUTRAL } from "@/config/config-mui/theme/colors";
-import { HEMATOLOGY_CBC, HEMATOLOGY_CBC_GROUP } from "@/constant/constant";
+import { HEMATOLOGY_BLOOD, HEMATOLOGY_BLOOD_GROUP, HEMATOLOGY_CBC, HEMATOLOGY_CBC_GROUP } from "@/constant/constant";
 import { GroupName, InputData, LAB_GROUP } from "@/types/aiInterpret";
 import AiInterpretLabUnit from "./AiInterpretLabUnit";
 
@@ -20,10 +20,20 @@ interface SubGroup {
 }
 
 const LAB_SUB_GROUPS: Record<string, LAB_GROUP[]> = {
+  hematologyBG: [
+    {
+      group: HEMATOLOGY_BLOOD_GROUP.HEMATOLOGY_BLOOD,
+      value: [HEMATOLOGY_BLOOD.BLOOD_GROUP, HEMATOLOGY_BLOOD.BLOOD_GROUP_RH],
+    },
+  ],
   hematologyCBC: [
     {
       group: HEMATOLOGY_CBC_GROUP.HEMOGLOBIN,
       value: [HEMATOLOGY_CBC.HB, HEMATOLOGY_CBC.HCT],
+    },
+    {
+      group: HEMATOLOGY_CBC_GROUP.RED_BLOOD,
+      value: [HEMATOLOGY_CBC.MCV, HEMATOLOGY_CBC.MCH, HEMATOLOGY_CBC.MCHC, HEMATOLOGY_CBC.RBC_MORPHOLOGY],
     },
     {
       group: HEMATOLOGY_CBC_GROUP.WHITE_BLOOD,
@@ -34,16 +44,7 @@ const LAB_SUB_GROUPS: Record<string, LAB_GROUP[]> = {
         HEMATOLOGY_CBC.MONOCYTE,
         HEMATOLOGY_CBC.EOSINOPHIL,
         HEMATOLOGY_CBC.BASOPHIL,
-      ],
-    },
-    {
-      group: HEMATOLOGY_CBC_GROUP.RED_BLOOD,
-      value: [
-        HEMATOLOGY_CBC.MCV,
-        HEMATOLOGY_CBC.MCH,
-        HEMATOLOGY_CBC.MCHC,
         HEMATOLOGY_CBC.PLATELET_COUNT,
-        HEMATOLOGY_CBC.RBC_MORPHOLOGY,
       ],
     },
   ],

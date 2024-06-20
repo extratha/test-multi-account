@@ -89,27 +89,15 @@
       },
       "lab": {
         "seeResults": "More",
-        "color": {
-          "White": "White",
-          "Yellow": "Yellow",
-          "Turbid": "Turbid",
-          "Amber": "Amber",
-          "Brown": "Brown",
-          "Red": "Red",
-          "Green": "Green",
-          "Orange": "Orange"
-        },
-        "result": {
-          "negative": "Negative",
-          "positive": "Positive"
-        },
         "group": {
           "hematologyBG": {
+            "title": "Blood group",
+            "bloodGroup": "Blood group",
             "blood_group": {
-              "label": "ABO"
+              "label": "ABO:"
             },
             "blood_group_rh": {
-              "label": "Rh"
+              "label": "Rh:"
             }
           },
           "hematologyCBC": {
