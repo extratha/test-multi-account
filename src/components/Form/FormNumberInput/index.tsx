@@ -19,7 +19,7 @@ const FormNumberInput = ({ name, placeholder, decimalScale, min, max }: FormNumb
     <>
       <TextField
         {...field}
-        value={field.value}
+        value={field.value || ""}
         fullWidth
         error={!!error}
         placeholder={placeholder}

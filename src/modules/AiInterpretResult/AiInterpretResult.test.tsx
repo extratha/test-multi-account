@@ -67,7 +67,7 @@ describe("AiInterpretResult", () => {
 
     expect(screen.getByTestId("ai-interpret-lab-title-hematologyCBC")).toHaveTextContent("Hematology");
     expect(screen.getByTestId("ai-interpret-lab-hematologyCBC-hb_value-label")).toHaveTextContent("Hb");
-    expect(screen.getByTestId("ai-interpret-lab-hematologyCBC-hb_value-value")).toHaveTextContent("13.80(g/dL)");
+    expect(screen.getByTestId("ai-interpret-lab-hematologyCBC-hb_value-value")).toHaveTextContent("13.80 (g/dL)");
     expect(screen.getByTestId("ai-interpret-lab-hematologyCBC-hb_value-unit")).toHaveTextContent("(- g/dL)");
 
     expect(screen.getByTestId("ai-interpret-lab-title-bloodChemistry")).toHaveTextContent("Blood Chemistry");
@@ -92,7 +92,6 @@ describe("AiInterpretResult", () => {
     expect(spyRouter.push).toHaveBeenCalled();
   });
 
-
   it("should copy to example data when click copy button", async () => {
     await renderAiInterpretResult();
 
@@ -100,5 +99,4 @@ describe("AiInterpretResult", () => {
 
     expect(navigator.clipboard.writeText).toHaveBeenCalledWith("description-ai-result");
   });
-
 });

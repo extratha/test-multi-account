@@ -32,6 +32,7 @@ interface LabInfoType {
   groupName: string;
   data: FieldValuesForSubmit[];
 }
-export interface SubmitHealthDataType {
+
+export interface SubmitLabInterpretsRequest {
   labInfo: LabInfoType[];
 }

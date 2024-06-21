@@ -40,7 +40,7 @@ export const useInputDataFieldYupSchema = (config: InputGroupConfig[]) => {
             }
             break;
           case "Dropdown":
-            schema = Yup.string();
+            schema = Yup.string().nullable();
             if (field.required) {
               schema = schema.required(error.message.selectRequire);
             }

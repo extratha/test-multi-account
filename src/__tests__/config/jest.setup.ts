@@ -7,6 +7,11 @@ import { MockImage } from "../__mocks__/NextImage";
 jest.mock("next/navigation", () => require("next-router-mock"));
 jest.mock("next/image", () => MockImage);
 
+jest.mock("@/api/api", () => {
+  const actualModule = jest.requireActual("@/api/api");
+  return { ...actualModule, __esModule: true };
+});
+
 jest.mock("next/config", () => () => ({
   setConfig: jest.fn(),
   publicRuntimeConfig: {
@@ -24,4 +29,5 @@ jest.mock("cookies-next", () => ({
   ...jest.requireActual("cookies-next"),
   getCookie: jest.fn().mockReturnValue("MOCK_ACCESS_TOKEN"),
 }));
+
 jest.setTimeout(100000);

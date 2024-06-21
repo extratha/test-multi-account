@@ -1,10 +1,10 @@
 "use client";
 
 import { Button, CircularProgress, Divider, Stack, Typography } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import { useTranslations } from "next-intl";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useMemo } from "react";
-import { styled } from "@mui/material/styles";
 import ReactMarkdown from "react-markdown";
 
 import { IconArrowLeft, IconCopy, IconPen, IconSparkle } from "@/assets";

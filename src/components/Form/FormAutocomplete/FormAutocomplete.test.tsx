@@ -86,10 +86,12 @@ describe("FormAutocomplete", () => {
   it("should clear value", async () => {
     await renderComponent(props);
     const autocomplete = screen.getByRole("combobox");
+
     fireEvent.click(autocomplete);
     fireEvent.change(autocomplete, { target: { value: "test1" } });
-    const clear = screen.getByTitle("Clear");
-    await userEvent.click(clear);
+
+    await userEvent.clear(autocomplete);
+
     expect(autocomplete).toHaveValue("");
   });
 

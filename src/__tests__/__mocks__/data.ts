@@ -1,5 +1,5 @@
 import { ExampleDataResult, InterpretResult } from "@/types/aiInterpret";
-import { SubmitHealthDataType } from "@/types/interpretInputDataConfig";
+import { SubmitLabInterpretsRequest } from "@/types/interpretInputDataConfig";
 
 export const mockLoginResponse = {
   accessToken: "mockAccessToken",
@@ -632,7 +632,7 @@ export const mockInputFieldConfig = JSON.stringify([
   },
 ]);
 
-export const mockSubmitHealthDataBody: SubmitHealthDataType = {
+export const mockSubmitHealthDataBody: SubmitLabInterpretsRequest = {
   labInfo: [
     {
       groupName: "generalCheckUp",
