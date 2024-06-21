@@ -14,6 +14,7 @@ import {
   userEvent,
   waitFor,
 } from "@/__tests__/testUtils";
+import * as Api from "@/api/api";
 import axiosInstance from "@/utils/axios";
 import InputDataModule from ".";
 
@@ -30,10 +31,10 @@ describe("InputDataModule", () => {
       if (key === "id") return "interpretId";
     });
 
+    jest.spyOn(Api, "submitLabInterprets");
     mockApiAdapter = new MockAdapter(axiosInstance);
     mockApiAdapter.onGet(API.AI_INTERPRET_URL).reply(200, mockAiInterpretResult);
     mockApiAdapter.onPost(API.SUBMIT_HEALTH_DATA_URI).reply(200, mockAiInterpretResult);
-    // jest.spyOn(Api, "postSubmitHealthData");
   });
 
   const renderInputDataModule = async () => {
@@ -69,31 +70,19 @@ describe("InputDataModule", () => {
     expect(exampleDataButton).toBeInTheDocument();
   });
 
-  it("should render interpret data button and be disabled", async () => {
+  it("should disabled submit interpret button when form values is invalid", async () => {
     await renderInputDataModule();
-    const ageField = screen.getByTestId("input-number-age");
-    await userEvent.clear(ageField);
-
-    const interpretDataButton = screen.getByTestId("interpret-data-button");
-    expect(interpretDataButton).toBeInTheDocument();
-    expect(interpretDataButton).toBeDisabled();
+    await userEvent.clear(screen.getByTestId("input-number-age"));
+    expect(screen.getByTestId("submit-interpret-button")).toBeDisabled();
   });
 
-  it("should render interpret data button and enable after form data is valid", async () => {
+  it("should call submitLabInterprets when click submit lab interprets button", async () => {
     await renderInputDataModule();
 
-    const ageField = screen.getByTestId("input-number-age");
-
-    await userEvent.clear(ageField);
-    await userEvent.type(ageField, "20");
-
+    await userEvent.click(screen.getByTestId("submit-interpret-button"));
     await flushPromise();
 
-    const interpretDataButton = await screen.findByTestId("interpret-data-button");
-
-    expect(interpretDataButton).toBeInTheDocument();
-    expect(interpretDataButton).not.toBeDisabled();
-
-    await userEvent.click(interpretDataButton);
+    // TODO: expected called with data
+    expect(Api.submitLabInterprets).toHaveBeenCalled();
   });
 });

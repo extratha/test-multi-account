@@ -1,5 +1,6 @@
+import { CUSTOM_COLORS } from "@/config/config-mui/theme/colors";
 import { KeyboardArrowDown } from "@mui/icons-material";
-import { Autocomplete as MuiAutocomplete, styled, TextField } from "@mui/material";
+import { ListItem, Autocomplete as MuiAutocomplete, styled, TextField, Typography } from "@mui/material";
 import { useTranslations } from "next-intl";
 import { useController, useFormContext } from "react-hook-form";
 import { FieldErrorMessage } from "../FieldErrorMessage";
@@ -17,6 +18,19 @@ export interface FormAutocompleteProps {
   placeholder?: string;
 }
 
+const OptionItem = styled(ListItem)(({ theme }) => ({
+  padding: "16px 24px",
+  "&:hover": {
+    cursor: "pointer",
+    backgroundColor: theme.palette.grey[100],
+  },
+  "&&[aria-selected=true], &[aria-selected=true].Mui-focused, .Mui-focused": {
+    backgroundColor: theme.palette.background.paper,
+    "&:hover": {
+      backgroundColor: theme.palette.grey[100],
+    },
+  },
+}));
 interface AutocompleteCustomStyleProps {
   onChange: (event: React.ChangeEvent<"object">, data: Option | null) => void;
 }
@@ -36,6 +50,7 @@ const FormAutocomplete = ({ name, options, required = false, placeholder }: Form
     <>
       <Autocomplete
         {...field}
+        value={field.value || ""}
         data-testid={`autocomplete-${name}`}
         options={options || []}
         // TODO : Refactor
@@ -49,7 +64,17 @@ const FormAutocomplete = ({ name, options, required = false, placeholder }: Form
             placeholder={`${placeholder || t("placeholder.selectValue")}`}
           />
         )}
-        onChange={(_, data: any) => field.onChange(data?.value || null)}
+        renderOption={(props, option) => (
+          <OptionItem {...props} key={(option as Option).value}>
+            <Typography variant="bodyLarge" color={CUSTOM_COLORS.lightSteelgray}>
+              {(option as Option).label}
+            </Typography>
+          </OptionItem>
+        )}
+        onChange={(_, data) => {
+          console.log("Selected data:", data);
+          field.onChange((data as Option)?.value || null);
+        }}
         popupIcon={<KeyboardArrowDown data-testid="drop-icon" />}
       />
       {error && (

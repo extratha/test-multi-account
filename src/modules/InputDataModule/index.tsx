@@ -7,22 +7,23 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
-import { postSubmitHealthData } from "@/api/api";
+import { submitLabInterprets } from "@/api/api";
 import { IconArrowLeft, IconImportExampleData, IconSparkle, IconSparkleDisabled } from "@/assets";
 import { theme } from "@/config/config-mui";
 import { CUSTOM_COLORS, NEUTRAL } from "@/config/config-mui/theme/colors";
 import { remoteConfigKey } from "@/constant/firebase";
 import { webPaths } from "@/constant/webPaths";
 import { useGetLabExampleId } from "@/hooks/useApi";
-import { GroupName } from "@/types/aiInterpret";
-import { InputDataConfig, InputGroupConfig, SubmitHealthDataType } from "@/types/interpretInputDataConfig";
+import { InputDataConfig, InputGroupConfig } from "@/types/interpretInputDataConfig";
 import { remoteConfig } from "@/utils/firebase";
+import { mapInputDataToSubmitInterprets } from "@/utils/mapper";
 import { ButtonInterpretDataStyled } from "../ExampleDataList/styled";
 import { ContentContainer } from "../HomePageModule/styled";
 import InputDataFieldType from "./InputDataFieldType";
 import { useInputDataFieldYupSchema } from "./InputDataSchema";
 
 type FormValues = Record<string, unknown>;
+
 interface DefaultValues {
   [key: string]: string;
 }
@@ -74,13 +75,14 @@ const InputDataModule = () => {
   const searchParams = useSearchParams();
   const interpretId = searchParams.get("id");
 
-  const [modelVersion, setModelVersion] = useState<string | null>(null);
   const [inputGroupConfigs, setInputGroupConfigs] = useState<InputGroupConfig[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const { data, isLoading: isGetLabExampleIdLoading } = useGetLabExampleId(interpretId || "");
-  const validateSchema = useInputDataFieldYupSchema(inputGroupConfigs);
+  const inputData = data?.data?.inputData || [];
+  const modelVersion = data?.data?.aiModelVersion || "";
 
+  const validateSchema = useInputDataFieldYupSchema(inputGroupConfigs);
   const methods = useForm<FormValues>({
     resolver: yupResolver(validateSchema),
     defaultValues: {},
@@ -90,54 +92,21 @@ const InputDataModule = () => {
   const { handleSubmit, formState, setValue, trigger } = methods;
   const isDisableInterpretButton = isGetLabExampleIdLoading || isLoading || !formState.isValid;
 
-  const convertLabInputDataToFieldData = (inputData: GroupName[]): DefaultValues => {
+  const defaultInputData: DefaultValues = useMemo(() => {
     const result: DefaultValues = {};
+
+    if (inputData.length === 0) {
+      return result;
+    }
+
     inputData.forEach((group) => {
       group.data.forEach((item) => {
         result[item.key] = item.value;
       });
     });
+
     return result;
-  };
-
-  const handleClickBackButton = () => {
-    router.push(webPaths.aiInterpret.tryExampleData);
-  };
-
-  const onSubmit = async (formValues: FormValues) => {
-    try {
-      setIsLoading(true);
-      const transformBody: SubmitHealthDataType = {
-        labInfo: inputGroupConfigs.map((group) => ({
-          groupName: group.groupName,
-          data: group.data.map((data) => ({
-            key: data.key,
-            value: transformValueTypes(formValues[data.key]),
-            unit: data.unit,
-            range: data.range,
-          })),
-        })),
-      };
-      const response = await postSubmitHealthData(transformBody);
-      console.log("RESPONSE ::: ", response);
-    } catch (error) {
-      console.log("ERROR ::: ", error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const transformValueTypes = (value: unknown) => {
-    const valueType = typeof value;
-    switch (valueType) {
-      case "number": {
-        return JSON.stringify(value);
-      }
-      default: {
-        return value;
-      }
-    }
-  };
+  }, [inputData.length]);
 
   const fetchConfigData = async () => {
     setIsLoading(true);
@@ -147,24 +116,36 @@ const InputDataModule = () => {
     setIsLoading(false);
   };
 
-  const defaultInputData: DefaultValues = useMemo(() => {
-    const inputData = data?.data?.inputData || [];
-    return convertLabInputDataToFieldData(inputData);
-  }, [data]);
+  const handleClickBackButton = () => {
+    router.push(webPaths.aiInterpret.tryExampleData);
+  };
+
+  const handleClickUseExampleData = () => {
+    router.push(webPaths.aiInterpret.tryExampleData);
+  };
+
+  const onSubmit = async (formValues: FormValues) => {
+    try {
+      setIsLoading(true);
+      await submitLabInterprets(mapInputDataToSubmitInterprets(formValues, inputGroupConfigs));
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
     fetchConfigData();
-    if (data?.data) {
-      setModelVersion(data.data.aiModelVersion);
-    }
   }, []);
 
   useEffect(() => {
-    const fieldnames = Object.keys(defaultInputData);
-    if (defaultInputData && fieldnames.length > 0) {
-      fieldnames.forEach((fieldname) => {
-        setValue(fieldname, defaultInputData[fieldname]);
-        trigger(fieldname);
+    const fieldNames = Object.keys(defaultInputData);
+
+    if (defaultInputData && fieldNames.length > 0) {
+      fieldNames.forEach((fieldName) => {
+        setValue(fieldName, defaultInputData[fieldName]);
+        trigger(fieldName);
       });
     }
   }, [defaultInputData]);
@@ -188,14 +169,14 @@ const InputDataModule = () => {
             </Typography>
             <Stack ml="auto">
               <Stack direction="row" spacing={2} justifyContent={"end"}>
-                <CommonButton data-testid="use-example-data-button">
+                <CommonButton data-testid="use-example-data-button" onClick={handleClickUseExampleData}>
                   <IconImportExampleData />
                   <Typography ml={1} variant="labelLargeSemiBold">
                     {tAi("button.useExampleData")}
                   </Typography>
                 </CommonButton>
                 <ButtonInterpretDataStyled
-                  data-testid="interpret-data-button"
+                  data-testid="submit-interpret-button"
                   disabled={isDisableInterpretButton}
                   onClick={() => handleSubmit(onSubmit)()}
                 >

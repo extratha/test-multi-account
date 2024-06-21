@@ -94,10 +94,10 @@
             "title": "หมู่เลือด",
             "bloodGroup": "หมู่เลือด",
             "blood_group": {
-              "label": "หมู่เลือด (ABO):"
+              "label": "หมู่เลือด (ABO)"
             },
             "blood_group_rh": {
-              "label": "หมู่เลือด (Rh):"
+              "label": "หมู่เลือด (Rh)"
             }
           },
           "hematologyCBC": {

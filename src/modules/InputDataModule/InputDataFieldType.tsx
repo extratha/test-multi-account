@@ -17,7 +17,9 @@ const InputDataFieldWrapper = styled(Grid)({
 });
 
 const TypoUnit = styled(Typography)(({ theme }) => ({
-  wordWrap: "break-word",
+  wordBreak: "break-word",
+  whiteSpace: "pre-line",
+  width: "100%",
   color: theme.palette.grey[600],
   margin: "auto 0",
 }));
@@ -78,7 +80,7 @@ const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {
               <FormTextField name={field.key} placeholder={t("placeholder.enterValue")} required={field.required} />
             )}
           </Grid>
-          <Grid item xs={2}>
+          <Grid item xs={2} display={"flex"}>
             <TypoUnit variant="bodyLarge">{displayUnit(field)}</TypoUnit>
           </Grid>
         </Grid>

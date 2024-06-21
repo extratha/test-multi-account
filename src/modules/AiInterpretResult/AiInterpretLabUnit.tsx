@@ -14,7 +14,7 @@ const AiInterpretLabUnit = (props: AiInterpretLabUnitProps) => {
   const tAi = useTranslations("AiInterpret");
 
   const getValue = () => {
-    const unit = inputData.unit && `(${inputData.unit})`;
+    const unit = inputData.unit && ` (${inputData.unit})`;
     return `${inputData.value}${unit}`;
   };
 
