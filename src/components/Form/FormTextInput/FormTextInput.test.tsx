@@ -1,11 +1,11 @@
 import MockForm, { MockFormProps } from "@/__tests__/__mocks__/MockForm";
 import * as yup from "yup";
-import FormTextField, { FormTextFieldProps } from ".";
+import FormTextInput, { FormTextInputProps } from ".";
 import { render, screen, userEvent } from "../../../__tests__/testUtils";
 
-describe("FormTextField", () => {
+describe("FormTextInput", () => {
   let form: MockFormProps;
-  let props: FormTextFieldProps;
+  let props: FormTextInputProps;
 
   const errorMessage = "Error Message";
 
@@ -22,21 +22,21 @@ describe("FormTextField", () => {
     };
   });
 
-  const renderFormTextField = () => {
+  const renderFormTextInput = () => {
     return render(
       <MockForm {...form}>
-        <FormTextField {...props} />
+        <FormTextInput {...props} />
       </MockForm>
     );
   };
 
   it("should render correctly", () => {
-    const { asFragment } = renderFormTextField();
+    const { asFragment } = renderFormTextInput();
     expect(asFragment()).toMatchSnapshot();
   });
 
   it("should show/hide error correctly", async () => {
-    renderFormTextField();
+    renderFormTextInput();
 
     await userEvent.click(screen.getByTestId("submit-button"));
     expect(screen.getByTestId("error-field-test")).toHaveTextContent(errorMessage);

@@ -11,9 +11,8 @@ exports[`InputDataModule should render correctly 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   height: 100%;
-  max-height: 100vh;
   width: 100%;
-  padding: 1rem;
+  padding: 24px;
 }
 
 .emotion-1 {

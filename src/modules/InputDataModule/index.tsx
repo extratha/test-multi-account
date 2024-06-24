@@ -18,7 +18,6 @@ import { InputDataConfig, InputGroupConfig } from "@/types/interpretInputDataCon
 import { remoteConfig } from "@/utils/firebase";
 import { mapInputDataToSubmitInterprets } from "@/utils/mapper";
 import { ButtonInterpretDataStyled } from "../ExampleDataList/styled";
-import { ContentContainer } from "../HomePageModule/styled";
 import InputDataFieldType from "./InputDataFieldType";
 import { useInputDataFieldYupSchema } from "./InputDataSchema";
 
@@ -37,6 +36,12 @@ const CommonButton = styled(Button)(({ theme }) => ({
   width: "fit-content",
   color: CUSTOM_COLORS.buttonText,
 }));
+
+const ContentContainer = styled(Stack)({
+  height: "100%",
+  width: "100%",
+  padding: "24px",
+});
 
 const ContentContainerWrapper = styled(Stack)(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,

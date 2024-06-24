@@ -2,13 +2,13 @@ import { TextField } from "@mui/material";
 import { useController, useFormContext } from "react-hook-form";
 import { FieldErrorMessage } from "../FieldErrorMessage";
 
-export interface FormTextFieldProps {
+export interface FormTextInputProps {
   name: string;
   placeholder?: string;
   required?: boolean;
 }
 
-const FormTextField = ({ name, placeholder, required }: FormTextFieldProps) => {
+const FormTextInput = ({ name, placeholder, required }: FormTextInputProps) => {
   const { control } = useFormContext();
   const { field, fieldState } = useController({ name, control });
   const error = fieldState.error?.message || "";
@@ -17,7 +17,7 @@ const FormTextField = ({ name, placeholder, required }: FormTextFieldProps) => {
     <>
       <TextField
         {...field}
-        value={field.value}
+        value={field.value || ""}
         required={required}
         fullWidth
         error={!!error}
@@ -37,4 +37,4 @@ const FormTextField = ({ name, placeholder, required }: FormTextFieldProps) => {
   );
 };
 
-export default FormTextField;
+export default FormTextInput;
