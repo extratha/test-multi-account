@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FormTextField should render correctly 1`] = `
+exports[`FormTextInput should render correctly 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;

@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 
 import FormAutocomplete from "@/components/Form/FormAutocomplete";
 import FormNumberInput from "@/components/Form/FormNumberInput";
-import FormTextField from "@/components/Form/FormTextField";
+import FormTextInput from "@/components/Form/FormTextInput";
 import { CONFIG_FIELD_TYPES } from "@/constant/constant";
 import { InputDataConfig } from "@/types/interpretInputDataConfig";
 
@@ -77,7 +77,7 @@ const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {
               <FormNumberInput name={field.key} placeholder={t("placeholder.enterValue")} required={field.required} />
             )}
             {field.fieldType === CONFIG_FIELD_TYPES.STRING && (
-              <FormTextField name={field.key} placeholder={t("placeholder.enterValue")} required={field.required} />
+              <FormTextInput name={field.key} placeholder={t("placeholder.enterValue")} required={field.required} />
             )}
           </Grid>
           <Grid item xs={2} display={"flex"}>
