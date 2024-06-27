@@ -66,3 +66,9 @@ export const HEMATOLOGY_CBC_GROUP = {
   WHITE_BLOOD: "whiteBlood",
   RED_BLOOD: "redBlood",
 };
+
+export const INTERPRET_STATUS = {
+  PENDING: "pending",
+  SUCCESS: "success",
+  FAILED: "failed",
+};

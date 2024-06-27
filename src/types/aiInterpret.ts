@@ -45,6 +45,7 @@ export interface InterpretResult {
   aiModelVersion: string;
   createdAt: string;
   updatedAt: string;
+  status?: string;
 }
 
 export interface LAB_GROUP {
@@ -52,3 +53,6 @@ export interface LAB_GROUP {
   value: string[];
 }
 
+export interface SubmitLabInterpretsResponse {
+  transactionID: string;
+}

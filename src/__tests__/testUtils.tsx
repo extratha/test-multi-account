@@ -1,11 +1,13 @@
 import { ThemeProvider as MUIThemeProvider } from "@mui/material/styles";
 import { RenderOptions, RenderResult, act, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import dayjs from "dayjs";
 import flushPromises from "flush-promises";
 import { NextIntlClientProvider } from "next-intl";
 import * as NextNavigation from "next/navigation";
 import { SWRConfig } from "swr";
 
+import ModalLayer from "@/components/Modal/ModalLayer";
 import { theme } from "@/config/config-mui/theme";
 import aiInterpretEn from "../../public/locales/en/aiInterpret.json";
 import aiInterpretTh from "../../public/locales/th/aiInterpret.json";
@@ -29,6 +31,7 @@ const renderWithProviders: RenderWithProvider = (component, renderOptions?, loca
     <NextIntlClientProvider locale={locale} messages={messages}>
       <MUIThemeProvider theme={theme}>
         <SWRConfig value={{ provider: () => new Map() }}>{children}</SWRConfig>
+        <ModalLayer />
       </MUIThemeProvider>
     </NextIntlClientProvider>
   );
@@ -97,3 +100,13 @@ const MockMarkdown = (props: any) => {
 };
 
 jest.mock("react-markdown", () => MockMarkdown);
+
+export const advanceTimersByTime = async (time: number) => {
+  await act(async () => {
+    jest.advanceTimersByTime(time);
+  });
+};
+
+export const setMockDate = (date: string) => {
+  jest.setSystemTime(dayjs(date).valueOf());
+};

@@ -17,11 +17,11 @@ const InputDataFieldWrapper = styled(Grid)({
 });
 
 const TypoUnit = styled(Typography)(({ theme }) => ({
+  width: "100%",
+  marginTop: "16px",
   wordBreak: "break-word",
   whiteSpace: "pre-line",
-  width: "100%",
   color: theme.palette.grey[600],
-  margin: "auto 0",
 }));
 
 const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {

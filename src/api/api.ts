@@ -1,4 +1,4 @@
-import { ExampleDataResult, InterpretResult } from "@/types/aiInterpret";
+import { ExampleDataResult, InterpretResult, SubmitLabInterpretsResponse } from "@/types/aiInterpret";
 import { SubmitLabInterpretsRequest } from "@/types/interpretInputDataConfig";
 import axiosInstance from "@/utils/axios";
 
@@ -13,5 +13,9 @@ export const getLabExampleId = (id: string) => {
 };
 
 export const submitLabInterprets = (data: SubmitLabInterpretsRequest) => {
-  return apiAxios.post<InterpretResult>("/lab/interprets", data);
+  return apiAxios.post<SubmitLabInterpretsResponse>("/lab/interprets", data);
+};
+
+export const getLabInterpretsByTransactionId = (transactionId: string) => {
+  return apiAxios.get<InterpretResult>(`/lab/interprets/${transactionId}`);
 };

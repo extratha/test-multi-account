@@ -1,8 +1,9 @@
-import React from 'react';
-import { create } from 'zustand';
+import React from "react";
+import { create } from "zustand";
 
 type Modal = {
   isVisible: boolean;
+  isInPaper: boolean;
   content: (props: BaseModalProps) => React.JSX.Element | null;
 };
 
@@ -12,16 +13,18 @@ export type BaseModalProps = {
 
 export type ModalState = {
   modal: Modal;
-  openModal: (getContent: (props: BaseModalProps) => React.JSX.Element) => void;
+  openModal: (getContent: (props: BaseModalProps) => React.JSX.Element, isInPaperProps?: boolean) => void;
   closeModal: () => void;
 };
 
-const modalDefault = { isVisible: false, content: () => null };
+const modalDefault = { isVisible: false, isInPaper: true, content: () => null };
 
 const useModal = create<ModalState>((set) => ({
   modal: modalDefault,
-  openModal: (getContent) => {
-    set(() => ({ modal: { isVisible: true, content: getContent } }));
+  openModal: (getContent, isInPaperProps) => {
+    set(() => ({
+      modal: { isVisible: true, isInPaper: isInPaperProps === undefined ? false : isInPaperProps, content: getContent },
+    }));
   },
   closeModal: () => {
     set(() => ({ modal: modalDefault }));
