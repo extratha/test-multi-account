@@ -18,6 +18,7 @@
     },
     "validation": {
       "require": "This field is required.",
+      "invalidInput": "Invalid Input.",
       "invalidEmail": "Invalid email.",
       "invalidPassword": "Password must be at least 8 digits.",
       "invalidPasswordFormat": "รหัสผ่านไม่ตรงเงื่อนไข",

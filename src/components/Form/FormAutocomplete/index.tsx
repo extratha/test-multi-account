@@ -72,7 +72,6 @@ const FormAutocomplete = ({ name, options, required = false, placeholder }: Form
           </OptionItem>
         )}
         onChange={(_, data) => {
-          console.log("Selected data:", data);
           field.onChange((data as Option)?.value || null);
         }}
         popupIcon={<KeyboardArrowDown data-testid="drop-icon" />}

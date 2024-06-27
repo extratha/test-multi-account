@@ -76,7 +76,7 @@ describe("LoginForm Component", () => {
     });
   });
 
-  it("switch field password to type text.", async () => {
+  it("switch field password to type text", async () => {
     render(<LoginForm />);
 
     const buttonToggleShowPassword = screen.getByTestId("button-toggle-show-password");

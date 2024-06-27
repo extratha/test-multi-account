@@ -56,7 +56,7 @@ describe("FormAutocomplete", () => {
     await renderComponent(props);
     expect(screen.getByTestId("autocomplete-test")).toBeInTheDocument();
   });
-  it("should set value when select.", async () => {
+  it("should set value when select", async () => {
     await renderComponent(props);
     const autocomplete = screen.getByRole("combobox");
     fireEvent.click(autocomplete);
@@ -64,7 +64,7 @@ describe("FormAutocomplete", () => {
     expect(autocomplete).toHaveValue("test1");
   });
 
-  it("should has empty text when try to input value not in options.", async () => {
+  it("should has empty text when try to input value not in options", async () => {
     await renderComponent(props);
 
     const autocomplete = screen.getByRole("combobox");
@@ -95,7 +95,7 @@ describe("FormAutocomplete", () => {
     expect(autocomplete).toHaveValue("");
   });
 
-  it("should render with no options.", async () => {
+  it("should render with no options", async () => {
     props.options = undefined;
     await renderComponent(props);
 

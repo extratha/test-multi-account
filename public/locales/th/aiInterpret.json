@@ -4,7 +4,9 @@
       "editData": "ปรับแต่งข้อมูล",
       "interpretData": "แปลและสรุปข้อมูล",
       "backToMain": "กลับหน้าหลัก",
-      "useExampleData": "ใช้ข้อมูลตัวอย่าง"
+      "useExampleData": "ใช้ข้อมูลตัวอย่าง",
+      "ok": "ตกลง",
+      "retry": "ลองใหม่"
     },
     "pages": {
       "aiInterpret": "AI Interpret",
@@ -33,7 +35,9 @@
       "female": "หญิง",
       "other": "อื่น ๆ",
       "myCredit": "เครดิตของฉัน",
-      "unlimited": "ใช้ได้ไม่จำกัด"
+      "unlimited": "ใช้ได้ไม่จำกัด",
+      "interpreting": "กำลังประมวลผล",
+      "failedInterpret": "ประมวลผลไม่สำเร็จ\nกรุณาลองใหม่อีกครั้ง"
     },
     "aiInterpretResult": {
       "modalVersion": "Model Version",

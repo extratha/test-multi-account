@@ -7,33 +7,36 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
-import { submitLabInterprets } from "@/api/api";
-import { IconArrowLeft, IconImportExampleData, IconSparkle, IconSparkleDisabled } from "@/assets";
-import { theme } from "@/config/config-mui";
+import { getLabInterpretsByTransactionId, submitLabInterprets } from "@/api/api";
+import { IconArrowLeft } from "@/assets";
 import { CUSTOM_COLORS, NEUTRAL } from "@/config/config-mui/theme/colors";
+import { INTERPRET_STATUS } from "@/constant/constant";
 import { remoteConfigKey } from "@/constant/firebase";
 import { webPaths } from "@/constant/webPaths";
 import { useGetLabExampleId } from "@/hooks/useApi";
+import useModal from "@/store/modal";
+import { InterpretResult } from "@/types/aiInterpret";
 import { InputDataConfig, InputGroupConfig } from "@/types/interpretInputDataConfig";
 import { remoteConfig } from "@/utils/firebase";
 import { mapInputDataToSubmitInterprets } from "@/utils/mapper";
-import { ButtonInterpretDataStyled } from "../ExampleDataList/styled";
 import InputDataFieldType from "./InputDataFieldType";
+import InputDataHeader from "./InputDataHeader";
 import { useInputDataFieldYupSchema } from "./InputDataSchema";
+import InterpretModals from "./InterpretingModals";
 
-type FormValues = Record<string, unknown>;
+export type FormInputDataValuesType = Record<string, unknown>;
 
 interface DefaultValues {
   [key: string]: string;
 }
 
 const CommonButton = styled(Button)(({ theme }) => ({
-  padding: 10,
+  width: "fit-content",
   height: 40,
-  background: theme.palette.background.paper,
+  padding: 10,
   borderRadius: "10px",
   border: `1px solid ${theme.palette.grey[500]}`,
-  width: "fit-content",
+  background: theme.palette.background.paper,
   color: CUSTOM_COLORS.buttonText,
 }));
 
@@ -44,25 +47,25 @@ const ContentContainer = styled(Stack)({
 });
 
 const ContentContainerWrapper = styled(Stack)(({ theme }) => ({
-  backgroundColor: theme.palette.background.paper,
-  borderRadius: "20px",
-  maxWidth: "1080px",
   width: "100%",
   height: "100%",
+  maxWidth: "1080px",
   padding: "2rem",
   margin: "auto",
+  backgroundColor: theme.palette.background.paper,
+  borderRadius: "20px",
   overflowY: "auto",
 }));
 
 const InputDataGroupContainer = styled(Stack)(({ theme }) => ({
+  margin: "2rem 0",
   borderRadius: "8px",
   border: `1px solid ${theme.palette.grey[400]}`,
-  margin: "2rem 0",
 }));
 
 const InputDataGroupHeader = styled(Stack)({
-  background: NEUTRAL[97],
   padding: "1rem",
+  background: NEUTRAL[97],
   borderRadius: "8px 8px 0px 0px",
 });
 
@@ -74,11 +77,15 @@ const CircularLoading = styled(CircularProgress)({
   margin: "auto",
 });
 
+const MAX_INTERVAL = 30000;
+const INTERVAL_DELAY = 5000;
+
 const InputDataModule = () => {
   const router = useRouter();
   const tAi = useTranslations("AiInterpret");
   const searchParams = useSearchParams();
   const interpretId = searchParams.get("id");
+  const { openModal } = useModal();
 
   const [inputGroupConfigs, setInputGroupConfigs] = useState<InputGroupConfig[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -88,7 +95,7 @@ const InputDataModule = () => {
   const modelVersion = data?.data?.aiModelVersion || "";
 
   const validateSchema = useInputDataFieldYupSchema(inputGroupConfigs);
-  const methods = useForm<FormValues>({
+  const methods = useForm<FormInputDataValuesType>({
     resolver: yupResolver(validateSchema),
     defaultValues: {},
     mode: "onChange",
@@ -109,7 +116,6 @@ const InputDataModule = () => {
         result[item.key] = item.value;
       });
     });
-
     return result;
   }, [inputData.length]);
 
@@ -129,14 +135,44 @@ const InputDataModule = () => {
     router.push(webPaths.aiInterpret.tryExampleData);
   };
 
-  const onSubmit = async (formValues: FormValues) => {
+  const waitTimer = (millisecond: number) => {
+    return new Promise<boolean>((resolve) => {
+      setTimeout(() => {
+        resolve(true);
+      }, millisecond);
+    });
+  };
+
+  const fetchInterpretResult = async (transactionID: string, startTime: number): Promise<InterpretResult> => {
+    if (Date.now() - startTime > MAX_INTERVAL) {
+      throw new Error("fetchInterpretResult: timeout");
+    }
+
+    const { data } = await getLabInterpretsByTransactionId(transactionID);
+
+    if (data.status === INTERPRET_STATUS.SUCCESS) {
+      return data;
+    } else {
+      await waitTimer(INTERVAL_DELAY);
+      return fetchInterpretResult(transactionID, startTime);
+    }
+  };
+
+  const onSubmit = async (formValues: FormInputDataValuesType) => {
+    let transactionID = "";
     try {
       setIsLoading(true);
-      await submitLabInterprets(mapInputDataToSubmitInterprets(formValues, inputGroupConfigs));
+      const response = await submitLabInterprets(mapInputDataToSubmitInterprets(formValues, inputGroupConfigs));
+      transactionID = response.data.transactionID;
+
       setIsLoading(false);
+      openModal((props) => <InterpretModals {...props} interpretStatus={INTERPRET_STATUS.PENDING} />, false);
+      const result = await fetchInterpretResult(transactionID, Date.now());
+      console.log(result);
     } catch (error) {
       console.log(error);
       setIsLoading(false);
+      openModal((props) => <InterpretModals {...props} interpretStatus={INTERPRET_STATUS.FAILED} />, false);
     }
   };
 
@@ -147,13 +183,23 @@ const InputDataModule = () => {
   useEffect(() => {
     const fieldNames = Object.keys(defaultInputData);
 
-    if (defaultInputData && fieldNames.length > 0) {
-      fieldNames.forEach((fieldName) => {
-        setValue(fieldName, defaultInputData[fieldName]);
-        trigger(fieldName);
-      });
-    }
+    const setFieldValues = () => {
+      if (defaultInputData && fieldNames.length > 0) {
+        fieldNames.map((fieldName) => {
+          setValue(fieldName, defaultInputData[fieldName], { shouldValidate: true });
+          trigger(fieldName);
+        });
+      }
+    };
+
+    setFieldValues();
   }, [defaultInputData]);
+
+  useEffect(() => {
+    if (inputData.length > 0 && defaultInputData) {
+      trigger();
+    }
+  }, [isLoading]);
 
   return (
     <ContentContainer>
@@ -166,50 +212,13 @@ const InputDataModule = () => {
             </Typography>
           </CommonButton>
         </Stack>
-        <Divider></Divider>
-        <Stack mt={3}>
-          <Stack direction="row">
-            <Typography data-testid="page-title" variant="headlineSmallSemiBold">
-              {tAi("pages.tryInputData")}
-            </Typography>
-            <Stack ml="auto">
-              <Stack direction="row" spacing={2} justifyContent={"end"}>
-                <CommonButton data-testid="use-example-data-button" onClick={handleClickUseExampleData}>
-                  <IconImportExampleData />
-                  <Typography ml={1} variant="labelLargeSemiBold">
-                    {tAi("button.useExampleData")}
-                  </Typography>
-                </CommonButton>
-                <ButtonInterpretDataStyled
-                  data-testid="submit-interpret-button"
-                  disabled={isDisableInterpretButton}
-                  onClick={() => handleSubmit(onSubmit)()}
-                >
-                  {isDisableInterpretButton ? <IconSparkleDisabled /> : <IconSparkle />}
-                  <Typography
-                    variant="labelLargeSemiBold"
-                    color={isDisableInterpretButton ? theme.palette.grey[600] : theme.palette.background.paper}
-                    ml={1}
-                  >
-                    {tAi("button.interpretData")}
-                  </Typography>
-                </ButtonInterpretDataStyled>
-              </Stack>
-              <Stack direction="row" mt={2}>
-                <Stack direction="row" spacing={1}>
-                  <Typography variant="bodyLarge">{tAi("text.myCredit")}</Typography>
-                  <Typography variant="bodyLargeSemiBold">{tAi("text.unlimited")}</Typography>
-                </Stack>
-                {modelVersion && (
-                  <Stack direction="row" ml={2} spacing={1}>
-                    <Typography variant="bodyLarge">{tAi("field.modelVersion")}</Typography>
-                    <Typography variant="bodyLargeSemiBold">{modelVersion}</Typography>
-                  </Stack>
-                )}
-              </Stack>
-            </Stack>
-          </Stack>
-        </Stack>
+        <Divider />
+        <InputDataHeader
+          isDisableSubmit={isDisableInterpretButton}
+          modelVersion={modelVersion}
+          onSubmit={() => handleSubmit(onSubmit)()}
+          onClickUseExampleData={handleClickUseExampleData}
+        />
 
         <Stack>
           {isLoading ? (
@@ -225,7 +234,7 @@ const InputDataModule = () => {
                       <Typography variant="titleLargeSemiBold">{tAi(`th.groupName.${group.groupName}`)}</Typography>
                       <Typography
                         variant="bodyLarge"
-                        color={theme.palette.grey[600]}
+                        color="grey.600"
                       >{`(${tAi(`en.groupName.${group.groupName}`)})`}</Typography>
                     </InputDataGroupHeader>
                     <InputDataGroupContent>

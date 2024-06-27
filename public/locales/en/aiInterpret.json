@@ -4,7 +4,9 @@
       "editData": "Edit Data",
       "interpretData": "Interpret Data",
       "backToMain": "Back",
-      "useExampleData": "Use Example Data"
+      "useExampleData": "Use Example Data",
+      "ok": "ตกลง",
+      "retry": "ลองใหม่"
     },
     "pages": {
       "aiInterpret": "AI Interpret",
@@ -33,7 +35,9 @@
       "female": "Female",
       "other": "Other",
       "myCredit": "My credit",
-      "unlimited": "Unlimited"
+      "unlimited": "Unlimited",
+      "interpreting": "Interpreting",
+      "failedInterpret": "Failed to interpret.\nPlease try again."
     },
     "aiInterpretResult": {
       "modalVersion": "Model Version",
