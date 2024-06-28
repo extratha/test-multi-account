@@ -1,4 +1,3 @@
-
 export const webPaths = {
   login: "/login",
   home: "/home",
@@ -11,4 +10,5 @@ export const webPaths = {
     tryInputData: "/ai-interpret/try-input-data",
     tryHospitalData: "/ai-interpret/try-hospital-data",
   },
+  symptomChecker: "/symptom-checker",
 };

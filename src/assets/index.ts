@@ -28,3 +28,5 @@ export { ReactComponent as ImagePlaygroundLogo } from "./images/playground-logo.
 
 export { default as ImageCoverBg } from "./images/image-cover-bg.jpg";
 export { default as ImageLoadingStack } from "./images/loading-stack.gif";
+
+export { default as IosDeviceFrame } from "./frame/ios-device-frame.png";

@@ -1,3 +1,4 @@
 export const remoteConfigKey = {
-  LAB_INTERPRET_REQUIRE_FIELDS: "LabInterpretRequireFields"
-}
+  SYMPTOM_CHECKER: "SymptomChecker",
+  LAB_INTERPRET_REQUIRE_FIELDS: "LabInterpretRequireFields",
+};

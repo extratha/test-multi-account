@@ -206,6 +206,28 @@ exports[`GridMenu Component should render correctly 1`] = `
         </span>
       </div>
     </div>
+    <div
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 emotion-1"
+      data-testid="menu-item-2"
+    >
+      <div
+        class="MuiStack-root emotion-2"
+      >
+        <svg
+          style="width: 48px; height: 48px; margin: 0px 0px 8px 0px;"
+        />
+        <h3
+          class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-3"
+        >
+          menu.symptomChecker.title
+        </h3>
+        <span
+          class="MuiTypography-root MuiTypography-bodyLarge emotion-4"
+        >
+          แปลและสรุปผลสุขภาพ
+        </span>
+      </div>
+    </div>
   </div>
 </DocumentFragment>
 `;
