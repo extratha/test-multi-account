@@ -240,7 +240,7 @@ exports[`ProjectCoverLayout to match snap 1`] = `
   font-family: NotoSansThai-Regular,sans-serif;
 }
 
-.emotion-31 {
+.emotion-41 {
   margin: 0;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -251,7 +251,7 @@ exports[`ProjectCoverLayout to match snap 1`] = `
   border-bottom-width: thin;
 }
 
-.emotion-45 {
+.emotion-55 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -266,7 +266,7 @@ exports[`ProjectCoverLayout to match snap 1`] = `
   position: relative;
 }
 
-.emotion-46 {
+.emotion-56 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -277,7 +277,7 @@ exports[`ProjectCoverLayout to match snap 1`] = `
   height: 100%;
 }
 
-.emotion-47 {
+.emotion-57 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -287,7 +287,7 @@ exports[`ProjectCoverLayout to match snap 1`] = `
   flex-direction: row;
 }
 
-.emotion-48 {
+.emotion-58 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -301,7 +301,7 @@ exports[`ProjectCoverLayout to match snap 1`] = `
   padding: 8px 16px;
 }
 
-.emotion-49 {
+.emotion-59 {
   margin: 0;
   font-weight: 500;
   line-height: 24px;
@@ -311,7 +311,7 @@ exports[`ProjectCoverLayout to match snap 1`] = `
   color: #fff;
 }
 
-.emotion-50 {
+.emotion-60 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -324,7 +324,7 @@ exports[`ProjectCoverLayout to match snap 1`] = `
   margin: 16px 0 0 0;
 }
 
-.emotion-53 {
+.emotion-63 {
   margin: 0;
   font-weight: 500;
   line-height: 24px;
@@ -334,7 +334,7 @@ exports[`ProjectCoverLayout to match snap 1`] = `
   margin: auto 0 8px 0;
 }
 
-.emotion-55 {
+.emotion-65 {
   margin: 0;
   font-weight: 500;
   line-height: 28px;
@@ -493,9 +493,54 @@ exports[`ProjectCoverLayout to match snap 1`] = `
           </div>
         </div>
       </li>
+      <li
+        class="MuiListItem-root MuiListItem-gutters MuiListItem-padding emotion-3"
+      >
+        <div
+          class="MuiStack-root emotion-4"
+        >
+          <div
+            class="MuiStack-root emotion-5"
+          >
+            <div
+              class="MuiStack-root emotion-6"
+            >
+              <svg
+                style="width: 24px; height: 24px;"
+              />
+            </div>
+            <div
+              class="MuiStack-root emotion-7"
+            >
+              <h3
+                class="MuiTypography-root MuiTypography-titleMedium emotion-8"
+              >
+                Symptom Checker
+              </h3>
+            </div>
+          </div>
+          <div
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-9"
+            data-testid="menu-group-collapse-2"
+            style="min-height: 0px;"
+          >
+            <div
+              class="MuiCollapse-wrapper MuiCollapse-vertical emotion-10"
+            >
+              <div
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-11"
+              >
+                <ul
+                  class="MuiList-root MuiList-padding emotion-2"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
     </ul>
     <hr
-      class="MuiDivider-root MuiDivider-fullWidth emotion-31"
+      class="MuiDivider-root MuiDivider-fullWidth emotion-41"
       style="margin-bottom: 20px;"
     />
     <span
@@ -553,36 +598,36 @@ exports[`ProjectCoverLayout to match snap 1`] = `
       </li>
     </ul>
     <hr
-      class="MuiDivider-root MuiDivider-fullWidth emotion-31"
+      class="MuiDivider-root MuiDivider-fullWidth emotion-41"
       style="margin: auto 0px 20px;"
     />
     <div
-      class="MuiStack-root emotion-45"
+      class="MuiStack-root emotion-55"
     >
       <div
-        class="MuiStack-root emotion-46"
+        class="MuiStack-root emotion-56"
       >
         <div
-          class="MuiStack-root emotion-47"
+          class="MuiStack-root emotion-57"
         >
           <svg
             style="width: 20px; height: 20px;"
           />
           <div
-            class="MuiStack-root emotion-48"
+            class="MuiStack-root emotion-58"
           >
             <svg
               style="width: 24px; height: 24px; margin: auto 10px auto 0px;"
             />
             <span
-              class="MuiTypography-root MuiTypography-bodyLargeSemiBold emotion-49"
+              class="MuiTypography-root MuiTypography-bodyLargeSemiBold emotion-59"
             >
               แอดมิน
             </span>
           </div>
         </div>
         <div
-          class="MuiStack-root emotion-50"
+          class="MuiStack-root emotion-60"
         >
           <span
             class="MuiTypography-root MuiTypography-bodyLargeSemiBold emotion-1"
@@ -595,18 +640,18 @@ exports[`ProjectCoverLayout to match snap 1`] = `
              admin@example.com 
           </span>
           <span
-            class="MuiTypography-root MuiTypography-bodyLargeSemiBold emotion-53"
+            class="MuiTypography-root MuiTypography-bodyLargeSemiBold emotion-63"
           >
             เครดิตของฉัน 
           </span>
           <div
-            class="MuiStack-root emotion-47"
+            class="MuiStack-root emotion-57"
           >
             <svg
               style="width: 24px; height: 24px; margin: 0px 1rem 0px 0px;"
             />
             <h3
-              class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-55"
+              class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-65"
             >
               ใช้ได้ไม่จำกัด
             </h3>

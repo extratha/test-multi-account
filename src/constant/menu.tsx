@@ -85,21 +85,13 @@ export const aiMenuList = (t: TFunction): MenuItem[] => {
     //     }
     //   ],
     // },
-    // {
-    //   icon: null,
-    //   activeIcon: null,
-    //   path: '',
-    //   title: t('menu.symtomChecker.title'),
-    //   children: [
-    //     {
-    //       icon: null,
-    //       activeIcon: null,
-    //       path: '',
-    //       title: "",
-    //       children: null
-    //     }
-    //   ],
-    // },
+    {
+      icon: null,
+      activeIcon: null,
+      path: webPaths.symptomChecker,
+      title: t("menu.symptomChecker.title"),
+      children: [],
+    },
   ];
 };
 

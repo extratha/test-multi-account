@@ -95,14 +95,18 @@
       "asr": {
         "title": "ASR"
       },
-      "symtomChecker": {
-        "title": "Symtom Checker"
+      "symptomChecker": {
+        "title": "Symptom Checker"
       },
       "settingAndOther": {
         "title": "ตั้งค่าและอื่น ๆ"
       },
       "notification": "Notification",
       "logout": "Logout"
+    },
+    "symptomChecker": {
+      "title": "Symptom Checker",
+      "subtitle": "ที่ปรึกษาทางการแพทย์อัจริยะ"
     }
   }
 }
