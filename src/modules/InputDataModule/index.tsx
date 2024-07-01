@@ -170,7 +170,6 @@ const InputDataModule = () => {
       const result = await fetchInterpretResult(transactionID, Date.now());
       console.log(result);
     } catch (error) {
-      console.log(error);
       setIsLoading(false);
       openModal((props) => <InterpretModals {...props} interpretStatus={INTERPRET_STATUS.FAILED} />, false);
     }

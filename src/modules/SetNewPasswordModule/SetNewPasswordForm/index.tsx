@@ -19,7 +19,7 @@ interface SetNewPasswordForm {
   newPassword: string;
   confirmNewPassword: string;
 }
-const fieldname: Record<string, keyof SetNewPasswordForm> = {
+const fieldName: Record<string, keyof SetNewPasswordForm> = {
   NEW_PASSWORD: "newPassword",
   CONFIRM_NEW_PASSWORD: "confirmNewPassword",
 };
@@ -31,7 +31,6 @@ const SetNewPasswordForm = () => {
   const theme = useTheme();
   const router = useRouter();
   const { setToastOpen } = useToastStore();
-  // const { passwordChanged } = data
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [showConfirmPassword, setShowComfirmPassword] = useState<boolean>(false);
@@ -61,9 +60,9 @@ const SetNewPasswordForm = () => {
     try {
       const response = await fetcher.post(apiUrl, submitParams);
       if (response?.status === 204) {
-        setCookie("passwordChanged", true); // necessary
+        setCookie("passwordChanged", true);
         if (resetPasswordToken && resetPasswordToken?.length > 0) {
-          router.push(webPaths.home);
+          router.push(webPaths.login);
           deleteCookie("resetPasswordToken");
           setToastOpen(true, {
             message: t("toast.resetPasswordSuccess"),
@@ -89,27 +88,27 @@ const SetNewPasswordForm = () => {
     }
     return true;
   };
-  const validateConfirmNewPasswordField = (value: unknown, _fieldname: keyof SetNewPasswordForm) => {
-    const siblingFieldname =
-      _fieldname === fieldname.NEW_PASSWORD ? fieldname.CONFIRM_NEW_PASSWORD : fieldname.NEW_PASSWORD;
-    const siblingValue = getValues(siblingFieldname);
-    setError(_fieldname, { type: "", message: "" });
+  const validateConfirmNewPasswordField = (value: unknown, fieldNameProp: keyof SetNewPasswordForm) => {
+    const siblingFieldName =
+      fieldNameProp === fieldName.NEW_PASSWORD ? fieldName.CONFIRM_NEW_PASSWORD : fieldName.NEW_PASSWORD;
+    const siblingValue = getValues(siblingFieldName);
+    setError(fieldNameProp, { type: "", message: "" });
     setIsDisabledSubmit(true);
     if (!value) {
-      setError(_fieldname, { type: "validate", message: t("validation.require") });
+      setError(fieldNameProp, { type: "validate", message: t("validation.require") });
       return true;
     }
     if (typeof value === "string" && !isValidPassword(value)) {
-      setError(_fieldname, { type: "validate", message: t("validation.invalidPasswordFormat") });
+      setError(fieldNameProp, { type: "validate", message: t("validation.invalidPasswordFormat") });
       return true;
     }
     const isPasswordMatched = value === siblingValue;
     if (value && siblingValue && !isPasswordMatched) {
-      setError(_fieldname, { type: "validate", message: t("validation.passwordIsNotMatch") });
-      setError(siblingFieldname, { type: "validate", message: t("validation.passwordIsNotMatch") });
+      setError(fieldNameProp, { type: "validate", message: t("validation.passwordIsNotMatch") });
+      setError(siblingFieldName, { type: "validate", message: t("validation.passwordIsNotMatch") });
       return true;
     } else {
-      setError(siblingFieldname, { type: "", message: "" });
+      setError(siblingFieldName, { type: "", message: "" });
     }
     if (value && siblingValue) {
       setIsDisabledSubmit(false);
@@ -133,7 +132,7 @@ const SetNewPasswordForm = () => {
 
         <form onSubmit={handleSubmit(onSubmit)} autoFocus>
           <Controller
-            name={fieldname.NEW_PASSWORD as keyof SetNewPasswordForm}
+            name={fieldName.NEW_PASSWORD as keyof SetNewPasswordForm}
             control={control}
             render={({ field, fieldState: { error } }) => (
               <Stack direction="column" spacing={2} mt={1}>
@@ -141,17 +140,17 @@ const SetNewPasswordForm = () => {
                   {...field}
                   fullWidth
                   autoFocus
-                  id={fieldname.NEW_PASSWORD}
-                  data-testid={fieldname.NEW_PASSWORD}
+                  id={fieldName.NEW_PASSWORD}
+                  data-testid={fieldName.NEW_PASSWORD}
                   type={showPassword ? "text" : "password"}
                   placeholder={!newPassword ? "ตั้งค่ารหัสผ่าน" : ""}
-                  name={fieldname.NEW_PASSWORD}
+                  name={fieldName.NEW_PASSWORD}
                   value={(newPassword as unknown) ?? ""}
                   onChange={(event) => {
                     const value = event?.target?.value;
                     field.onChange(event);
                     setNewPassword(value);
-                    validateConfirmNewPasswordField(value, fieldname.NEW_PASSWORD);
+                    validateConfirmNewPasswordField(value, fieldName.NEW_PASSWORD);
                   }}
                   InputProps={{
                     endAdornment: (
@@ -193,7 +192,7 @@ const SetNewPasswordForm = () => {
           />
 
           <Controller
-            name={fieldname.CONFIRM_NEW_PASSWORD as keyof SetNewPasswordForm}
+            name={fieldName.CONFIRM_NEW_PASSWORD as keyof SetNewPasswordForm}
             control={control}
             render={({ field, fieldState: { error } }) => (
               <Stack direction="column" spacing={2} mt={1}>
@@ -201,16 +200,16 @@ const SetNewPasswordForm = () => {
                   {...field}
                   fullWidth
                   autoFocus
-                  name={fieldname.CONFIRM_NEW_PASSWORD}
+                  name={fieldName.CONFIRM_NEW_PASSWORD}
                   type={showConfirmPassword ? "text" : "password"}
-                  id={fieldname.CONFIRM_NEW_PASSWORD}
-                  data-testid={fieldname.CONFIRM_NEW_PASSWORD}
+                  id={fieldName.CONFIRM_NEW_PASSWORD}
+                  data-testid={fieldName.CONFIRM_NEW_PASSWORD}
                   placeholder={!confirmNewPassword ? "ตั้งรหัสผ่านใหม่อีกครั้ง" : ""}
                   value={(confirmNewPassword as unknown) ?? ""}
                   onChange={(event) => {
                     const value = event?.target?.value;
                     field.onChange(event);
-                    validateConfirmNewPasswordField(value, fieldname.CONFIRM_NEW_PASSWORD);
+                    validateConfirmNewPasswordField(value, fieldName.CONFIRM_NEW_PASSWORD);
                     setConfirmNewPassword(value);
                   }}
                   InputProps={{
