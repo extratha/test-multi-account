@@ -1,8 +1,8 @@
-import { staticEnvConfig } from "@/constant/env";
+import { envConfig } from "@/constant/env";
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 import { getCookie, setCookie } from "cookies-next";
 
-const axiosInstance = axios.create({ baseURL: staticEnvConfig.apiUrl });
+const axiosInstance = axios.create({ baseURL: envConfig.apiUrl });
 
 let isRefreshing = false;
 let failedQueue: Array<{ config: AxiosRequestConfig; resolve: (value?: any) => void; reject: (reason?: any) => void }> =
