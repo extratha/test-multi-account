@@ -152,6 +152,11 @@ exports[`AiInterpretLabResult should render correctly 1`] = `
   color: rgba(0, 0, 0, 0.26);
 }
 
+.emotion-5 svg {
+  width: 16px;
+  height: 16px;
+}
+
 .emotion-6 {
   display: inherit;
   margin-right: -4px;

@@ -1,0 +1,645 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConsentContent should render correctly 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-0>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-0>:not(style)~:not(style) {
+  margin-top: 24px;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 24px;
+  border-radius: 12px;
+  background: #FAFAFA;
+}
+
+.emotion-2 {
+  font-size: 16px;
+  white-space: normal;
+  color: #212121;
+}
+
+.emotion-2>*:first-of-type {
+  margin-top: 0px;
+}
+
+.emotion-2>*:last-of-type {
+  margin-bottom: 0px;
+}
+
+.emotion-4 {
+  margin: 0;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0;
+  font-size: 20px;
+  font-family: NotoSansThai-SemiBold,sans-serif;
+  margin-bottom: 24px;
+  color: #212121;
+}
+
+.emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border: 1px solid #C2C7CF;
+  background-color: #fff;
+}
+
+.emotion-5:first-of-type {
+  border-radius: 12px 12px 0 0;
+}
+
+.emotion-5:last-of-type {
+  border-radius: 0 0 12px 12px;
+}
+
+.emotion-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  cursor: pointer;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 24px;
+}
+
+.emotion-8 {
+  max-width: 52px;
+  max-height: 52px;
+}
+
+.emotion-9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  margin-left: 12px;
+}
+
+.emotion-9>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-9>:not(style)~:not(style) {
+  margin-top: 4px;
+}
+
+.emotion-10 {
+  margin: 0;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0;
+  font-size: 20px;
+  font-family: NotoSansThai-SemiBold,sans-serif;
+  color: #212121;
+}
+
+.emotion-11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-12 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  font-size: 1.5rem;
+  padding: 8px;
+  border-radius: 50%;
+  overflow: visible;
+  color: rgba(0, 0, 0, 0.54);
+  -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.emotion-12::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-12.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-12 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-12:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+@media (hover: none) {
+  .emotion-12:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-12.Mui-disabled {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.emotion-13 {
+  width: 24px;
+  height: 24px;
+  color: #607D8B;
+}
+
+.emotion-14 {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+}
+
+.emotion-15 {
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  visibility: hidden;
+}
+
+.emotion-16 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.emotion-17 {
+  width: 100%;
+}
+
+.emotion-18 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 16px;
+  border-top: 1px solid #C2C7CF;
+}
+
+<div
+    class="MuiStack-root emotion-0"
+  >
+    <div
+      class="MuiStack-root emotion-1"
+    >
+      <div
+        class="emotion-2"
+        data-testid="test-content"
+      >
+        **Terms of Service**
+
+Welcome to our service. By using our service, you agree to the following terms...
+
+**Privacy Policy**
+
+We value your privacy. This policy explains how we collect and use your information...
+      </div>
+    </div>
+    <div
+      class="MuiStack-root emotion-1"
+      data-testid="test-service"
+    >
+      <h3
+        class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-4"
+      >
+        All Services
+      </h3>
+      <div
+        class="MuiStack-root emotion-5"
+      >
+        <div
+          class="MuiStack-root emotion-6"
+          data-testid="test-service-0"
+        >
+          <div
+            class="MuiBox-root emotion-7"
+          >
+            <img
+              alt=""
+              class="emotion-8"
+              data-testid="test-service-0-logo"
+              src="https://cdn-dev-playground.cariva.co.th/terms/images/logo.png"
+            />
+          </div>
+          <div
+            class="MuiStack-root emotion-9"
+          >
+            <h3
+              class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-10"
+              data-testid="test-service-0-title"
+            >
+              mock-test-title
+            </h3>
+            <svg
+              data-testid="test-service-0-detail-icon"
+            />
+          </div>
+          <div
+            class="MuiStack-root emotion-11"
+          >
+            <button
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium emotion-12"
+              tabindex="0"
+              type="button"
+            >
+              <svg
+                class="emotion-13"
+              />
+              <span
+                class="MuiTouchRipple-root emotion-14"
+              />
+            </button>
+          </div>
+        </div>
+        <div
+          class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-15"
+          style="min-height: 0px;"
+        >
+          <div
+            class="MuiCollapse-wrapper MuiCollapse-vertical emotion-16"
+          >
+            <div
+              class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-17"
+            >
+              <div
+                class="MuiStack-root emotion-18"
+                data-testid="test-service-0-content"
+              >
+                <div
+                  class="emotion-2"
+                >
+                  **Service Overview**
+
+AI Interpret provides advanced language translation capabilities...
+
+**Features**
+
+- Real-time translation
+- Multi-language support
+- High accuracy rates
+
+**Usage Instructions**
+
+1. Select your input and output languages.
+2. Speak or type your text.
+3. Receive the translated output.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiStack-root emotion-5"
+      >
+        <div
+          class="MuiStack-root emotion-6"
+          data-testid="test-service-1"
+        >
+          <div
+            class="MuiBox-root emotion-7"
+          >
+            <img
+              alt=""
+              class="emotion-8"
+              data-testid="test-service-1-logo"
+              src="https://cdn-dev-playground.cariva.co.th/terms/images/logo.png"
+            />
+          </div>
+          <div
+            class="MuiStack-root emotion-9"
+          >
+            <h3
+              class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-10"
+              data-testid="test-service-1-title"
+            >
+              Health Visualization
+            </h3>
+            <svg
+              data-testid="test-service-1-detail-icon"
+            />
+          </div>
+          <div
+            class="MuiStack-root emotion-11"
+          >
+            <button
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium emotion-12"
+              tabindex="0"
+              type="button"
+            >
+              <svg
+                class="emotion-13"
+              />
+              <span
+                class="MuiTouchRipple-root emotion-14"
+              />
+            </button>
+          </div>
+        </div>
+        <div
+          class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-15"
+          style="min-height: 0px;"
+        >
+          <div
+            class="MuiCollapse-wrapper MuiCollapse-vertical emotion-16"
+          >
+            <div
+              class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-17"
+            >
+              <div
+                class="MuiStack-root emotion-18"
+                data-testid="test-service-1-content"
+              >
+                <div
+                  class="emotion-2"
+                >
+                  **Service Overview**
+
+Health Visualization helps you understand your health data through visual representations...
+
+**Features**
+
+- Detailed health metrics
+- Trend analysis
+- Personalized insights
+
+**Usage Instructions**
+
+1. Upload your health data.
+2. Choose the metrics you want to visualize.
+3. View the visualized data and insights.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiStack-root emotion-5"
+      >
+        <div
+          class="MuiStack-root emotion-6"
+          data-testid="test-service-2"
+        >
+          <div
+            class="MuiBox-root emotion-7"
+          >
+            <img
+              alt=""
+              class="emotion-8"
+              data-testid="test-service-2-logo"
+              src="https://cdn-dev-playground.cariva.co.th/terms/images/logo.png"
+            />
+          </div>
+          <div
+            class="MuiStack-root emotion-9"
+          >
+            <h3
+              class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-10"
+              data-testid="test-service-2-title"
+            >
+              ASR
+            </h3>
+            <svg
+              data-testid="test-service-2-detail-icon"
+            />
+          </div>
+          <div
+            class="MuiStack-root emotion-11"
+          >
+            <button
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium emotion-12"
+              tabindex="0"
+              type="button"
+            >
+              <svg
+                class="emotion-13"
+              />
+              <span
+                class="MuiTouchRipple-root emotion-14"
+              />
+            </button>
+          </div>
+        </div>
+        <div
+          class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-15"
+          style="min-height: 0px;"
+        >
+          <div
+            class="MuiCollapse-wrapper MuiCollapse-vertical emotion-16"
+          >
+            <div
+              class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-17"
+            >
+              <div
+                class="MuiStack-root emotion-18"
+                data-testid="test-service-2-content"
+              >
+                <div
+                  class="emotion-2"
+                >
+                  **Service Overview**
+
+ASR (Automatic Speech Recognition) converts spoken language into text...
+
+**Features**
+
+- High accuracy speech-to-text
+- Supports multiple languages
+- Real-time processing
+
+**Usage Instructions**
+
+1. Select your language.
+2. Speak into the microphone.
+3. View the transcribed text.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiStack-root emotion-5"
+      >
+        <div
+          class="MuiStack-root emotion-6"
+          data-testid="test-service-3"
+        >
+          <div
+            class="MuiBox-root emotion-7"
+          >
+            <img
+              alt=""
+              class="emotion-8"
+              data-testid="test-service-3-logo"
+              src="https://cdn-dev-playground.cariva.co.th/terms/images/logo.png"
+            />
+          </div>
+          <div
+            class="MuiStack-root emotion-9"
+          >
+            <h3
+              class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-10"
+              data-testid="test-service-3-title"
+            >
+              Symptom Checker
+            </h3>
+            <svg
+              data-testid="test-service-3-detail-icon"
+            />
+          </div>
+          <div
+            class="MuiStack-root emotion-11"
+          >
+            <button
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium emotion-12"
+              tabindex="0"
+              type="button"
+            >
+              <svg
+                class="emotion-13"
+              />
+              <span
+                class="MuiTouchRipple-root emotion-14"
+              />
+            </button>
+          </div>
+        </div>
+        <div
+          class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-15"
+          style="min-height: 0px;"
+        >
+          <div
+            class="MuiCollapse-wrapper MuiCollapse-vertical emotion-16"
+          >
+            <div
+              class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-17"
+            >
+              <div
+                class="MuiStack-root emotion-18"
+                data-testid="test-service-3-content"
+              >
+                <div
+                  class="emotion-2"
+                >
+                  **Service Overview**
+
+Symptom Checker helps you understand potential causes for your symptoms...
+
+**Features**
+
+- Symptom input
+- Potential diagnoses
+- Suggested next steps
+
+**Usage Instructions**
+
+1. Enter your symptoms.
+2. View the potential diagnoses.
+3. Follow the suggested next steps for further action.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

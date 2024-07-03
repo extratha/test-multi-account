@@ -3,7 +3,7 @@ export const webPaths = {
   home: "/home",
   forgetPassword: "/forget-password",
   setNewPassword: "/set-new-password",
-  termsAndCons: "/terms-and-cons",
+  termsAndConditions: "/terms-and-conditions",
   aiInterpret: {
     aiInterpretResult: "/ai-interpret/interpret",
     tryExampleData: "/ai-interpret/try-example-data",

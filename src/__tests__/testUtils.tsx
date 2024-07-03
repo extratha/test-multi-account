@@ -93,6 +93,8 @@ export const spyUseSearchParams = (): SpyUseSearchParams => {
 export const API = {
   AI_INTERPRET_URL: "/lab/examples/interpretId",
   SUBMIT_HEALTH_DATA_URI: "/lab/interprets",
+  CONSENT: "/consents",
+  TERMS_AND_CONS: "/consents/terms-conditions",
 };
 
 const MockMarkdown = (props: any) => {

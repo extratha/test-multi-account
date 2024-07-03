@@ -72,3 +72,8 @@ export const INTERPRET_STATUS = {
   SUCCESS: "success",
   FAILED: "failed",
 };
+
+export const CONSENT_TYPE = {
+  TERMS_AND_CONDITIONS: "terms",
+  PRIVACY_AND_POLICY: "privacy_policies",
+};

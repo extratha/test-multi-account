@@ -1,5 +1,6 @@
 import { ExampleDataResult, InterpretResult, SubmitLabInterpretsResponse } from "@/types/aiInterpret";
 import { SubmitLabInterpretsRequest } from "@/types/interpretInputDataConfig";
+import { ConsentResult } from "@/types/termsAndCons";
 import axiosInstance from "@/utils/axios";
 
 export const apiAxios = axiosInstance;
@@ -18,4 +19,12 @@ export const submitLabInterprets = (data: SubmitLabInterpretsRequest) => {
 
 export const getLabInterpretsByTransactionId = (transactionId: string) => {
   return apiAxios.get<InterpretResult>(`/lab/interprets/${transactionId}`);
+};
+
+export const getTermsAndConditions = () => {
+  return apiAxios.get<ConsentResult>("/consents/terms-conditions");
+};
+
+export const submitConsent = (type: string, version: string) => {
+  return apiAxios.post<ConsentResult>("/consents", { type, version });
 };

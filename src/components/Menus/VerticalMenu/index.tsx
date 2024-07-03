@@ -39,7 +39,7 @@ const VerticalMenu = () => {
     webPaths.login,
     webPaths.forgetPassword,
     webPaths.setNewPassword,
-    webPaths.termsAndCons,
+    webPaths.termsAndConditions,
     webPaths.aiInterpret.tryInputData,
     webPaths.aiInterpret.aiInterpretResult,
   ];
