@@ -2,6 +2,7 @@ export { ReactComponent as IconAiInterpret } from "./icons/icon-ai-interpret.svg
 export { ReactComponent as IconArrowLeft } from "./icons/icon-arrow-left.svg";
 export { ReactComponent as IconChevronDown } from "./icons/icon-chevron-down.svg";
 export { ReactComponent as IconChevronUp } from "./icons/icon-chevron-up.svg";
+export { ReactComponent as IconConsentGroupDetail } from "./icons/icon-consent-group-detail.svg";
 export { ReactComponent as IconCopy } from "./icons/icon-copy.svg";
 export { ReactComponent as IconCreditCoin } from "./icons/icon-credit-coin.svg";
 export { ReactComponent as IconErrorCircle } from "./icons/icon-error-circle.svg";

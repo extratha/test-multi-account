@@ -67,7 +67,8 @@
       "resetPassword": "Reset Password",
       "termsAndCons": "Scroll up to read the full message and follow.",
       "hello": "Hello",
-      "pleaseSelectMenu": "Please select menu."
+      "pleaseSelectMenu": "Please select menu.",
+      "allServices": "All Services"
     },
     "message": {
       "resetPassword": "Complete your email to get url for reset password",

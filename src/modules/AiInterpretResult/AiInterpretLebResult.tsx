@@ -88,6 +88,10 @@ const ButtonCollapse = styled(Button)({
   padding: "8px 14px",
   borderRadius: "8px",
   boxShadow: "0px 4px 6px -1px #21212133, 0px 2px 4px -2px #21212133",
+  "& svg": {
+    width: "16px",
+    height: "16px",
+  },
 });
 
 const AiInterpretLabResult = (props: AiInterpretLabResultProps) => {

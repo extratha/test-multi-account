@@ -70,7 +70,7 @@ const SetNewPasswordForm = () => {
             icon: <div />,
           });
         } else {
-          router.push(webPaths.termsAndCons);
+          router.push(webPaths.termsAndConditions);
         }
       }
     } catch (error: any) {

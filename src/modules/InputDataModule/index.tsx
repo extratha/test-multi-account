@@ -159,16 +159,13 @@ const InputDataModule = () => {
   };
 
   const onSubmit = async (formValues: FormInputDataValuesType) => {
-    let transactionID = "";
     try {
       setIsLoading(true);
       const response = await submitLabInterprets(mapInputDataToSubmitInterprets(formValues, inputGroupConfigs));
-      transactionID = response.data.transactionID;
-
       setIsLoading(false);
+
       openModal((props) => <InterpretModals {...props} interpretStatus={INTERPRET_STATUS.PENDING} />, false);
-      const result = await fetchInterpretResult(transactionID, Date.now());
-      console.log(result);
+      await fetchInterpretResult(response.data.transactionID, Date.now());
     } catch (error) {
       setIsLoading(false);
       openModal((props) => <InterpretModals {...props} interpretStatus={INTERPRET_STATUS.FAILED} />, false);
