@@ -14,7 +14,7 @@ import FormCheckbox from "@/components/Form/FormCheckbox";
 import { CONSENT_TYPE } from "@/constant/constant";
 import { webPaths } from "@/constant/webPaths";
 import { usePageLoadingStore } from "@/store";
-import { ConsentResult } from "@/types/termsAndCons";
+import { ConsentResult } from "@/types/model.api";
 
 interface TermsAndConsFormValues {
   agreement: boolean;

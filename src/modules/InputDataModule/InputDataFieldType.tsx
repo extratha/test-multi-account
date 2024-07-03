@@ -5,13 +5,13 @@ import FormAutocomplete from "@/components/Form/FormAutocomplete";
 import FormNumberInput from "@/components/Form/FormNumberInput";
 import FormTextInput from "@/components/Form/FormTextInput";
 import { CONFIG_FIELD_TYPES } from "@/constant/constant";
-import { InputDataConfig } from "@/types/interpretInputDataConfig";
+import { InputDataConfig } from "@/types/model.ui";
 
 interface InputDataFieldTypeProps {
   field: InputDataConfig;
 }
-// TODO: Unit test
 
+// TODO: Unit test
 const InputDataFieldWrapper = styled(Grid)({
   padding: "1rem",
 });

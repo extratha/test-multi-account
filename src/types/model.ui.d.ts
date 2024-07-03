@@ -1,3 +1,45 @@
-interface SymptomCheckerConfig {
+export interface UserProfile {
+  id: string;
+  email: string;
+  prefix: string;
+  firstName: string;
+  lastName: string;
+  isActive: boolean;
+  userId: string;
+  passwordChanged: boolean | null;
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface NormalRange {
+  value: string;
+  description: string;
+}
+
+interface InputDataConfig {
+  key: string;
+  value: string;
+  unit: string;
+  required: boolean;
+  fieldType: string;
+  maxLength?: string;
+  minValue: string;
+  maxValue: string;
+  dropdownValue?: string[];
+  range: NormalRange[];
+  placeholder?: string;
+}
+
+export interface InputGroupConfig {
+  groupName: string;
+  data: InputDataConfig[];
+}
+
+export interface LabGroupConfig {
+  group: string;
+  value: string[];
+}
+
+export interface SymptomCheckerConfig {
   url: string;
 }

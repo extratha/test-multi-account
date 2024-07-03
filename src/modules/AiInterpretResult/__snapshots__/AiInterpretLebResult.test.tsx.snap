@@ -313,14 +313,14 @@ exports[`AiInterpretLabResult should render correctly 1`] = `
         </h3>
       </div>
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-5"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-5"
         data-testid="lab-lipidProfile-button-collapse"
         tabindex="0"
         type="button"
       >
         More
         <span
-          class="MuiButton-endIcon MuiButton-iconSizeMedium emotion-6"
+          class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-6"
         >
           <svg />
         </span>

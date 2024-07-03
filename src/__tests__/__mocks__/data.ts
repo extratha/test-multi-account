@@ -1,6 +1,4 @@
-import { ExampleDataResult, InterpretResult } from "@/types/aiInterpret";
-import { SubmitLabInterpretsRequest } from "@/types/interpretInputDataConfig";
-import { ConsentResult } from "@/types/termsAndCons";
+import { ConsentResult, ExampleDataResult, InterpretResult, SubmitLabInterpretsRequest } from "@/types/model.api";
 
 export const mockLoginResponse = {
   accessToken: "mockAccessToken",

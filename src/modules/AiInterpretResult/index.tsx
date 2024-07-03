@@ -13,7 +13,7 @@ import { CUSTOM_COLORS, NEUTRAL, linearGradient } from "@/config/config-mui/them
 import { GENDER, GENERAL_CHECK_UP, GROUP_NAME } from "@/constant/constant";
 import { webPaths } from "@/constant/webPaths";
 import { useGetLabExampleId } from "@/hooks/useApi";
-import { GroupName, InputData } from "@/types/aiInterpret";
+import { InputData, InputDataResult } from "@/types/model.api";
 import AiInterpretLabResult from "./AiInterpretLebResult";
 
 const ContentContainer = styled(Stack)({
@@ -164,8 +164,8 @@ const AiInterpretResult = () => {
   };
 
   const { generalData, labData } = useMemo(() => {
-    const generalData: GroupName[] = [];
-    const labData: GroupName[] = [];
+    const generalData: InputDataResult[] = [];
+    const labData: InputDataResult[] = [];
 
     inputDataResultData.forEach((item) => {
       if (item.groupName === GROUP_NAME.GENERAL_CHECK_UP) {

@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import { useMemo } from "react";
 import * as Yup from "yup";
 
-import { InputGroupConfig } from "@/types/interpretInputDataConfig";
+import { InputGroupConfig } from "@/types/model.ui";
 
 export const useInputDataFieldYupSchema = (config: InputGroupConfig[]) => {
   const t = useTranslations("Common");
