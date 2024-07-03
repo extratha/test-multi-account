@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from "react";
 import { IconAiInterpret, IosDeviceFrame } from "@/assets";
 import PageTitle from "@/components/Typography/PageTitle";
 import { remoteConfigKey } from "@/constant/firebase";
+import { SymptomCheckerConfig } from "@/types/model.ui";
 import { remoteConfig } from "@/utils/firebase";
 
 const Wrapper = styled(Stack)({

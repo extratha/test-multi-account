@@ -8,7 +8,7 @@ import { IconAiInterpret, IconPen, IconSparkle } from "@/assets";
 import { NEUTRAL } from "@/config/config-mui/theme/colors";
 import { webPaths } from "@/constant/webPaths";
 import { useGetLabExampleList } from "@/hooks/useApi";
-import { ExampleDataResult } from "@/types/aiInterpret";
+import { ExampleDataResult } from "@/types/model.api";
 import { ContentContainer, ContentContainerWrapper, TypographyPageHeadline } from "../HomePageModule/styled";
 import { ButtonEditDataStyled, ButtonInterpretDataStyled, TagValueStyle } from "./styled";
 

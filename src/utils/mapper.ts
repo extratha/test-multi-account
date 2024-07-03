@@ -1,4 +1,5 @@
-import { InputGroupConfig, SubmitLabInterpretsRequest } from "@/types/interpretInputDataConfig";
+import { SubmitLabInterpretsRequest } from "@/types/model.api";
+import { InputGroupConfig } from "@/types/model.ui";
 
 const convertValueToString = (value: unknown) => {
   return typeof value === "number" ? String(value) : value;

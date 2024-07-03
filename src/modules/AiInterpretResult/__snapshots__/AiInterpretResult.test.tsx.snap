@@ -836,13 +836,13 @@ exports[`AiInterpretResult should render correctly 1`] = `
         class="MuiStack-root emotion-2"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-3"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-3"
           data-testid="ai-interpret-button-back"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-startIcon MuiButton-iconSizeMedium emotion-4"
+            class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium emotion-4"
           >
             <svg />
           </span>
@@ -852,13 +852,13 @@ exports[`AiInterpretResult should render correctly 1`] = `
           />
         </button>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-3"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-3"
           data-testid="ai-interpret-button-edit"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-startIcon MuiButton-iconSizeMedium emotion-4"
+            class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium emotion-4"
           >
             <svg />
           </span>
@@ -976,13 +976,13 @@ exports[`AiInterpretResult should render correctly 1`] = `
                   description-ai-result
                 </div>
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-3"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-3"
                   data-testid="ai-interpret-button-copy-0"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-startIcon MuiButton-iconSizeMedium emotion-4"
+                    class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium emotion-4"
                   >
                     <svg />
                   </span>
@@ -1152,14 +1152,14 @@ exports[`AiInterpretResult should render correctly 1`] = `
               </h3>
             </div>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-69"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-69"
               data-testid="ai-interpret-lab-hematologyCBC-button-collapse"
               tabindex="0"
               type="button"
             >
               More
               <span
-                class="MuiButton-endIcon MuiButton-iconSizeMedium emotion-70"
+                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-70"
               >
                 <svg />
               </span>
@@ -1606,14 +1606,14 @@ exports[`AiInterpretResult should render correctly 1`] = `
               </h3>
             </div>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-69"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-69"
               data-testid="ai-interpret-lab-lipidProfile-button-collapse"
               tabindex="0"
               type="button"
             >
               More
               <span
-                class="MuiButton-endIcon MuiButton-iconSizeMedium emotion-70"
+                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-70"
               >
                 <svg />
               </span>
@@ -1780,14 +1780,14 @@ exports[`AiInterpretResult should render correctly 1`] = `
               </h3>
             </div>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-69"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-69"
               data-testid="ai-interpret-lab-bloodChemistry-button-collapse"
               tabindex="0"
               type="button"
             >
               More
               <span
-                class="MuiButton-endIcon MuiButton-iconSizeMedium emotion-70"
+                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-70"
               >
                 <svg />
               </span>
@@ -1894,14 +1894,14 @@ exports[`AiInterpretResult should render correctly 1`] = `
               </h3>
             </div>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-69"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-69"
               data-testid="ai-interpret-lab-renalFunctionTest-button-collapse"
               tabindex="0"
               type="button"
             >
               More
               <span
-                class="MuiButton-endIcon MuiButton-iconSizeMedium emotion-70"
+                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-70"
               >
                 <svg />
               </span>
@@ -2008,14 +2008,14 @@ exports[`AiInterpretResult should render correctly 1`] = `
               </h3>
             </div>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-69"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-69"
               data-testid="ai-interpret-lab-liverFunctionTest-button-collapse"
               tabindex="0"
               type="button"
             >
               More
               <span
-                class="MuiButton-endIcon MuiButton-iconSizeMedium emotion-70"
+                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-70"
               >
                 <svg />
               </span>
@@ -2152,14 +2152,14 @@ exports[`AiInterpretResult should render correctly 1`] = `
               </h3>
             </div>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-69"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-69"
               data-testid="ai-interpret-lab-urineAnalysis-button-collapse"
               tabindex="0"
               type="button"
             >
               More
               <span
-                class="MuiButton-endIcon MuiButton-iconSizeMedium emotion-70"
+                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-70"
               >
                 <svg />
               </span>
@@ -2430,14 +2430,14 @@ exports[`AiInterpretResult should render correctly 1`] = `
               </h3>
             </div>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-69"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-69"
               data-testid="ai-interpret-lab-papSmear-button-collapse"
               tabindex="0"
               type="button"
             >
               More
               <span
-                class="MuiButton-endIcon MuiButton-iconSizeMedium emotion-70"
+                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-70"
               >
                 <svg />
               </span>

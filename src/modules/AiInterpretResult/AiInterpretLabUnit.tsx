@@ -1,7 +1,7 @@
 import { Stack, Typography } from "@mui/material";
 import { useTranslations } from "next-intl";
 
-import { InputData } from "@/types/aiInterpret";
+import { InputData } from "@/types/model.api";
 
 export interface AiInterpretLabUnitProps {
   name: string;

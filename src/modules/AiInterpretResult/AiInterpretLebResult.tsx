@@ -6,12 +6,13 @@ import { useMemo, useState } from "react";
 import { IconChevronDown, IconChevronUp, IconLabStatusBlack } from "@/assets";
 import { CUSTOM_COLORS, NEUTRAL } from "@/config/config-mui/theme/colors";
 import { HEMATOLOGY_BLOOD, HEMATOLOGY_BLOOD_GROUP, HEMATOLOGY_CBC, HEMATOLOGY_CBC_GROUP } from "@/constant/constant";
-import { GroupName, InputData, LAB_GROUP } from "@/types/aiInterpret";
+import { InputData, InputDataResult } from "@/types/model.api";
+import { LabGroupConfig } from "@/types/model.ui";
 import AiInterpretLabUnit from "./AiInterpretLabUnit";
 
 export interface AiInterpretLabResultProps {
   name: string;
-  group: GroupName;
+  group: InputDataResult;
 }
 
 interface SubGroup {
@@ -19,7 +20,7 @@ interface SubGroup {
   groupName: InputData[];
 }
 
-const LAB_SUB_GROUPS: Record<string, LAB_GROUP[]> = {
+const LAB_SUB_GROUPS: Record<string, LabGroupConfig[]> = {
   hematologyBG: [
     {
       group: HEMATOLOGY_BLOOD_GROUP.HEMATOLOGY_BLOOD,

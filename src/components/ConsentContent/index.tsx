@@ -1,11 +1,11 @@
 import { Box, Collapse, IconButton, Stack, Typography, styled } from "@mui/material";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 
 import { IconChevronDown, IconChevronUp, IconConsentGroupDetail } from "@/assets";
 import { CUSTOM_COLORS, NEUTRAL } from "@/config/config-mui/theme/colors";
-import { ConsentData, ConsentService } from "@/types/termsAndCons";
-import { useTranslations } from "next-intl";
+import { ConsentData } from "@/types/model.api";
 
 export interface ConsentContentProps {
   name: string;
@@ -93,7 +93,7 @@ const ConsentContent = (props: ConsentContentProps) => {
           <Typography variant="titleLargeSemiBold" marginBottom="24px" color={CUSTOM_COLORS.textHighEmp}>
             {t("title.allServices")}
           </Typography>
-          {data.services.map((service: ConsentService, index: number) => (
+          {data.services.map((service, index) => (
             <ServiceItem key={index}>
               <ServiceHeader data-testid={`${name}-service-${index}`} onClick={() => handleClickService(index)}>
                 <Box>
