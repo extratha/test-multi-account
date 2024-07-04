@@ -251,7 +251,7 @@ exports[`ProjectCoverLayout to match snap 1`] = `
   border-bottom-width: thin;
 }
 
-.emotion-55 {
+.emotion-69 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -266,7 +266,7 @@ exports[`ProjectCoverLayout to match snap 1`] = `
   position: relative;
 }
 
-.emotion-56 {
+.emotion-70 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -277,7 +277,7 @@ exports[`ProjectCoverLayout to match snap 1`] = `
   height: 100%;
 }
 
-.emotion-57 {
+.emotion-71 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -287,7 +287,7 @@ exports[`ProjectCoverLayout to match snap 1`] = `
   flex-direction: row;
 }
 
-.emotion-58 {
+.emotion-72 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -301,7 +301,7 @@ exports[`ProjectCoverLayout to match snap 1`] = `
   padding: 8px 16px;
 }
 
-.emotion-59 {
+.emotion-73 {
   margin: 0;
   font-weight: 500;
   line-height: 24px;
@@ -311,7 +311,7 @@ exports[`ProjectCoverLayout to match snap 1`] = `
   color: #fff;
 }
 
-.emotion-60 {
+.emotion-74 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -324,7 +324,7 @@ exports[`ProjectCoverLayout to match snap 1`] = `
   margin: 16px 0 0 0;
 }
 
-.emotion-63 {
+.emotion-77 {
   margin: 0;
   font-weight: 500;
   line-height: 24px;
@@ -334,7 +334,7 @@ exports[`ProjectCoverLayout to match snap 1`] = `
   margin: auto 0 8px 0;
 }
 
-.emotion-65 {
+.emotion-79 {
   margin: 0;
   font-weight: 500;
   line-height: 28px;
@@ -564,6 +564,78 @@ exports[`ProjectCoverLayout to match snap 1`] = `
               class="MuiStack-root emotion-6"
             >
               <svg
+                height="24"
+                width="24"
+              />
+            </div>
+            <div
+              class="MuiStack-root emotion-7"
+            >
+              <h3
+                class="MuiTypography-root MuiTypography-titleMedium emotion-8"
+              >
+                ตั้งค่าและอื่น ๆ
+              </h3>
+            </div>
+            <div
+              class="MuiStack-root emotion-19"
+              data-testid="icon-expand"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-20"
+                data-testid="KeyboardArrowDownIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-9"
+            data-testid="menu-group-collapse-0"
+            style="min-height: 0px;"
+          >
+            <div
+              class="MuiCollapse-wrapper MuiCollapse-vertical emotion-10"
+            >
+              <div
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-11"
+              >
+                <ul
+                  class="MuiList-root MuiList-padding emotion-2"
+                >
+                  <li
+                    class="MuiListItem-root MuiListItem-gutters MuiListItem-padding emotion-25"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-bodyLarge emotion-26"
+                    >
+                      ข้อกำหนดและเงื่อนไข
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        class="MuiListItem-root MuiListItem-gutters MuiListItem-padding emotion-3"
+      >
+        <div
+          class="MuiStack-root emotion-4"
+        >
+          <div
+            class="MuiStack-root emotion-5"
+          >
+            <div
+              class="MuiStack-root emotion-6"
+            >
+              <svg
                 style="width: 24px; height: 24px;"
               />
             </div>
@@ -579,7 +651,7 @@ exports[`ProjectCoverLayout to match snap 1`] = `
           </div>
           <div
             class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-9"
-            data-testid="menu-group-collapse-0"
+            data-testid="menu-group-collapse-1"
             style="min-height: 0px;"
           >
             <div
@@ -602,32 +674,32 @@ exports[`ProjectCoverLayout to match snap 1`] = `
       style="margin: auto 0px 20px;"
     />
     <div
-      class="MuiStack-root emotion-55"
+      class="MuiStack-root emotion-69"
     >
       <div
-        class="MuiStack-root emotion-56"
+        class="MuiStack-root emotion-70"
       >
         <div
-          class="MuiStack-root emotion-57"
+          class="MuiStack-root emotion-71"
         >
           <svg
             style="width: 20px; height: 20px;"
           />
           <div
-            class="MuiStack-root emotion-58"
+            class="MuiStack-root emotion-72"
           >
             <svg
               style="width: 24px; height: 24px; margin: auto 10px auto 0px;"
             />
             <span
-              class="MuiTypography-root MuiTypography-bodyLargeSemiBold emotion-59"
+              class="MuiTypography-root MuiTypography-bodyLargeSemiBold emotion-73"
             >
               แอดมิน
             </span>
           </div>
         </div>
         <div
-          class="MuiStack-root emotion-60"
+          class="MuiStack-root emotion-74"
         >
           <span
             class="MuiTypography-root MuiTypography-bodyLargeSemiBold emotion-1"
@@ -640,18 +712,18 @@ exports[`ProjectCoverLayout to match snap 1`] = `
              admin@example.com 
           </span>
           <span
-            class="MuiTypography-root MuiTypography-bodyLargeSemiBold emotion-63"
+            class="MuiTypography-root MuiTypography-bodyLargeSemiBold emotion-77"
           >
             เครดิตของฉัน 
           </span>
           <div
-            class="MuiStack-root emotion-57"
+            class="MuiStack-root emotion-71"
           >
             <svg
               style="width: 24px; height: 24px; margin: 0px 1rem 0px 0px;"
             />
             <h3
-              class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-65"
+              class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-79"
             >
               ใช้ได้ไม่จำกัด
             </h3>

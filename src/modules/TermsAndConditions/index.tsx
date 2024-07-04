@@ -5,7 +5,7 @@ import { Button, Container, Divider, Paper, Stack, Typography, alpha, styled } f
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import * as yup from "yup";
 
 import { getTermsAndConditions, submitConsent } from "@/api/api";
@@ -95,7 +95,7 @@ const TermsAndConsModules = () => {
 
   const agreement = methods.watch("agreement");
 
-  const fetchTermsAndCons = async () => {
+  const fetchTermsAndConditions = async () => {
     try {
       const response = await getTermsAndConditions();
       setConsent(response.data);
@@ -104,7 +104,7 @@ const TermsAndConsModules = () => {
     }
   };
 
-  const onSubmit: SubmitHandler<TermsAndConsFormValues> = async () => {
+  const onSubmit = async () => {
     try {
       setPageLoading(true);
       await submitConsent(CONSENT_TYPE.TERMS_AND_CONDITIONS, consent?.version || "");
@@ -115,20 +115,20 @@ const TermsAndConsModules = () => {
   };
 
   useEffect(() => {
-    fetchTermsAndCons();
+    fetchTermsAndConditions();
   }, []);
 
   return (
     <>
       <HeaderBar>
         <Typography variant="titleMediumSemiBold" textAlign="center">
-          {t("title.termsAndCons")}
+          {t("title.termsAndConditions")}
         </Typography>
       </HeaderBar>
       <Wrapper>
         {consent && (
           <Content data-testid="terms-and-conditions-consent">
-            <Typography variant="titleLargeSemiBold">{t("pages.termsAndCons")}</Typography>
+            <Typography variant="titleLargeSemiBold">{t("pages.termsAndConditions")}</Typography>
             <TitleDivider />
             <ConsentContent name="term-and-conditions" data={consent.consent} />
             <FormProvider {...methods}>

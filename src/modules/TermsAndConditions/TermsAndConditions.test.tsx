@@ -22,7 +22,7 @@ describe("TermsAndConditions", () => {
     jest.spyOn(Api, "submitConsent");
 
     mockApiAdapter = new MockAdapter(axiosInstance);
-    mockApiAdapter.onGet(API.TERMS_AND_CONS).reply(200, mockTermsAndConsData);
+    mockApiAdapter.onGet(API.TERMS_AND_CONDITIONS).reply(200, mockTermsAndConsData);
     mockApiAdapter.onPost(API.CONSENT).reply(201);
   });
 
@@ -51,7 +51,7 @@ describe("TermsAndConditions", () => {
   });
 
   it("should not display consent when fetch consent error", () => {
-    mockApiAdapter.onGet(API.TERMS_AND_CONS).networkError();
+    mockApiAdapter.onGet(API.TERMS_AND_CONDITIONS).networkError();
 
     renderTermsAndCons();
 

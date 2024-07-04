@@ -94,7 +94,7 @@ export const API = {
   AI_INTERPRET_URL: "/lab/examples/interpretId",
   SUBMIT_HEALTH_DATA_URI: "/lab/interprets",
   CONSENT: "/consents",
-  TERMS_AND_CONS: "/consents/terms-conditions",
+  TERMS_AND_CONDITIONS: "/consents/terms-conditions",
 };
 
 const MockMarkdown = (props: any) => {
