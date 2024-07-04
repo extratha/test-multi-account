@@ -1,6 +1,6 @@
 import GridMenu from "@/components/Menus/GridMenu";
 import { aiMenuList } from "@/constant/menu";
-import { render, screen, userEvent } from "../../../testUtils";
+import { render, screen, userEvent } from "@/testUtils/testUtils";
 
 describe("GridMenu Component", () => {
   const mockTFunction = (key: string) => key;

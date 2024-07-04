@@ -1,4 +1,4 @@
-import { flushPromise, render } from "@/__tests__/testUtils";
+import { flushPromise, render } from "@/testUtils/testUtils";
 import SymptomChecker from ".";
 
 import * as RemoteConfig from "firebase/remote-config";

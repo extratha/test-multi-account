@@ -1,6 +1,6 @@
 import MockAdapter from "axios-mock-adapter";
 
-import { mockAiInterpretResult } from "@/__tests__/__mocks__/data";
+import { mockAiInterpretResult } from "@/__mocks__/data";
 import {
   API,
   SpyUseRouter,
@@ -11,7 +11,7 @@ import {
   spyUseRouter,
   spyUseSearchParams,
   userEvent,
-} from "@/__tests__/testUtils";
+} from "@/testUtils/testUtils";
 import axiosInstance from "@/utils/axios";
 import AiInterpretResult from ".";
 

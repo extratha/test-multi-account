@@ -1,7 +1,8 @@
-import LoginModule from "@/modules/LoginModule";
 import * as cookiesNext from "cookies-next";
 import * as nextRouter from "next/navigation";
-import { render } from "../../testUtils";
+
+import LoginModule from "@/modules/LoginModule";
+import { render } from "@/testUtils/testUtils";
 
 jest.mock("next/navigation", () => ({
   ...jest.requireActual("next/navigation"),

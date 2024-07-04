@@ -1,4 +1,4 @@
-import { SpyUseSearchParams, flushPromise, render, spyUseSearchParams } from "@/__tests__/testUtils";
+import { SpyUseSearchParams, flushPromise, render, spyUseSearchParams } from "@/testUtils/testUtils";
 import AiInterpretResultPage from "./page";
 
 describe("AiInterpretResultPage", () => {

@@ -1,7 +1,7 @@
 import clone from "clone";
 
-import { mockTermsAndConsData } from "@/__tests__/__mocks__/data";
-import { render, screen, userEvent, waitFor } from "@/__tests__/testUtils";
+import { mockTermsAndConsData } from "@/__mocks__/data";
+import { render, screen, userEvent, waitFor } from "@/testUtils/testUtils";
 import ConsentContent, { ConsentContentProps } from ".";
 
 describe("ConsentContent", () => {

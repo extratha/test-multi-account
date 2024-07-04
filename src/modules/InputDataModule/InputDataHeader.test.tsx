@@ -1,4 +1,4 @@
-import { render, screen, userEvent } from "@/__tests__/testUtils";
+import { render, screen, userEvent } from "@/testUtils/testUtils";
 import InputDataHeaderSection, { InputDataHeaderProps } from "./InputDataHeader";
 
 describe("InputDataHeaderSection", () => {

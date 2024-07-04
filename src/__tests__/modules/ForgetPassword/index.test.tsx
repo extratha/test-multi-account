@@ -1,5 +1,5 @@
 import ForgetpasswordModule from "@/modules/ForgetPassword";
-import { render } from "../../testUtils";
+import { render } from "@/testUtils/testUtils";
 
 describe("ForgetPassword Module", () => {
   it("should render correctly", async () => {

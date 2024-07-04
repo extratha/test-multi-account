@@ -1,5 +1,5 @@
 import SetNewPasswordModule from "@/modules/SetNewPasswordModule";
-import { render } from "../../testUtils";
+import { render } from "@/testUtils/testUtils";
 
 jest.mock("next/navigation", () => ({
   ...jest.requireActual("next/navigation"),

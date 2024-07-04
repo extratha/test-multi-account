@@ -1,5 +1,5 @@
 import HomePageModule from "@/modules/HomePageModule";
-import { render } from "../../testUtils";
+import { render } from "@/testUtils/testUtils";
 
 jest.mock("next/navigation", () => ({
   ...jest.requireActual("next/navigation"),

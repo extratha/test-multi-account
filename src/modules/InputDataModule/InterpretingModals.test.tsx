@@ -1,5 +1,5 @@
-import { render, screen, userEvent } from "@/__tests__/testUtils";
 import { INTERPRET_STATUS } from "@/constant/constant";
+import { render, screen, userEvent } from "@/testUtils/testUtils";
 import InterpretingModals, { InterpretingModalsProps } from "./InterpretingModals";
 
 describe("InterpretingModals", () => {
