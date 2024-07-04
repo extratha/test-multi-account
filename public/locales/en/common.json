@@ -109,6 +109,9 @@
     "symptomChecker": {
       "title": "Symptom Checker",
       "subtitle": "ที่ปรึกษาทางการแพทย์อัจริยะ"
+    },
+    "settingTermsAndConditions": {
+      "title": "ข้อกำหนดและเงื่อนไข"
     }
   }
 }
