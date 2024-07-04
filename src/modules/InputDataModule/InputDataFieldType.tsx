@@ -1,4 +1,4 @@
-import { Grid, Stack, styled, Typography } from "@mui/material";
+import { Box, Grid, Stack, styled, Typography } from "@mui/material";
 import { useTranslations } from "next-intl";
 
 import FormAutocomplete from "@/components/Form/FormAutocomplete";
@@ -17,10 +17,7 @@ const InputDataFieldWrapper = styled(Grid)({
 });
 
 const TypoUnit = styled(Typography)(({ theme }) => ({
-  width: "100%",
-  marginTop: "16px",
   wordBreak: "break-word",
-  whiteSpace: "pre-line",
   color: theme.palette.grey[600],
 }));
 
@@ -62,8 +59,8 @@ const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {
         <Typography variant="titleMedium" color="grey.600">{`(${tAi(`en.field.${field.key}`)})`}</Typography>
       </Grid>
       <Grid item xs={4}>
-        <Grid container>
-          <Grid item xs={10} pr={2}>
+        <Stack direction="row" spacing="8px" width="100%">
+          <Box width="100%">
             {field.fieldType === CONFIG_FIELD_TYPES.DROPDOWN && (
               <FormAutocomplete
                 name={field.key}
@@ -79,11 +76,11 @@ const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {
             {field.fieldType === CONFIG_FIELD_TYPES.STRING && (
               <FormTextInput name={field.key} placeholder={t("placeholder.enterValue")} required={field.required} />
             )}
-          </Grid>
-          <Grid item xs={2} display={"flex"}>
+          </Box>
+          <Stack width="80px" height="56px" justifyContent="center">
             <TypoUnit variant="bodyLarge">{displayUnit(field)}</TypoUnit>
-          </Grid>
-        </Grid>
+          </Stack>
+        </Stack>
       </Grid>
     </InputDataFieldWrapper>
   );

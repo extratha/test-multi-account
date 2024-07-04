@@ -638,88 +638,26 @@ exports[`InputDataModule should render correctly 1`] = `
 }
 
 .emotion-38 {
-  box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex-wrap: wrap;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  width: 100%;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  width: 100%;
+}
+
+.emotion-38>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-38>:not(style)~:not(style) {
+  margin-left: 8px;
 }
 
 .emotion-39 {
-  box-sizing: border-box;
-  margin: 0;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-basis: 83.333333%;
-  -ms-flex-preferred-size: 83.333333%;
-  flex-basis: 83.333333%;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  max-width: 83.333333%;
-  padding-right: 16px;
-}
-
-@media (min-width:600px) {
-  .emotion-39 {
-    -webkit-flex-basis: 83.333333%;
-    -ms-flex-preferred-size: 83.333333%;
-    flex-basis: 83.333333%;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    max-width: 83.333333%;
-  }
-}
-
-@media (min-width:905px) {
-  .emotion-39 {
-    -webkit-flex-basis: 83.333333%;
-    -ms-flex-preferred-size: 83.333333%;
-    flex-basis: 83.333333%;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    max-width: 83.333333%;
-  }
-}
-
-@media (min-width:1240px) {
-  .emotion-39 {
-    -webkit-flex-basis: 83.333333%;
-    -ms-flex-preferred-size: 83.333333%;
-    flex-basis: 83.333333%;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    max-width: 83.333333%;
-  }
-}
-
-@media (min-width:1440px) {
-  .emotion-39 {
-    -webkit-flex-basis: 83.333333%;
-    -ms-flex-preferred-size: 83.333333%;
-    flex-basis: 83.333333%;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    max-width: 83.333333%;
-  }
+  width: 100%;
 }
 
 .emotion-40 {
@@ -927,75 +865,19 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-42:focus::-ms-input-
 }
 
 .emotion-45 {
-  box-sizing: border-box;
-  margin: 0;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-basis: 16.666667%;
-  -ms-flex-preferred-size: 16.666667%;
-  flex-basis: 16.666667%;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  max-width: 16.666667%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-}
-
-@media (min-width:600px) {
-  .emotion-45 {
-    -webkit-flex-basis: 16.666667%;
-    -ms-flex-preferred-size: 16.666667%;
-    flex-basis: 16.666667%;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    max-width: 16.666667%;
-  }
-}
-
-@media (min-width:905px) {
-  .emotion-45 {
-    -webkit-flex-basis: 16.666667%;
-    -ms-flex-preferred-size: 16.666667%;
-    flex-basis: 16.666667%;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    max-width: 16.666667%;
-  }
-}
-
-@media (min-width:1240px) {
-  .emotion-45 {
-    -webkit-flex-basis: 16.666667%;
-    -ms-flex-preferred-size: 16.666667%;
-    flex-basis: 16.666667%;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    max-width: 16.666667%;
-  }
-}
-
-@media (min-width:1440px) {
-  .emotion-45 {
-    -webkit-flex-basis: 16.666667%;
-    -ms-flex-preferred-size: 16.666667%;
-    flex-basis: 16.666667%;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    max-width: 16.666667%;
-  }
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 80px;
+  height: 56px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 
 .emotion-46 {
@@ -1005,10 +887,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-42:focus::-ms-input-
   letter-spacing: 0.5px;
   font-size: 16px;
   font-family: NotoSansThai-Regular,sans-serif;
-  width: 100%;
-  margin-top: 16px;
   word-break: break-word;
-  white-space: pre-line;
   color: #757575;
 }
 
@@ -1683,10 +1562,10 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 emotion-37"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-container emotion-38"
+                    class="MuiStack-root emotion-38"
                   >
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 emotion-39"
+                      class="MuiBox-root emotion-39"
                     >
                       <div
                         class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root emotion-40"
@@ -1723,7 +1602,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 emotion-45"
+                      class="MuiStack-root emotion-45"
                     >
                       <span
                         class="MuiTypography-root MuiTypography-bodyLarge emotion-46"
@@ -1764,10 +1643,10 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 emotion-37"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-container emotion-38"
+                    class="MuiStack-root emotion-38"
                   >
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 emotion-39"
+                      class="MuiBox-root emotion-39"
                     >
                       <div
                         class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon emotion-56"
@@ -1862,7 +1741,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 emotion-45"
+                      class="MuiStack-root emotion-45"
                     >
                       <span
                         class="MuiTypography-root MuiTypography-bodyLarge emotion-46"
@@ -1901,10 +1780,10 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 emotion-37"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-container emotion-38"
+                    class="MuiStack-root emotion-38"
                   >
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 emotion-39"
+                      class="MuiBox-root emotion-39"
                     >
                       <div
                         class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root emotion-40"
@@ -1941,7 +1820,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 emotion-45"
+                      class="MuiStack-root emotion-45"
                     >
                       <span
                         class="MuiTypography-root MuiTypography-bodyLarge emotion-46"
@@ -1982,10 +1861,10 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 emotion-37"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-container emotion-38"
+                    class="MuiStack-root emotion-38"
                   >
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 emotion-39"
+                      class="MuiBox-root emotion-39"
                     >
                       <div
                         class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root emotion-40"
@@ -2022,7 +1901,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 emotion-45"
+                      class="MuiStack-root emotion-45"
                     >
                       <span
                         class="MuiTypography-root MuiTypography-bodyLarge emotion-46"
@@ -2058,10 +1937,10 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 emotion-37"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-container emotion-38"
+                    class="MuiStack-root emotion-38"
                   >
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 emotion-39"
+                      class="MuiBox-root emotion-39"
                     >
                       <div
                         class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root emotion-40"
@@ -2098,7 +1977,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 emotion-45"
+                      class="MuiStack-root emotion-45"
                     >
                       <span
                         class="MuiTypography-root MuiTypography-bodyLarge emotion-46"
@@ -2134,10 +2013,10 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 emotion-37"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-container emotion-38"
+                    class="MuiStack-root emotion-38"
                   >
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 emotion-39"
+                      class="MuiBox-root emotion-39"
                     >
                       <div
                         class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root emotion-40"
@@ -2174,7 +2053,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 emotion-45"
+                      class="MuiStack-root emotion-45"
                     >
                       <span
                         class="MuiTypography-root MuiTypography-bodyLarge emotion-46"
@@ -2210,10 +2089,10 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 emotion-37"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-container emotion-38"
+                    class="MuiStack-root emotion-38"
                   >
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 emotion-39"
+                      class="MuiBox-root emotion-39"
                     >
                       <div
                         class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root emotion-40"
@@ -2250,7 +2129,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 emotion-45"
+                      class="MuiStack-root emotion-45"
                     >
                       <span
                         class="MuiTypography-root MuiTypography-bodyLarge emotion-46"
@@ -2286,10 +2165,10 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 emotion-37"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-container emotion-38"
+                    class="MuiStack-root emotion-38"
                   >
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 emotion-39"
+                      class="MuiBox-root emotion-39"
                     >
                       <div
                         class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root emotion-40"
@@ -2326,7 +2205,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 emotion-45"
+                      class="MuiStack-root emotion-45"
                     >
                       <span
                         class="MuiTypography-root MuiTypography-bodyLarge emotion-46"
@@ -2362,10 +2241,10 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 emotion-37"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-container emotion-38"
+                    class="MuiStack-root emotion-38"
                   >
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 emotion-39"
+                      class="MuiBox-root emotion-39"
                     >
                       <div
                         class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root emotion-40"
@@ -2402,7 +2281,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 emotion-45"
+                      class="MuiStack-root emotion-45"
                     >
                       <span
                         class="MuiTypography-root MuiTypography-bodyLarge emotion-46"
@@ -2438,10 +2317,10 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 emotion-37"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-container emotion-38"
+                    class="MuiStack-root emotion-38"
                   >
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 emotion-39"
+                      class="MuiBox-root emotion-39"
                     >
                       <div
                         class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root emotion-40"
@@ -2478,7 +2357,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 emotion-45"
+                      class="MuiStack-root emotion-45"
                     >
                       <span
                         class="MuiTypography-root MuiTypography-bodyLarge emotion-46"
