@@ -1,14 +1,14 @@
-'use client'
+"use client";
 
+import UnauthorizedLayout from "@/layout/UnauthorizedLayout";
 import SetNewPasswordForm from "./SetNewPasswordForm";
-import ProjectCoverLayout from "@/components/ProjectCoverLayout";
 
 const SetNewPasswordModule = () => {
   return (
-    <ProjectCoverLayout>
+    <UnauthorizedLayout>
       <SetNewPasswordForm />
-    </ProjectCoverLayout>
+    </UnauthorizedLayout>
+  );
+};
 
-  )
-}
 export default SetNewPasswordModule;

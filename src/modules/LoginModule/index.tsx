@@ -1,13 +1,14 @@
 "use client";
 
-import ProjectCoverLayout from "@/components/ProjectCoverLayout";
+import UnauthorizedLayout from "@/layout/UnauthorizedLayout";
 import LoginForm from "./LoginForm";
 
 const LoginModule = () => {
   return (
-    <ProjectCoverLayout>
+    <UnauthorizedLayout>
       <LoginForm />
-    </ProjectCoverLayout>
+    </UnauthorizedLayout>
   );
 };
+
 export default LoginModule;

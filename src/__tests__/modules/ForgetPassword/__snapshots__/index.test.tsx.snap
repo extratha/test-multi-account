@@ -29,6 +29,16 @@ exports[`ForgetPassword Module should render correctly 1`] = `
 }
 
 .emotion-2 {
+  position: relative;
+  margin: 40vh auto 0;
+}
+
+.emotion-3 {
+  position: relative;
+  margin: auto auto 3rem;
+}
+
+.emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -42,7 +52,7 @@ exports[`ForgetPassword Module should render correctly 1`] = `
   background-color: #fff;
 }
 
-.emotion-3 {
+.emotion-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -54,7 +64,7 @@ exports[`ForgetPassword Module should render correctly 1`] = `
   margin: auto;
 }
 
-.emotion-4 {
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -64,7 +74,7 @@ exports[`ForgetPassword Module should render correctly 1`] = `
   flex-direction: column;
 }
 
-.emotion-5 {
+.emotion-7 {
   margin: 0;
   font-weight: 500;
   letter-spacing: 0;
@@ -74,7 +84,7 @@ exports[`ForgetPassword Module should render correctly 1`] = `
   margin-bottom: 16px;
 }
 
-.emotion-6 {
+.emotion-8 {
   margin: 0;
   font-weight: 400;
   letter-spacing: 0;
@@ -85,7 +95,7 @@ exports[`ForgetPassword Module should render correctly 1`] = `
   margin-bottom: 16px;
 }
 
-.emotion-7 {
+.emotion-9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -96,15 +106,15 @@ exports[`ForgetPassword Module should render correctly 1`] = `
   margin-top: 8px;
 }
 
-.emotion-7>:not(style):not(style) {
+.emotion-9>:not(style):not(style) {
   margin: 0;
 }
 
-.emotion-7>:not(style)~:not(style) {
+.emotion-9>:not(style)~:not(style) {
   margin-top: 16px;
 }
 
-.emotion-8 {
+.emotion-10 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -123,7 +133,7 @@ exports[`ForgetPassword Module should render correctly 1`] = `
   border-radius: 8px;
 }
 
-.emotion-9 {
+.emotion-11 {
   font-family: NotoSansThai-Regular,sans-serif;
   font-weight: 400;
   font-size: 1rem;
@@ -145,35 +155,35 @@ exports[`ForgetPassword Module should render correctly 1`] = `
   border-radius: 8px;
 }
 
-.emotion-9.Mui-disabled {
+.emotion-11.Mui-disabled {
   color: rgba(0, 0, 0, 0.38);
   cursor: default;
 }
 
-.emotion-9:hover .MuiOutlinedInput-notchedOutline {
+.emotion-11:hover .MuiOutlinedInput-notchedOutline {
   border-color: rgba(0, 0, 0, 0.87);
 }
 
 @media (hover: none) {
-  .emotion-9:hover .MuiOutlinedInput-notchedOutline {
+  .emotion-11:hover .MuiOutlinedInput-notchedOutline {
     border-color: rgba(0, 0, 0, 0.23);
   }
 }
 
-.emotion-9.Mui-focused .MuiOutlinedInput-notchedOutline {
+.emotion-11.Mui-focused .MuiOutlinedInput-notchedOutline {
   border-color: #1976d2;
   border-width: 2px;
 }
 
-.emotion-9.Mui-error .MuiOutlinedInput-notchedOutline {
+.emotion-11.Mui-error .MuiOutlinedInput-notchedOutline {
   border-color: #d32f2f;
 }
 
-.emotion-9.Mui-disabled .MuiOutlinedInput-notchedOutline {
+.emotion-11.Mui-disabled .MuiOutlinedInput-notchedOutline {
   border-color: rgba(0, 0, 0, 0.26);
 }
 
-.emotion-10 {
+.emotion-12 {
   font: inherit;
   letter-spacing: inherit;
   color: currentColor;
@@ -194,95 +204,95 @@ exports[`ForgetPassword Module should render correctly 1`] = `
   padding: 16.5px 14px;
 }
 
-.emotion-10::-webkit-input-placeholder {
+.emotion-12::-webkit-input-placeholder {
   color: currentColor;
   opacity: 0.42;
   -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.emotion-10::-moz-placeholder {
+.emotion-12::-moz-placeholder {
   color: currentColor;
   opacity: 0.42;
   -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.emotion-10:-ms-input-placeholder {
+.emotion-12:-ms-input-placeholder {
   color: currentColor;
   opacity: 0.42;
   -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.emotion-10::-ms-input-placeholder {
+.emotion-12::-ms-input-placeholder {
   color: currentColor;
   opacity: 0.42;
   -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.emotion-10:focus {
+.emotion-12:focus {
   outline: 0;
 }
 
-.emotion-10:invalid {
+.emotion-12:invalid {
   box-shadow: none;
 }
 
-.emotion-10::-webkit-search-decoration {
+.emotion-12::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-10::-webkit-input-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-12::-webkit-input-placeholder {
   opacity: 0!important;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-10::-moz-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-12::-moz-placeholder {
   opacity: 0!important;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-10:-ms-input-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-12:-ms-input-placeholder {
   opacity: 0!important;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-10::-ms-input-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-12::-ms-input-placeholder {
   opacity: 0!important;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-10:focus::-webkit-input-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-12:focus::-webkit-input-placeholder {
   opacity: 0.42;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-10:focus::-moz-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-12:focus::-moz-placeholder {
   opacity: 0.42;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-10:focus:-ms-input-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-12:focus:-ms-input-placeholder {
   opacity: 0.42;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-10:focus::-ms-input-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-12:focus::-ms-input-placeholder {
   opacity: 0.42;
 }
 
-.emotion-10.Mui-disabled {
+.emotion-12.Mui-disabled {
   opacity: 1;
   -webkit-text-fill-color: rgba(0, 0, 0, 0.38);
 }
 
-.emotion-10:-webkit-autofill {
+.emotion-12:-webkit-autofill {
   -webkit-animation-duration: 5000s;
   animation-duration: 5000s;
   -webkit-animation-name: mui-auto-fill;
   animation-name: mui-auto-fill;
 }
 
-.emotion-10:-webkit-autofill {
+.emotion-12:-webkit-autofill {
   border-radius: inherit;
 }
 
-.emotion-11 {
+.emotion-13 {
   text-align: left;
   position: absolute;
   bottom: 0;
@@ -300,7 +310,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-10:focus::-ms-input-
   border-color: rgba(0, 0, 0, 0.23);
 }
 
-.emotion-12 {
+.emotion-14 {
   float: unset;
   width: auto;
   overflow: hidden;
@@ -310,7 +320,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-10:focus::-ms-input-
   transition: width 150ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
 }
 
-.emotion-13 {
+.emotion-15 {
   margin: 0;
   font-weight: 400;
   line-height: 24px;
@@ -322,7 +332,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-10:focus::-ms-input-
   text-align: left;
 }
 
-.emotion-14 {
+.emotion-16 {
   margin: 0;
   font-weight: 400;
   line-height: 24px;
@@ -333,7 +343,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-10:focus::-ms-input-
   text-align: left;
 }
 
-.emotion-15 {
+.emotion-17 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -384,44 +394,44 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-10:focus::-ms-input-
   color: #fff;
 }
 
-.emotion-15::-moz-focus-inner {
+.emotion-17::-moz-focus-inner {
   border-style: none;
 }
 
-.emotion-15.Mui-disabled {
+.emotion-17.Mui-disabled {
   pointer-events: none;
   cursor: default;
 }
 
 @media print {
-  .emotion-15 {
+  .emotion-17 {
     -webkit-print-color-adjust: exact;
     color-adjust: exact;
   }
 }
 
-.emotion-15:hover {
+.emotion-17:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
   background-color: rgba(25, 118, 210, 0.04);
 }
 
 @media (hover: none) {
-  .emotion-15:hover {
+  .emotion-17:hover {
     background-color: transparent;
   }
 }
 
-.emotion-15.Mui-disabled {
+.emotion-17.Mui-disabled {
   color: rgba(0, 0, 0, 0.26);
 }
 
-.emotion-15:hover {
+.emotion-17:hover {
   background-color: #42a5f5;
   opacity: 0.9;
 }
 
-.emotion-16 {
+.emotion-18 {
   margin: 0;
   font-weight: 500;
   line-height: 24px;
@@ -437,50 +447,49 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-10:focus::-ms-input-
       class="MuiStack-root emotion-1"
     >
       <img
-        alt=""
+        alt="login-background"
         src="/img.jpg"
-        style="position: absolute; z-index: -1; width: 100%; height: 100%; object-fit: cover;"
       />
       <svg
-        style="margin: 40vh auto 0px;"
+        class="emotion-2"
       />
       <svg
-        style="margin: auto auto 3rem;"
+        class="emotion-3"
       />
     </div>
     <div
-      class="MuiStack-root emotion-2"
+      class="MuiStack-root emotion-4"
     >
       <div
-        class="MuiStack-root emotion-3"
+        class="MuiStack-root emotion-5"
       >
         <div
-          class="MuiStack-root emotion-4"
+          class="MuiStack-root emotion-6"
         >
           <h2
-            class="MuiTypography-root MuiTypography-headlineLargeSemiBold emotion-5"
+            class="MuiTypography-root MuiTypography-headlineLargeSemiBold emotion-7"
           >
             ตั้งค่ารหัสผ่านใหม่
           </h2>
           <h2
-            class="MuiTypography-root MuiTypography-headlineSmall emotion-6"
+            class="MuiTypography-root MuiTypography-headlineSmall emotion-8"
           >
             กรอกอีเมลของคุณเพื่อรับลิงก์สำหรับตั้งรหัสผ่านใหม่
           </h2>
           <form>
             <div
-              class="MuiStack-root emotion-7"
+              class="MuiStack-root emotion-9"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root emotion-8"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root emotion-10"
                 data-testid="email"
               >
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth Mui-focused MuiInputBase-formControl emotion-9"
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth Mui-focused MuiInputBase-formControl emotion-11"
                 >
                   <input
                     aria-invalid="false"
-                    class="MuiInputBase-input MuiOutlinedInput-input emotion-10"
+                    class="MuiInputBase-input MuiOutlinedInput-input emotion-12"
                     id="email"
                     name="email"
                     placeholder="กรอกอีเมลของคุณ"
@@ -489,10 +498,10 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-10:focus::-ms-input-
                   />
                   <fieldset
                     aria-hidden="true"
-                    class="MuiOutlinedInput-notchedOutline emotion-11"
+                    class="MuiOutlinedInput-notchedOutline emotion-13"
                   >
                     <legend
-                      class="emotion-12"
+                      class="emotion-14"
                     >
                       <span
                         class="notranslate"
@@ -504,22 +513,22 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-10:focus::-ms-input-
                 </div>
               </div>
               <span
-                class="MuiTypography-root MuiTypography-bodyLarge emotion-13"
+                class="MuiTypography-root MuiTypography-bodyLarge emotion-15"
                 data-testid="error"
               />
             </div>
             <span
-              class="MuiTypography-root MuiTypography-bodyLarge emotion-14"
+              class="MuiTypography-root MuiTypography-bodyLarge emotion-16"
             />
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary Mui-disabled MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-15"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary Mui-disabled MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-17"
               data-testid="button-submit"
               disabled=""
               tabindex="-1"
               type="submit"
             >
               <span
-                class="MuiTypography-root MuiTypography-labelExtraLargeSemiBold emotion-16"
+                class="MuiTypography-root MuiTypography-labelExtraLargeSemiBold emotion-18"
               >
                 ส่งคำขอ
               </span>
