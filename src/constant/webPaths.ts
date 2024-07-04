@@ -10,5 +10,6 @@ export const webPaths = {
     tryInputData: "/ai-interpret/try-input-data",
     tryHospitalData: "/ai-interpret/try-hospital-data",
   },
+  settingsTermsAndConditions: "/settings/terms-and-conditions",
   symptomChecker: "/symptom-checker",
 };

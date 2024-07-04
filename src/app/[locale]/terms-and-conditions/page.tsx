@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 const TermsAndConsPage = () => {
   const t = useTranslations("Common");
   return (
-    <Page title={t("pages.termsAndCons")}>
+    <Page title={t("pages.termsAndConditions")}>
       <TermsAndConsModules />
     </Page>
   );
