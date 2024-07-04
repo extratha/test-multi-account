@@ -1,4 +1,4 @@
-import { render, userEvent, screen } from "@/__tests__/testUtils";
+import { render, screen, userEvent } from "@/testUtils/testUtils";
 import AiInterpretLabResult, { AiInterpretLabResultProps } from "./AiInterpretLebResult";
 
 describe("AiInterpretLabResult", () => {

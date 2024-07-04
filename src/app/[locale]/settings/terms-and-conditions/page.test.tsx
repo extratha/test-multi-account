@@ -1,8 +1,8 @@
 import MockAdapter from "axios-mock-adapter";
 
-import { mockTermsAndConsData } from "@/__tests__/__mocks__/data";
-import { API, flushPromise, render } from "@/__tests__/testUtils";
+import { mockTermsAndConsData } from "@/__mocks__/data";
 import * as Api from "@/api/api";
+import { API, flushPromise, render } from "@/testUtils/testUtils";
 import axiosInstance from "@/utils/axios";
 import SettingTermsAndConditionsPage from "./page";
 

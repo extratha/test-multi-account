@@ -1,7 +1,7 @@
-import { mockLoginResponse } from "@/__tests__/__mocks__/data";
+import { mockLoginResponse } from "@/__mocks__/data";
 import LoginForm from "@/modules/LoginModule/LoginForm";
+import { render, screen, userEvent, waitFor } from "@/testUtils/testUtils";
 import axiosPublicInstance from "@/utils/axios/login";
-import { render, screen, userEvent, waitFor } from "../../../testUtils";
 
 jest.mock("next/navigation", () => ({
   useRouter: () => ({
@@ -9,7 +9,7 @@ jest.mock("next/navigation", () => ({
   }),
 }));
 
-jest.mock("../../../../utils/axios/login", () => ({
+jest.mock("@/utils/axios/login", () => ({
   __esModule: true,
   default: {
     post: jest.fn(),

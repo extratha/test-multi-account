@@ -1,6 +1,6 @@
-import MockForm from "@/__tests__/__mocks__/MockForm";
-import { render, screen, userEvent } from "@/__tests__/testUtils";
+import MockForm from "@/__mocks__/MockForm";
 import FormCheckbox, { FormCheckboxProps } from "@/components/Form/FormCheckbox";
+import { render, screen, userEvent } from "@/testUtils/testUtils";
 import * as yup from "yup";
 
 describe("FormCheckbox", () => {

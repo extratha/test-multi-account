@@ -1,7 +1,7 @@
-import MockForm, { MockFormProps } from "@/__tests__/__mocks__/MockForm";
+import MockForm, { MockFormProps } from "@/__mocks__/MockForm";
+import { flushPromise, render, screen, userEvent } from "@/testUtils/testUtils";
 import * as yup from "yup";
 import FormNumberInput, { FormNumberInputProps } from ".";
-import { flushPromise, render, screen, userEvent } from "../../../__tests__/testUtils";
 
 // TODO: Refactor
 describe("FormNumberInput", () => {

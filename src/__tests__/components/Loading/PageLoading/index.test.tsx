@@ -1,9 +1,10 @@
+import { usePathname } from "next/navigation";
+
 import PageLoading from "@/components/Loading/PageLoading";
 import { usePageLoadingStore } from "@/store";
-import { usePathname } from "next/navigation";
-import { act, render, screen } from "../../../testUtils";
+import { act, render, screen } from "@/testUtils/testUtils";
 
-jest.mock("../../../../store", () => ({
+jest.mock("@/store", () => ({
   usePageLoadingStore: jest.fn(),
 }));
 

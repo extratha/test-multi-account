@@ -3,11 +3,11 @@
 
 import { webPaths } from "@/constant/webPaths";
 import ForgetPasswordForm from "@/modules/ForgetPassword/ForgetPasswordForm";
+import { fireEvent, render, screen, waitFor } from "@/testUtils/testUtils";
 import axiosPublicInstance from "@/utils/axios/login";
 import mockRouter from "next-router-mock";
-import { fireEvent, render, screen, waitFor } from "../../../testUtils";
 
-jest.mock("../../../../utils/axios/login");
+jest.mock("@/utils/axios/login");
 
 describe("ForgetPasswordForm", () => {
   it("renders the form correctly", async () => {

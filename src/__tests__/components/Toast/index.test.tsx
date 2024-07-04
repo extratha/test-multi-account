@@ -7,7 +7,7 @@ import ToastSnackBar from "@/components/Toast";
 import useToastStore from "@/store/useToastStore";
 import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
 
-jest.mock("../../../store/useToastStore", () => ({
+jest.mock("@/store/useToastStore", () => ({
   __esModule: true,
   default: jest.fn(),
 }));

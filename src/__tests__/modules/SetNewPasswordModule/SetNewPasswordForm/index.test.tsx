@@ -1,15 +1,15 @@
 /* eslint-disable testing-library/no-unnecessary-act */
 import SetNewPasswordForm from "@/modules/SetNewPasswordModule/SetNewPasswordForm";
+import { act, fireEvent, render, screen, userEvent, waitFor } from "@/testUtils/testUtils";
 import axiosInstance from "@/utils/axios";
 import axiosPublicInstance from "@/utils/axios/login";
 import * as cookiesNext from "cookies-next";
-import { act, fireEvent, render, screen, userEvent, waitFor } from "../../../testUtils";
 
 jest.mock("axios");
 jest.mock("next/navigation", () => ({
   useRouter: () => ({ push: jest.fn() }),
 }));
-jest.mock("../../../../store", () => ({
+jest.mock("@/store", () => ({
   usePageLoadingStore: () => ({ setPageLoading: jest.fn() }),
   useUserProfileStore: () => ({ data: { passwordChanged: false } }),
   useToastStore: () => ({ setToastOpen: jest.fn() }),
@@ -21,14 +21,14 @@ jest.mock("cookies-next", () => ({
   getCookie: jest.fn().mockReturnValue("MOCK_ACCESS_TOKEN"),
 }));
 
-jest.mock("../../../../utils/axios", () => ({
+jest.mock("@/utils/axios", () => ({
   __esModule: true,
   default: {
     post: jest.fn(),
   },
 }));
 
-jest.mock("../../../../utils/axios/login", () => ({
+jest.mock("@/utils/axios/login", () => ({
   __esModule: true,
   default: {
     post: jest.fn(),

@@ -1,4 +1,4 @@
-import { render } from "@/__tests__/testUtils";
+import { render } from "@/testUtils/testUtils";
 import AiInterpretLabUnit, { AiInterpretLabUnitProps } from "./AiInterpretLabUnit";
 
 describe("AiInterpretLabUnit", () => {

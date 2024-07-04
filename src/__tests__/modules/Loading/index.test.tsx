@@ -1,5 +1,5 @@
 import Loading from "@/modules/Loading";
-import { render } from "../../testUtils";
+import { render } from "@/testUtils/testUtils";
 
 describe("LoadingModule", () => {
   it("should render correctly", async () => {

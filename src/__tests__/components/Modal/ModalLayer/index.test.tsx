@@ -2,7 +2,7 @@ import ModalLayer from "@/components/Modal/ModalLayer";
 import useModal from "@/store/modal";
 import { act, render, renderHook, screen } from "@testing-library/react";
 
-jest.mock("../../../../store/modal", () => {
+jest.mock("@/store/modal", () => {
   return {
     __esModule: true,
     default: jest.fn(() => ({

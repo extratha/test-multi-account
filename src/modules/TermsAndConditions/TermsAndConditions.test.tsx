@@ -1,11 +1,11 @@
 import MockAdapter from "axios-mock-adapter";
 
-import { mockTermsAndConsData } from "@/__tests__/__mocks__/data";
+import { mockTermsAndConsData } from "@/__mocks__/data";
 import * as Api from "@/api/api";
 import { webPaths } from "@/constant/webPaths";
 import TermsAndConsModules from "@/modules/TermsAndConditions";
+import { API, flushPromise, render, screen, spyUseRouter, SpyUseRouter, userEvent } from "@/testUtils/testUtils";
 import axiosInstance from "@/utils/axios";
-import { API, flushPromise, render, screen, spyUseRouter, SpyUseRouter, userEvent } from "../../__tests__/testUtils";
 
 jest.mock("react-markdown", () => (props: any) => {
   return <>{props.children}</>;

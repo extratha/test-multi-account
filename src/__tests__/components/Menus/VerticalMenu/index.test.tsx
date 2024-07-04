@@ -7,9 +7,9 @@
 import VerticalMenu from "@/components/Menus/VerticalMenu";
 import { webPaths } from "@/constant/webPaths";
 import { useUserProfileStore } from "@/store";
+import { act, fireEvent, render, screen, waitFor } from "@/testUtils/testUtils";
 import { deleteCookie } from "cookies-next";
 import mockRouter from "next-router-mock";
-import { act, fireEvent, render, screen, waitFor } from "../../../testUtils";
 
 mockRouter.setCurrentUrl("/th/home");
 
@@ -20,7 +20,7 @@ jest.mock("next/navigation", () => ({
   useParams: jest.fn(() => ({ locale: "th" })),
 }));
 
-jest.mock("../../../../store", () => ({
+jest.mock("@/store", () => ({
   useUserProfileStore: jest.fn(),
 }));
 

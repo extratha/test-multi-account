@@ -1,7 +1,10 @@
 import MockAdapter from "axios-mock-adapter";
 import "firebase/remote-config";
 
-import { mockAiInterpretResult } from "@/__tests__/__mocks__/data";
+import { mockAiInterpretResult } from "@/__mocks__/data";
+import * as Api from "@/api/api";
+import { INTERPRET_STATUS } from "@/constant/constant";
+import { webPaths } from "@/constant/webPaths";
 import {
   advanceTimersByTime,
   API,
@@ -14,10 +17,7 @@ import {
   spyUseSearchParams,
   SpyUseSearchParams,
   userEvent as UserEvent,
-} from "@/__tests__/testUtils";
-import * as Api from "@/api/api";
-import { INTERPRET_STATUS } from "@/constant/constant";
-import { webPaths } from "@/constant/webPaths";
+} from "@/testUtils/testUtils";
 import { InterpretResult } from "@/types/aiInterpret";
 import axiosInstance from "@/utils/axios";
 import clone from "clone";

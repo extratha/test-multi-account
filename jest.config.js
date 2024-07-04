@@ -6,13 +6,7 @@ const createJestConfig = nextJest({ dir: "./" });
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
 /** @type {import('jest').Config} */
 module.exports = createJestConfig({
-  // Add more setup options before each test is run
-  setupFilesAfterEnv: ["<rootDir>/src/__tests__/config/jest.setup.ts"],
-  modulePathIgnorePatterns: [
-    "<rootDir>/src/__tests__/config/",
-    "<rootDir>/src/__tests__/__mocks__/",
-    "<rootDir>/src/__tests__/testUtils.tsx",
-  ],
+  setupFilesAfterEnv: ["<rootDir>/src/testUtils/setupTest.ts"],
   testEnvironment: "jsdom",
   preset: "ts-jest",
   collectCoverage: true,
@@ -22,6 +16,6 @@ module.exports = createJestConfig({
   watchPlugins: ["jest-watch-typeahead/filename", "jest-watch-typeahead/testname"],
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
-    "^.+\\.(svg)$": "<rootDir>/src/__tests__/__mocks__/SvgMock.tsx",
+    "^.+\\.(svg)$": "<rootDir>/src/__mocks__/SvgMock.tsx",
   },
 });
