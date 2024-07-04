@@ -85,3 +85,8 @@ export interface ConsentResult {
   version: string;
   consent: ConsentData;
 }
+
+export interface ConsentResultLatest {
+  version: string;
+  consent: ConsentData;
+}

@@ -1,5 +1,6 @@
 import {
   ConsentResult,
+  ConsentResultLatest,
   ExampleDataResult,
   InterpretResult,
   SubmitLabInterpretsRequest,
@@ -27,6 +28,10 @@ export const getLabInterpretsByTransactionId = (transactionId: string) => {
 
 export const getTermsAndConditions = () => {
   return apiAxios.get<ConsentResult>("/consents/terms-conditions");
+};
+
+export const getTermsAndConditionsLatest = () => {
+  return apiAxios.get<ConsentResultLatest>("/consents/terms-conditions/latest");
 };
 
 export const submitConsent = (type: string, version: string) => {
