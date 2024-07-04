@@ -1,5 +1,6 @@
 import { SubmitButtonStyle } from "@/components/Button/styled";
 import { API } from "@/constant/api";
+import { COOKIE } from "@/constant/constant";
 import { webPaths } from "@/constant/webPaths";
 import { CustomTextField } from "@/modules/LoginModule/styled";
 import { usePageLoadingStore } from "@/store";
@@ -39,7 +40,7 @@ const SetNewPasswordForm = () => {
   const [confirmNewPassword, setConfirmNewPassword] = useState<string>("");
   const [isDisableSubmit, setIsDisabledSubmit] = useState<boolean>(true);
   const { handleSubmit, control, getValues, setError } = useForm<SetNewPasswordForm>();
-  const resetPasswordToken = getCookie("resetPasswordToken");
+  const resetPasswordToken = getCookie(COOKIE.RESET_PASSWORD_TOKEN);
   const fetcher: AxiosInstance = resetPasswordToken ? axiosPublicInstance : axiosInstance;
   const apiUrl: string = resetPasswordToken ? API.PATH.setNewPassword : API.PATH.changePassword;
   let submitParams = {};
@@ -60,18 +61,16 @@ const SetNewPasswordForm = () => {
     try {
       const response = await fetcher.post(apiUrl, submitParams);
       if (response?.status === 204) {
-        setCookie("passwordChanged", true);
+        setCookie(COOKIE.PASSWORD_CHANGED, true);
         if (resetPasswordToken && resetPasswordToken?.length > 0) {
-          router.push(webPaths.login);
-          deleteCookie("resetPasswordToken");
+          deleteCookie(COOKIE.RESET_PASSWORD_TOKEN);
           setToastOpen(true, {
             message: t("toast.resetPasswordSuccess"),
             severity: "success",
             icon: <div />,
           });
-        } else {
-          router.push(webPaths.termsAndConditions);
         }
+        router.push(webPaths.login);
       }
     } catch (error: any) {
       if (error.message) {

@@ -322,26 +322,6 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-10:focus::-ms-input-
   text-align: left;
 }
 
-.emotion-15 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  position: relative;
-  min-width: 0;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  vertical-align: top;
-  width: 100%;
-  background: #fff;
-  border-radius: 8px;
-  margin-top: 2em;
-}
-
 .emotion-16 {
   font-family: NotoSansThai-Regular,sans-serif;
   font-weight: 400;
@@ -803,7 +783,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-17:focus::-ms-input-
               class="MuiStack-root emotion-7"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root emotion-15"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root emotion-8"
                 data-testid="password"
               >
                 <div

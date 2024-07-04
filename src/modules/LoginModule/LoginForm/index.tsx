@@ -1,19 +1,20 @@
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { IconButton, Stack, Typography, useTheme } from "@mui/material";
+import { setCookie } from "cookies-next";
+import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
 
 import { SubmitButtonStyle } from "@/components/Button/styled";
 import { API } from "@/constant/api";
+import { COOKIE } from "@/constant/constant";
 import { webPaths } from "@/constant/webPaths";
 import useFieldValidation from "@/hooks/useFieldValidation";
 import { usePageLoadingStore, useUserProfileStore } from "@/store";
 import axiosPublicInstance from "@/utils/axios/login";
 import { validateEmail, validatePassword } from "@/utils/validation";
-import { setCookie } from "cookies-next";
-import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { CustomTextField } from "../styled";
 type LoginForm = {
   email: string | null;
@@ -64,6 +65,7 @@ const LoginForm = () => {
     setShowPassword((prev) => !prev);
   };
 
+  // TODO: unit after login
   const onSubmit: SubmitHandler<LoginForm> = async () => {
     setPageLoading(true);
     setErrorMessage("");
@@ -75,12 +77,17 @@ const LoginForm = () => {
       );
       if (response.data) {
         const { accessToken, refreshToken, user, userProfile } = response.data;
-        if (accessToken) setCookie("accessToken", accessToken);
-        if (refreshToken) setCookie("refreshToken", refreshToken);
+        setCookie(COOKIE.ACCESS_TOKEN, accessToken || "");
+        setCookie(COOKIE.REFRESH_TOKEN, refreshToken || "");
         if (user) {
-          setCookie("passwordChanged", user.passwordChanged);
+          setCookie(COOKIE.PASSWORD_CHANGED, user.passwordChanged);
           setUserProfile({ ...user, ...userProfile });
-          router.push(user.passwordChanged ? webPaths.home : webPaths.setNewPassword);
+
+          if (!user.passwordChanged) {
+            router.push(webPaths.setNewPassword);
+          } else {
+            router.push(webPaths.termsAndConditions);
+          }
         }
       }
     } catch (error: any) {
@@ -102,7 +109,7 @@ const LoginForm = () => {
           {t("text.login")}
         </Typography>
         <Typography variant="headlineLargeSemiBold" mb={2}>
-          Cariva Playground
+          {t("title.carivaPlayground")}
         </Typography>
 
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -175,9 +182,6 @@ const LoginForm = () => {
                   }}
                   InputLabelProps={{
                     shrink: true,
-                  }}
-                  sx={{
-                    marginTop: "2em",
                   }}
                 />
                 <Typography
