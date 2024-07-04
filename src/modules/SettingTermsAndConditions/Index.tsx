@@ -4,9 +4,9 @@ import { Box, Container, Divider, Paper, Typography, styled } from "@mui/materia
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
-import { getTermsAndConditions } from "@/api/api";
+import { getTermsAndConditionsLatest } from "@/api/api";
 import ConsentContent from "@/components/ConsentContent";
-import { ConsentResult } from "@/types/model.api";
+import { ConsentResultLatest } from "@/types/model.api";
 
 const Wrapper = styled(Container)({
   position: "relative",
@@ -40,11 +40,11 @@ const TitleDivider = styled(Divider)({
 const SettingTermsAndConditions = () => {
   const t = useTranslations("Common");
 
-  const [consent, setConsent] = useState<ConsentResult>();
+  const [consent, setConsent] = useState<ConsentResultLatest>();
 
   const fetchTermsAndConditions = async () => {
     try {
-      const response = await getTermsAndConditions();
+      const response = await getTermsAndConditionsLatest();
       setConsent(response.data);
     } catch (error) {
       //TODO : handle error

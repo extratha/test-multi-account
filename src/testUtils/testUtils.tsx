@@ -95,6 +95,7 @@ export const API = {
   SUBMIT_HEALTH_DATA_URI: "/lab/interprets",
   CONSENT: "/consents",
   TERMS_AND_CONDITIONS: "/consents/terms-conditions",
+  TERMS_AND_CONDITIONS_LATEST: "/consents/terms-conditions/latest",
 };
 
 const MockMarkdown = (props: any) => {

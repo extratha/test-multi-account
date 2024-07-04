@@ -1,4 +1,10 @@
-import { ConsentResult, ExampleDataResult, InterpretResult, SubmitLabInterpretsRequest } from "@/types/model.api";
+import {
+  ConsentResult,
+  ConsentResultLatest,
+  ExampleDataResult,
+  InterpretResult,
+  SubmitLabInterpretsRequest,
+} from "@/types/model.api";
 
 export const mockLoginResponse = {
   accessToken: "mockAccessToken",
@@ -808,4 +814,18 @@ export const mockTermsAndConsData: ConsentResult = {
   },
   isConsent: false,
   version: "01-01-2024",
+};
+
+export const mockTermsAndConsDataLatest: ConsentResultLatest = {
+  version: "Version",
+  consent: {
+    services: [
+      {
+        title: "Service Title 0",
+        logo: "/service/logo/0",
+        content: "Consent Content 0",
+      },
+    ],
+    content: "Consent Content",
+  },
 };
