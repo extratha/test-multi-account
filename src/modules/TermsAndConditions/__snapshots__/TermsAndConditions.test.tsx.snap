@@ -415,6 +415,7 @@ exports[`TermsAndConditions should render correctly 1`] = `
   padding: 9px;
   border-radius: 50%;
   color: rgba(0, 0, 0, 0.6);
+  color: #78909C;
 }
 
 .emotion-66::-moz-focus-inner {
@@ -489,6 +490,7 @@ exports[`TermsAndConditions should render correctly 1`] = `
   letter-spacing: 0.5px;
   font-size: 16px;
   font-family: NotoSansThai-SemiBold,sans-serif;
+  color: #78909C;
 }
 
 .emotion-71 {
@@ -557,7 +559,6 @@ exports[`TermsAndConditions should render correctly 1`] = `
   max-width: 400px;
   background-color: #42a5f5;
   color: #fff;
-  background-color: #eeeeee;
 }
 
 .emotion-72::-moz-focus-inner {
@@ -606,6 +607,11 @@ exports[`TermsAndConditions should render correctly 1`] = `
 .emotion-72:hover {
   background-color: #42a5f5;
   opacity: 0.9;
+}
+
+.emotion-72:disabled {
+  background-color: #FAFAFA;
+  color: #B0BEC5;
 }
 
 .emotion-73 {
