@@ -97,8 +97,15 @@ const TermsAndConsModules = () => {
 
   const fetchTermsAndConditions = async () => {
     try {
+      setPageLoading(true);
       const response = await getTermsAndConditions();
-      setConsent(response.data);
+
+      if (response.data.isConsent) {
+        router.replace(webPaths.home);
+      } else {
+        setConsent(response.data);
+        setPageLoading(false);
+      }
     } catch (error) {
       //TODO : handle error
     }
@@ -120,30 +127,32 @@ const TermsAndConsModules = () => {
 
   return (
     <>
-      <HeaderBar>
-        <Typography variant="titleMediumSemiBold" textAlign="center">
-          {t("title.termsAndConditions")}
-        </Typography>
-      </HeaderBar>
-      <Wrapper>
-        {consent && (
-          <Content data-testid="terms-and-conditions-consent">
-            <Typography variant="titleLargeSemiBold">{t("pages.termsAndConditions")}</Typography>
-            <TitleDivider />
-            <ConsentContent name="term-and-conditions" data={consent.consent} />
-            <FormProvider {...methods}>
-              <Form onSubmit={methods.handleSubmit(onSubmit)}>
-                <FormCheckbox name="agreement" label={t("field.agreement")} />
-                <ButtonGroup>
-                  <SubmitButton type="submit" variant="contained" disabled={!agreement} data-testid="submit-button">
-                    <Typography variant="labelExtraLargeSemiBold">{t("button.next")}</Typography>
-                  </SubmitButton>
-                </ButtonGroup>
-              </Form>
-            </FormProvider>
-          </Content>
-        )}
-      </Wrapper>
+      {consent && (
+        <>
+          <HeaderBar>
+            <Typography variant="titleMediumSemiBold" textAlign="center">
+              {t("title.termsAndConditions")}
+            </Typography>
+          </HeaderBar>
+          <Wrapper>
+            <Content data-testid="terms-and-conditions-consent">
+              <Typography variant="titleLargeSemiBold">{t("pages.termsAndConditions")}</Typography>
+              <TitleDivider />
+              <ConsentContent name="term-and-conditions" data={consent.consent} />
+              <FormProvider {...methods}>
+                <Form onSubmit={methods.handleSubmit(onSubmit)}>
+                  <FormCheckbox name="agreement" label={t("field.agreement")} />
+                  <ButtonGroup>
+                    <SubmitButton type="submit" variant="contained" disabled={!agreement} data-testid="submit-button">
+                      <Typography variant="labelExtraLargeSemiBold">{t("button.next")}</Typography>
+                    </SubmitButton>
+                  </ButtonGroup>
+                </Form>
+              </FormProvider>
+            </Content>
+          </Wrapper>
+        </>
+      )}
     </>
   );
 };

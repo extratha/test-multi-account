@@ -1,3 +1,4 @@
+import { COOKIE } from "@/constant/constant";
 import { envConfig } from "@/constant/env";
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 import { getCookie, setCookie } from "cookies-next";
@@ -15,7 +16,7 @@ const processQueue = (error: any, token: string | null = null) => {
 
 axiosInstance.interceptors.request.use(
   async (config) => {
-    const accessToken = getCookie("accessToken");
+    const accessToken = getCookie(COOKIE.ACCESS_TOKEN);
     if (accessToken) config.headers.Authorization = `Bearer ${accessToken}`;
     else return Promise.reject(new Error("Cannot get access token"));
     return config;
@@ -49,15 +50,15 @@ axiosInstance.interceptors.response.use(
       originalRequest._retry = true;
       isRefreshing = true;
 
-      const refreshToken = getCookie("refreshToken");
+      const refreshToken = getCookie(COOKIE.REFRESH_TOKEN);
       if (!refreshToken) return Promise.reject(new Error("No refresh token available"));
 
       try {
         const { data } = await axiosInstance.post(`/auth/refresh-token`, { refreshToken });
         const { accessToken: newAccessToken, refreshToken: newRefreshToken } = data;
 
-        setCookie("accessToken", newAccessToken);
-        setCookie("refreshToken", newRefreshToken);
+        setCookie(COOKIE.ACCESS_TOKEN, newAccessToken);
+        setCookie(COOKIE.REFRESH_TOKEN, newRefreshToken);
 
         axiosInstance.defaults.headers["Authorization"] = `Bearer ${newAccessToken}`;
         originalRequest.headers = originalRequest.headers || {};

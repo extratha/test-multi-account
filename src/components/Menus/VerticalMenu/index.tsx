@@ -9,6 +9,7 @@ import {
   ImagePlaygroundLogoOverlay,
 } from "@/assets";
 import { CUSTOM_COLORS } from "@/config/config-mui/theme/colors";
+import { COOKIE } from "@/constant/constant";
 import { MenuItem, aiMenuList, iconStyles, settingMenuList } from "@/constant/menu";
 import { webPaths } from "@/constant/webPaths";
 import { useUserProfileStore } from "@/store";
@@ -50,9 +51,9 @@ const VerticalMenu = () => {
   }, [pathname]);
   const handleClickHeadMenu = (menu: MenuItem) => {
     if (menu?.title?.includes(t("menu.logout"))) {
-      deleteCookie("accessToken");
-      deleteCookie("refreshToken");
-      deleteCookie("passwordChanged");
+      deleteCookie(COOKIE.ACCESS_TOKEN);
+      deleteCookie(COOKIE.REFRESH_TOKEN);
+      deleteCookie(COOKIE.PASSWORD_CHANGED);
       resetUserProfile();
       router.replace(webPaths.login);
       return;

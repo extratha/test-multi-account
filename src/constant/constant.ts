@@ -77,3 +77,10 @@ export const CONSENT_TYPE = {
   TERMS_AND_CONDITIONS: "terms",
   PRIVACY_AND_POLICY: "privacy_policies",
 };
+
+export const COOKIE = {
+  ACCESS_TOKEN: "accessToken",
+  REFRESH_TOKEN: "refreshToken",
+  PASSWORD_CHANGED: "passwordChanged",
+  RESET_PASSWORD_TOKEN: "resetPasswordToken",
+};
