@@ -154,7 +154,6 @@ export const CUSTOM_COLORS = {
   red: "#FF3500",
   darkBlue: "#07236D",
   royalBlue: "#1E6AF6",
-  checkBox: "#0085FF",
   cherry: "#EE6E3A",
   offWhite: "#F7F8F9",
   coin: "#FFD54F",
@@ -199,6 +198,7 @@ export const CUSTOM_COLORS = {
   limeGreen: "#00BA34",
   lapislazuli: "#264189",
   buttonText: "#212121",
+  checkboxText: '#78909C',
   buttonTextDisabled: "#B0BEC5",
   textHighEmp: "#212121",
 };

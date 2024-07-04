@@ -11,6 +11,7 @@ import * as yup from "yup";
 import { getTermsAndConditions, submitConsent } from "@/api/api";
 import ConsentContent from "@/components/ConsentContent";
 import FormCheckbox from "@/components/Form/FormCheckbox";
+import { CUSTOM_COLORS, NEUTRAL } from "@/config/config-mui/theme/colors";
 import { CONSENT_TYPE } from "@/constant/constant";
 import { webPaths } from "@/constant/webPaths";
 import { usePageLoadingStore } from "@/store";
@@ -55,7 +56,7 @@ const ButtonGroup = styled(Stack)({
   margin: "16px 0px",
 });
 
-const SubmitButton = styled(Button)(({ theme, disabled }) => [
+const SubmitButton = styled(Button)(({ theme }) => [
   {
     height: "44px",
     width: "100%",
@@ -66,9 +67,10 @@ const SubmitButton = styled(Button)(({ theme, disabled }) => [
       backgroundColor: theme.palette.primary.light,
       opacity: 0.9,
     },
-  },
-  disabled && {
-    backgroundColor: theme.palette.grey[200],
+    "&:disabled": {
+      backgroundColor: NEUTRAL[97],
+      color: CUSTOM_COLORS.buttonTextDisabled
+    }
   },
 ]);
 

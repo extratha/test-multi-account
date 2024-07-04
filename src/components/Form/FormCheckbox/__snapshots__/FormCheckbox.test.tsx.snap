@@ -62,6 +62,7 @@ exports[`FormCheckbox should render correctly 1`] = `
   padding: 9px;
   border-radius: 50%;
   color: rgba(0, 0, 0, 0.6);
+  color: #78909C;
 }
 
 .emotion-1::-moz-focus-inner {
@@ -148,6 +149,7 @@ exports[`FormCheckbox should render correctly 1`] = `
   letter-spacing: 0.5px;
   font-size: 16px;
   font-family: NotoSansThai-SemiBold,sans-serif;
+  color: #78909C;
 }
 
 <form
