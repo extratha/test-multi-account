@@ -1,7 +1,9 @@
+import { screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import clone from "clone";
 
 import { mockTermsAndConsData } from "@/__mocks__/data";
-import { render, screen, userEvent, waitFor } from "@/testUtils/testUtils";
+import { render } from "@/testUtils/testUtils";
 import ConsentContent, { ConsentContentProps } from ".";
 
 describe("ConsentContent", () => {

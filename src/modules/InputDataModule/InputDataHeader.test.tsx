@@ -1,4 +1,7 @@
-import { render, screen, userEvent } from "@/testUtils/testUtils";
+import { screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+
+import { render } from "@/testUtils/testUtils";
 import InputDataHeaderSection, { InputDataHeaderProps } from "./InputDataHeader";
 
 describe("InputDataHeaderSection", () => {

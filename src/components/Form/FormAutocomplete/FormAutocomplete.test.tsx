@@ -1,7 +1,11 @@
-import MockForm, { MockFormProps } from "@/__mocks__/MockForm";
-import { fireEvent, flushPromise, render, screen, userEvent } from "@/testUtils/testUtils";
+import { fireEvent, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import * as yup from "yup";
+
+import MockForm, { MockFormProps } from "@/__mocks__/MockForm";
+import { flushPromise, render } from "@/testUtils/testUtils";
 import FormAutocomplete, { FormAutocompleteProps } from ".";
+
 describe("FormAutocomplete", () => {
   const props: FormAutocompleteProps = {
     name: "test",

@@ -1,18 +1,14 @@
 const nextJest = require("next/jest");
-
-// Provide the path to your Next.js app to load next.config.js and .env files in your test environment
 const createJestConfig = nextJest({ dir: "./" });
 
-// createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
 /** @type {import('jest').Config} */
 module.exports = createJestConfig({
-  setupFilesAfterEnv: ["<rootDir>/src/testUtils/setupTest.ts"],
+  restoreMocks: true,
   testEnvironment: "jsdom",
-  preset: "ts-jest",
-  collectCoverage: true,
   coverageReporters: ["cobertura", "json", "lcov", "text"],
-  collectCoverageFrom: ["src/**/*.{ts,tsx}", "!src/**/*.d.ts", "!src/testUtils/**/*"],
   snapshotSerializers: ["@emotion/jest/serializer"],
+  collectCoverageFrom: ["src/**/*.{ts,tsx}", "!src/**/*.d.ts", "!src/testUtils/**/*"],
+  setupFilesAfterEnv: ["<rootDir>/src/testUtils/setupTest.ts"],
   watchPlugins: ["jest-watch-typeahead/filename", "jest-watch-typeahead/testname"],
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",

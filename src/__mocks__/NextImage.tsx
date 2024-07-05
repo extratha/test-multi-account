@@ -4,3 +4,5 @@ export const MockImage = ({ src, alt, fill, ...props }: any) => {
   // eslint-disable-next-line @next/next/no-img-element
   return <img src={url} alt={alt} {...props} />;
 };
+
+jest.mock("next/image", () => MockImage);

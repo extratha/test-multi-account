@@ -1,5 +1,8 @@
+import { screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+
 import { INTERPRET_STATUS } from "@/constant/constant";
-import { render, screen, userEvent } from "@/testUtils/testUtils";
+import { render } from "@/testUtils/testUtils";
 import InterpretingModals, { InterpretingModalsProps } from "./InterpretingModals";
 
 describe("InterpretingModals", () => {

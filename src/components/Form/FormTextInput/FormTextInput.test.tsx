@@ -1,6 +1,9 @@
-import MockForm, { MockFormProps } from "@/__mocks__/MockForm";
-import { render, screen, userEvent } from "@/testUtils/testUtils";
+import { screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import * as yup from "yup";
+
+import MockForm, { MockFormProps } from "@/__mocks__/MockForm";
+import { render } from "@/testUtils/testUtils";
 import FormTextInput, { FormTextInputProps } from ".";
 
 describe("FormTextInput", () => {
