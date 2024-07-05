@@ -1,4 +1,5 @@
-import { SpyUseSearchParams, flushPromise, render, spyUseSearchParams } from "@/testUtils/testUtils";
+import { SpyUseSearchParams, spyUseSearchParams } from "@/testUtils/navigation";
+import { flushPromise, render } from "@/testUtils/testUtils";
 import AiInterpretResultPage from "./page";
 
 describe("AiInterpretResultPage", () => {
@@ -15,9 +16,9 @@ describe("AiInterpretResultPage", () => {
     return render(<AiInterpretResultPage />);
   };
 
-  it("should render correctly", () => {
+  it("should render correctly", async () => {
     const { asFragment } = renderAiInterpretResultPage();
-    flushPromise();
+    await flushPromise();
     expect(asFragment()).toMatchSnapshot();
   });
 });

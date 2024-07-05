@@ -1,15 +1,14 @@
+import { screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import MockAdapter from "axios-mock-adapter";
 
 import { mockTermsAndConsData } from "@/__mocks__/data";
 import * as Api from "@/api/api";
 import { webPaths } from "@/constant/webPaths";
-import TermsAndConsModules from "@/modules/TermsAndConditions";
-import { API, flushPromise, render, screen, spyUseRouter, SpyUseRouter, userEvent } from "@/testUtils/testUtils";
+import { spyUseRouter, SpyUseRouter } from "@/testUtils/navigation";
+import { API, flushPromise, render } from "@/testUtils/testUtils";
 import axiosInstance from "@/utils/axios";
-
-jest.mock("react-markdown", () => (props: any) => {
-  return <>{props.children}</>;
-});
+import TermsAndConsModules from ".";
 
 describe("TermsAndConditions", () => {
   let mockApiAdapter: MockAdapter;

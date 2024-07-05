@@ -4,7 +4,7 @@ import ForgetPasswordForm from "./ForgetPasswordForm";
 const ForgetPasswordModule = () => {
   return (
     <UnauthorizedLayout>
-      <ForgetPasswordForm></ForgetPasswordForm>
+      <ForgetPasswordForm />
     </UnauthorizedLayout>
   );
 };

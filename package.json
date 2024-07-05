@@ -26,7 +26,6 @@
     "i18next": "23.7.19",
     "next": "14.2.4",
     "next-intl": "3.13.0",
-    "next-router-mock": "0.9.13",
     "react": "18.3.1",
     "react-chartjs-2": "5.2.0",
     "react-cookie": "7.0.2",

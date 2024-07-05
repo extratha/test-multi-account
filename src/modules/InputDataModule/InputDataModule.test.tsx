@@ -1,26 +1,18 @@
+import { screen } from "@testing-library/react";
+import UserEvent from "@testing-library/user-event";
 import MockAdapter from "axios-mock-adapter";
+import clone from "clone";
+
 import "firebase/remote-config";
 
 import { mockAiInterpretResult } from "@/__mocks__/data";
 import * as Api from "@/api/api";
 import { INTERPRET_STATUS } from "@/constant/constant";
 import { webPaths } from "@/constant/webPaths";
-import {
-  advanceTimersByTime,
-  API,
-  flushPromise,
-  render,
-  screen,
-  setMockDate,
-  spyUseRouter,
-  SpyUseRouter,
-  spyUseSearchParams,
-  SpyUseSearchParams,
-  userEvent as UserEvent,
-} from "@/testUtils/testUtils";
-import { InterpretResult } from "@/types/aiInterpret";
+import { spyUseRouter, SpyUseRouter, spyUseSearchParams, SpyUseSearchParams } from "@/testUtils/navigation";
+import { advanceTimersByTime, API, flushPromise, render, setMockDate } from "@/testUtils/testUtils";
+import { InterpretResult } from "@/types/model.api";
 import axiosInstance from "@/utils/axios";
-import clone from "clone";
 import InputDataModule from ".";
 
 describe("InputDataModule", () => {
@@ -122,7 +114,8 @@ describe("InputDataModule", () => {
 
     expect(Api.getLabInterpretsByTransactionId).toHaveBeenCalledWith(mockTransactionID);
 
-    await advanceTimersByTime(1000);
+    await advanceTimersByTime(5000);
+    await flushPromise();
     expect(screen.getByTestId("interpret-image-pending")).toBeInTheDocument();
 
     await advanceTimersByTime(30000);

@@ -1,7 +1,10 @@
+import { screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import * as yup from "yup";
+
 import MockForm from "@/__mocks__/MockForm";
 import FormCheckbox, { FormCheckboxProps } from "@/components/Form/FormCheckbox";
-import { render, screen, userEvent } from "@/testUtils/testUtils";
-import * as yup from "yup";
+import { render } from "@/testUtils/testUtils";
 
 describe("FormCheckbox", () => {
   let props: FormCheckboxProps;

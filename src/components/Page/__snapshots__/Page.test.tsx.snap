@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page renders children correctly 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="child"
+  >
+    Child content
+  </div>
+</DocumentFragment>
+`;

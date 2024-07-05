@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 
 import { Page } from "@/components/Page";
-import SettingTermsAndConditions from "@/modules/SettingTermsAndConditions/Index";
+import SettingTermsAndConditions from "@/modules/SettingTermsAndConditions";
 
 const SettingTermsAndConditionsPage = () => {
   const t = useTranslations("Common");

@@ -1,7 +1,12 @@
+import { spyUseRouter } from "@/testUtils/navigation";
 import { render } from "@/testUtils/testUtils";
 import TermsAndConsPage from "./page";
 
 describe("TermsAndConditionsPage", () => {
+  beforeEach(() => {
+    spyUseRouter();
+  });
+
   const renderTermsAndConditionPage = () => {
     return render(<TermsAndConsPage />);
   };

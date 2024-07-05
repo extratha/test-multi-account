@@ -1,11 +1,9 @@
 import "@testing-library/jest-dom";
 import "jest-canvas-mock";
 
-import "../__mocks__/MockFirebase";
-import { MockImage } from "../__mocks__/NextImage";
-
-jest.mock("next/navigation", () => require("next-router-mock"));
-jest.mock("next/image", () => MockImage);
+import "@/__mocks__/Markdown";
+import "@/__mocks__/MockFirebase";
+import "@/__mocks__/NextImage";
 
 jest.mock("@/api/api", () => {
   const actualModule = jest.requireActual("@/api/api");
@@ -29,5 +27,3 @@ jest.mock("cookies-next", () => ({
   ...jest.requireActual("cookies-next"),
   getCookie: jest.fn().mockReturnValue("MOCK_ACCESS_TOKEN"),
 }));
-
-jest.setTimeout(100000);

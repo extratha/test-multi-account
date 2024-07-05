@@ -1,17 +1,10 @@
+import { screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import MockAdapter from "axios-mock-adapter";
 
 import { mockAiInterpretResult } from "@/__mocks__/data";
-import {
-  API,
-  SpyUseRouter,
-  SpyUseSearchParams,
-  flushPromise,
-  render,
-  screen,
-  spyUseRouter,
-  spyUseSearchParams,
-  userEvent,
-} from "@/testUtils/testUtils";
+import { SpyUseRouter, spyUseRouter, SpyUseSearchParams, spyUseSearchParams } from "@/testUtils/navigation";
+import { API, flushPromise, render } from "@/testUtils/testUtils";
 import axiosInstance from "@/utils/axios";
 import AiInterpretResult from ".";
 
