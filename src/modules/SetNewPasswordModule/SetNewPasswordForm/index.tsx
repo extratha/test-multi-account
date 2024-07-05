@@ -64,12 +64,12 @@ const SetNewPasswordForm = () => {
         setCookie(COOKIE.PASSWORD_CHANGED, true);
         if (resetPasswordToken && resetPasswordToken?.length > 0) {
           deleteCookie(COOKIE.RESET_PASSWORD_TOKEN);
-          setToastOpen(true, {
-            message: t("toast.resetPasswordSuccess"),
-            severity: "success",
-            icon: <div />,
-          });
         }
+        setToastOpen(true, {
+          message: t("toast.resetPasswordSuccess"),
+          severity: "success",
+          icon: <div />,
+        });
         router.push(webPaths.login);
       }
     } catch (error: any) {
