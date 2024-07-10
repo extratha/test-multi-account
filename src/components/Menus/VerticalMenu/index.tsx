@@ -41,6 +41,7 @@ const VerticalMenu = () => {
     webPaths.forgetPassword,
     webPaths.setNewPassword,
     webPaths.termsAndConditions,
+    webPaths.privacyPolicy,
     webPaths.aiInterpret.tryInputData,
     webPaths.aiInterpret.aiInterpretResult,
   ];

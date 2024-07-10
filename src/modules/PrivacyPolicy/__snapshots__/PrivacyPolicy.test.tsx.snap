@@ -1,0 +1,1087 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PrivacyPolicyModule should render correctly 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.87);
+  -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 8px;
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px 24px;
+  border-radius: 0px;
+  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+  font-size: 16px;
+  font-family: NotoSansThai-SemiBold,sans-serif;
+  text-align: center;
+}
+
+<div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 emotion-0"
+  >
+    <h3
+      class="MuiTypography-root MuiTypography-titleMediumSemiBold emotion-1"
+    >
+      เลื่อนขึ้นเพื่ออ่านข้อความทั้งหมดและดำเนินการต่อ
+    </h3>
+  </div>
+  .emotion-0 {
+  width: 100%;
+  margin-left: auto;
+  box-sizing: border-box;
+  margin-right: auto;
+  display: block;
+  padding-left: 16px;
+  padding-right: 16px;
+  max-width: 1024px;
+  margin: 72px 0 31px;
+}
+
+@media (min-width:600px) {
+  .emotion-0 {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width:1240px) {
+  .emotion-0 {
+    max-width: 1240px;
+  }
+}
+
+.emotion-1 {
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.87);
+  -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 8px;
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+  padding: 36px 40px;
+  border-radius: 16px;
+  box-shadow: none;
+}
+
+.emotion-2 {
+  margin: 0;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0;
+  font-size: 20px;
+  font-family: NotoSansThai-SemiBold,sans-serif;
+}
+
+.emotion-3 {
+  margin: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  border-width: 0;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.12);
+  border-bottom-width: thin;
+  margin: 8px 0px 24px;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-4>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-4>:not(style)~:not(style) {
+  margin-top: 24px;
+}
+
+.emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 24px;
+  border-radius: 12px;
+  background: #FAFAFA;
+}
+
+.emotion-6 {
+  font-size: 16px;
+  white-space: normal;
+  color: #212121;
+}
+
+.emotion-6>*:first-of-type {
+  margin-top: 0px;
+}
+
+.emotion-6>*:last-of-type {
+  margin-bottom: 0px;
+}
+
+.emotion-8 {
+  margin: 0;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0;
+  font-size: 20px;
+  font-family: NotoSansThai-SemiBold,sans-serif;
+  margin-bottom: 24px;
+  color: #212121;
+}
+
+.emotion-9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border: 1px solid #C2C7CF;
+  background-color: #fff;
+}
+
+.emotion-9:first-of-type {
+  border-radius: 12px 12px 0 0;
+}
+
+.emotion-9:last-of-type {
+  border-radius: 0 0 12px 12px;
+}
+
+.emotion-10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  cursor: pointer;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 24px;
+}
+
+.emotion-12 {
+  max-width: 52px;
+  max-height: 52px;
+}
+
+.emotion-13 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  margin-left: 12px;
+}
+
+.emotion-13>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-13>:not(style)~:not(style) {
+  margin-top: 4px;
+}
+
+.emotion-14 {
+  margin: 0;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0;
+  font-size: 20px;
+  font-family: NotoSansThai-SemiBold,sans-serif;
+  color: #212121;
+}
+
+.emotion-15 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-16 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  font-size: 1.5rem;
+  padding: 8px;
+  border-radius: 50%;
+  overflow: visible;
+  color: rgba(0, 0, 0, 0.54);
+  -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.emotion-16::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-16.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-16 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-16:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+@media (hover: none) {
+  .emotion-16:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-16.Mui-disabled {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.emotion-17 {
+  width: 24px;
+  height: 24px;
+  color: #607D8B;
+}
+
+.emotion-18 {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+}
+
+.emotion-19 {
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  visibility: hidden;
+}
+
+.emotion-20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.emotion-21 {
+  width: 100%;
+}
+
+.emotion-22 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 16px;
+  border-top: 1px solid #C2C7CF;
+}
+
+.emotion-69 {
+  margin-top: 24px;
+}
+
+.emotion-70 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+  margin-left: -11px;
+  margin-right: 16px;
+}
+
+.emotion-70.Mui-disabled {
+  cursor: default;
+}
+
+.emotion-70 .MuiFormControlLabel-label.Mui-disabled {
+  color: rgba(0, 0, 0, 0.38);
+}
+
+.emotion-71 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  padding: 9px;
+  border-radius: 50%;
+  color: rgba(0, 0, 0, 0.6);
+  color: #78909C;
+}
+
+.emotion-71::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-71.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-71 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-71:hover {
+  background-color: rgba(25, 118, 210, 0.04);
+}
+
+@media (hover: none) {
+  .emotion-71:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-71.Mui-checked,
+.emotion-71.MuiCheckbox-indeterminate {
+  color: #1976d2;
+}
+
+.emotion-71.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.emotion-72 {
+  cursor: inherit;
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+
+.emotion-73 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+}
+
+.emotion-75 {
+  margin: 0;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  font-size: 16px;
+  font-family: NotoSansThai-SemiBold,sans-serif;
+  color: #78909C;
+}
+
+.emotion-76 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 16px 0px;
+}
+
+.emotion-77 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  font-family: NotoSansThai-Regular,sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 16px;
+  border-radius: 8px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #fff;
+  background-color: #1976d2;
+  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+  height: 44px;
+  width: 100%;
+  max-width: 400px;
+  background-color: #42a5f5;
+  color: #fff;
+}
+
+.emotion-77::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-77.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-77 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-77:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: #1565c0;
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+}
+
+@media (hover: none) {
+  .emotion-77:hover {
+    background-color: #1976d2;
+  }
+}
+
+.emotion-77:active {
+  box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
+}
+
+.emotion-77.Mui-focusVisible {
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
+}
+
+.emotion-77.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26);
+  box-shadow: none;
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.emotion-77:hover {
+  background-color: #42a5f5;
+  opacity: 0.9;
+}
+
+.emotion-77:disabled {
+  background-color: #FAFAFA;
+  color: #B0BEC5;
+}
+
+.emotion-78 {
+  margin: 0;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  font-size: 16px;
+  font-family: NotoSansThai-SemiBold,sans-serif;
+}
+
+<div
+    class="MuiContainer-root MuiContainer-maxWidthLg emotion-0"
+  >
+    <div
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 emotion-1"
+      data-testid="privacy-policy-consent"
+    >
+      <h3
+        class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-2"
+      >
+        นโยบายความเป็นส่วนตัว
+      </h3>
+      <hr
+        class="MuiDivider-root MuiDivider-fullWidth emotion-3"
+      />
+      <div
+        class="MuiStack-root emotion-4"
+      >
+        <div
+          class="MuiStack-root emotion-5"
+        >
+          <div
+            class="emotion-6"
+            data-testid="privacy-policy-content"
+          >
+            **Privacy Policy**
+
+We value your privacy. This policy explains how we collect and use your information...
+
+**Terms of Service**
+
+Welcome to our service. By using our service, you agree to the following terms...
+          </div>
+        </div>
+        <div
+          class="MuiStack-root emotion-5"
+          data-testid="privacy-policy-service"
+        >
+          <h3
+            class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-8"
+          >
+            All Services
+          </h3>
+          <div
+            class="MuiStack-root emotion-9"
+          >
+            <div
+              class="MuiStack-root emotion-10"
+              data-testid="privacy-policy-service-0"
+            >
+              <div
+                class="MuiBox-root emotion-11"
+              >
+                <img
+                  alt=""
+                  class="emotion-12"
+                  data-testid="privacy-policy-service-0-logo"
+                  src="https://cdn-dev-playground.cariva.co.th/privacy_policies/images/policy.png"
+                />
+              </div>
+              <div
+                class="MuiStack-root emotion-13"
+              >
+                <h3
+                  class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-14"
+                  data-testid="privacy-policy-service-0-title"
+                >
+                  AI Interpret
+                </h3>
+                <svg
+                  data-testid="privacy-policy-service-0-detail-icon"
+                />
+              </div>
+              <div
+                class="MuiStack-root emotion-15"
+              >
+                <button
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium emotion-16"
+                  tabindex="0"
+                  type="button"
+                >
+                  <svg
+                    class="emotion-17"
+                  />
+                  <span
+                    class="MuiTouchRipple-root emotion-18"
+                  />
+                </button>
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-19"
+              style="min-height: 0px;"
+            >
+              <div
+                class="MuiCollapse-wrapper MuiCollapse-vertical emotion-20"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-21"
+                >
+                  <div
+                    class="MuiStack-root emotion-22"
+                    data-testid="privacy-policy-service-0-content"
+                  >
+                    <div
+                      class="emotion-6"
+                    >
+                      **Service Overview**
+
+AI Interpret provides advanced language translation capabilities...
+
+**Features**
+
+- Real-time translation
+- Multi-language support
+- High accuracy rates
+
+**Usage Instructions**
+
+1. Select your input and output languages.
+2. Speak or type your text.
+3. Receive the translated output.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiStack-root emotion-9"
+          >
+            <div
+              class="MuiStack-root emotion-10"
+              data-testid="privacy-policy-service-1"
+            >
+              <div
+                class="MuiBox-root emotion-11"
+              >
+                <img
+                  alt=""
+                  class="emotion-12"
+                  data-testid="privacy-policy-service-1-logo"
+                  src="https://cdn-dev-playground.cariva.co.th/privacy_policies/images/policy.png"
+                />
+              </div>
+              <div
+                class="MuiStack-root emotion-13"
+              >
+                <h3
+                  class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-14"
+                  data-testid="privacy-policy-service-1-title"
+                >
+                  Health Visualization
+                </h3>
+                <svg
+                  data-testid="privacy-policy-service-1-detail-icon"
+                />
+              </div>
+              <div
+                class="MuiStack-root emotion-15"
+              >
+                <button
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium emotion-16"
+                  tabindex="0"
+                  type="button"
+                >
+                  <svg
+                    class="emotion-17"
+                  />
+                  <span
+                    class="MuiTouchRipple-root emotion-18"
+                  />
+                </button>
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-19"
+              style="min-height: 0px;"
+            >
+              <div
+                class="MuiCollapse-wrapper MuiCollapse-vertical emotion-20"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-21"
+                >
+                  <div
+                    class="MuiStack-root emotion-22"
+                    data-testid="privacy-policy-service-1-content"
+                  >
+                    <div
+                      class="emotion-6"
+                    >
+                      **Service Overview**
+
+Health Visualization helps you understand your health data through visual representations...
+
+**Features**
+
+- Detailed health metrics
+- Trend analysis
+- Personalized insights
+
+**Usage Instructions**
+
+1. Upload your health data.
+2. Choose the metrics you want to visualize.
+3. View the visualized data and insights.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiStack-root emotion-9"
+          >
+            <div
+              class="MuiStack-root emotion-10"
+              data-testid="privacy-policy-service-2"
+            >
+              <div
+                class="MuiBox-root emotion-11"
+              >
+                <img
+                  alt=""
+                  class="emotion-12"
+                  data-testid="privacy-policy-service-2-logo"
+                  src="https://cdn-dev-playground.cariva.co.th/privacy_policies/images/policy.png"
+                />
+              </div>
+              <div
+                class="MuiStack-root emotion-13"
+              >
+                <h3
+                  class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-14"
+                  data-testid="privacy-policy-service-2-title"
+                >
+                  ASR
+                </h3>
+                <svg
+                  data-testid="privacy-policy-service-2-detail-icon"
+                />
+              </div>
+              <div
+                class="MuiStack-root emotion-15"
+              >
+                <button
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium emotion-16"
+                  tabindex="0"
+                  type="button"
+                >
+                  <svg
+                    class="emotion-17"
+                  />
+                  <span
+                    class="MuiTouchRipple-root emotion-18"
+                  />
+                </button>
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-19"
+              style="min-height: 0px;"
+            >
+              <div
+                class="MuiCollapse-wrapper MuiCollapse-vertical emotion-20"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-21"
+                >
+                  <div
+                    class="MuiStack-root emotion-22"
+                    data-testid="privacy-policy-service-2-content"
+                  >
+                    <div
+                      class="emotion-6"
+                    >
+                      **Service Overview**
+
+ASR (Automatic Speech Recognition) converts spoken language into text...
+
+**Features**
+
+- High accuracy speech-to-text
+- Supports multiple languages
+- Real-time processing
+
+**Usage Instructions**
+
+1. Select your language.
+2. Speak into the microphone.
+3. View the transcribed text.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiStack-root emotion-9"
+          >
+            <div
+              class="MuiStack-root emotion-10"
+              data-testid="privacy-policy-service-3"
+            >
+              <div
+                class="MuiBox-root emotion-11"
+              >
+                <img
+                  alt=""
+                  class="emotion-12"
+                  data-testid="privacy-policy-service-3-logo"
+                  src="https://cdn-dev-playground.cariva.co.th/privacy_policies/images/policy.png"
+                />
+              </div>
+              <div
+                class="MuiStack-root emotion-13"
+              >
+                <h3
+                  class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-14"
+                  data-testid="privacy-policy-service-3-title"
+                >
+                  Symptom Checker
+                </h3>
+                <svg
+                  data-testid="privacy-policy-service-3-detail-icon"
+                />
+              </div>
+              <div
+                class="MuiStack-root emotion-15"
+              >
+                <button
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium emotion-16"
+                  tabindex="0"
+                  type="button"
+                >
+                  <svg
+                    class="emotion-17"
+                  />
+                  <span
+                    class="MuiTouchRipple-root emotion-18"
+                  />
+                </button>
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-19"
+              style="min-height: 0px;"
+            >
+              <div
+                class="MuiCollapse-wrapper MuiCollapse-vertical emotion-20"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-21"
+                >
+                  <div
+                    class="MuiStack-root emotion-22"
+                    data-testid="privacy-policy-service-3-content"
+                  >
+                    <div
+                      class="emotion-6"
+                    >
+                      **Service Overview**
+
+Symptom Checker helps you understand potential causes for your symptoms...
+
+**Features**
+
+- Symptom input
+- Potential diagnoses
+- Suggested next steps
+
+**Usage Instructions**
+
+1. Enter your symptoms.
+2. View the potential diagnoses.
+3. Follow the suggested next steps for further action.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form
+        class="emotion-69"
+      >
+        <label
+          class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd emotion-70"
+          data-testid="agreement-checkbox"
+        >
+          <span
+            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium emotion-71"
+            data-testid="agreement-checkbox-item-button"
+          >
+            <input
+              class="PrivateSwitchBase-input emotion-72"
+              data-indeterminate="false"
+              data-testid="agreement-checkbox-value"
+              name="agreement"
+              type="checkbox"
+              value="false"
+            />
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-73"
+              data-testid="CheckBoxOutlineBlankIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+              />
+            </svg>
+            <span
+              class="MuiTouchRipple-root emotion-18"
+            />
+          </span>
+          <span
+            class="MuiTypography-root MuiTypography-bodyLargeSemiBold emotion-75"
+            data-testid="agreement-checkbox-label"
+          >
+            ฉันยอมรับเงื่อนไขและข้อตกลงการให้บริการ
+          </span>
+        </label>
+        <div
+          class="MuiStack-root emotion-76"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary emotion-77"
+            data-testid="submit-button"
+            disabled=""
+            tabindex="-1"
+            type="submit"
+          >
+            <span
+              class="MuiTypography-root MuiTypography-labelExtraLargeSemiBold emotion-78"
+            >
+              ถัดไป
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</DocumentFragment>
+`;
