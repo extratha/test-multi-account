@@ -6,9 +6,8 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import * as yup from "yup";
 
-import { getTermsAndConditions, submitConsent } from "@/api/api";
+import { getPrivacyPolicy, submitConsent } from "@/api/api";
 import ConsentContent from "@/components/ConsentContent";
 import FormCheckbox from "@/components/Form/FormCheckbox";
 import { CUSTOM_COLORS, NEUTRAL } from "@/config/config-mui/theme/colors";
@@ -16,8 +15,9 @@ import { CONSENT_TYPE } from "@/constant/constant";
 import { webPaths } from "@/constant/webPaths";
 import { usePageLoadingStore } from "@/store";
 import { ConsentResult } from "@/types/model.api";
+import usePrivacyPolicySchema from "./PrivacyPolicySchema";
 
-interface TermsAndConsFormValues {
+interface PrivacyPolicyFormValues {
   agreement: boolean;
 }
 
@@ -74,22 +74,20 @@ const SubmitButton = styled(Button)(({ theme }) => [
   },
 ]);
 
-const initialFormValue: TermsAndConsFormValues = {
+const initialFormValue: PrivacyPolicyFormValues = {
   agreement: false,
 };
 
-const TermsAndConsModules = () => {
+const PrivacyPolicyModule = () => {
   const t = useTranslations("Common");
   const router = useRouter();
   const { setPageLoading } = usePageLoadingStore();
 
   const [consent, setConsent] = useState<ConsentResult>();
 
-  const validateSchema = yup.object().shape({
-    agreement: yup.boolean().defined(),
-  });
+  const validateSchema = usePrivacyPolicySchema()
 
-  const methods = useForm<TermsAndConsFormValues>({
+  const methods = useForm<PrivacyPolicyFormValues>({
     resolver: yupResolver(validateSchema),
     defaultValues: initialFormValue,
     mode: "onChange",
@@ -97,34 +95,33 @@ const TermsAndConsModules = () => {
 
   const agreement = methods.watch("agreement");
 
-  const fetchTermsAndConditions = async () => {
+  const fetchPrivacyPolicy = async () => {
     try {
       setPageLoading(true);
-      const response = await getTermsAndConditions();
-
+      const response = await getPrivacyPolicy();
       if (response.data.isConsent) {
-        router.replace(webPaths.privacyPolicy);
+        router.replace(webPaths.home);
       } else {
         setConsent(response.data);
         setPageLoading(false);
       }
     } catch (error) {
-      //TODO : handle error
+      setPageLoading(false);
     }
   };
 
   const onSubmit = async () => {
     try {
       setPageLoading(true);
-      await submitConsent(CONSENT_TYPE.TERMS_AND_CONDITIONS, consent?.version || "");
-      router.push(webPaths.privacyPolicy);
+      await submitConsent(CONSENT_TYPE.PRIVACY_AND_POLICY, consent?.version || "");
+      router.push(webPaths.home);
     } catch (error) {
       setPageLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchTermsAndConditions();
+    fetchPrivacyPolicy();
   }, []);
 
   return (
@@ -133,14 +130,14 @@ const TermsAndConsModules = () => {
         <>
           <HeaderBar>
             <Typography variant="titleMediumSemiBold" textAlign="center">
-              {t("title.termsAndConditions")}
+              {t("title.privacyPolicy")}
             </Typography>
           </HeaderBar>
           <Wrapper>
-            <Content data-testid="terms-and-conditions-consent">
-              <Typography variant="titleLargeSemiBold">{t("pages.termsAndConditions")}</Typography>
+            <Content data-testid="privacy-policy-consent">
+              <Typography variant="titleLargeSemiBold">{t("pages.privacyPolicy")}</Typography>
               <TitleDivider />
-              <ConsentContent name="term-and-conditions" data={consent.consent} />
+              <ConsentContent name="privacy-policy" data={consent.consent} />
               <FormProvider {...methods}>
                 <Form onSubmit={methods.handleSubmit(onSubmit)}>
                   <FormCheckbox name="agreement" label={t("field.agreement")} />
@@ -159,4 +156,4 @@ const TermsAndConsModules = () => {
   );
 };
 
-export default TermsAndConsModules;
+export default PrivacyPolicyModule;

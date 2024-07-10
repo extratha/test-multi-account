@@ -829,3 +829,33 @@ export const mockTermsAndConsDataLatest: ConsentResultLatest = {
     content: "Consent Content",
   },
 };
+
+export const mockPrivcayPolicyData = {
+  "consent": {
+    "content": "**Privacy Policy**\n\nWe value your privacy. This policy explains how we collect and use your information...\n\n**Terms of Service**\n\nWelcome to our service. By using our service, you agree to the following terms...",
+    "services": [
+      {
+        "content": "**Service Overview**\n\nAI Interpret provides advanced language translation capabilities...\n\n**Features**\n\n- Real-time translation\n- Multi-language support\n- High accuracy rates\n\n**Usage Instructions**\n\n1. Select your input and output languages.\n2. Speak or type your text.\n3. Receive the translated output.",
+        "logo": "https://cdn-dev-playground.cariva.co.th/privacy_policies/images/policy.png",
+        "title": "AI Interpret"
+      },
+      {
+        "content": "**Service Overview**\n\nHealth Visualization helps you understand your health data through visual representations...\n\n**Features**\n\n- Detailed health metrics\n- Trend analysis\n- Personalized insights\n\n**Usage Instructions**\n\n1. Upload your health data.\n2. Choose the metrics you want to visualize.\n3. View the visualized data and insights.",
+        "logo": "https://cdn-dev-playground.cariva.co.th/privacy_policies/images/policy.png",
+        "title": "Health Visualization"
+      },
+      {
+        "content": "**Service Overview**\n\nASR (Automatic Speech Recognition) converts spoken language into text...\n\n**Features**\n\n- High accuracy speech-to-text\n- Supports multiple languages\n- Real-time processing\n\n**Usage Instructions**\n\n1. Select your language.\n2. Speak into the microphone.\n3. View the transcribed text.",
+        "logo": "https://cdn-dev-playground.cariva.co.th/privacy_policies/images/policy.png",
+        "title": "ASR"
+      },
+      {
+        "content": "**Service Overview**\n\nSymptom Checker helps you understand potential causes for your symptoms...\n\n**Features**\n\n- Symptom input\n- Potential diagnoses\n- Suggested next steps\n\n**Usage Instructions**\n\n1. Enter your symptoms.\n2. View the potential diagnoses.\n3. Follow the suggested next steps for further action.",
+        "logo": "https://cdn-dev-playground.cariva.co.th/privacy_policies/images/policy.png",
+        "title": "Symptom Checker"
+      }
+    ]
+  },
+  "isConsent": false,
+  "version": "01-01-2024"
+}

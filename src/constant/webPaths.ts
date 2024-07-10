@@ -4,6 +4,7 @@ export const webPaths = {
   forgetPassword: "/forget-password",
   setNewPassword: "/set-new-password",
   termsAndConditions: "/terms-and-conditions",
+  privacyPolicy: "/privacy-policy",
   aiInterpret: {
     aiInterpretResult: "/ai-interpret/interpret",
     tryExampleData: "/ai-interpret/try-example-data",

@@ -60,12 +60,14 @@
       "forgetPassword": "Forget Password",
       "setNewPassword": "Set New Password",
       "home": "Home Page",
-      "termsAndConditions": "Terms And Conditions"
+      "termsAndConditions": "Terms And Conditions",
+      "privacyPolicy": "Privacy Policy"
     },
     "title": {
       "carivaPlayground": "Cariva Playground",
       "resetPassword": "Reset Password",
       "termsAndConditions": "Scroll up to read the full message and follow.",
+      "privacyPolicy": "Scroll up to read the full message and follow.",
       "hello": "Hello",
       "pleaseSelectMenu": "Please select menu.",
       "allServices": "All Services"
@@ -101,7 +103,8 @@
       },
       "settingAndOther": {
         "title": "ตั้งค่าและอื่น ๆ",
-        "termsAndConditions": "ข้อกำหนดและเงื่อนไข"
+        "termsAndConditions": "ข้อกำหนดและเงื่อนไข",
+        "privacyPolicy": "นโยบายความเป็นส่วนตัว"
       },
       "notification": "Notification",
       "logout": "Logout"
