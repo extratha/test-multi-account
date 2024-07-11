@@ -1,8 +1,9 @@
+import { Button, Stack, styled, Typography } from "@mui/material";
+
 import { IconImportExampleData, IconSparkle, IconSparkleDisabled } from "@/assets";
 import { CUSTOM_COLORS } from "@/config/config-mui/theme/colors";
-import { Button, Stack, styled, Typography } from "@mui/material";
-import { useTranslations } from "next-intl";
 import { ButtonInterpretDataStyled } from "../ExampleDataList/styled";
+import useTranslation from "@/locales/useLocale";
 
 const CommonButton = styled(Button)(({ theme }) => ({
   width: "fit-content",
@@ -23,19 +24,19 @@ export interface InputDataHeaderProps {
 
 const InputDataHeader = (props: InputDataHeaderProps) => {
   const { isDisableSubmit, onSubmit, onClickUseExampleData, modelVersion } = props;
-  const tAi = useTranslations("AiInterpret");
+  const { translation } = useTranslation();
   return (
     <Stack mt={3}>
       <Stack direction="row">
         <Typography data-testid="page-title" variant="headlineSmallSemiBold">
-          {tAi("pages.tryInputData")}
+          {translation("AiInterpret.pages.tryInputData")}
         </Typography>
         <Stack ml="auto">
           <Stack direction="row" spacing={2} justifyContent="end">
             <CommonButton data-testid="use-example-data-button" onClick={onClickUseExampleData}>
               <IconImportExampleData />
               <Typography ml={1} variant="labelLargeSemiBold">
-                {tAi("button.useExampleData")}
+                {translation("AiInterpret.button.useExampleData")}
               </Typography>
             </CommonButton>
             <ButtonInterpretDataStyled
@@ -45,18 +46,18 @@ const InputDataHeader = (props: InputDataHeaderProps) => {
             >
               {isDisableSubmit ? <IconSparkleDisabled /> : <IconSparkle />}
               <Typography variant="labelLargeSemiBold" color={isDisableSubmit ? "grey.600" : "background.paper"} ml={1}>
-                {tAi("button.interpretData")}
+                {translation("AiInterpret.button.interpretData")}
               </Typography>
             </ButtonInterpretDataStyled>
           </Stack>
           <Stack direction="row" mt={2}>
             <Stack direction="row" spacing={1}>
-              <Typography variant="bodyLarge">{tAi("text.myCredit")}</Typography>
-              <Typography variant="bodyLargeSemiBold">{tAi("text.unlimited")}</Typography>
+              <Typography variant="bodyLarge">{translation("AiInterpret.text.myCredit")}</Typography>
+              <Typography variant="bodyLargeSemiBold">{translation("AiInterpret.text.unlimited")}</Typography>
             </Stack>
             {modelVersion && (
               <Stack direction="row" ml={2} spacing={1}>
-                <Typography variant="bodyLarge">{tAi("field.modelVersion")}</Typography>
+                <Typography variant="bodyLarge">{translation("AiInterpret.field.modelVersion")}</Typography>
                 <Typography variant="bodyLargeSemiBold">{modelVersion}</Typography>
               </Stack>
             )}

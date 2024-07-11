@@ -2,7 +2,6 @@
 
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, CircularProgress, Divider, Stack, styled, Typography } from "@mui/material";
-import { useTranslations } from "next-intl";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
@@ -23,6 +22,7 @@ import InputDataFieldType from "./InputDataFieldType";
 import InputDataHeader from "./InputDataHeader";
 import { useInputDataFieldYupSchema } from "./InputDataSchema";
 import InterpretModals from "./InterpretingModals";
+import useTranslation from "@/locales/useLocale";
 
 export type FormInputDataValuesType = Record<string, unknown>;
 
@@ -82,7 +82,7 @@ const INTERVAL_DELAY = 5000;
 
 const InputDataModule = () => {
   const router = useRouter();
-  const tAi = useTranslations("AiInterpret");
+  const { translation } = useTranslation();
   const searchParams = useSearchParams();
   const interpretId = searchParams.get("id");
   const { openModal } = useModal();
@@ -204,7 +204,7 @@ const InputDataModule = () => {
           <CommonButton data-testid="back-button" onClick={handleClickBackButton}>
             <IconArrowLeft />
             <Typography ml={1} variant="labelLargeSemiBold">
-              {tAi("button.backToMain")}
+              {translation("AiInterpret.button.backToMain")}
             </Typography>
           </CommonButton>
         </Stack>
@@ -227,11 +227,12 @@ const InputDataModule = () => {
                 {inputGroupConfigs.map((group: InputGroupConfig, groupIndex: number) => (
                   <InputDataGroupContainer key={groupIndex}>
                     <InputDataGroupHeader>
-                      <Typography variant="titleLargeSemiBold">{tAi(`th.groupName.${group.groupName}`)}</Typography>
-                      <Typography
-                        variant="bodyLarge"
-                        color="grey.600"
-                      >{`(${tAi(`en.groupName.${group.groupName}`)})`}</Typography>
+                      <Typography variant="titleLargeSemiBold">
+                        {translation(`AiInterpret.th.groupName.${group.groupName}`)}
+                      </Typography>
+                      <Typography variant="bodyLarge" color="grey.600">{`(${translation(
+                        `AiInterpret.en.groupName.${group.groupName}`
+                      )})`}</Typography>
                     </InputDataGroupHeader>
                     <InputDataGroupContent>
                       {group.data.map((field: InputDataConfig, fieldIndex: number) => (

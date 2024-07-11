@@ -2,7 +2,6 @@
 
 import { Button, CircularProgress, Divider, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { useTranslations } from "next-intl";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 import ReactMarkdown from "react-markdown";
@@ -15,6 +14,7 @@ import { webPaths } from "@/constant/webPaths";
 import { useGetLabExampleId } from "@/hooks/useApi";
 import { InputData, InputDataResult } from "@/types/model.api";
 import AiInterpretLabResult from "./AiInterpretLebResult";
+import useTranslation from "@/locales/useLocale";
 
 const ContentContainer = styled(Stack)({
   height: "100%",
@@ -144,7 +144,7 @@ const GeneralInformationUnit = styled(Typography)({
 const AiInterpretResult = () => {
   const searchParams = useSearchParams();
   const interpretId = searchParams.get("id") || "";
-  const tAi = useTranslations("AiInterpret");
+  const { translation } = useTranslation();
   const router = useRouter();
 
   const { data, isLoading } = useGetLabExampleId(interpretId);
@@ -154,13 +154,13 @@ const AiInterpretResult = () => {
   const inputDataResultData = interpretData?.inputData || [];
 
   const gender: Record<string, string> = {
-    [GENDER.MALE]: tAi("aiInterpretResult.gender.male"),
-    [GENDER.FEMALE]: tAi("aiInterpretResult.gender.female"),
+    [GENDER.MALE]: translation("AiInterpret.aiInterpretResult.gender.male"),
+    [GENDER.FEMALE]: translation("AiInterpret.aiInterpretResult.gender.female"),
   };
 
   const informationGender: Record<string, string> = {
-    [GENDER.MALE]: tAi("aiInterpretResult.general.information.gender.male"),
-    [GENDER.FEMALE]: tAi("aiInterpretResult.general.information.gender.female"),
+    [GENDER.MALE]: translation("AiInterpret.aiInterpretResult.general.information.gender.male"),
+    [GENDER.FEMALE]: translation("AiInterpret.aiInterpretResult.general.information.gender.female"),
   };
 
   const { generalData, labData } = useMemo(() => {
@@ -202,7 +202,7 @@ const AiInterpretResult = () => {
   const getInformationUnit = (item: InputData) => {
     switch (item.key) {
       case GENERAL_CHECK_UP.AGE:
-        return tAi("aiInterpretResult.general.information.age.unit");
+        return translation("AiInterpret.aiInterpretResult.general.information.age.unit");
       default:
         return item.unit;
     }
@@ -218,10 +218,10 @@ const AiInterpretResult = () => {
         <ContentContainerWrapper>
           <Stack direction="row" justifyContent="space-between">
             <Button startIcon={<IconArrowLeft />} onClick={handleClickBack} data-testid="ai-interpret-button-back">
-              {tAi("aiInterpretResult.button.back")}
+              {translation("AiInterpret.aiInterpretResult.button.back")}
             </Button>
             <Button startIcon={<IconPen />} onClick={handleClickEdit} data-testid="ai-interpret-button-edit">
-              {tAi("aiInterpretResult.button.edit")}
+              {translation("AiInterpret.aiInterpretResult.button.edit")}
             </Button>
           </Stack>
           <DividerLine />
@@ -231,10 +231,12 @@ const AiInterpretResult = () => {
                 <Stack padding="24px" spacing="8px">
                   <Stack direction="row" justifyContent="space-between">
                     <Example variant="labelMedium" data-testid="ai-interpret-example-rank">
-                      {tAi("aiInterpretResult.example", { num: interpretData?.ranking })}
+                      {translation("AiInterpret.aiInterpretResult.example", { num: interpretData?.ranking })}
                     </Example>
                     <ModelVersion direction="row" spacing="4px">
-                      <Typography variant="bodySmall">{tAi("aiInterpretResult.modalVersion")}</Typography>
+                      <Typography variant="bodySmall">
+                        {translation("AiInterpret.aiInterpretResult.modalVersion")}
+                      </Typography>
                       <Version variant="labelMedium" data-testid="ai-interpret-version">
                         {interpretData?.aiModelVersion}
                       </Version>
@@ -245,7 +247,10 @@ const AiInterpretResult = () => {
                   </Name>
                   <Stack direction="row" spacing="8px">
                     <Tag name="ai-interpret-gender" text={gender[interpretData?.gender || ""]} />
-                    <Tag name="ai-interpret-age" text={tAi("aiInterpretResult.age", { age: interpretData?.age })} />
+                    <Tag
+                      name="ai-interpret-age"
+                      text={translation("AiInterpret.aiInterpretResult.age", { age: interpretData?.age })}
+                    />
                   </Stack>
                 </Stack>
                 {aiResultData.length > 0 && (
@@ -255,7 +260,7 @@ const AiInterpretResult = () => {
                       <InterpretTile direction="row" spacing="6px">
                         <IconSparkle />
                         <Title variant="labelMedium" data-testid="ai-interpret-title">
-                          {tAi("aiInterpretResult.title")}
+                          {translation("AiInterpret.aiInterpretResult.title")}
                         </Title>
                       </InterpretTile>
                     </Stack>
@@ -273,7 +278,7 @@ const AiInterpretResult = () => {
                             }}
                             data-testid={`ai-interpret-button-copy-${index}`}
                           >
-                            {tAi("aiInterpretResult.button.copy")}
+                            {translation("AiInterpret.aiInterpretResult.button.copy")}
                           </Button>
                         </Stack>
                       ))}
@@ -285,7 +290,9 @@ const AiInterpretResult = () => {
             {inputDataResultData.length > 0 && (
               <General>
                 <GeneralHeader>
-                  <GeneralTitle variant="titleMediumBold">{tAi("aiInterpretResult.general.title")}</GeneralTitle>
+                  <GeneralTitle variant="titleMediumBold">
+                    {translation("AiInterpret.aiInterpretResult.general.title")}
+                  </GeneralTitle>
                 </GeneralHeader>
                 {generalData[0].data.map((item, index) => (
                   <GeneralInformation key={`general-${index}`} direction="row" justifyContent="space-between">
@@ -294,7 +301,7 @@ const AiInterpretResult = () => {
                       fontWeight={700}
                       data-testid={`ai-interpret-general-information-title-${item.key}`}
                     >
-                      {tAi(`aiInterpretResult.general.information.${item.key}.title`)}
+                      {translation(`AiInterpret.aiInterpretResult.general.information.${item.key}.title`)}
                     </Typography>
 
                     <Stack direction="row" spacing="36px">

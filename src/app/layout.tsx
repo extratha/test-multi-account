@@ -1,26 +1,27 @@
-import type { Metadata } from "next";
 import { ReactNode } from "react";
-import { Providers } from "./provider";
 
 import "../styles/globals.css";
 
-export const metadata: Metadata = {
-  title: "Playground dashboard",
-  description: "Playground dashboard",
-};
+import { LOCALE_LANGUAGE } from "@/config/i18n";
+import LocalesProvider from "@/locales/LocalesProvider";
+import Configuration from "@/components/Configuration";
 
-type RootLayoutProps = {
+interface LayoutProps {
   children: ReactNode;
-};
+}
 
-const RootLayout = ({ children }: RootLayoutProps) => {
+const Layout = async ({ children }: LayoutProps) => {
+  const locale = await import("@/locales/th.json");
+
   return (
-    <html suppressHydrationWarning>
-      <body>
-        <Providers>{children}</Providers>
-      </body>
-    </html>
+    <LocalesProvider lang={LOCALE_LANGUAGE.TH} resource={locale.default}>
+      <html lang={LOCALE_LANGUAGE.TH} suppressHydrationWarning>
+        <body>
+          <Configuration>{children}</Configuration>
+        </body>
+      </html>
+    </LocalesProvider>
   );
 };
 
-export default RootLayout;
+export default Layout;

@@ -1412,7 +1412,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
           <span
             class="MuiTypography-root MuiTypography-labelLargeSemiBold emotion-4"
           >
-            Back
+            กลับหน้าหลัก
           </span>
           <span
             class="MuiTouchRipple-root emotion-5"
@@ -1432,7 +1432,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
             class="MuiTypography-root MuiTypography-headlineSmallSemiBold emotion-9"
             data-testid="page-title"
           >
-            Input Data
+            ทดลองใส่ข้อมูลเอง
           </h2>
           <div
             class="MuiStack-root emotion-10"
@@ -1450,7 +1450,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                 <span
                   class="MuiTypography-root MuiTypography-labelLargeSemiBold emotion-4"
                 >
-                  Use Example Data
+                  ใช้ข้อมูลตัวอย่าง
                 </span>
                 <span
                   class="MuiTouchRipple-root emotion-5"
@@ -1466,7 +1466,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                 <span
                   class="MuiTypography-root MuiTypography-labelLargeSemiBold emotion-16"
                 >
-                  Interpret Data
+                  แปลและสรุปข้อมูล
                 </span>
                 <span
                   class="MuiTouchRipple-root emotion-5"
@@ -1482,12 +1482,12 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                 <span
                   class="MuiTypography-root MuiTypography-bodyLarge emotion-20"
                 >
-                  My credit
+                  เครดิตของฉัน
                 </span>
                 <span
                   class="MuiTypography-root MuiTypography-bodyLargeSemiBold emotion-21"
                 >
-                  Unlimited
+                  ใช้ได้ไม่จำกัด
                 </span>
               </div>
               <div
@@ -1607,7 +1607,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                       <span
                         class="MuiTypography-root MuiTypography-bodyLarge emotion-46"
                       >
-                        years old
+                        ปี
                       </span>
                     </div>
                   </div>

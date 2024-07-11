@@ -1,11 +1,11 @@
 import { Box, Grid, Stack, styled, Typography } from "@mui/material";
-import { useTranslations } from "next-intl";
 
 import FormAutocomplete from "@/components/Form/FormAutocomplete";
 import FormNumberInput from "@/components/Form/FormNumberInput";
 import FormTextInput from "@/components/Form/FormTextInput";
 import { CONFIG_FIELD_TYPES } from "@/constant/constant";
 import { InputDataConfig } from "@/types/model.ui";
+import useTranslation from "@/locales/useLocale";
 
 interface InputDataFieldTypeProps {
   field: InputDataConfig;
@@ -22,12 +22,11 @@ const TypoUnit = styled(Typography)(({ theme }) => ({
 }));
 
 const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {
-  const t = useTranslations("Common");
-  const tAi = useTranslations("AiInterpret");
+  const { translation } = useTranslation();
 
   const getPlaceholder = () => {
     if (field.key === "gender") {
-      return tAi("th.placeholder.gender");
+      return translation("AiInterpret.th.placeholder.gender");
     }
     return "";
   };
@@ -41,7 +40,7 @@ const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {
   };
 
   const displayUnit = (field: InputDataConfig) => {
-    if (field.key === "age") return tAi("field.yearsOld");
+    if (field.key === "age") return translation("AiInterpret.field.yearsOld");
     return field.unit;
   };
 
@@ -49,14 +48,16 @@ const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {
     <InputDataFieldWrapper container>
       <Grid item xs={8}>
         <Stack direction="row">
-          <Typography variant="titleMediumSemiBold">{tAi(`th.field.${field.key}`)}</Typography>
+          <Typography variant="titleMediumSemiBold">{translation(`AiInterpret.th.field.${field.key}`)}</Typography>
           {field.required && (
             <Typography ml={0.5} variant="titleLargeSemiBold" color="error.light">
               *
             </Typography>
           )}
         </Stack>
-        <Typography variant="titleMedium" color="grey.600">{`(${tAi(`en.field.${field.key}`)})`}</Typography>
+        <Typography variant="titleMedium" color="grey.600">{`(${translation(
+          `AiInterpret.en.field.${field.key}`
+        )})`}</Typography>
       </Grid>
       <Grid item xs={4}>
         <Stack direction="row" spacing="8px" width="100%">
@@ -64,17 +65,25 @@ const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {
             {field.fieldType === CONFIG_FIELD_TYPES.DROPDOWN && (
               <FormAutocomplete
                 name={field.key}
-                label={tAi(`th.field.${field.key}`)}
+                label={translation(`AiInterpret.th.field.${field.key}`)}
                 options={getDropdownOptions()}
                 placeholder={getPlaceholder()}
                 required={field.required}
               />
             )}
             {field.fieldType === CONFIG_FIELD_TYPES.NUMBER && (
-              <FormNumberInput name={field.key} placeholder={t("placeholder.enterValue")} required={field.required} />
+              <FormNumberInput
+                name={field.key}
+                placeholder={translation("Common.placeholder.enterValue")}
+                required={field.required}
+              />
             )}
             {field.fieldType === CONFIG_FIELD_TYPES.STRING && (
-              <FormTextInput name={field.key} placeholder={t("placeholder.enterValue")} required={field.required} />
+              <FormTextInput
+                name={field.key}
+                placeholder={translation("Common.placeholder.enterValue")}
+                required={field.required}
+              />
             )}
           </Box>
           <Stack width="80px" height="56px" justifyContent="center">

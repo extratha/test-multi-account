@@ -1,36 +1,29 @@
-'use client';
+import createCache from "@emotion/cache";
+import { CacheProvider, ThemeProvider } from "@emotion/react";
+import { PaletteMode } from "@mui/material";
+import CssBaseline from "@mui/material/CssBaseline";
+import { createTheme } from "@mui/material/styles";
+import getDesignTokens from "../../config-mui/theme/palette";
+import { useServerInsertedHTML } from "next/navigation";
+import React, { useMemo, useState } from "react";
+import { theme } from "../theme";
+import { ColorModeContext } from "./ColorModeContext";
 
-import createCache from '@emotion/cache';
-import { CacheProvider, ThemeProvider } from '@emotion/react';
-import { PaletteMode } from '@mui/material';
-import CssBaseline from '@mui/material/CssBaseline';
-import { createTheme } from '@mui/material/styles';
-import getDesignTokens from '../../config-mui/theme/palette';
-import { useServerInsertedHTML } from 'next/navigation';
-import React, { useMemo, useState } from 'react';
-import { theme } from '../theme';
-import { ColorModeContext } from './ColorModeContext';
-
-export default function RootStyleProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootStyleProvider({ children }: { children: React.ReactNode }) {
   const [cache] = useState(() => {
-    const muiCache = createCache({ key: 'mui-style' });
+    const muiCache = createCache({ key: "mui-style" });
     muiCache.compat = true;
     return muiCache;
   });
 
-  const [mode, setMode] = useState<PaletteMode>('light');
+  const [mode, setMode] = useState<PaletteMode>("light");
 
   useServerInsertedHTML(() => {
     return (
       <style
-        data-emotion={`${cache.key} ${Object.keys(cache.inserted).join(' ')}`}
-        // eslint-disable-next-line react/no-danger
+        data-emotion={`${cache.key} ${Object.keys(cache.inserted).join(" ")}`}
         dangerouslySetInnerHTML={{
-          __html: Object.values(cache.inserted).join(' '),
+          __html: Object.values(cache.inserted).join(" "),
         }}
       />
     );
@@ -40,21 +33,17 @@ export default function RootStyleProvider({
     () => ({
       toggleColorMode: () => {
         setMode((prevMode: PaletteMode) => {
-          return prevMode === 'light' ? 'dark' : 'light'
-        },
-        );
+          return prevMode === "light" ? "dark" : "light";
+        });
       },
       currentMode: mode,
     }),
-    [mode],
+    [mode]
   );
 
-  const themeWithMode = useMemo(
-    () => {
-      return createTheme(theme, getDesignTokens(mode))
-    },
-    [mode],
-  );
+  const themeWithMode = useMemo(() => {
+    return createTheme(theme, getDesignTokens(mode));
+  }, [mode]);
 
   return (
     <ColorModeContext.Provider value={colorMode}>

@@ -1,15 +1,16 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import { IconAiInterpret } from "@/assets";
 import { MenuItem } from "@/constant/menu";
 import { Grid, Typography, useTheme } from "@mui/material";
-import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
 import { CustomMenuItemWrapperStyle } from "./styled";
+import useTranslation from "@/locales/useLocale";
 
 const GridMenu: React.FC<{ menus: MenuItem[] }> = ({ menus }) => {
   const theme = useTheme();
-  const t = useTranslations("Common");
+  const { translation } = useTranslation();
   const router = useRouter();
   const iconHeight = 48;
 
@@ -39,7 +40,7 @@ const GridMenu: React.FC<{ menus: MenuItem[] }> = ({ menus }) => {
               {menu.title}
             </Typography>
             <Typography variant="bodyLarge" color={theme.palette.grey[600]}>
-              {t("text.interpret")}
+              {translation("Common.text.interpret")}
             </Typography>
           </CustomMenuItemWrapperStyle>
         </Grid>

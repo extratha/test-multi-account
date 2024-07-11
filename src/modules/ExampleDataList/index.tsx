@@ -1,7 +1,7 @@
 "use client";
 
 import { CircularProgress, Divider, List, ListItem, Stack, Typography, useTheme } from "@mui/material";
-import { useTranslations } from "next-intl";
+
 import { useRouter } from "next/navigation";
 
 import { IconAiInterpret, IconPen, IconSparkle } from "@/assets";
@@ -11,10 +11,11 @@ import { useGetLabExampleList } from "@/hooks/useApi";
 import { ExampleDataResult } from "@/types/model.api";
 import { ContentContainer, ContentContainerWrapper, TypographyPageHeadline } from "../HomePageModule/styled";
 import { ButtonEditDataStyled, ButtonInterpretDataStyled, TagValueStyle } from "./styled";
+import useTranslation from "@/locales/useLocale";
 
 const EmployeeDataList = () => {
   const router = useRouter();
-  const tAi = useTranslations("AiInterpret");
+  const { translation } = useTranslation();
   const theme = useTheme();
 
   const { data, isLoading, error } = useGetLabExampleList();
@@ -52,7 +53,7 @@ const EmployeeDataList = () => {
                     margin: "auto 0 auto 20px",
                   }}
                 >
-                  {tAi("pages.aiInterpret")}
+                  {translation("AiInterpret.pages.aiInterpret")}
                 </TypographyPageHeadline>
                 <Typography
                   variant="labelExtraLargeSemiBold"
@@ -60,25 +61,25 @@ const EmployeeDataList = () => {
                     margin: "auto 10px 0 auto",
                   }}
                 >
-                  {tAi("label.aiInterpret")}
+                  {translation("AiInterpret.label.aiInterpret")}
                 </Typography>
               </Stack>
               <Divider></Divider>
             </Stack>
 
             <Typography variant="headlineSmallSemiBold" mt={2}>
-              {tAi("pages.tryExampleData")}
+              {translation("AiInterpret.pages.tryExampleData")}
             </Typography>
             <Stack direction="row" mt={2}>
               <Typography variant="titleLargeSemiBold" mr={1}>
-                {tAi("label.exampleData")}
+                {translation("AiInterpret.label.exampleData")}
               </Typography>
               {exampleData.length > 0 && <Typography variant="titleLargeSemiBold">({exampleData.length})</Typography>}
             </Stack>
 
             {exampleData.length === 0 && (
               <Typography variant="titleLargeSemiBold" textAlign={"center"}>
-                {error?.message ?? tAi("message.noExampleData")}
+                {error?.message ?? translation("AiInterpret.message.noExampleData")}
               </Typography>
             )}
 
@@ -107,21 +108,25 @@ const EmployeeDataList = () => {
                   >
                     <Stack spacing={1}>
                       <Typography variant="titleMediumSemiBold" color="primary.lighter">
-                        {`${tAi("label.exampleData")} ${index + 1}`}
+                        {`${translation("AiInterpret.label.exampleData")} ${index + 1}`}
                       </Typography>
                       <Typography variant="titleLargeSemiBold">{item.caseName}</Typography>
                       <Stack direction="row" spacing={1}>
                         <TagValueStyle>
                           {item.gender && (
                             <Typography variant="labelLargeSemiBold">
-                              {`${tAi("field.gender")} ${tAi(`text.${item.gender.toLowerCase()}`)}`}
+                              {`${translation("AiInterpret.field.gender")} ${translation(
+                                `AiInterpret.text.${item.gender.toLowerCase()}`
+                              )}`}
                             </Typography>
                           )}
                         </TagValueStyle>
                         <TagValueStyle>
                           {item.age && (
                             <Typography variant="labelLargeSemiBold">
-                              {`${tAi("field.age")} ${item.age} ${tAi("field.yearsOld")}`}
+                              {`${translation("AiInterpret.field.age")} ${item.age} ${translation(
+                                "AiInterpret.field.yearsOld"
+                              )}`}
                             </Typography>
                           )}
                         </TagValueStyle>
@@ -132,18 +137,18 @@ const EmployeeDataList = () => {
                         <ButtonEditDataStyled onClick={() => handleClickEditData(item)}>
                           <IconPen />
                           <Typography variant="labelLargeSemiBold" color={theme.palette.grey[700]} ml={1}>
-                            {tAi("button.editData")}
+                            {translation("AiInterpret.button.editData")}
                           </Typography>
                         </ButtonEditDataStyled>
                         <ButtonInterpretDataStyled onClick={() => handleClickAiInterpret(item.id)}>
                           <IconSparkle />
                           <Typography variant="labelLargeSemiBold" color={theme.palette.background.paper} ml={1}>
-                            {tAi("button.interpretData")}
+                            {translation("AiInterpret.button.interpretData")}
                           </Typography>
                         </ButtonInterpretDataStyled>
                       </Stack>
                       <Stack direction="row" spacing={1} margin="10px 0 0 auto" color="primary.lighter">
-                        <Typography variant="labelLarge">{tAi("field.modelVersion")}</Typography>
+                        <Typography variant="labelLarge">{translation("AiInterpret.field.modelVersion")}</Typography>
                         <Typography variant="labelLargeSemiBold">{item.aiModelVersion}</Typography>
                       </Stack>
                     </Stack>

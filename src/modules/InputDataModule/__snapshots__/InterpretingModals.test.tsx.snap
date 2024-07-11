@@ -141,7 +141,7 @@ exports[`InterpretingModals should render correctly 1`] = `
     <span
       class="MuiTypography-root MuiTypography-bodyLargeSemiBold emotion-2"
     >
-      Interpreting
+      กำลังประมวลผล
     </span>
     <button
       class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-3"

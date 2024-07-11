@@ -309,7 +309,7 @@ exports[`AiInterpretLabResult should render correctly 1`] = `
           class="MuiTypography-root MuiTypography-titleMediumBold emotion-4"
           data-testid="lab-title-lipidProfile"
         >
-          Lipid Profile
+          ระดับไขมันในเลือด
         </h3>
       </div>
       <button
@@ -318,7 +318,7 @@ exports[`AiInterpretLabResult should render correctly 1`] = `
         tabindex="0"
         type="button"
       >
-        More
+        ดูผล
         <span
           class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-6"
         >

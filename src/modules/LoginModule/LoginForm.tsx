@@ -2,7 +2,6 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { IconButton, Stack, Typography, useTheme } from "@mui/material";
 import { setCookie } from "cookies-next";
-import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
@@ -16,6 +15,8 @@ import { usePageLoadingStore, useUserProfileStore } from "@/store";
 import axiosPublicInstance from "@/utils/axios/login";
 import { validateEmail, validatePassword } from "@/utils/validation";
 import { CustomTextField } from "./styled";
+import useTranslation from "@/locales/useLocale";
+
 type LoginForm = {
   email: string | null;
   password: string | null;
@@ -29,7 +30,7 @@ const LoginForm = () => {
   const { setPageLoading } = usePageLoadingStore();
   const router = useRouter();
   const { control, setError, handleSubmit } = useForm<LoginForm>();
-  const t = useTranslations("Common");
+  const { translation } = useTranslation();
   const [errorMessage, setErrorMessage] = useState("");
 
   const EMAIL_FIELD_NAME = "email";
@@ -91,7 +92,7 @@ const LoginForm = () => {
         }
       }
     } catch (error: any) {
-      setErrorMessage(error?.response?.data?.message || t("responseError.invalidEmailOrPassword"));
+      setErrorMessage(error?.response?.data?.message || translation("Common.responseError.invalidEmailOrPassword"));
       setPageLoading(false);
     }
   };
@@ -106,10 +107,10 @@ const LoginForm = () => {
     >
       <Stack>
         <Typography variant="headlineSmallSemiBold" color={theme.palette.grey[600]} mb={2}>
-          {t("text.login")}
+          {translation("Common.text.login")}
         </Typography>
         <Typography variant="headlineLargeSemiBold" mb={2}>
-          {t("title.carivaPlayground")}
+          {translation("Common.title.carivaPlayground")}
         </Typography>
 
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -209,7 +210,7 @@ const LoginForm = () => {
           </Typography>
 
           <SubmitButtonStyle type="submit" data-testid="button-login" disabled={isDisableSubmit}>
-            <Typography variant="labelExtraLargeSemiBold">{t("text.login")}</Typography>
+            <Typography variant="labelExtraLargeSemiBold">{translation("Common.text.login")}</Typography>
           </SubmitButtonStyle>
         </form>
         <Typography
@@ -223,7 +224,7 @@ const LoginForm = () => {
           }}
           onClick={() => router.replace(webPaths.forgetPassword)}
         >
-          {t("button.forgetPassword")}
+          {translation("Common.button.forgetPassword")}
         </Typography>
       </Stack>
     </Stack>

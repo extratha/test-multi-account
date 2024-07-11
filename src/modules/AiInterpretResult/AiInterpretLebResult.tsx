@@ -1,6 +1,5 @@
 import { Button, Collapse, Divider, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 
 import { IconChevronDown, IconChevronUp, IconLabStatusBlack } from "@/assets";
@@ -9,6 +8,7 @@ import { HEMATOLOGY_BLOOD, HEMATOLOGY_BLOOD_GROUP, HEMATOLOGY_CBC, HEMATOLOGY_CB
 import { InputData, InputDataResult } from "@/types/model.api";
 import { LabGroupConfig } from "@/types/model.ui";
 import AiInterpretLabUnit from "./AiInterpretLabUnit";
+import useTranslation from "@/locales/useLocale";
 
 export interface AiInterpretLabResultProps {
   name: string;
@@ -97,7 +97,7 @@ const ButtonCollapse = styled(Button)({
 
 const AiInterpretLabResult = (props: AiInterpretLabResultProps) => {
   const { name, group } = props;
-  const tAi = useTranslations("AiInterpret");
+  const { translation } = useTranslation();
   const [isExpand, setIsExpand] = useState(false);
 
   const subGroups = LAB_SUB_GROUPS[group.groupName] || [];
@@ -132,7 +132,7 @@ const AiInterpretLabResult = (props: AiInterpretLabResultProps) => {
       <LabHeader direction="row">
         <Stack direction="row">
           <LabTitle variant="titleMediumBold" data-testid={`${name}-title-${group.groupName}`}>
-            {tAi(`aiInterpretResult.lab.group.${group.groupName}.title`)}
+            {translation(`AiInterpret.aiInterpretResult.lab.group.${group.groupName}.title`)}
           </LabTitle>
         </Stack>
         <ButtonCollapse
@@ -140,7 +140,7 @@ const AiInterpretLabResult = (props: AiInterpretLabResultProps) => {
           endIcon={isExpand ? <IconChevronUp /> : <IconChevronDown />}
           data-testid={`${name}-${group.groupName}-button-collapse`}
         >
-          {tAi("aiInterpretResult.lab.seeResults")}
+          {translation("AiInterpret.aiInterpretResult.lab.seeResults")}
         </ButtonCollapse>
       </LabHeader>
       <Collapse in={isExpand}>
@@ -162,7 +162,7 @@ const AiInterpretLabResult = (props: AiInterpretLabResultProps) => {
                   data-testid={`${name}-title-sub-${group.groupName}-${itemSubGroup.group}`}
                 >
                   <Typography variant="titleMediumBold" fontWeight={700} fontSize="18px">
-                    {tAi(`aiInterpretResult.lab.group.${group.groupName}.${itemSubGroup.group}`)}
+                    {translation(`AiInterpret.aiInterpretResult.lab.group.${group.groupName}.${itemSubGroup.group}`)}
                   </Typography>
                   {itemSubGroup.groupName.map((key, index) => (
                     <AiInterpretLabUnit

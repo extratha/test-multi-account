@@ -1,9 +1,10 @@
+import { useController, useFormContext } from "react-hook-form";
+
 import { CUSTOM_COLORS } from "@/config/config-mui/theme/colors";
 import { KeyboardArrowDown } from "@mui/icons-material";
 import { ListItem, Autocomplete as MuiAutocomplete, styled, TextField, Typography } from "@mui/material";
-import { useTranslations } from "next-intl";
-import { useController, useFormContext } from "react-hook-form";
 import { FieldErrorMessage } from "../FieldErrorMessage";
+import useTranslation from "@/locales/useLocale";
 
 export interface Option {
   label: string;
@@ -40,7 +41,7 @@ export const Autocomplete = styled(MuiAutocomplete)<AutocompleteCustomStyleProps
 }));
 
 const FormAutocomplete = ({ name, options, required = false, placeholder }: FormAutocompleteProps) => {
-  const t = useTranslations("Common");
+  const { translation } = useTranslation();
 
   const { control } = useFormContext();
   const { field, fieldState } = useController({ name, control });
@@ -55,13 +56,13 @@ const FormAutocomplete = ({ name, options, required = false, placeholder }: Form
         options={options || []}
         // TODO : Refactor
         isOptionEqualToValue={(option: any, value: any) => option.id === value.id}
-        noOptionsText={t("text.noOptions")}
+        noOptionsText={translation("Common.text.noOptions")}
         renderInput={(params) => (
           <TextField
             {...params}
             required={required}
             error={!!fieldState.error}
-            placeholder={`${placeholder || t("placeholder.selectValue")}`}
+            placeholder={`${placeholder || translation("Common.placeholder.selectValue")}`}
           />
         )}
         renderOption={(props, option) => (

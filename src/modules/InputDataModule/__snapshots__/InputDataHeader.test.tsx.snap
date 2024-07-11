@@ -345,7 +345,7 @@ exports[`InputDataHeaderSection should render correctly 1`] = `
         class="MuiTypography-root MuiTypography-headlineSmallSemiBold emotion-2"
         data-testid="page-title"
       >
-        Input Data
+        ทดลองใส่ข้อมูลเอง
       </h2>
       <div
         class="MuiStack-root emotion-3"
@@ -363,7 +363,7 @@ exports[`InputDataHeaderSection should render correctly 1`] = `
             <span
               class="MuiTypography-root MuiTypography-labelLargeSemiBold emotion-6"
             >
-              Use Example Data
+              ใช้ข้อมูลตัวอย่าง
             </span>
             <span
               class="MuiTouchRipple-root emotion-7"
@@ -379,7 +379,7 @@ exports[`InputDataHeaderSection should render correctly 1`] = `
             <span
               class="MuiTypography-root MuiTypography-labelLargeSemiBold emotion-9"
             >
-              Interpret Data
+              แปลและสรุปข้อมูล
             </span>
             <span
               class="MuiTouchRipple-root emotion-7"
@@ -395,12 +395,12 @@ exports[`InputDataHeaderSection should render correctly 1`] = `
             <span
               class="MuiTypography-root MuiTypography-bodyLarge emotion-13"
             >
-              My credit
+              เครดิตของฉัน
             </span>
             <span
               class="MuiTypography-root MuiTypography-bodyLargeSemiBold emotion-14"
             >
-              Unlimited
+              ใช้ได้ไม่จำกัด
             </span>
           </div>
           <div

@@ -1,11 +1,11 @@
 import { Box, Collapse, IconButton, Stack, Typography, styled } from "@mui/material";
-import { useTranslations } from "next-intl";
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 
 import { IconChevronDown, IconChevronUp, IconConsentGroupDetail } from "@/assets";
 import { CUSTOM_COLORS, NEUTRAL } from "@/config/config-mui/theme/colors";
 import { ConsentData } from "@/types/model.api";
+import useTranslation from "@/locales/useLocale";
 
 export interface ConsentContentProps {
   name: string;
@@ -71,7 +71,7 @@ const ArrowDown = styled(IconChevronDown)({
 
 const ConsentContent = (props: ConsentContentProps) => {
   const { name, data } = props;
-  const t = useTranslations("Common");
+  const { translation } = useTranslation();
 
   const [isExpandServices, setIsExpandServices] = useState<boolean[]>([]);
 
@@ -91,7 +91,7 @@ const ConsentContent = (props: ConsentContentProps) => {
       {data.services.length > 0 && (
         <ContentSection data-testid={`${name}-service`}>
           <Typography variant="titleLargeSemiBold" marginBottom="24px" color={CUSTOM_COLORS.textHighEmp}>
-            {t("title.allServices")}
+            {translation("Common.title.allServices")}
           </Typography>
           {data.services.map((service, index) => (
             <ServiceItem key={index}>

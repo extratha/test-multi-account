@@ -1,3 +1,5 @@
+"use client";
+
 import UnauthorizedLayout from "@/layout/UnauthorizedLayout";
 import ForgetPasswordForm from "./ForgetPasswordForm";
 

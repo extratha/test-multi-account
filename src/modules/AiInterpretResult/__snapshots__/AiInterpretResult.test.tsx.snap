@@ -846,7 +846,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
           >
             <svg />
           </span>
-          Back to menu
+          กลับหน้าหลัก
           <span
             class="MuiTouchRipple-root emotion-5"
           />
@@ -862,7 +862,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
           >
             <svg />
           </span>
-          Edit
+          ปรับแต่งข้อมูล
           <span
             class="MuiTouchRipple-root emotion-5"
           />
@@ -890,7 +890,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                   class="MuiTypography-root MuiTypography-labelMedium emotion-15"
                   data-testid="ai-interpret-example-rank"
                 >
-                  Example data 1
+                  ตัวอย่างข้อมูล 1
                 </span>
                 <div
                   class="MuiStack-root emotion-16"
@@ -924,7 +924,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                     class="MuiTypography-root MuiTypography-labelLargeSemiBold emotion-22"
                     data-testid="ai-interpret-gender-tag"
                   >
-                    Male
+                    เพศ ชาย
                   </span>
                 </div>
                 <div
@@ -934,7 +934,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                     class="MuiTypography-root MuiTypography-labelLargeSemiBold emotion-22"
                     data-testid="ai-interpret-age-tag"
                   >
-                    Age 29
+                    อายุ 29
                   </span>
                 </div>
               </div>
@@ -986,7 +986,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                   >
                     <svg />
                   </span>
-                  Copy
+                  คัดลอกข้อความ
                   <span
                     class="MuiTouchRipple-root emotion-5"
                   />
@@ -1004,7 +1004,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
             <h3
               class="MuiTypography-root MuiTypography-titleMediumBold emotion-38"
             >
-              General Check-up
+              การตรวจสุขภาพทั่วไป
             </h3>
           </div>
           <div
@@ -1014,7 +1014,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
               class="MuiTypography-root MuiTypography-titleMediumBold emotion-40"
               data-testid="ai-interpret-general-information-title-age"
             >
-              Age
+              อายุ
             </h3>
             <div
               class="MuiStack-root emotion-41"
@@ -1029,7 +1029,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                 class="MuiTypography-root MuiTypography-bodyMedium emotion-43"
                 data-testid="ai-interpret-general-information-age-unit"
               >
-                year
+                ปี
               </span>
             </div>
           </div>
@@ -1040,7 +1040,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
               class="MuiTypography-root MuiTypography-titleMediumBold emotion-40"
               data-testid="ai-interpret-general-information-title-gender"
             >
-              Gender
+              เพศ
             </h3>
             <div
               class="MuiStack-root emotion-41"
@@ -1049,7 +1049,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                 class="MuiTypography-root MuiTypography-bodyMedium emotion-42"
                 data-testid="ai-interpret-general-information-gender-value"
               >
-                Male
+                ชาย
               </span>
               <span
                 class="MuiTypography-root MuiTypography-bodyMedium emotion-43"
@@ -1064,7 +1064,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
               class="MuiTypography-root MuiTypography-titleMediumBold emotion-40"
               data-testid="ai-interpret-general-information-title-body_weight"
             >
-              Body Weight
+              น้ำหนัก
             </h3>
             <div
               class="MuiStack-root emotion-41"
@@ -1088,7 +1088,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
               class="MuiTypography-root MuiTypography-titleMediumBold emotion-40"
               data-testid="ai-interpret-general-information-title-body_height"
             >
-              Body Height
+              ส่วนสูง
             </h3>
             <div
               class="MuiStack-root emotion-41"
@@ -1112,7 +1112,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
               class="MuiTypography-root MuiTypography-titleMediumBold emotion-40"
               data-testid="ai-interpret-general-information-title-temperature"
             >
-              Temperature
+              อุณหภูมิร่างกาย
             </h3>
             <div
               class="MuiStack-root emotion-41"
@@ -1148,7 +1148,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                 class="MuiTypography-root MuiTypography-titleMediumBold emotion-38"
                 data-testid="ai-interpret-lab-title-hematologyCBC"
               >
-                Hematology
+                โลหิตวิทยา
               </h3>
             </div>
             <button
@@ -1157,7 +1157,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
               tabindex="0"
               type="button"
             >
-              More
+              ดูผล
               <span
                 class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-70"
               >
@@ -1191,7 +1191,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                       <h3
                         class="MuiTypography-root MuiTypography-titleMediumBold emotion-78"
                       >
-                        Hemoglobin concentration
+                        ความเข้มข้นของเลือด
                       </h3>
                       <div
                         class="MuiStack-root emotion-2"
@@ -1264,7 +1264,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                       <h3
                         class="MuiTypography-root MuiTypography-titleMediumBold emotion-78"
                       >
-                        Red Blood Cell Morphology
+                        ลักษณะเม็ดเลือดแดง
                       </h3>
                       <div
                         class="MuiStack-root emotion-2"
@@ -1367,7 +1367,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                       <h3
                         class="MuiTypography-root MuiTypography-titleMediumBold emotion-78"
                       >
-                        White blood cell and differentiation
+                        จำนวนเม็ดเลือดขาวและแยกชนิด
                       </h3>
                       <div
                         class="MuiStack-root emotion-2"
@@ -1602,7 +1602,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                 class="MuiTypography-root MuiTypography-titleMediumBold emotion-38"
                 data-testid="ai-interpret-lab-title-lipidProfile"
               >
-                Lipid Profile
+                ระดับไขมันในเลือด
               </h3>
             </div>
             <button
@@ -1611,7 +1611,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
               tabindex="0"
               type="button"
             >
-              More
+              ดูผล
               <span
                 class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-70"
               >
@@ -1776,7 +1776,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                 class="MuiTypography-root MuiTypography-titleMediumBold emotion-38"
                 data-testid="ai-interpret-lab-title-bloodChemistry"
               >
-                Blood Chemistry
+                สารเคมีในเลือด
               </h3>
             </div>
             <button
@@ -1785,7 +1785,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
               tabindex="0"
               type="button"
             >
-              More
+              ดูผล
               <span
                 class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-70"
               >
@@ -1890,7 +1890,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                 class="MuiTypography-root MuiTypography-titleMediumBold emotion-38"
                 data-testid="ai-interpret-lab-title-renalFunctionTest"
               >
-                Renal Function Test
+                การทำงานของไต
               </h3>
             </div>
             <button
@@ -1899,7 +1899,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
               tabindex="0"
               type="button"
             >
-              More
+              ดูผล
               <span
                 class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-70"
               >
@@ -2004,7 +2004,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                 class="MuiTypography-root MuiTypography-titleMediumBold emotion-38"
                 data-testid="ai-interpret-lab-title-liverFunctionTest"
               >
-                Liver Function Test
+                การทำงานของตับ
               </h3>
             </div>
             <button
@@ -2013,7 +2013,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
               tabindex="0"
               type="button"
             >
-              More
+              ดูผล
               <span
                 class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-70"
               >
@@ -2148,7 +2148,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                 class="MuiTypography-root MuiTypography-titleMediumBold emotion-38"
                 data-testid="ai-interpret-lab-title-urineAnalysis"
               >
-                Urine Analysis
+                การวิเคราะห์ปัสสาวะ
               </h3>
             </div>
             <button
@@ -2157,7 +2157,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
               tabindex="0"
               type="button"
             >
-              More
+              ดูผล
               <span
                 class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-70"
               >
@@ -2435,7 +2435,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
               tabindex="0"
               type="button"
             >
-              More
+              ดูผล
               <span
                 class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-70"
               >
@@ -2469,7 +2469,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                         class="MuiTypography-root MuiTypography-titleMedium emotion-81"
                         data-testid="ai-interpret-lab-papSmear-papsmear_finding-label"
                       >
-                        Liquid Based Pap Test
+                        การตรวจมะเร็งปากมดลูก
                       </h3>
                     </div>
                     <div

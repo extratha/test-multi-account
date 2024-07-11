@@ -175,7 +175,7 @@ exports[`GridMenu Component should render correctly 1`] = `
         <h3
           class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-3"
         >
-          menu.home
+          Common.menu.home
         </h3>
         <span
           class="MuiTypography-root MuiTypography-bodyLarge emotion-4"
@@ -197,7 +197,7 @@ exports[`GridMenu Component should render correctly 1`] = `
         <h3
           class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-3"
         >
-          menu.aiInterpret.title
+          Common.menu.aiInterpret.title
         </h3>
         <span
           class="MuiTypography-root MuiTypography-bodyLarge emotion-4"
@@ -219,7 +219,7 @@ exports[`GridMenu Component should render correctly 1`] = `
         <h3
           class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-3"
         >
-          menu.symptomChecker.title
+          Common.menu.symptomChecker.title
         </h3>
         <span
           class="MuiTypography-root MuiTypography-bodyLarge emotion-4"

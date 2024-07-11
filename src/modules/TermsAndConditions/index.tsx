@@ -1,13 +1,12 @@
 "use client";
 
-import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, Container, Divider, Paper, Stack, Typography, alpha, styled } from "@mui/material";
-import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import * as yup from "yup";
 
+import { yupResolver } from "@hookform/resolvers/yup";
 import { getTermsAndConditions, submitConsent } from "@/api/api";
 import ConsentContent from "@/components/ConsentContent";
 import FormCheckbox from "@/components/Form/FormCheckbox";
@@ -16,6 +15,7 @@ import { CONSENT_TYPE } from "@/constant/constant";
 import { webPaths } from "@/constant/webPaths";
 import { usePageLoadingStore } from "@/store";
 import { ConsentResult } from "@/types/model.api";
+import useTranslation from "@/locales/useLocale";
 
 interface TermsAndConsFormValues {
   agreement: boolean;
@@ -69,8 +69,8 @@ const SubmitButton = styled(Button)(({ theme }) => [
     },
     "&:disabled": {
       backgroundColor: NEUTRAL[97],
-      color: CUSTOM_COLORS.buttonTextDisabled
-    }
+      color: CUSTOM_COLORS.buttonTextDisabled,
+    },
   },
 ]);
 
@@ -79,7 +79,7 @@ const initialFormValue: TermsAndConsFormValues = {
 };
 
 const TermsAndConsModules = () => {
-  const t = useTranslations("Common");
+  const { translation } = useTranslation();
   const router = useRouter();
   const { setPageLoading } = usePageLoadingStore();
 
@@ -133,20 +133,20 @@ const TermsAndConsModules = () => {
         <>
           <HeaderBar>
             <Typography variant="titleMediumSemiBold" textAlign="center">
-              {t("title.termsAndConditions")}
+              {translation("Common.title.termsAndConditions")}
             </Typography>
           </HeaderBar>
           <Wrapper>
             <Content data-testid="terms-and-conditions-consent">
-              <Typography variant="titleLargeSemiBold">{t("pages.termsAndConditions")}</Typography>
+              <Typography variant="titleLargeSemiBold">{translation("Common.pages.termsAndConditions")}</Typography>
               <TitleDivider />
               <ConsentContent name="term-and-conditions" data={consent.consent} />
               <FormProvider {...methods}>
                 <Form onSubmit={methods.handleSubmit(onSubmit)}>
-                  <FormCheckbox name="agreement" label={t("field.agreement")} />
+                  <FormCheckbox name="agreement" label={translation("Common.field.agreement")} />
                   <ButtonGroup>
                     <SubmitButton type="submit" variant="contained" disabled={!agreement} data-testid="submit-button">
-                      <Typography variant="labelExtraLargeSemiBold">{t("button.next")}</Typography>
+                      <Typography variant="labelExtraLargeSemiBold">{translation("Common.button.next")}</Typography>
                     </SubmitButton>
                   </ButtonGroup>
                 </Form>
