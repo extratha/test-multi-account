@@ -1,11 +1,11 @@
-import { useTranslations } from "next-intl";
 import { useMemo } from "react";
 import * as Yup from "yup";
 
 import { InputGroupConfig } from "@/types/model.ui";
+import useTranslation from "@/locales/useLocale";
 
 export const useInputDataFieldYupSchema = (config: InputGroupConfig[]) => {
-  const t = useTranslations("Common");
+  const { translation } = useTranslation();
 
   const fieldConfig = useMemo(() => {
     const shape: Record<string, Yup.AnySchema> = {};
@@ -16,11 +16,15 @@ export const useInputDataFieldYupSchema = (config: InputGroupConfig[]) => {
 
         const error = {
           message: {
-            require: t("validation.require"),
-            selectRequire: t("validation.selectRequire"),
-            range: `${t("validation.valueMustBeInRange")} ${field.minValue}-${field.maxValue} ${t("validation.only")}`,
-            invalidInput: t("validation.invalidInput"),
-            length: `${t("validation.valueMustNotExceed")} ${field.maxLength} ${t("validation.characters")} `,
+            require: translation("Common.validation.require"),
+            selectRequire: translation("Common.validation.selectRequire"),
+            range: `${translation("Common.validation.valueMustBeInRange")} ${field.minValue}-${
+              field.maxValue
+            } ${translation("Common.validation.only")}`,
+            invalidInput: translation("Common.validation.invalidInput"),
+            length: `${translation("Common.validation.valueMustNotExceed")} ${field.maxLength} ${translation(
+              "Common.validation.characters"
+            )} `,
           },
         };
         switch (field.fieldType) {

@@ -1,12 +1,12 @@
 "use client";
 
 import { Box, Container, Divider, Paper, Typography, styled } from "@mui/material";
-import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
 import { getTermsAndConditionsLatest } from "@/api/api";
 import ConsentContent from "@/components/ConsentContent";
 import { ConsentResultLatest } from "@/types/model.api";
+import useTranslation from "@/locales/useLocale";
 
 const Wrapper = styled(Container)({
   position: "relative",
@@ -38,7 +38,7 @@ const TitleDivider = styled(Divider)({
 });
 
 const SettingTermsAndConditions = () => {
-  const t = useTranslations("Common");
+  const { translation } = useTranslation();
 
   const [consent, setConsent] = useState<ConsentResultLatest>();
 
@@ -60,7 +60,9 @@ const SettingTermsAndConditions = () => {
       <WrapperLayout>
         {consent && (
           <Content data-testid="terms-and-conditions-consent">
-            <Typography variant="titleLargeSemiBold">{t("settingTermsAndConditions.title")}</Typography>
+            <Typography variant="titleLargeSemiBold">
+              {translation("Common.settingTermsAndConditions.title")}
+            </Typography>
             <TitleDivider />
             <ConsentContent name="term-and-conditions" data={consent.consent} />
           </Content>

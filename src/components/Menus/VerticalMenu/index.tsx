@@ -16,17 +16,17 @@ import { useUserProfileStore } from "@/store";
 import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
 import { Collapse, Divider, List, ListItem, Stack, Typography, useTheme } from "@mui/material";
 import { deleteCookie } from "cookies-next";
-import { useTranslations } from "next-intl";
-import { useParams, usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ProfileInfoBox, VerticalMenuContainer } from "./styled";
+import useTranslation from "@/locales/useLocale";
+
 const VerticalMenu = () => {
-  const t = useTranslations("Common");
+  const { translation } = useTranslation();
   const [isMenuExpand, setIsMenuExpand] = useState<number[]>([]);
   const { data, resetUserProfile } = useUserProfileStore();
   const theme = useTheme();
   const pathname = usePathname();
-  const { locale } = useParams();
   const router = useRouter();
   const [isShowMenu, setIsShowMenu] = useState<boolean>(false);
   const onClickExpandMenu = (menuIndex: number) => {
@@ -47,11 +47,11 @@ const VerticalMenu = () => {
   ];
 
   useEffect(() => {
-    const currentPath = pathname.split(`/${locale}`)[1];
-    setIsShowMenu(!excludePath.includes(currentPath));
+    setIsShowMenu(!excludePath.includes(pathname));
   }, [pathname]);
+
   const handleClickHeadMenu = (menu: MenuItem) => {
-    if (menu?.title?.includes(t("menu.logout"))) {
+    if (menu?.title?.includes(translation("Common.menu.logout"))) {
       deleteCookie(COOKIE.ACCESS_TOKEN);
       deleteCookie(COOKIE.REFRESH_TOKEN);
       deleteCookie(COOKIE.PASSWORD_CHANGED);
@@ -63,11 +63,13 @@ const VerticalMenu = () => {
       router.push(menu.path);
     }
   };
+
   const handleClickSubmenu = (subMenu: MenuItem) => {
     if (subMenu.path) {
       router.push(subMenu.path);
     }
   };
+
   const MenuRenderer = (meuList: MenuItem[]) => {
     return (
       <List>
@@ -133,14 +135,14 @@ const VerticalMenu = () => {
   };
   return (
     <>
-      {isShowMenu ? (
+      {isShowMenu && (
         <VerticalMenuContainer data-testid="vertical-menu-container">
           <ImagePlaygroundLogoColor style={{ margin: "0 0 1.5rem" }} />
-          <Typography variant="bodyLargeSemiBold">{t("menu.aiMenus")}</Typography>
-          {MenuRenderer(aiMenuList(t))}
+          <Typography variant="bodyLargeSemiBold">{translation("Common.menu.aiMenus")}</Typography>
+          {MenuRenderer(aiMenuList(translation))}
           <Divider style={{ marginBottom: "20px" }}></Divider>
-          <Typography variant="bodyLargeSemiBold">{t("menu.settingMenus")}</Typography>
-          {MenuRenderer(settingMenuList(t))}
+          <Typography variant="bodyLargeSemiBold">{translation("Common.menu.settingMenus")}</Typography>
+          {MenuRenderer(settingMenuList(translation))}
           <Divider style={{ margin: "auto 0 20px" }}></Divider>
 
           <ProfileInfoBox>
@@ -158,7 +160,7 @@ const VerticalMenu = () => {
                 >
                   <IconPerson style={{ width: 24, height: 24, margin: "auto 10px auto 0" }} />
                   <Typography variant="bodyLargeSemiBold" color={theme.palette.background.paper}>
-                    {t("roles.admin")}
+                    {translation("Common.roles.admin")}
                   </Typography>
                 </Stack>
               </Stack>
@@ -188,7 +190,7 @@ const VerticalMenu = () => {
             />
           </ProfileInfoBox>
         </VerticalMenuContainer>
-      ) : null}
+      )}
     </>
   );
 };

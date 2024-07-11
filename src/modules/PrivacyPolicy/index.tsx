@@ -2,7 +2,6 @@
 
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, Container, Divider, Paper, Stack, Typography, alpha, styled } from "@mui/material";
-import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
@@ -16,6 +15,7 @@ import { webPaths } from "@/constant/webPaths";
 import { usePageLoadingStore } from "@/store";
 import { ConsentResult } from "@/types/model.api";
 import usePrivacyPolicySchema from "./PrivacyPolicySchema";
+import useTranslation from "@/locales/useLocale";
 
 interface PrivacyPolicyFormValues {
   agreement: boolean;
@@ -69,8 +69,8 @@ const SubmitButton = styled(Button)(({ theme }) => [
     },
     "&:disabled": {
       backgroundColor: NEUTRAL[97],
-      color: CUSTOM_COLORS.buttonTextDisabled
-    }
+      color: CUSTOM_COLORS.buttonTextDisabled,
+    },
   },
 ]);
 
@@ -79,13 +79,13 @@ const initialFormValue: PrivacyPolicyFormValues = {
 };
 
 const PrivacyPolicyModule = () => {
-  const t = useTranslations("Common");
+  const { translation } = useTranslation();
   const router = useRouter();
   const { setPageLoading } = usePageLoadingStore();
 
   const [consent, setConsent] = useState<ConsentResult>();
 
-  const validateSchema = usePrivacyPolicySchema()
+  const validateSchema = usePrivacyPolicySchema();
 
   const methods = useForm<PrivacyPolicyFormValues>({
     resolver: yupResolver(validateSchema),
@@ -130,20 +130,20 @@ const PrivacyPolicyModule = () => {
         <>
           <HeaderBar>
             <Typography variant="titleMediumSemiBold" textAlign="center">
-              {t("title.privacyPolicy")}
+              {translation("Common.title.privacyPolicy")}
             </Typography>
           </HeaderBar>
           <Wrapper>
             <Content data-testid="privacy-policy-consent">
-              <Typography variant="titleLargeSemiBold">{t("pages.privacyPolicy")}</Typography>
+              <Typography variant="titleLargeSemiBold">{translation("Common.pages.privacyPolicy")}</Typography>
               <TitleDivider />
               <ConsentContent name="privacy-policy" data={consent.consent} />
               <FormProvider {...methods}>
                 <Form onSubmit={methods.handleSubmit(onSubmit)}>
-                  <FormCheckbox name="agreement" label={t("field.agreement")} />
+                  <FormCheckbox name="agreement" label={translation("Common.field.agreement")} />
                   <ButtonGroup>
                     <SubmitButton type="submit" variant="contained" disabled={!agreement} data-testid="submit-button">
-                      <Typography variant="labelExtraLargeSemiBold">{t("button.next")}</Typography>
+                      <Typography variant="labelExtraLargeSemiBold">{translation("Common.button.next")}</Typography>
                     </SubmitButton>
                   </ButtonGroup>
                 </Form>

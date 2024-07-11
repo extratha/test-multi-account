@@ -1,8 +1,8 @@
 import { IconErrorCircle, ImageLoadingStack } from "@/assets";
 import { INTERPRET_STATUS } from "@/constant/constant";
+import useTranslation from "@/locales/useLocale";
 import { BaseModalProps } from "@/store";
 import { Button, Stack, styled, Typography } from "@mui/material";
-import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 const ModalStackWrapper = styled(Stack)(({ theme }) => ({
@@ -35,16 +35,16 @@ export interface InterpretingModalsProps extends BaseModalProps {
 
 const InterpretingModals = (props: InterpretingModalsProps) => {
   const { closeModal, interpretStatus } = props;
-  const tAi = useTranslations("AiInterpret");
+  const { translation } = useTranslation();
 
   return (
     <ModalStackWrapper>
       {interpretStatus === INTERPRET_STATUS.PENDING && (
         <>
           <StatusImageInModal data-testid="interpret-image-pending" alt="" src={ImageLoadingStack} />
-          <StatusMessage variant="bodyLargeSemiBold">{tAi("text.interpreting")}</StatusMessage>
+          <StatusMessage variant="bodyLargeSemiBold">{translation("AiInterpret.text.interpreting")}</StatusMessage>
           <ButtonInModal data-testid="modal-ok-button" onClick={closeModal}>
-            {tAi("button.ok")}
+            {translation("AiInterpret.button.ok")}
           </ButtonInModal>
         </>
       )}
@@ -52,10 +52,10 @@ const InterpretingModals = (props: InterpretingModalsProps) => {
         <>
           <IconErrorCircle data-testid="interpret-image-failed" />
           <StatusMessage variant="bodyLargeSemiBold" textAlign="center">
-            {tAi("text.failedInterpret")}
+            {translation("AiInterpret.text.failedInterpret")}
           </StatusMessage>
           <ButtonInModal data-testid="modal-retry-button" onClick={closeModal}>
-            {tAi("button.retry")}
+            {translation("AiInterpret.button.retry")}
           </ButtonInModal>
         </>
       )}

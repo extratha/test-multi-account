@@ -2,13 +2,13 @@ import { validateEmail, validatePassword } from "@/utils/validation";
 
 describe("validateEmail", () => {
   it('returns "validation.require" if value is empty', () => {
-    expect(validateEmail("")).toBe("validation.require");
+    expect(validateEmail("")).toBe("Common.validation.require");
   });
 
   it('returns "validation.invalidEmail" if value is not a valid email', () => {
-    expect(validateEmail("test@example")).toBe("validation.invalidEmail");
-    expect(validateEmail("test@example.")).toBe("validation.invalidEmail");
-    expect(validateEmail("testexample.com")).toBe("validation.invalidEmail");
+    expect(validateEmail("test@example")).toBe("Common.validation.invalidEmail");
+    expect(validateEmail("test@example.")).toBe("Common.validation.invalidEmail");
+    expect(validateEmail("testexample.com")).toBe("Common.validation.invalidEmail");
   });
 
   it("returns null if value is a valid email", () => {
@@ -19,13 +19,13 @@ describe("validateEmail", () => {
 
 describe("validatePassword", () => {
   it('returns "validation.require" if value is empty', () => {
-    expect(validatePassword("")).toBe("validation.require");
+    expect(validatePassword("")).toBe("Common.validation.require");
   });
 
   it('returns "validation.invalidPassword" if value length is less than 8', () => {
-    expect(validatePassword("123")).toBe("validation.invalidPassword");
-    expect(validatePassword("abcd")).toBe("validation.invalidPassword");
-    expect(validatePassword("pass123")).toBe("validation.invalidPassword");
+    expect(validatePassword("123")).toBe("Common.validation.invalidPassword");
+    expect(validatePassword("abcd")).toBe("Common.validation.invalidPassword");
+    expect(validatePassword("pass123")).toBe("Common.validation.invalidPassword");
   });
 
   it("returns null if value length is 8 or more", () => {

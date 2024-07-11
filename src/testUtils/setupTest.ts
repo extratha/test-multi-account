@@ -4,6 +4,11 @@ import "jest-canvas-mock";
 import "@/__mocks__/Markdown";
 import "@/__mocks__/MockFirebase";
 import "@/__mocks__/NextImage";
+import { initI18next } from "@/locales/i18n";
+import { LOCALE_LANGUAGE } from "@/config/i18n";
+import locale from "@/locales/th.json";
+
+initI18next(LOCALE_LANGUAGE.TH, locale);
 
 jest.mock("@/api/api", () => {
   const actualModule = jest.requireActual("@/api/api");
@@ -27,3 +32,4 @@ jest.mock("cookies-next", () => ({
   ...jest.requireActual("cookies-next"),
   getCookie: jest.fn().mockReturnValue("MOCK_ACCESS_TOKEN"),
 }));
+

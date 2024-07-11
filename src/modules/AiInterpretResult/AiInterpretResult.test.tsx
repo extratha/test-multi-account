@@ -45,10 +45,10 @@ describe("AiInterpretResult", () => {
   it("should display general information", async () => {
     await renderAiInterpretResult();
 
-    expect(screen.getByTestId("ai-interpret-general-information-title-age")).toHaveTextContent("Age");
-    expect(screen.getByTestId("ai-interpret-general-information-age-unit")).toHaveTextContent("year");
+    expect(screen.getByTestId("ai-interpret-general-information-title-age")).toHaveTextContent("อายุ");
+    expect(screen.getByTestId("ai-interpret-general-information-age-unit")).toHaveTextContent("ปี");
 
-    expect(screen.getByTestId("ai-interpret-general-information-gender-value")).toHaveTextContent("Male");
+    expect(screen.getByTestId("ai-interpret-general-information-gender-value")).toHaveTextContent("ชาย");
     expect(screen.getByTestId("ai-interpret-general-information-gender-unit")).toHaveTextContent("");
 
     expect(screen.getByTestId("ai-interpret-general-information-temperature-value")).toHaveTextContent("38.00");
@@ -58,12 +58,12 @@ describe("AiInterpretResult", () => {
   it("should display lab information", async () => {
     await renderAiInterpretResult();
 
-    expect(screen.getByTestId("ai-interpret-lab-title-hematologyCBC")).toHaveTextContent("Hematology");
+    expect(screen.getByTestId("ai-interpret-lab-title-hematologyCBC")).toHaveTextContent("โลหิตวิทยา");
     expect(screen.getByTestId("ai-interpret-lab-hematologyCBC-hb_value-label")).toHaveTextContent("Hb");
     expect(screen.getByTestId("ai-interpret-lab-hematologyCBC-hb_value-value")).toHaveTextContent("13.80 (g/dL)");
     expect(screen.getByTestId("ai-interpret-lab-hematologyCBC-hb_value-unit")).toHaveTextContent("(- g/dL)");
 
-    expect(screen.getByTestId("ai-interpret-lab-title-bloodChemistry")).toHaveTextContent("Blood Chemistry");
+    expect(screen.getByTestId("ai-interpret-lab-title-bloodChemistry")).toHaveTextContent("สารเคมีในเลือด");
     expect(screen.getByTestId("ai-interpret-lab-bloodChemistry-uric_acid_value-label")).toHaveTextContent(
       "Uric Acid Test"
     );

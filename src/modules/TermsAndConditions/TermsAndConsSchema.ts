@@ -1,11 +1,13 @@
-import { useTranslations } from "next-intl";
+import useTranslation from "@/locales/useLocale";
 import * as Yup from "yup";
 
 const useTermsAndConsSchema = () => {
-  const t = useTranslations("Common");
+  const { translation } = useTranslation();
+
   const validateSchema = Yup.object().shape({
-    agreement: Yup.bool().oneOf([true], t("validation.require")).required(),
+    agreement: Yup.bool().oneOf([true], translation("Common.validation.require")).required(),
   });
+
   return validateSchema;
 };
 

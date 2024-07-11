@@ -1,3 +1,6 @@
+export interface LocaleResource {
+  [string]: any;
+}
 export interface UserProfile {
   id: string;
   email: string;

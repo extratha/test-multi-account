@@ -1,7 +1,8 @@
 import { Stack, Typography } from "@mui/material";
-import { useTranslations } from "next-intl";
+
 
 import { InputData } from "@/types/model.api";
+import useTranslation from "@/locales/useLocale";
 
 export interface AiInterpretLabUnitProps {
   name: string;
@@ -11,7 +12,7 @@ export interface AiInterpretLabUnitProps {
 
 const AiInterpretLabUnit = (props: AiInterpretLabUnitProps) => {
   const { name, groupName, inputData } = props;
-  const tAi = useTranslations("AiInterpret");
+  const { translation } = useTranslation();
 
   const getValue = () => {
     const unit = inputData.unit && ` (${inputData.unit})`;
@@ -27,7 +28,7 @@ const AiInterpretLabUnit = (props: AiInterpretLabUnitProps) => {
           fontWeight={700}
           data-testid={`${name}-${groupName}-${inputData.key}-label`}
         >
-          {tAi(`aiInterpretResult.lab.group.${groupName}.${inputData.key}.label`)}
+          {translation(`AiInterpret.aiInterpretResult.lab.group.${groupName}.${inputData.key}.label`)}
         </Typography>
       </Stack>
       <Stack width="25%">

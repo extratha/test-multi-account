@@ -1,7 +1,5 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const withNextIntl = require("next-intl/plugin")();
-
-module.exports = withNextIntl({
+/** @type {import('next').NextConfig} */
+module.exports = {
   output: "standalone",
   reactStrictMode: false,
   webpack(config) {
@@ -31,4 +29,4 @@ module.exports = withNextIntl({
 
     return config;
   },
-});
+};

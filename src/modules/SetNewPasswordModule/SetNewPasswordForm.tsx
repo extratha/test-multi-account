@@ -1,7 +1,13 @@
+import { deleteCookie, getCookie, setCookie } from "cookies-next";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
+
 import { SubmitButtonStyle } from "@/components/Button/styled";
 import { API } from "@/constant/api";
 import { COOKIE } from "@/constant/constant";
 import { webPaths } from "@/constant/webPaths";
+import useTranslation from "@/locales/useLocale";
 import { CustomTextField } from "@/modules/LoginModule/styled";
 import { usePageLoadingStore } from "@/store";
 import useToastStore from "@/store/useToastStore";
@@ -10,11 +16,6 @@ import axiosPublicInstance from "@/utils/axios/login";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { IconButton, Stack, Typography, useTheme } from "@mui/material";
-import { deleteCookie, getCookie, setCookie } from "cookies-next";
-import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
 
 interface SetNewPasswordForm {
   newPassword: string;
@@ -28,13 +29,13 @@ const fieldName: Record<string, keyof SetNewPasswordForm> = {
 const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*\W).{8,}$/;
 
 const SetNewPasswordForm = () => {
-  const t = useTranslations("Common");
+  const { translation } = useTranslation();
   const theme = useTheme();
   const router = useRouter();
   const { setToastOpen } = useToastStore();
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [showPassword, setShowPassword] = useState<boolean>(false);
-  const [showConfirmPassword, setShowComfirmPassword] = useState<boolean>(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
   const { setPageLoading } = usePageLoadingStore();
   const [newPassword, setNewPassword] = useState<string>("");
   const [confirmNewPassword, setConfirmNewPassword] = useState<string>("");
@@ -66,7 +67,7 @@ const SetNewPasswordForm = () => {
           deleteCookie(COOKIE.RESET_PASSWORD_TOKEN);
         }
         setToastOpen(true, {
-          message: t("toast.resetPasswordSuccess"),
+          message: translation("Common.toast.resetPasswordSuccess"),
           severity: "success",
           icon: <div />,
         });
@@ -94,17 +95,17 @@ const SetNewPasswordForm = () => {
     setError(fieldNameProp, { type: "", message: "" });
     setIsDisabledSubmit(true);
     if (!value) {
-      setError(fieldNameProp, { type: "validate", message: t("validation.require") });
+      setError(fieldNameProp, { type: "validate", message: translation("Common.validation.require") });
       return true;
     }
     if (typeof value === "string" && !isValidPassword(value)) {
-      setError(fieldNameProp, { type: "validate", message: t("validation.invalidPasswordFormat") });
+      setError(fieldNameProp, { type: "validate", message: translation("Common.validation.invalidPasswordFormat") });
       return true;
     }
     const isPasswordMatched = value === siblingValue;
     if (value && siblingValue && !isPasswordMatched) {
-      setError(fieldNameProp, { type: "validate", message: t("validation.passwordIsNotMatch") });
-      setError(siblingFieldName, { type: "validate", message: t("validation.passwordIsNotMatch") });
+      setError(fieldNameProp, { type: "validate", message: translation("Common.validation.passwordIsNotMatch") });
+      setError(siblingFieldName, { type: "validate", message: translation("Common.validation.passwordIsNotMatch") });
       return true;
     } else {
       setError(siblingFieldName, { type: "", message: "" });
@@ -123,10 +124,10 @@ const SetNewPasswordForm = () => {
     >
       <Stack>
         <Typography variant="headlineLargeSemiBold" mb={2}>
-          {t("pages.setNewPassword")}
+          {translation("Common.pages.setNewPassword")}
         </Typography>
         <Typography variant="headlineSmall" color={theme.palette.grey[600]} mb={2}>
-          {t("text.setNewPassword")}
+          {translation("Common.text.setNewPassword")}
         </Typography>
 
         <form onSubmit={handleSubmit(onSubmit)} autoFocus>
@@ -217,7 +218,7 @@ const SetNewPasswordForm = () => {
                         <IconButton
                           data-testid="button-toggle-show-confirm-password"
                           aria-label="Toggle show password"
-                          onClick={() => setShowComfirmPassword((prev) => !prev)}
+                          onClick={() => setShowConfirmPassword((prev) => !prev)}
                         >
                           {showConfirmPassword ? (
                             <VisibilityIcon aria-label="Showing password" />
@@ -260,14 +261,16 @@ const SetNewPasswordForm = () => {
           </Typography>
 
           <Stack color={theme.palette.grey[300]} mt={1}>
-            <Typography variant="bodyLargeSemiBold">{t("text.setNewPasswordValidateTitle")}</Typography>
+            <Typography variant="bodyLargeSemiBold">
+              {translation("Common.text.setNewPasswordValidateTitle")}
+            </Typography>
 
             <Typography variant="bodyLarge" whiteSpace={"break-spaces"}>
-              {t("text.setNewPasswordValidateMessage")}
+              {translation("Common.text.setNewPasswordValidateMessage")}
             </Typography>
           </Stack>
           <SubmitButtonStyle data-testid="button-set-new-password" type="submit" disabled={isDisableSubmit}>
-            <Typography variant="labelExtraLargeSemiBold">{t("button.setNewPassword")}</Typography>
+            <Typography variant="labelExtraLargeSemiBold">{translation("Common.button.setNewPassword")}</Typography>
           </SubmitButtonStyle>
         </form>
       </Stack>

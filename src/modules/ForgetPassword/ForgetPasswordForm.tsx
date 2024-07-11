@@ -1,6 +1,6 @@
 "use client";
+
 import { Stack, Typography, useTheme } from "@mui/material";
-import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
@@ -12,13 +12,16 @@ import { CustomTextField } from "@/modules/LoginModule/styled";
 import { usePageLoadingStore } from "@/store";
 import axiosPublicInstance from "@/utils/axios/login";
 import { validateEmail } from "@/utils/validation";
+import useTranslation from "@/locales/useLocale";
 
 interface ForgetPasswordForm {
   email: string;
 }
+
 const EMAIL = "email";
+
 const ForgetPasswordForm = () => {
-  const t = useTranslations("Common");
+  const { translation } = useTranslation();
   const theme = useTheme();
   const router = useRouter();
   const [errorMessage, setErrorMessage] = useState<string>("");
@@ -60,10 +63,10 @@ const ForgetPasswordForm = () => {
       {!showSuccess ? (
         <Stack>
           <Typography variant="headlineLargeSemiBold" mb={2}>
-            {t("title.resetPassword")}
+            {translation("Common.title.resetPassword")}
           </Typography>
           <Typography variant="headlineSmall" color={theme.palette.grey[600]} mb={2}>
-            {t("message.resetPassword")}
+            {translation("Common.message.resetPassword")}
           </Typography>
 
           <form onSubmit={handleSubmit(onSubmit)} autoFocus>
@@ -78,7 +81,7 @@ const ForgetPasswordForm = () => {
                     autoFocus
                     data-testid={EMAIL}
                     id={EMAIL}
-                    placeholder={!getValues(EMAIL) ? t("placeholder.completeYourEmail") : ""}
+                    placeholder={!getValues(EMAIL) ? translation("Common.placeholder.completeYourEmail") : ""}
                     name={EMAIL}
                     value={(newPassword as unknown) ?? ""}
                     onChange={(event) => {
@@ -88,7 +91,7 @@ const ForgetPasswordForm = () => {
                       setNewPassword(value);
                       const errorKey = validateEmail(value);
                       if (errorKey) {
-                        setError(EMAIL, { type: "validate", message: t(errorKey) });
+                        setError(EMAIL, { type: "validate", message: translation(errorKey) });
                         setIsDisabledSubmit(true);
                       } else {
                         setIsDisabledSubmit(false);
@@ -123,17 +126,17 @@ const ForgetPasswordForm = () => {
             </Typography>
 
             <SubmitButtonStyle data-testid={"button-submit"} type="submit" disabled={isDisableSubmit}>
-              <Typography variant="labelExtraLargeSemiBold">{t("button.submitRequest")}</Typography>
+              <Typography variant="labelExtraLargeSemiBold">{translation("Common.button.submitRequest")}</Typography>
             </SubmitButtonStyle>
           </form>
         </Stack>
       ) : (
         <Stack>
           <Typography variant="headlineLargeSemiBold" color={theme.palette.success.light} mb={2}>
-            {t("status.resetPasswordSuccess")}
+            {translation("Common.status.resetPasswordSuccess")}
           </Typography>
           <Typography variant="titleLarge" color={theme.palette.grey[600]} mb={2}>
-            {t("message.resetPasswordSuccess")}
+            {translation("Common.message.resetPasswordSuccess")}
           </Typography>
           <Typography variant="titleLargeSemiBold" color={theme.palette.grey[600]} mb={2}>
             {getValues(EMAIL)}
@@ -145,7 +148,7 @@ const ForgetPasswordForm = () => {
               router.replace(webPaths.login);
             }}
           >
-            <Typography variant="labelExtraLargeSemiBold">{t("text.login")}</Typography>
+            <Typography variant="labelExtraLargeSemiBold">{translation("Common.text.login")}</Typography>
           </SubmitButtonStyle>
         </Stack>
       )}
