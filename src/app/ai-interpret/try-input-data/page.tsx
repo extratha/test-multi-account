@@ -8,7 +8,9 @@ const TryInputDataPage = () => {
   const { translation } = useTranslation();
   return (
     <>
-      <Page title={translation("AiInterpret.pages.tryInputData")}>{<InputDataModule />}</Page>
+      <Page title={translation("AiInterpret.pages.tryInputData")}>
+        <InputDataModule />
+      </Page>
     </>
   );
 };
