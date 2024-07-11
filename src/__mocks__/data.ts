@@ -830,6 +830,21 @@ export const mockTermsAndConsDataLatest: ConsentResultLatest = {
   },
 };
 
+export const mockPrivacyPolicyDataLatest: ConsentResultLatest = {
+  version: "Version",
+  consent: {
+    services: [
+      {
+        title: "Service Title 0",
+        logo: "/service/logo/0",
+        content: "Consent Content 0",
+      },
+    ],
+    content: "Consent Content",
+  },
+};
+
+
 export const mockPrivcayPolicyData = {
   "consent": {
     "content": "**Privacy Policy**\n\nWe value your privacy. This policy explains how we collect and use your information...\n\n**Terms of Service**\n\nWelcome to our service. By using our service, you agree to the following terms...",

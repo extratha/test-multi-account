@@ -41,3 +41,7 @@ export const submitConsent = (type: string, version: string) => {
 export const getPrivacyPolicy = () => {
   return apiAxios.get<ConsentResult>("/consents/privacy-policies");
 };
+
+export const getPrivacyPolicyLatest = () => {
+  return apiAxios.get<ConsentResult>("/consents/privacy-policies/latest");
+};

@@ -12,5 +12,6 @@ export const webPaths = {
     tryHospitalData: "/ai-interpret/try-hospital-data",
   },
   settingsTermsAndConditions: "/settings/terms-and-conditions",
+  settingsPrivacyPolicy: "/settings/privacy-policy",
   symptomChecker: "/symptom-checker",
 };

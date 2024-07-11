@@ -110,6 +110,13 @@ export const settingMenuList = (t: TFunction): MenuItem[] => {
           title: t("Common.menu.settingAndOther.termsAndConditions"),
           children: null,
         },
+        {
+          icon: null,
+          activeIcon: null,
+          path: webPaths.settingsPrivacyPolicy,
+          title: t("Common.menu.settingAndOther.privacyPolicy"),
+          children: null,
+        },
       ],
     },
     // {
