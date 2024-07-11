@@ -1,8 +1,8 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
-import { LocaleResource } from "@/types/model.ui";
 import { LOCALE_LANGUAGE, LOCALE_NAMESPACE } from "@/config/i18n";
+import { LocaleResource } from "@/types/model.ui";
 
 export const initI18next = (lang: string, resource: LocaleResource) => {
   i18n.use(initReactI18next).init({

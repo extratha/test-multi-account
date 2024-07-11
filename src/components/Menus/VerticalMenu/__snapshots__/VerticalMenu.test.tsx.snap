@@ -251,7 +251,7 @@ exports[`VerticalMenu renders menu items correctly 1`] = `
   border-bottom-width: thin;
 }
 
-.emotion-69 {
+.emotion-71 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -266,7 +266,7 @@ exports[`VerticalMenu renders menu items correctly 1`] = `
   position: relative;
 }
 
-.emotion-70 {
+.emotion-72 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -277,7 +277,7 @@ exports[`VerticalMenu renders menu items correctly 1`] = `
   height: 100%;
 }
 
-.emotion-71 {
+.emotion-73 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -287,7 +287,7 @@ exports[`VerticalMenu renders menu items correctly 1`] = `
   flex-direction: row;
 }
 
-.emotion-72 {
+.emotion-74 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -301,7 +301,7 @@ exports[`VerticalMenu renders menu items correctly 1`] = `
   padding: 8px 16px;
 }
 
-.emotion-73 {
+.emotion-75 {
   margin: 0;
   font-weight: 500;
   line-height: 24px;
@@ -311,7 +311,7 @@ exports[`VerticalMenu renders menu items correctly 1`] = `
   color: #fff;
 }
 
-.emotion-74 {
+.emotion-76 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -324,7 +324,7 @@ exports[`VerticalMenu renders menu items correctly 1`] = `
   margin: 16px 0 0 0;
 }
 
-.emotion-77 {
+.emotion-79 {
   margin: 0;
   font-weight: 500;
   line-height: 24px;
@@ -334,7 +334,7 @@ exports[`VerticalMenu renders menu items correctly 1`] = `
   margin: auto 0 8px 0;
 }
 
-.emotion-79 {
+.emotion-81 {
   margin: 0;
   font-weight: 500;
   line-height: 28px;
@@ -617,6 +617,15 @@ exports[`VerticalMenu renders menu items correctly 1`] = `
                       ข้อกำหนดและเงื่อนไข
                     </span>
                   </li>
+                  <li
+                    class="MuiListItem-root MuiListItem-gutters MuiListItem-padding emotion-25"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-bodyLarge emotion-26"
+                    >
+                      นโยบายความเป็นส่วนตัว
+                    </span>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -674,32 +683,32 @@ exports[`VerticalMenu renders menu items correctly 1`] = `
       style="margin: auto 0px 20px;"
     />
     <div
-      class="MuiStack-root emotion-69"
+      class="MuiStack-root emotion-71"
     >
       <div
-        class="MuiStack-root emotion-70"
+        class="MuiStack-root emotion-72"
       >
         <div
-          class="MuiStack-root emotion-71"
+          class="MuiStack-root emotion-73"
         >
           <svg
             style="width: 20px; height: 20px;"
           />
           <div
-            class="MuiStack-root emotion-72"
+            class="MuiStack-root emotion-74"
           >
             <svg
               style="width: 24px; height: 24px; margin: auto 10px auto 0px;"
             />
             <span
-              class="MuiTypography-root MuiTypography-bodyLargeSemiBold emotion-73"
+              class="MuiTypography-root MuiTypography-bodyLargeSemiBold emotion-75"
             >
               แอดมิน
             </span>
           </div>
         </div>
         <div
-          class="MuiStack-root emotion-74"
+          class="MuiStack-root emotion-76"
         >
           <span
             class="MuiTypography-root MuiTypography-bodyLargeSemiBold emotion-1"
@@ -712,18 +721,18 @@ exports[`VerticalMenu renders menu items correctly 1`] = `
               
           </span>
           <span
-            class="MuiTypography-root MuiTypography-bodyLargeSemiBold emotion-77"
+            class="MuiTypography-root MuiTypography-bodyLargeSemiBold emotion-79"
           >
             เครดิตของฉัน 
           </span>
           <div
-            class="MuiStack-root emotion-71"
+            class="MuiStack-root emotion-73"
           >
             <svg
               style="width: 24px; height: 24px; margin: 0px 1rem 0px 0px;"
             />
             <h3
-              class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-79"
+              class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-81"
             >
               ใช้ได้ไม่จำกัด
             </h3>

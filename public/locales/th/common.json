@@ -146,6 +146,9 @@
     },
     "settingTermsAndConditions": {
       "title": "ข้อกำหนดและเงื่อนไข"
+    },
+    "settingPrivacyPolicy": {
+      "title": "นโยบายความเป็นส่วนตัว"
     }
   }
 }

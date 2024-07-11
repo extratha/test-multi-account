@@ -1,12 +1,12 @@
 "use client";
 
-import { Page } from "@/components/Page";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
+import { Page } from "@/components/Page";
 import { webPaths } from "@/constant/webPaths";
-import Loading from "@/modules/Loading";
-import { useRouter } from "next/navigation";
 import useTranslation from "@/locales/useLocale";
+import Loading from "@/modules/Loading";
 
 const LocalePage = () => {
   const { translation } = useTranslation();
