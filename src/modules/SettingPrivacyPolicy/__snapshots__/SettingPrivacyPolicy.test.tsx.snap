@@ -63,7 +63,7 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   font-family: NotoSansThai-SemiBold,sans-serif;
 }
 
-.emotion-5 {
+.emotion-4 {
   margin: 0;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -75,7 +75,7 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   margin: 8px 0px 24px;
 }
 
-.emotion-6 {
+.emotion-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -85,15 +85,15 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   flex-direction: column;
 }
 
-.emotion-6>:not(style):not(style) {
+.emotion-5>:not(style):not(style) {
   margin: 0;
 }
 
-.emotion-6>:not(style)~:not(style) {
+.emotion-5>:not(style)~:not(style) {
   margin-top: 24px;
 }
 
-.emotion-7 {
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -106,21 +106,21 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   background: #FAFAFA;
 }
 
-.emotion-8 {
+.emotion-7 {
   font-size: 16px;
   white-space: normal;
   color: #212121;
 }
 
-.emotion-8>*:first-of-type {
+.emotion-7>*:first-of-type {
   margin-top: 0px;
 }
 
-.emotion-8>*:last-of-type {
+.emotion-7>*:last-of-type {
   margin-bottom: 0px;
 }
 
-.emotion-10 {
+.emotion-9 {
   margin: 0;
   font-weight: 500;
   line-height: 28px;
@@ -131,7 +131,7 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   color: #212121;
 }
 
-.emotion-11 {
+.emotion-10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -143,15 +143,15 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   background-color: #fff;
 }
 
-.emotion-11:first-of-type {
+.emotion-10:first-of-type {
   border-radius: 12px 12px 0 0;
 }
 
-.emotion-11:last-of-type {
+.emotion-10:last-of-type {
   border-radius: 0 0 12px 12px;
 }
 
-.emotion-12 {
+.emotion-11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -166,12 +166,12 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   padding: 24px;
 }
 
-.emotion-14 {
+.emotion-13 {
   max-width: 52px;
   max-height: 52px;
 }
 
-.emotion-15 {
+.emotion-14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -185,15 +185,15 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   margin-left: 12px;
 }
 
-.emotion-15>:not(style):not(style) {
+.emotion-14>:not(style):not(style) {
   margin: 0;
 }
 
-.emotion-15>:not(style)~:not(style) {
+.emotion-14>:not(style)~:not(style) {
   margin-top: 4px;
 }
 
-.emotion-16 {
+.emotion-15 {
   margin: 0;
   font-weight: 500;
   line-height: 28px;
@@ -203,7 +203,7 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   color: #212121;
 }
 
-.emotion-17 {
+.emotion-16 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -217,7 +217,7 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   justify-content: center;
 }
 
-.emotion-18 {
+.emotion-17 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -263,44 +263,44 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.emotion-18::-moz-focus-inner {
+.emotion-17::-moz-focus-inner {
   border-style: none;
 }
 
-.emotion-18.Mui-disabled {
+.emotion-17.Mui-disabled {
   pointer-events: none;
   cursor: default;
 }
 
 @media print {
-  .emotion-18 {
+  .emotion-17 {
     -webkit-print-color-adjust: exact;
     color-adjust: exact;
   }
 }
 
-.emotion-18:hover {
+.emotion-17:hover {
   background-color: rgba(0, 0, 0, 0.04);
 }
 
 @media (hover: none) {
-  .emotion-18:hover {
+  .emotion-17:hover {
     background-color: transparent;
   }
 }
 
-.emotion-18.Mui-disabled {
+.emotion-17.Mui-disabled {
   background-color: transparent;
   color: rgba(0, 0, 0, 0.26);
 }
 
-.emotion-19 {
+.emotion-18 {
   width: 24px;
   height: 24px;
   color: #607D8B;
 }
 
-.emotion-20 {
+.emotion-19 {
   overflow: hidden;
   pointer-events: none;
   position: absolute;
@@ -312,7 +312,7 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   border-radius: inherit;
 }
 
-.emotion-21 {
+.emotion-20 {
   height: 0;
   overflow: hidden;
   -webkit-transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -320,7 +320,7 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   visibility: hidden;
 }
 
-.emotion-22 {
+.emotion-21 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -328,11 +328,11 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   width: 100%;
 }
 
-.emotion-23 {
+.emotion-22 {
   width: 100%;
 }
 
-.emotion-24 {
+.emotion-23 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -359,58 +359,53 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
         >
           นโยบายความเป็นส่วนตัว
         </h3>
-        <h3
-          class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-3"
-        >
-          ถัดไป
-        </h3>
         <hr
-          class="MuiDivider-root MuiDivider-fullWidth emotion-5"
+          class="MuiDivider-root MuiDivider-fullWidth emotion-4"
         />
         <div
-          class="MuiStack-root emotion-6"
+          class="MuiStack-root emotion-5"
         >
           <div
-            class="MuiStack-root emotion-7"
+            class="MuiStack-root emotion-6"
           >
             <div
-              class="emotion-8"
+              class="emotion-7"
               data-testid="privacy-policy-content"
             >
               Consent Content
             </div>
           </div>
           <div
-            class="MuiStack-root emotion-7"
+            class="MuiStack-root emotion-6"
             data-testid="privacy-policy-service"
           >
             <h3
-              class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-10"
+              class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-9"
             >
               All Services
             </h3>
             <div
-              class="MuiStack-root emotion-11"
+              class="MuiStack-root emotion-10"
             >
               <div
-                class="MuiStack-root emotion-12"
+                class="MuiStack-root emotion-11"
                 data-testid="privacy-policy-service-0"
               >
                 <div
-                  class="MuiBox-root emotion-13"
+                  class="MuiBox-root emotion-12"
                 >
                   <img
                     alt=""
-                    class="emotion-14"
+                    class="emotion-13"
                     data-testid="privacy-policy-service-0-logo"
                     src="/service/logo/0"
                   />
                 </div>
                 <div
-                  class="MuiStack-root emotion-15"
+                  class="MuiStack-root emotion-14"
                 >
                   <h3
-                    class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-16"
+                    class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-15"
                     data-testid="privacy-policy-service-0-title"
                   >
                     Service Title 0
@@ -420,38 +415,38 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
                   />
                 </div>
                 <div
-                  class="MuiStack-root emotion-17"
+                  class="MuiStack-root emotion-16"
                 >
                   <button
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium emotion-18"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium emotion-17"
                     tabindex="0"
                     type="button"
                   >
                     <svg
-                      class="emotion-19"
+                      class="emotion-18"
                     />
                     <span
-                      class="MuiTouchRipple-root emotion-20"
+                      class="MuiTouchRipple-root emotion-19"
                     />
                   </button>
                 </div>
               </div>
               <div
-                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-21"
+                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-20"
                 style="min-height: 0px;"
               >
                 <div
-                  class="MuiCollapse-wrapper MuiCollapse-vertical emotion-22"
+                  class="MuiCollapse-wrapper MuiCollapse-vertical emotion-21"
                 >
                   <div
-                    class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-23"
+                    class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-22"
                   >
                     <div
-                      class="MuiStack-root emotion-24"
+                      class="MuiStack-root emotion-23"
                       data-testid="privacy-policy-service-0-content"
                     >
                       <div
-                        class="emotion-8"
+                        class="emotion-7"
                       >
                         Consent Content 0
                       </div>

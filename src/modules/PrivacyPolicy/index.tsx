@@ -12,10 +12,10 @@ import FormCheckbox from "@/components/Form/FormCheckbox";
 import { CUSTOM_COLORS, NEUTRAL } from "@/config/config-mui/theme/colors";
 import { CONSENT_TYPE } from "@/constant/constant";
 import { webPaths } from "@/constant/webPaths";
+import useTranslation from "@/locales/useLocale";
 import { usePageLoadingStore } from "@/store";
 import { ConsentResult } from "@/types/model.api";
 import usePrivacyPolicySchema from "./PrivacyPolicySchema";
-import useTranslation from "@/locales/useLocale";
 
 interface PrivacyPolicyFormValues {
   agreement: boolean;
