@@ -61,7 +61,6 @@ const SettingPrivacyPolicy = () => {
         {consent && (
           <Content data-testid="privacy-policy-consent">
             <Typography variant="titleLargeSemiBold">{translation("Common.settingPrivacyPolicy.title")}</Typography>
-            <Typography variant="titleLargeSemiBold">{translation("Common.button.next")}</Typography>
             <TitleDivider />
             <ConsentContent name="privacy-policy" data={consent.consent} />
           </Content>
