@@ -107,15 +107,87 @@ exports[`SettingTermsAndConditions should render correctly 1`] = `
 
 .emotion-7 {
   font-size: 16px;
-  white-space: normal;
+  line-height: 28px;
+  white-space: pre-line;
 }
 
-.emotion-7>*:first-of-type {
+.emotion-7>h3:first-of-type,
+.emotion-7>p:first-of-type {
   margin-top: 0px;
 }
 
-.emotion-7>*:last-of-type {
+.emotion-7>h3:last-of-type,
+.emotion-7>p:last-of-type {
   margin-bottom: 0px;
+}
+
+.emotion-7 ul {
+  padding-left: 16px;
+  list-style-type: disc;
+}
+
+.emotion-7 li {
+  margin: 16px 0px;
+}
+
+.emotion-7>ol,
+.emotion-7>ul {
+  padding-left: 24px;
+}
+
+.emotion-7>ol>li>ol,
+.emotion-7>ul>li>ol,
+.emotion-7>ol>li>ul,
+.emotion-7>ul>li>ul {
+  padding: 0px;
+}
+
+.emotion-7>ol ol,
+.emotion-7>ul ol {
+  list-style-type: none;
+  counter-reset: item;
+  padding-left: 24px;
+}
+
+.emotion-7>ol ol>li,
+.emotion-7>ul ol>li {
+  counter-increment: item;
+}
+
+.emotion-7>ol ol>li:before,
+.emotion-7>ul ol>li:before {
+  content: counters(item, ".") ". ";
+  padding-right: 2px;
+  white-space: nowrap;
+}
+
+.emotion-7 table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.emotion-7 table li {
+  margin: 0px;
+}
+
+.emotion-7 th {
+  height: 48px;
+  text-align: center;
+  color: #ffffff;
+  border: 1px solid #000000;
+  border-right-color: #ffffff;
+  background-color: #002060;
+}
+
+.emotion-7 th:last-child {
+  border-color: #000000;
+}
+
+.emotion-7 td {
+  border: 1px solid #000000;
+  padding: 4px;
+  vertical-align: top;
 }
 
 .emotion-9 {
@@ -437,6 +509,7 @@ exports[`SettingTermsAndConditions should render correctly 1`] = `
                     >
                       <div
                         class="emotion-7"
+                        data-testid="term-and-conditions-content"
                       >
                         Consent Content 0
                       </div>

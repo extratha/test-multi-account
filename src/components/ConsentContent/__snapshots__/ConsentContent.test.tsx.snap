@@ -35,15 +35,87 @@ exports[`ConsentContent should render correctly 1`] = `
 
 .emotion-2 {
   font-size: 16px;
-  white-space: normal;
+  line-height: 28px;
+  white-space: pre-line;
 }
 
-.emotion-2>*:first-of-type {
+.emotion-2>h3:first-of-type,
+.emotion-2>p:first-of-type {
   margin-top: 0px;
 }
 
-.emotion-2>*:last-of-type {
+.emotion-2>h3:last-of-type,
+.emotion-2>p:last-of-type {
   margin-bottom: 0px;
+}
+
+.emotion-2 ul {
+  padding-left: 16px;
+  list-style-type: disc;
+}
+
+.emotion-2 li {
+  margin: 16px 0px;
+}
+
+.emotion-2>ol,
+.emotion-2>ul {
+  padding-left: 24px;
+}
+
+.emotion-2>ol>li>ol,
+.emotion-2>ul>li>ol,
+.emotion-2>ol>li>ul,
+.emotion-2>ul>li>ul {
+  padding: 0px;
+}
+
+.emotion-2>ol ol,
+.emotion-2>ul ol {
+  list-style-type: none;
+  counter-reset: item;
+  padding-left: 24px;
+}
+
+.emotion-2>ol ol>li,
+.emotion-2>ul ol>li {
+  counter-increment: item;
+}
+
+.emotion-2>ol ol>li:before,
+.emotion-2>ul ol>li:before {
+  content: counters(item, ".") ". ";
+  padding-right: 2px;
+  white-space: nowrap;
+}
+
+.emotion-2 table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.emotion-2 table li {
+  margin: 0px;
+}
+
+.emotion-2 th {
+  height: 48px;
+  text-align: center;
+  color: #ffffff;
+  border: 1px solid #000000;
+  border-right-color: #ffffff;
+  background-color: #002060;
+}
+
+.emotion-2 th:last-child {
+  border-color: #000000;
+}
+
+.emotion-2 td {
+  border: 1px solid #000000;
+  padding: 4px;
+  vertical-align: top;
 }
 
 .emotion-4 {
@@ -353,6 +425,7 @@ We value your privacy. This policy explains how we collect and use your informat
               >
                 <div
                   class="emotion-2"
+                  data-testid="test-content"
                 >
                   **Service Overview**
 
@@ -438,6 +511,7 @@ AI Interpret provides advanced language translation capabilities...
               >
                 <div
                   class="emotion-2"
+                  data-testid="test-content"
                 >
                   **Service Overview**
 
@@ -523,6 +597,7 @@ Health Visualization helps you understand your health data through visual repres
               >
                 <div
                   class="emotion-2"
+                  data-testid="test-content"
                 >
                   **Service Overview**
 
@@ -608,6 +683,7 @@ ASR (Automatic Speech Recognition) converts spoken language into text...
               >
                 <div
                   class="emotion-2"
+                  data-testid="test-content"
                 >
                   **Service Overview**
 

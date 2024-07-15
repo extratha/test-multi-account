@@ -2,7 +2,7 @@ import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import MockAdapter from "axios-mock-adapter";
 
-import { mockPrivcayPolicyData } from "@/__mocks__/data";
+import { mockPrivacyPolicyData } from "@/__mocks__/data";
 import * as Api from "@/api/api";
 import { webPaths } from "@/constant/webPaths";
 import { spyUseRouter, SpyUseRouter } from "@/testUtils/navigation";
@@ -21,7 +21,7 @@ describe("PrivacyPolicyModule", () => {
     jest.spyOn(Api, "submitConsent");
 
     mockApiAdapter = new MockAdapter(axiosInstance);
-    mockApiAdapter.onGet(API.PRIVACY_POLICY).reply(200, mockPrivcayPolicyData);
+    mockApiAdapter.onGet(API.PRIVACY_POLICY).reply(200, mockPrivacyPolicyData);
     mockApiAdapter.onPost(API.CONSENT).reply(201);
   });
 
@@ -50,11 +50,11 @@ describe("PrivacyPolicyModule", () => {
   });
 
   it("should redirect to Home page when consent is submitted", async () => {
-    mockApiAdapter.onGet(API.PRIVACY_POLICY).reply(200, { ...mockPrivcayPolicyData, isConsent: true });
+    mockApiAdapter.onGet(API.PRIVACY_POLICY).reply(200, { ...mockPrivacyPolicyData, isConsent: true });
 
     await renderPrivacyPolicy();
 
-    expect(spyRouter.replace).toHaveBeenCalledWith(webPaths.home)
+    expect(spyRouter.replace).toHaveBeenCalledWith(webPaths.home);
   });
 
   it("should not display consent when fetch consent error", async () => {
@@ -74,6 +74,5 @@ describe("PrivacyPolicyModule", () => {
     await userEvent.click(screen.getByTestId("submit-button"));
 
     expect(spyRouter.push).not.toHaveBeenCalled();
-
   });
 });

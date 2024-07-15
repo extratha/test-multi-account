@@ -1,26 +1,15 @@
 import { Box, Collapse, IconButton, Stack, Typography, styled } from "@mui/material";
 import { useState } from "react";
-import ReactMarkdown from "react-markdown";
 
 import { IconChevronDown, IconChevronUp, IconConsentGroupDetail } from "@/assets";
 import useTranslation from "@/locales/useLocale";
 import { ConsentData } from "@/types/model.api";
+import ConsentContentHtml from "./ConsentContentHtml";
 
 export interface ConsentContentProps {
   name: string;
   data: ConsentData;
 }
-
-const Markdown = styled(ReactMarkdown)({
-  fontSize: "16px",
-  whiteSpace: "normal",
-  "& > *:first-of-type": {
-    marginTop: "0px",
-  },
-  "& > *:last-of-type": {
-    marginBottom: "0px",
-  },
-});
 
 const ContentSection = styled(Stack)(({ theme }) => ({
   padding: "24px",
@@ -84,7 +73,7 @@ const ConsentContent = (props: ConsentContentProps) => {
   return (
     <Stack spacing={3}>
       <ContentSection>
-        <Markdown data-testid={`${name}-content`}>{data.content}</Markdown>
+        <ConsentContentHtml name={name} html={data.content} />
       </ContentSection>
       {data.services.length > 0 && (
         <ContentSection data-testid={`${name}-service`}>
@@ -109,7 +98,7 @@ const ConsentContent = (props: ConsentContentProps) => {
               </ServiceHeader>
               <Collapse in={isExpandServices[index]}>
                 <ServiceContent data-testid={`${name}-service-${index}-content`}>
-                  <Markdown>{service.content}</Markdown>
+                  <ConsentContentHtml name={name} html={service.content} />
                 </ServiceContent>
               </Collapse>
             </ServiceItem>
