@@ -82,7 +82,7 @@ exports[`LoadingModule should render correctly 1`] = `
 
 .emotion-2 {
   display: inline-block;
-  color: #1976d2;
+  color: #2196F3;
   -webkit-animation: animation-0 1.4s linear infinite;
   animation: animation-0 1.4s linear infinite;
 }

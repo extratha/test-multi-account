@@ -38,7 +38,7 @@ const TitleDivider = styled(Divider)({
 });
 
 const SettingPrivacyPolicy = () => {
-  const { translation } = useTranslation()
+  const { translation } = useTranslation();
 
   const [consent, setConsent] = useState<ConsentResultLatest>();
 
@@ -60,7 +60,7 @@ const SettingPrivacyPolicy = () => {
       <WrapperLayout>
         {consent && (
           <Content data-testid="privacy-policy-consent">
-            <Typography variant="titleLargeSemiBold">{translation("Common.settingPrivacyPolicy.title")}</Typography>
+            <Typography variant="titleLargeBold">{translation("Common.settingPrivacyPolicy.title")}</Typography>
             <TitleDivider />
             <ConsentContent name="privacy-policy" data={consent.consent} />
           </Content>

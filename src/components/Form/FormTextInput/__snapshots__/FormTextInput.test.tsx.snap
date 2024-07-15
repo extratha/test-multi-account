@@ -20,7 +20,7 @@ exports[`FormTextInput should render correctly 1`] = `
 }
 
 .emotion-1 {
-  font-family: NotoSansThai-Regular,sans-serif;
+  font-family: fontFamily;
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.4375em;
@@ -38,11 +38,12 @@ exports[`FormTextInput should render correctly 1`] = `
   align-items: center;
   width: 100%;
   position: relative;
+  border-radius: 4px;
   border-radius: 8px;
 }
 
 .emotion-1.Mui-disabled {
-  color: rgba(0, 0, 0, 0.38);
+  color: #B0BEC5;
   cursor: default;
 }
 
@@ -57,7 +58,7 @@ exports[`FormTextInput should render correctly 1`] = `
 }
 
 .emotion-1.Mui-focused .MuiOutlinedInput-notchedOutline {
-  border-color: #1976d2;
+  border-color: #2196F3;
   border-width: 2px;
 }
 
@@ -88,6 +89,7 @@ exports[`FormTextInput should render correctly 1`] = `
   -webkit-animation-duration: 10ms;
   animation-duration: 10ms;
   padding: 16.5px 14px;
+  padding: 12px;
 }
 
 .emotion-2::-webkit-input-placeholder {
@@ -164,7 +166,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-2:focus::-ms-input-p
 
 .emotion-2.Mui-disabled {
   opacity: 1;
-  -webkit-text-fill-color: rgba(0, 0, 0, 0.38);
+  -webkit-text-fill-color: #B0BEC5;
 }
 
 .emotion-2:-webkit-autofill {

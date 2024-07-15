@@ -1,15 +1,15 @@
 "use client";
 
-import { Box, Divider, Paper as MuiPaper, Stack, Typography, styled } from "@mui/material";
+import { Box, Divider, Paper as MuiPaper, Stack, styled, Typography } from "@mui/material";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 import { IconAiInterpret, IosDeviceFrame } from "@/assets";
 import PageTitle from "@/components/Typography/PageTitle";
 import { remoteConfigKey } from "@/constant/firebase";
+import useTranslation from "@/locales/useLocale";
 import { SymptomCheckerConfig } from "@/types/model.ui";
 import { remoteConfig } from "@/utils/firebase";
-import useTranslation from "@/locales/useLocale";
 
 const Wrapper = styled(Stack)({
   flex: 1,
@@ -21,6 +21,7 @@ const Paper = styled(MuiPaper)({
   flex: 1,
   display: "flex",
   flexDirection: "column",
+  borderRadius: "16px",
 });
 
 const Header = styled(Stack)({
@@ -130,7 +131,7 @@ const SymptomChecker = () => {
                 </Box>
                 <PageTitle>{translation("Common.symptomChecker.title")}</PageTitle>
                 <Box flex="1" />
-                <Typography variant="titleMediumSemiBold">{translation("Common.symptomChecker.subtitle")}</Typography>
+                <Typography variant="bodyMedium">{translation("Common.symptomChecker.subtitle")}</Typography>
               </Stack>
               <Divider />
             </Header>

@@ -10,7 +10,6 @@ exports[`AiInterpretLabResult should render correctly 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  color: #212121;
   border: 1px solid #ECEFF1;
   border-radius: 8px;
   overflow: hidden;
@@ -19,16 +18,16 @@ exports[`AiInterpretLabResult should render correctly 1`] = `
 .emotion-0 .MuiButton-root {
   font-size: 12px;
   font-weight: 600;
-  color: #ffffff;
+  color: #FFFFFF;
+  background-color: #212121;
+}
+
+.emotion-0 .MuiButton-root:hover {
   background-color: #212121;
 }
 
 .emotion-0 .MuiButton-endIcon {
   padding-left: 8px;
-}
-
-.emotion-0 .MuiButton-root:hover {
-  background-color: #212121;
 }
 
 .emotion-1 {
@@ -62,11 +61,9 @@ exports[`AiInterpretLabResult should render correctly 1`] = `
 
 .emotion-4 {
   margin: 0;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 700;
   line-height: 24px;
-  letter-spacing: 0.15px;
-  font-size: 16px;
-  font-family: NotoSansThai-SemiBold,sans-serif;
   font-size: 18px;
   font-weight: 700;
 }
@@ -104,17 +101,20 @@ exports[`AiInterpretLabResult should render correctly 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   color: inherit;
-  font-family: NotoSansThai-Regular,sans-serif;
+  font-family: fontFamily;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.75;
   text-transform: uppercase;
   min-width: 64px;
   padding: 6px 8px;
-  border-radius: 8px;
+  border-radius: 4px;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  color: #1976d2;
+  color: #2196F3;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
   padding: 8px 14px;
   border-radius: 8px;
   box-shadow: 0px 4px 6px -1px #21212133,0px 2px 4px -2px #21212133;
@@ -139,7 +139,7 @@ exports[`AiInterpretLabResult should render correctly 1`] = `
 .emotion-5:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgba(25, 118, 210, 0.04);
+  background-color: rgba(33, 150, 243, 0.04);
 }
 
 @media (hover: none) {
@@ -252,13 +252,9 @@ exports[`AiInterpretLabResult should render correctly 1`] = `
 
 .emotion-14 {
   margin: 0;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.15px;
-  font-size: 16px;
-  font-family: NotoSansThai-Medium,sans-serif;
   font-size: 16px;
   font-weight: 700;
+  line-height: 1.5;
 }
 
 .emotion-15 {
@@ -274,22 +270,16 @@ exports[`AiInterpretLabResult should render correctly 1`] = `
 
 .emotion-16 {
   margin: 0;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.15px;
   font-size: 16px;
-  font-family: NotoSansThai-Medium,sans-serif;
   font-weight: 700;
+  line-height: 1.5;
   text-align: end;
 }
 
 .emotion-17 {
   margin: 0;
-  font-weight: 400;
-  line-height: 20px;
-  letter-spacing: 0.25px;
   font-size: 14px;
-  font-family: NotoSansThai-Regular,sans-serif;
+  line-height: 1.5;
   text-align: end;
 }
 
@@ -305,12 +295,12 @@ exports[`AiInterpretLabResult should render correctly 1`] = `
       <div
         class="MuiStack-root emotion-3"
       >
-        <h3
-          class="MuiTypography-root MuiTypography-titleMediumBold emotion-4"
+        <p
+          class="MuiTypography-root MuiTypography-titleBold emotion-4"
           data-testid="lab-title-lipidProfile"
         >
           ระดับไขมันในเลือด
-        </h3>
+        </p>
       </div>
       <button
         class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-5"
@@ -348,28 +338,28 @@ exports[`AiInterpretLabResult should render correctly 1`] = `
               <div
                 class="MuiStack-root emotion-13"
               >
-                <h3
-                  class="MuiTypography-root MuiTypography-titleMedium emotion-14"
+                <p
+                  class="MuiTypography-root MuiTypography-bodyBold emotion-14"
                   data-testid="lab-lipidProfile-cholesterol_value-label"
                 >
                   Cholesterol
-                </h3>
+                </p>
               </div>
               <div
                 class="MuiStack-root emotion-15"
               >
-                <h3
-                  class="MuiTypography-root MuiTypography-titleMedium emotion-16"
+                <p
+                  class="MuiTypography-root MuiTypography-bodyBold emotion-16"
                   data-testid="lab-lipidProfile-cholesterol_value-value"
                 >
                   208 (mg/dL)
-                </h3>
-                <span
-                  class="MuiTypography-root MuiTypography-bodyMedium emotion-17"
+                </p>
+                <p
+                  class="MuiTypography-root MuiTypography-bodySmall emotion-17"
                   data-testid="lab-lipidProfile-cholesterol_value-unit"
                 >
                   (- mg/dL)
-                </span>
+                </p>
               </div>
             </div>
           </div>

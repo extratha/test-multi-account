@@ -1,38 +1,137 @@
-import * as cookiesNext from "cookies-next";
-import * as nextRouter from "next/navigation";
+import { screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
+import { mockLoginResponse } from "@/__mocks__/data";
+import LoginModule from "@/modules/LoginModule";
 import { render } from "@/testUtils/testUtils";
-import LoginModule from ".";
+import axiosPublicInstance from "@/utils/axios/login";
 
 jest.mock("next/navigation", () => ({
-  ...jest.requireActual("next/navigation"),
-  useRouter: jest.fn(),
+  useRouter: () => ({
+    replace: jest.fn(),
+  }),
+}));
+
+jest.mock("@/utils/axios/login", () => ({
+  __esModule: true,
+  default: {
+    post: jest.fn(),
+  },
 }));
 
 describe("LoginModule", () => {
-  beforeEach(() => {
-    (nextRouter.useRouter as any).mockReturnValue({ replace: jest.fn() });
-    jest.spyOn(cookiesNext, "getCookie").mockReturnValue("accessToken");
-  });
-
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
-
-  it("should render correctly", async () => {
+  it("to match snap", async () => {
     const { asFragment } = render(<LoginModule />);
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it("redirects to home page if accessToken exists", () => {
-    jest.spyOn(cookiesNext, "getCookie").mockReturnValue("MOCK_ACCESS_TOKEN" as any);
-
+  it("renders the login form with email and password fields", async () => {
     render(<LoginModule />);
+    expect(screen.getByPlaceholderText("อีเมล")).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("รหัสผ่าน")).toBeInTheDocument();
+    expect(screen.getByTestId("button-login")).toBeDisabled();
   });
 
-  it("renders login form if accessToken does not exist", () => {
-    jest.spyOn(cookiesNext, "getCookie").mockReturnValue(null as any);
+  it("shows validation messages on email and password fields", async () => {
+    render(<LoginModule />);
+
+    const emailInput = screen.getByPlaceholderText("อีเมล");
+    const passwordInput = screen.getByPlaceholderText("รหัสผ่าน");
+
+    await userEvent.type(emailInput, "invalid-email");
+    await userEvent.type(passwordInput, "123");
+    expect(await screen.findByText(/อีเมลไม่ถูกต้อง/)).toBeInTheDocument();
+    expect(await screen.findByText(/รหัสผ่านต้องมีอย่างน้อย 8 หลัก/)).toBeInTheDocument();
+  });
+
+  it("enables submit button when both fields are valid", async () => {
+    render(<LoginModule />);
+
+    const emailInput = screen.getByPlaceholderText("อีเมล");
+    const passwordInput = screen.getByPlaceholderText("รหัสผ่าน");
+    const submitButton = screen.getByTestId("button-login");
+
+    await userEvent.type(emailInput, "test@example.com");
+    await userEvent.type(passwordInput, "Test@passw0rd");
+
+    await waitFor(() => {
+      expect(submitButton).not.toBeDisabled();
+    });
+  });
+
+  it("submits the form with valid inputs", async () => {
+    render(<LoginModule />);
+    const emailInput = screen.getByPlaceholderText("อีเมล");
+    const passwordInput = screen.getByPlaceholderText("รหัสผ่าน");
+    const submitButton = screen.getByTestId("button-login");
+
+    await userEvent.type(emailInput, "test@example.com");
+    await userEvent.type(passwordInput, "Test@passw0rd");
+
+    await waitFor(() => {
+      expect(submitButton).not.toBeDisabled();
+    });
+
+    await userEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(screen.getByText("Cariva Playground")).toBeInTheDocument();
+    });
+  });
+
+  it("switch field password to type text", async () => {
+    render(<LoginModule />);
+
+    const buttonToggleShowPassword = screen.getByTestId("button-toggle-show-password");
+    const passwordInput = screen.getByPlaceholderText("รหัสผ่าน");
+
+    await userEvent.click(buttonToggleShowPassword);
+
+    expect(passwordInput).toHaveAttribute("type", "text");
+  });
+  it('redirects to forget password page when "Forget Password" link is clicked', async () => {
+    render(<LoginModule />);
+
+    const forgetPasswordLink = screen.getByText("ลืมรหัสผ่าน");
+    expect(forgetPasswordLink).toBeInTheDocument();
+
+    await userEvent.click(forgetPasswordLink);
+  });
+
+  // TODO: rename test case
+  // eslint-disable-next-line jest/no-identical-title
+  it("submits the form with valid inputs", async () => {
+    const responseData = mockLoginResponse;
+    (axiosPublicInstance.post as jest.Mock).mockResolvedValueOnce({ data: responseData });
 
     render(<LoginModule />);
+
+    const emailInput = screen.getByPlaceholderText("อีเมล");
+    const passwordInput = screen.getByPlaceholderText("รหัสผ่าน");
+    const submitButton = screen.getByTestId("button-login");
+
+    await userEvent.type(emailInput, "test@example.com");
+    await userEvent.type(passwordInput, "Test@passw0rd");
+    await userEvent.click(submitButton);
+
+    expect(screen.getByText("Cariva Playground")).toBeInTheDocument();
+  });
+
+  it("submits the form with valid inputs with password changed false", async () => {
+    const responseData = mockLoginResponse;
+    responseData.user.passwordChanged = false;
+    (axiosPublicInstance.post as jest.Mock).mockResolvedValueOnce({ data: responseData });
+
+    render(<LoginModule />);
+
+    const emailInput = screen.getByPlaceholderText("อีเมล");
+    const passwordInput = screen.getByPlaceholderText("รหัสผ่าน");
+    const submitButton = screen.getByTestId("button-login");
+
+    await userEvent.type(emailInput, "test@example.com");
+    await userEvent.type(passwordInput, "Test@passw0rd");
+    await userEvent.click(submitButton);
+
+    expect(screen.getByText("Cariva Playground")).toBeInTheDocument();
   });
 });

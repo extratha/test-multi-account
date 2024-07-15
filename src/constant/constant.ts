@@ -1,3 +1,7 @@
+export const MENU_CONDITION = {
+  LOGOUT: "logout",
+};
+
 export const GENDER = {
   MALE: "Male",
   FEMALE: "Female",

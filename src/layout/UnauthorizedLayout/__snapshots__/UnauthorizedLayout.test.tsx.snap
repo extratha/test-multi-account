@@ -10,8 +10,9 @@ exports[`UnauthorizedLayout should render correctly 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  width: 100vw;
-  height: 100vh;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .emotion-1 {
@@ -29,16 +30,50 @@ exports[`UnauthorizedLayout should render correctly 1`] = `
 }
 
 .emotion-2 {
-  position: relative;
-  margin: 40vh auto 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-3 {
   position: relative;
-  margin: auto auto 3rem;
 }
 
 .emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 32px 16px 32px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -61,16 +96,25 @@ exports[`UnauthorizedLayout should render correctly 1`] = `
       <img
         alt="login-background"
         src="/img.jpg"
+        style="object-fit: cover;"
       />
-      <svg
-        class="emotion-2"
-      />
-      <svg
-        class="emotion-3"
-      />
+      <div
+        class="MuiStack-root emotion-2"
+      >
+        <svg
+          class="emotion-3"
+        />
+      </div>
+      <div
+        class="MuiStack-root emotion-4"
+      >
+        <svg
+          class="emotion-3"
+        />
+      </div>
     </div>
     <div
-      class="MuiStack-root emotion-4"
+      class="MuiStack-root emotion-6"
     >
       <div
         data-testid="children"

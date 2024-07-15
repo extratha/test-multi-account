@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ThemeRegistry should render correctly 1`] = `
+<DocumentFragment>
+  <style
+    data-emotion="test style_1"
+  >
+    style_1
+  </style>
+  <div
+    data-testid="children"
+  />
+</DocumentFragment>
+`;

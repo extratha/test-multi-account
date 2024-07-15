@@ -1,18 +1,15 @@
-import { CUSTOM_COLORS } from "@/config/config-mui/theme/colors";
-import { FormControlLabel, Checkbox as MuiCheckbox, styled, Typography } from "@mui/material";
+// import { CUSTOM_COLORS } from "@/config/config-mui/theme/colors";
+import { Checkbox, FormControlLabel, Typography } from "@mui/material";
 import { useController, useFormContext } from "react-hook-form";
-
-const Checkbox = styled(MuiCheckbox)({
-  color: CUSTOM_COLORS.checkboxText
-})
 
 export interface FormCheckboxProps {
   name: string;
   label?: string;
   disabled?: boolean;
+  className?: string;
 }
 
-const FormCheckbox = ({ name, label, disabled }: FormCheckboxProps) => {
+const FormCheckbox = ({ name, label, disabled, className }: FormCheckboxProps) => {
   const { control } = useFormContext();
   const { field } = useController({ name, control });
 
@@ -29,11 +26,8 @@ const FormCheckbox = ({ name, label, disabled }: FormCheckboxProps) => {
           inputProps={{ "data-testid": `${name}-checkbox-value` }}
         />
       }
-      label={
-        <Typography variant="bodyLargeSemiBold" data-testid={`${name}-checkbox-label`} color={CUSTOM_COLORS.checkboxText}>
-          {label}
-        </Typography>
-      }
+      label={<Typography data-testid={`${name}-checkbox-label`}>{label}</Typography>}
+      className={className}
     />
   );
 };

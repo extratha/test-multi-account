@@ -140,6 +140,10 @@ exports[`FormAutocomplete should render correctly 1`] = `
   opacity: 1;
 }
 
+.emotion-0 .MuiAutocomplete-inputRoot {
+  padding: 4px 8px;
+}
+
 .emotion-1 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -158,7 +162,7 @@ exports[`FormAutocomplete should render correctly 1`] = `
 }
 
 .emotion-2 {
-  font-family: NotoSansThai-Regular,sans-serif;
+  font-family: fontFamily;
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.4375em;
@@ -176,12 +180,13 @@ exports[`FormAutocomplete should render correctly 1`] = `
   align-items: center;
   width: 100%;
   position: relative;
-  border-radius: 8px;
+  border-radius: 4px;
   padding-right: 14px;
+  border-radius: 8px;
 }
 
 .emotion-2.Mui-disabled {
-  color: rgba(0, 0, 0, 0.38);
+  color: #B0BEC5;
   cursor: default;
 }
 
@@ -196,7 +201,7 @@ exports[`FormAutocomplete should render correctly 1`] = `
 }
 
 .emotion-2.Mui-focused .MuiOutlinedInput-notchedOutline {
-  border-color: #1976d2;
+  border-color: #2196F3;
   border-width: 2px;
 }
 
@@ -228,6 +233,7 @@ exports[`FormAutocomplete should render correctly 1`] = `
   animation-duration: 10ms;
   padding: 16.5px 14px;
   padding-right: 0;
+  padding: 12px;
 }
 
 .emotion-3::-webkit-input-placeholder {
@@ -304,7 +310,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-3:focus::-ms-input-p
 
 .emotion-3.Mui-disabled {
   opacity: 1;
-  -webkit-text-fill-color: rgba(0, 0, 0, 0.38);
+  -webkit-text-fill-color: #B0BEC5;
 }
 
 .emotion-3:-webkit-autofill {

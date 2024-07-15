@@ -1,11 +1,11 @@
 import * as NextNavigation from "next/navigation";
 
 jest.mock("next/navigation", () => ({
-  ...jest.requireActual("next/navigation"),
   useRouter: jest.fn(),
   useParams: jest.fn(),
   usePathname: jest.fn(),
   useSearchParams: jest.fn(),
+  useServerInsertedHTML: jest.fn(),
 }));
 
 export interface SpyUseSearchParams {
@@ -41,4 +41,8 @@ export const spyUseSearchParams = (): SpyUseSearchParams => {
   return {
     get,
   };
+};
+
+export const spyUseServerInsertedHTML = () => {
+  return jest.spyOn(NextNavigation, "useServerInsertedHTML");
 };

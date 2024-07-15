@@ -7,12 +7,21 @@ exports[`TermsAndConditions should render correctly 1`] = `
   color: rgba(0, 0, 0, 0.87);
   -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  border-radius: 8px;
+  border-radius: 4px;
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+  color: unset;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
   padding: 12px 24px;
   border-radius: 0px;
   box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -21,22 +30,20 @@ exports[`TermsAndConditions should render correctly 1`] = `
 
 .emotion-1 {
   margin: 0;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.15px;
   font-size: 16px;
-  font-family: NotoSansThai-SemiBold,sans-serif;
+  font-weight: 700;
+  line-height: 1.5;
   text-align: center;
 }
 
 <div
     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 emotion-0"
   >
-    <h3
-      class="MuiTypography-root MuiTypography-titleMediumSemiBold emotion-1"
+    <p
+      class="MuiTypography-root MuiTypography-bodyBold emotion-1"
     >
       เลื่อนขึ้นเพื่ออ่านข้อความทั้งหมดและดำเนินการต่อ
-    </h3>
+    </p>
   </div>
   .emotion-0 {
   width: 100%;
@@ -47,7 +54,7 @@ exports[`TermsAndConditions should render correctly 1`] = `
   padding-left: 16px;
   padding-right: 16px;
   max-width: 1024px;
-  margin: 72px 0 31px;
+  margin: 72px auto 31px;
 }
 
 @media (min-width:600px) {
@@ -57,9 +64,9 @@ exports[`TermsAndConditions should render correctly 1`] = `
   }
 }
 
-@media (min-width:1240px) {
+@media (min-width:1200px) {
   .emotion-0 {
-    max-width: 1240px;
+    max-width: 1200px;
   }
 }
 
@@ -68,8 +75,9 @@ exports[`TermsAndConditions should render correctly 1`] = `
   color: rgba(0, 0, 0, 0.87);
   -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  border-radius: 8px;
+  border-radius: 4px;
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+  color: unset;
   padding: 36px 40px;
   border-radius: 16px;
   box-shadow: none;
@@ -77,11 +85,9 @@ exports[`TermsAndConditions should render correctly 1`] = `
 
 .emotion-2 {
   margin: 0;
-  font-weight: 500;
-  line-height: 28px;
-  letter-spacing: 0;
   font-size: 20px;
-  font-family: NotoSansThai-SemiBold,sans-serif;
+  font-weight: 700;
+  line-height: 28px;
 }
 
 .emotion-3 {
@@ -124,13 +130,12 @@ exports[`TermsAndConditions should render correctly 1`] = `
   flex-direction: column;
   padding: 24px;
   border-radius: 12px;
-  background: #FAFAFA;
+  background-color: #FAFAFA;
 }
 
 .emotion-6 {
   font-size: 16px;
   white-space: normal;
-  color: #212121;
 }
 
 .emotion-6>*:first-of-type {
@@ -143,13 +148,10 @@ exports[`TermsAndConditions should render correctly 1`] = `
 
 .emotion-8 {
   margin: 0;
-  font-weight: 500;
-  line-height: 28px;
-  letter-spacing: 0;
-  font-size: 20px;
-  font-family: NotoSansThai-SemiBold,sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
   margin-bottom: 24px;
-  color: #212121;
 }
 
 .emotion-9 {
@@ -160,7 +162,7 @@ exports[`TermsAndConditions should render correctly 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  border: 1px solid #C2C7CF;
+  border: 1px solid #CFD8DC;
   background-color: #fff;
 }
 
@@ -216,12 +218,9 @@ exports[`TermsAndConditions should render correctly 1`] = `
 
 .emotion-14 {
   margin: 0;
+  font-size: 16px;
   font-weight: 500;
-  line-height: 28px;
-  letter-spacing: 0;
-  font-size: 20px;
-  font-family: NotoSansThai-SemiBold,sans-serif;
-  color: #212121;
+  line-height: 1.5;
 }
 
 .emotion-15 {
@@ -318,7 +317,6 @@ exports[`TermsAndConditions should render correctly 1`] = `
 .emotion-17 {
   width: 24px;
   height: 24px;
-  color: #607D8B;
 }
 
 .emotion-18 {
@@ -362,7 +360,6 @@ exports[`TermsAndConditions should render correctly 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   padding: 16px;
-  border-top: 1px solid #C2C7CF;
 }
 
 .emotion-69 {
@@ -390,7 +387,20 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-70 .MuiFormControlLabel-label.Mui-disabled {
-  color: rgba(0, 0, 0, 0.38);
+  color: #B0BEC5;
+}
+
+.emotion-70>.MuiCheckbox-root {
+  color: #cfd8dc;
+}
+
+.emotion-70>.Mui-checked {
+  color: #2196F3;
+}
+
+.emotion-70>.MuiTypography-root {
+  font-weight: 500;
+  color: #78909c;
 }
 
 .emotion-71 {
@@ -429,7 +439,6 @@ exports[`TermsAndConditions should render correctly 1`] = `
   padding: 9px;
   border-radius: 50%;
   color: rgba(0, 0, 0, 0.6);
-  color: #78909C;
 }
 
 .emotion-71::-moz-focus-inner {
@@ -449,7 +458,7 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-71:hover {
-  background-color: rgba(25, 118, 210, 0.04);
+  background-color: rgba(33, 150, 243, 0.04);
 }
 
 @media (hover: none) {
@@ -460,7 +469,7 @@ exports[`TermsAndConditions should render correctly 1`] = `
 
 .emotion-71.Mui-checked,
 .emotion-71.MuiCheckbox-indeterminate {
-  color: #1976d2;
+  color: #2196F3;
 }
 
 .emotion-71.Mui-disabled {
@@ -499,12 +508,10 @@ exports[`TermsAndConditions should render correctly 1`] = `
 
 .emotion-75 {
   margin: 0;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.5px;
-  font-size: 16px;
-  font-family: NotoSansThai-SemiBold,sans-serif;
-  color: #78909C;
+  font-family: fontFamily;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .emotion-76 {
@@ -555,24 +562,26 @@ exports[`TermsAndConditions should render correctly 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   color: inherit;
-  font-family: NotoSansThai-Regular,sans-serif;
+  font-family: fontFamily;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.75;
   text-transform: uppercase;
   min-width: 64px;
   padding: 6px 16px;
-  border-radius: 8px;
+  border-radius: 4px;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   color: #fff;
-  background-color: #1976d2;
+  background-color: #2196F3;
   box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  background-color: #2196F3;
   height: 44px;
   width: 100%;
   max-width: 400px;
-  background-color: #42a5f5;
-  color: #fff;
 }
 
 .emotion-77::-moz-focus-inner {
@@ -594,13 +603,13 @@ exports[`TermsAndConditions should render correctly 1`] = `
 .emotion-77:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: #1565c0;
+  background-color: rgb(23, 105, 170);
   box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
 }
 
 @media (hover: none) {
   .emotion-77:hover {
-    background-color: #1976d2;
+    background-color: #2196F3;
   }
 }
 
@@ -618,23 +627,9 @@ exports[`TermsAndConditions should render correctly 1`] = `
   background-color: rgba(0, 0, 0, 0.12);
 }
 
-.emotion-77:hover {
-  background-color: #42a5f5;
-  opacity: 0.9;
-}
-
-.emotion-77:disabled {
+.emotion-77.Mui-disabled {
   background-color: #FAFAFA;
-  color: #B0BEC5;
-}
-
-.emotion-78 {
-  margin: 0;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.1px;
-  font-size: 16px;
-  font-family: NotoSansThai-SemiBold,sans-serif;
+  colors: #B0BEC5;
 }
 
 <div
@@ -644,11 +639,11 @@ exports[`TermsAndConditions should render correctly 1`] = `
       class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 emotion-1"
       data-testid="terms-and-conditions-consent"
     >
-      <h3
-        class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-2"
+      <p
+        class="MuiTypography-root MuiTypography-titleLargeBold emotion-2"
       >
         ข้อกำหนดและเงื่อนไข
-      </h3>
+      </p>
       <hr
         class="MuiDivider-root MuiDivider-fullWidth emotion-3"
       />
@@ -675,11 +670,11 @@ We value your privacy. This policy explains how we collect and use your informat
           class="MuiStack-root emotion-5"
           data-testid="term-and-conditions-service"
         >
-          <h3
-            class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-8"
+          <p
+            class="MuiTypography-root MuiTypography-titleBold emotion-8"
           >
             All Services
-          </h3>
+          </p>
           <div
             class="MuiStack-root emotion-9"
           >
@@ -700,12 +695,12 @@ We value your privacy. This policy explains how we collect and use your informat
               <div
                 class="MuiStack-root emotion-13"
               >
-                <h3
-                  class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-14"
+                <p
+                  class="MuiTypography-root MuiTypography-bodyMedium emotion-14"
                   data-testid="term-and-conditions-service-0-title"
                 >
                   mock-test-title
-                </h3>
+                </p>
                 <svg
                   data-testid="term-and-conditions-service-0-detail-icon"
                 />
@@ -785,12 +780,12 @@ AI Interpret provides advanced language translation capabilities...
               <div
                 class="MuiStack-root emotion-13"
               >
-                <h3
-                  class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-14"
+                <p
+                  class="MuiTypography-root MuiTypography-bodyMedium emotion-14"
                   data-testid="term-and-conditions-service-1-title"
                 >
                   Health Visualization
-                </h3>
+                </p>
                 <svg
                   data-testid="term-and-conditions-service-1-detail-icon"
                 />
@@ -870,12 +865,12 @@ Health Visualization helps you understand your health data through visual repres
               <div
                 class="MuiStack-root emotion-13"
               >
-                <h3
-                  class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-14"
+                <p
+                  class="MuiTypography-root MuiTypography-bodyMedium emotion-14"
                   data-testid="term-and-conditions-service-2-title"
                 >
                   ASR
-                </h3>
+                </p>
                 <svg
                   data-testid="term-and-conditions-service-2-detail-icon"
                 />
@@ -955,12 +950,12 @@ ASR (Automatic Speech Recognition) converts spoken language into text...
               <div
                 class="MuiStack-root emotion-13"
               >
-                <h3
-                  class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-14"
+                <p
+                  class="MuiTypography-root MuiTypography-bodyMedium emotion-14"
                   data-testid="term-and-conditions-service-3-title"
                 >
                   Symptom Checker
-                </h3>
+                </p>
                 <svg
                   data-testid="term-and-conditions-service-3-detail-icon"
                 />
@@ -1056,12 +1051,12 @@ Symptom Checker helps you understand potential causes for your symptoms...
               class="MuiTouchRipple-root emotion-18"
             />
           </span>
-          <span
-            class="MuiTypography-root MuiTypography-bodyLargeSemiBold emotion-75"
+          <p
+            class="MuiTypography-root MuiTypography-body1 emotion-75"
             data-testid="agreement-checkbox-label"
           >
             ฉันยอมรับเงื่อนไขและข้อตกลงการให้บริการ
-          </span>
+          </p>
         </label>
         <div
           class="MuiStack-root emotion-76"
@@ -1073,11 +1068,7 @@ Symptom Checker helps you understand potential causes for your symptoms...
             tabindex="-1"
             type="submit"
           >
-            <span
-              class="MuiTypography-root MuiTypography-labelExtraLargeSemiBold emotion-78"
-            >
-              ถัดไป
-            </span>
+            ถัดไป
           </button>
         </div>
       </form>

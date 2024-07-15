@@ -4,8 +4,8 @@ import FormAutocomplete from "@/components/Form/FormAutocomplete";
 import FormNumberInput from "@/components/Form/FormNumberInput";
 import FormTextInput from "@/components/Form/FormTextInput";
 import { CONFIG_FIELD_TYPES } from "@/constant/constant";
-import { InputDataConfig } from "@/types/model.ui";
 import useTranslation from "@/locales/useLocale";
+import { InputDataConfig } from "@/types/model.ui";
 
 interface InputDataFieldTypeProps {
   field: InputDataConfig;
@@ -13,7 +13,7 @@ interface InputDataFieldTypeProps {
 
 // TODO: Unit test
 const InputDataFieldWrapper = styled(Grid)({
-  padding: "1rem",
+  padding: "16px",
 });
 
 const TypoUnit = styled(Typography)(({ theme }) => ({
@@ -48,14 +48,14 @@ const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {
     <InputDataFieldWrapper container>
       <Grid item xs={8}>
         <Stack direction="row">
-          <Typography variant="titleMediumSemiBold">{translation(`AiInterpret.th.field.${field.key}`)}</Typography>
+          <Typography variant="bodyBold">{translation(`AiInterpret.th.field.${field.key}`)}</Typography>
           {field.required && (
-            <Typography ml={0.5} variant="titleLargeSemiBold" color="error.light">
+            <Typography ml={0.5} variant="bodyBold" color="error">
               *
             </Typography>
           )}
         </Stack>
-        <Typography variant="titleMedium" color="grey.600">{`(${translation(
+        <Typography variant="bodySmall" color="text.medium">{`(${translation(
           `AiInterpret.en.field.${field.key}`
         )})`}</Typography>
       </Grid>
@@ -86,8 +86,10 @@ const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {
               />
             )}
           </Box>
-          <Stack width="80px" height="56px" justifyContent="center">
-            <TypoUnit variant="bodyLarge">{displayUnit(field)}</TypoUnit>
+          <Stack width="80px" height="48px" justifyContent="center">
+            <TypoUnit variant="bodySmall" color="text.medium">
+              {displayUnit(field)}
+            </TypoUnit>
           </Stack>
         </Stack>
       </Grid>

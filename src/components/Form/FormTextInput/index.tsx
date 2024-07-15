@@ -28,11 +28,7 @@ const FormTextInput = ({ name, placeholder, required }: FormTextInputProps) => {
           },
         }}
       />
-      {error && (
-        <FieldErrorMessage data-testid={`error-field-${name}`} variant="bodyLarge">
-          {error}
-        </FieldErrorMessage>
-      )}
+      {error && <FieldErrorMessage data-testid={`error-field-${name}`}>{error}</FieldErrorMessage>}
     </>
   );
 };

@@ -42,7 +42,7 @@ const InterpretingModals = (props: InterpretingModalsProps) => {
       {interpretStatus === INTERPRET_STATUS.PENDING && (
         <>
           <StatusImageInModal data-testid="interpret-image-pending" alt="" src={ImageLoadingStack} />
-          <StatusMessage variant="bodyLargeSemiBold">{translation("AiInterpret.text.interpreting")}</StatusMessage>
+          <StatusMessage variant="bodyBold">{translation("AiInterpret.text.interpreting")}</StatusMessage>
           <ButtonInModal data-testid="modal-ok-button" onClick={closeModal}>
             {translation("AiInterpret.button.ok")}
           </ButtonInModal>
@@ -51,7 +51,7 @@ const InterpretingModals = (props: InterpretingModalsProps) => {
       {interpretStatus === INTERPRET_STATUS.FAILED && (
         <>
           <IconErrorCircle data-testid="interpret-image-failed" />
-          <StatusMessage variant="bodyLargeSemiBold" textAlign="center">
+          <StatusMessage variant="bodyBold" textAlign="center">
             {translation("AiInterpret.text.failedInterpret")}
           </StatusMessage>
           <ButtonInModal data-testid="modal-retry-button" onClick={closeModal}>

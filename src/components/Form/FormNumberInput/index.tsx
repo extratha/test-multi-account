@@ -33,7 +33,7 @@ const FormNumberInput = ({ name, placeholder, decimalScale, min, max }: FormNumb
         }}
       />
       {error && (
-        <FieldErrorMessage color="error.light" data-testid={`error-field-${name}`} variant="bodyLarge">
+        <FieldErrorMessage color="error.light" data-testid={`error-field-${name}`}>
           {error}
         </FieldErrorMessage>
       )}

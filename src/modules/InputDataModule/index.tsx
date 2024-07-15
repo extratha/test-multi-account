@@ -1,14 +1,13 @@
 "use client";
 
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Button, CircularProgress, Divider, Stack, styled, Typography } from "@mui/material";
+import { Button, CircularProgress, Divider, Paper, Stack, styled, Typography } from "@mui/material";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
 import { getLabInterpretsByTransactionId, submitLabInterprets } from "@/api/api";
 import { IconArrowLeft } from "@/assets";
-import { CUSTOM_COLORS, NEUTRAL } from "@/config/config-mui/theme/colors";
 import { INTERPRET_STATUS } from "@/constant/constant";
 import { remoteConfigKey } from "@/constant/firebase";
 import { webPaths } from "@/constant/webPaths";
@@ -31,46 +30,46 @@ interface DefaultValues {
 }
 
 const CommonButton = styled(Button)(({ theme }) => ({
-  width: "fit-content",
   height: 40,
-  padding: 10,
+  color: theme.palette.text.hight,
   borderRadius: "10px",
-  border: `1px solid ${theme.palette.grey[500]}`,
+  border: `1px solid ${theme.palette.blueGrey[100]}`,
   background: theme.palette.background.paper,
-  color: CUSTOM_COLORS.buttonText,
+  "&:hover": {
+    border: `1px solid ${theme.palette.blueGrey[100]}`,
+  },
 }));
 
-const ContentContainer = styled(Stack)({
-  height: "100%",
+const ContentContainer = styled(Stack)(({ theme }) => ({
+  flex: 1,
   width: "100%",
   padding: "24px",
-});
-
-const ContentContainerWrapper = styled(Stack)(({ theme }) => ({
-  width: "100%",
-  height: "100%",
-  maxWidth: "1080px",
-  padding: "2rem",
-  margin: "auto",
-  backgroundColor: theme.palette.background.paper,
-  borderRadius: "20px",
-  overflowY: "auto",
+  backgroundColor: theme.palette.background.grayLight,
 }));
+
+const ContentContainerWrapper = styled(Paper)({
+  flex: 1,
+  width: "100%",
+  maxWidth: "1080px",
+  padding: "32px",
+  borderRadius: "20px",
+  margin: "0px auto",
+});
 
 const InputDataGroupContainer = styled(Stack)(({ theme }) => ({
   margin: "2rem 0",
   borderRadius: "8px",
-  border: `1px solid ${theme.palette.grey[400]}`,
+  border: `1px solid ${theme.palette.background.borderLight}`,
 }));
 
-const InputDataGroupHeader = styled(Stack)({
-  padding: "1rem",
-  background: NEUTRAL[97],
+const InputDataGroupHeader = styled(Stack)(({ theme }) => ({
+  padding: "24px 24px 12px",
   borderRadius: "8px 8px 0px 0px",
-});
+  backgroundColor: theme.palette.surfaceGray.lowest,
+}));
 
 const InputDataGroupContent = styled(Stack)({
-  padding: "1rem",
+  padding: "16px",
 });
 
 const CircularLoading = styled(CircularProgress)({
@@ -202,12 +201,14 @@ const InputDataModule = () => {
   return (
     <ContentContainer>
       <ContentContainerWrapper>
-        <Stack mb={3}>
-          <CommonButton data-testid="back-button" onClick={handleClickBackButton}>
-            <IconArrowLeft />
-            <Typography ml={1} variant="labelLargeSemiBold">
-              {translation("AiInterpret.button.backToMain")}
-            </Typography>
+        <Stack mb="16px" alignItems="flex-start">
+          <CommonButton
+            variant="outlined"
+            startIcon={<IconArrowLeft />}
+            data-testid="back-button"
+            onClick={handleClickBackButton}
+          >
+            {translation("AiInterpret.button.backToMain")}
           </CommonButton>
         </Stack>
         <Divider />
@@ -229,10 +230,10 @@ const InputDataModule = () => {
                 {inputGroupConfigs.map((group: InputGroupConfig, groupIndex: number) => (
                   <InputDataGroupContainer key={groupIndex}>
                     <InputDataGroupHeader>
-                      <Typography variant="titleLargeSemiBold">
+                      <Typography variant="titleBold">
                         {translation(`AiInterpret.th.groupName.${group.groupName}`)}
                       </Typography>
-                      <Typography variant="bodyLarge" color="grey.600">{`(${translation(
+                      <Typography variant="bodySmall" marginTop="4px">{`(${translation(
                         `AiInterpret.en.groupName.${group.groupName}`
                       )})`}</Typography>
                     </InputDataGroupHeader>
