@@ -9,14 +9,13 @@ import { FormProvider, useForm } from "react-hook-form";
 import { getLabInterpretsByTransactionId, submitLabInterprets } from "@/api/api";
 import { IconArrowLeft } from "@/assets";
 import { INTERPRET_STATUS } from "@/constant/constant";
-import { remoteConfigKey } from "@/constant/firebase";
 import { webPaths } from "@/constant/webPaths";
 import { useGetLabExampleId } from "@/hooks/useApi";
 import useTranslation from "@/locales/useLocale";
 import useModal from "@/store/modal";
 import { InterpretResult } from "@/types/model.api";
-import { InputDataConfig, InputGroupConfig } from "@/types/model.ui";
-import { remoteConfig } from "@/utils/firebase";
+import { InputDataConfig, InputGroupConfigResult } from "@/types/model.ui";
+import { getLabInterpretFieldsConfig } from "@/utils/firebase";
 import { mapInputDataToSubmitInterprets } from "@/utils/mapper";
 import InputDataFieldType from "./InputDataFieldType";
 import InputDataHeader from "./InputDataHeader";
@@ -86,7 +85,7 @@ const InputDataModule = () => {
   const interpretId = searchParams.get("exampleId");
   const { openModal, closeModal } = useModal();
 
-  const [inputGroupConfigs, setInputGroupConfigs] = useState<InputGroupConfig[]>([]);
+  const [inputGroupConfigs, setInputGroupConfigs] = useState<InputGroupConfigResult[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const { data, isLoading: isGetLabExampleIdLoading } = useGetLabExampleId(interpretId || "");
@@ -120,9 +119,8 @@ const InputDataModule = () => {
 
   const fetchConfigData = async () => {
     setIsLoading(true);
-    const remoteConfigData = await remoteConfig.getString(remoteConfigKey.LAB_INTERPRET_REQUIRE_FIELDS);
-
-    setInputGroupConfigs(JSON.parse(remoteConfigData));
+    const remoteConfig = await getLabInterpretFieldsConfig();
+    setInputGroupConfigs(remoteConfig);
     setIsLoading(false);
   };
 
@@ -227,7 +225,7 @@ const InputDataModule = () => {
           ) : (
             <FormProvider {...methods}>
               <form onSubmit={methods.handleSubmit(onSubmit)}>
-                {inputGroupConfigs.map((group: InputGroupConfig, groupIndex: number) => (
+                {inputGroupConfigs.map((group, groupIndex) => (
                   <InputDataGroupContainer key={groupIndex}>
                     <InputDataGroupHeader>
                       <Typography variant="titleBold">

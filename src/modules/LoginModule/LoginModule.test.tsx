@@ -74,9 +74,7 @@ describe("LoginModule", () => {
 
     await userEvent.click(submitButton);
 
-    await waitFor(() => {
-      expect(screen.getByText("Cariva Playground")).toBeInTheDocument();
-    });
+    expect(screen.getByText("CARIVA PLAYGROUND")).toBeInTheDocument();
   });
 
   it("switch field password to type text", async () => {
@@ -114,7 +112,7 @@ describe("LoginModule", () => {
     await userEvent.type(passwordInput, "Test@passw0rd");
     await userEvent.click(submitButton);
 
-    expect(screen.getByText("Cariva Playground")).toBeInTheDocument();
+    expect(screen.getByText("CARIVA PLAYGROUND")).toBeInTheDocument();
   });
 
   it("submits the form with valid inputs with password changed false", async () => {
@@ -132,6 +130,6 @@ describe("LoginModule", () => {
     await userEvent.type(passwordInput, "Test@passw0rd");
     await userEvent.click(submitButton);
 
-    expect(screen.getByText("Cariva Playground")).toBeInTheDocument();
+    expect(screen.getByText("CARIVA PLAYGROUND")).toBeInTheDocument();
   });
 });

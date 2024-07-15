@@ -1,14 +1,25 @@
-import { app } from "@/config/firebase";
-import { RemoteConfig, fetchAndActivate, getRemoteConfig, getValue } from "firebase/remote-config";
+import { fetchAndActivate, getRemoteConfig, getValue } from "firebase/remote-config";
 
-let remoteConfigVar: RemoteConfig;
-if (typeof window !== 'undefined') {
-	remoteConfigVar = getRemoteConfig(app);
-	remoteConfigVar.settings.minimumFetchIntervalMillis = 60000; // 1 Minute
-}
+import firebaseApp from "@/config/firebase";
+import { DashboardMenuConfigResult, InputGroupConfigResult, SymptomCheckerConfigResult } from "@/types/model.ui";
 
-export const remoteConfig = {
-	getString: (key: string) => fetchAndActivate(remoteConfigVar).then(() => getValue(remoteConfigVar, key).asString()),
-	getBoolean: (key: string) => fetchAndActivate(remoteConfigVar).then(() => getValue(remoteConfigVar, key).asBoolean()),
-	getNumber: (key: string) => fetchAndActivate(remoteConfigVar).then(() => getValue(remoteConfigVar, key).asNumber())
-}
+const getConfig = async (key: string) => {
+  const remoteConfig = getRemoteConfig(firebaseApp);
+  await fetchAndActivate(remoteConfig);
+  return getValue(remoteConfig, key);
+};
+
+export const getDashboardMenuConfig = async () => {
+  const config = await getConfig("DashboardMenu");
+  return JSON.parse(config.asString()) as DashboardMenuConfigResult;
+};
+
+export const getLabInterpretFieldsConfig = async () => {
+  const config = await getConfig("LabInterpretRequireFields");
+  return JSON.parse(config.asString()) as InputGroupConfigResult[];
+};
+
+export const getSymptomCheckerConfig = async () => {
+  const config = await getConfig("SymptomChecker");
+  return JSON.parse(config.asString()) as SymptomCheckerConfigResult;
+};

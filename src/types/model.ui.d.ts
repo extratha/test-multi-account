@@ -15,6 +15,10 @@ export interface AppMenuConfig {
   children: MenuItemConfig[];
 }
 
+export interface DashboardMenuConfigResult {
+  menu: AppMenuConfig[];
+}
+
 export interface UserProfile {
   id: string;
   email: string;
@@ -47,7 +51,7 @@ interface InputDataConfig {
   placeholder?: string;
 }
 
-export interface InputGroupConfig {
+export interface InputGroupConfigResult {
   groupName: string;
   data: InputDataConfig[];
 }
@@ -57,6 +61,6 @@ export interface LabGroupConfig {
   value: string[];
 }
 
-export interface SymptomCheckerConfig {
+export interface SymptomCheckerConfigResult {
   url: string;
 }
