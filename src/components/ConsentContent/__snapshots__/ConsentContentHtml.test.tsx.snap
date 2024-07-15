@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Html should render correctly 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-size: 16px;
+  line-height: 28px;
+  white-space: pre-line;
+}
+
+.emotion-0>h3:first-of-type,
+.emotion-0>p:first-of-type {
+  margin-top: 0px;
+}
+
+.emotion-0>h3:last-of-type,
+.emotion-0>p:last-of-type {
+  margin-bottom: 0px;
+}
+
+.emotion-0 ul {
+  padding-left: 16px;
+  list-style-type: disc;
+}
+
+.emotion-0 li {
+  margin: 16px 0px;
+}
+
+.emotion-0>ol,
+.emotion-0>ul {
+  padding-left: 24px;
+}
+
+.emotion-0>ol>li>ol,
+.emotion-0>ul>li>ol,
+.emotion-0>ol>li>ul,
+.emotion-0>ul>li>ul {
+  padding: 0px;
+}
+
+.emotion-0>ol ol,
+.emotion-0>ul ol {
+  list-style-type: none;
+  counter-reset: item;
+  padding-left: 24px;
+}
+
+.emotion-0>ol ol>li,
+.emotion-0>ul ol>li {
+  counter-increment: item;
+}
+
+.emotion-0>ol ol>li:before,
+.emotion-0>ul ol>li:before {
+  content: counters(item, ".") ". ";
+  padding-right: 2px;
+  white-space: nowrap;
+}
+
+.emotion-0 table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.emotion-0 table li {
+  margin: 0px;
+}
+
+.emotion-0 th {
+  height: 48px;
+  text-align: center;
+  color: #ffffff;
+  border: 1px solid #000000;
+  border-right-color: #ffffff;
+  background-color: #002060;
+}
+
+.emotion-0 th:last-child {
+  border-color: #000000;
+}
+
+.emotion-0 td {
+  border: 1px solid #000000;
+  padding: 4px;
+  vertical-align: top;
+}
+
+<div
+    class="emotion-0"
+    data-testid="consent-content"
+  >
+    <p>
+      html
+    </p>
+    
+
+    <table
+      style="width:100%"
+    >
+      
+  
+      <tbody>
+        <tr>
+          
+    
+          <th>
+            Company
+          </th>
+          
+    
+          <th>
+            Contact
+          </th>
+          
+  
+        </tr>
+        
+  
+        <tr>
+          
+    
+          <td>
+            ASR
+          </td>
+          
+    
+          <td>
+            Nova
+          </td>
+          
+  
+        </tr>
+        
+  
+        <tr>
+          
+    
+          <td>
+            SOAP
+          </td>
+          
+    
+          <td>
+            Star
+          </td>
+          
+  
+        </tr>
+        
+
+      </tbody>
+    </table>
+    
+
+    <ul>
+      
+  
+      <li>
+        Coffee
+      </li>
+      
+
+    </ul>
+  </div>
+</DocumentFragment>
+`;
