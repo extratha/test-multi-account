@@ -13,6 +13,7 @@ import { INTERPRET_STATUS } from "@/constant/constant";
 import { remoteConfigKey } from "@/constant/firebase";
 import { webPaths } from "@/constant/webPaths";
 import { useGetLabExampleId } from "@/hooks/useApi";
+import useTranslation from "@/locales/useLocale";
 import useModal from "@/store/modal";
 import { InterpretResult } from "@/types/model.api";
 import { InputDataConfig, InputGroupConfig } from "@/types/model.ui";
@@ -22,7 +23,6 @@ import InputDataFieldType from "./InputDataFieldType";
 import InputDataHeader from "./InputDataHeader";
 import { useInputDataFieldYupSchema } from "./InputDataSchema";
 import InterpretModals from "./InterpretingModals";
-import useTranslation from "@/locales/useLocale";
 
 export type FormInputDataValuesType = Record<string, unknown>;
 
@@ -77,15 +77,15 @@ const CircularLoading = styled(CircularProgress)({
   margin: "auto",
 });
 
-const MAX_INTERVAL = 30000;
+const MAX_INTERVAL = 60000;
 const INTERVAL_DELAY = 5000;
 
 const InputDataModule = () => {
   const router = useRouter();
   const { translation } = useTranslation();
   const searchParams = useSearchParams();
-  const interpretId = searchParams.get("id");
-  const { openModal } = useModal();
+  const interpretId = searchParams.get("exampleId");
+  const { openModal, closeModal } = useModal();
 
   const [inputGroupConfigs, setInputGroupConfigs] = useState<InputGroupConfig[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -163,9 +163,11 @@ const InputDataModule = () => {
       setIsLoading(true);
       const response = await submitLabInterprets(mapInputDataToSubmitInterprets(formValues, inputGroupConfigs));
       setIsLoading(false);
-
       openModal((props) => <InterpretModals {...props} interpretStatus={INTERPRET_STATUS.PENDING} />, false);
-      await fetchInterpretResult(response.data.transactionID, Date.now());
+      const aiResult = await fetchInterpretResult(response.data.transactionID, Date.now());
+
+      router.push(`${webPaths.aiInterpret.aiInterpretResult}?transactionId=${aiResult.id}`);
+      closeModal();
     } catch (error) {
       setIsLoading(false);
       openModal((props) => <InterpretModals {...props} interpretStatus={INTERPRET_STATUS.FAILED} />, false);

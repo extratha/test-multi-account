@@ -11,10 +11,10 @@ import Tag from "@/components/Tag";
 import { CUSTOM_COLORS, NEUTRAL, linearGradient } from "@/config/config-mui/theme/colors";
 import { GENDER, GENERAL_CHECK_UP, GROUP_NAME } from "@/constant/constant";
 import { webPaths } from "@/constant/webPaths";
-import { useGetLabExampleId } from "@/hooks/useApi";
+import { useGetLabExampleId, useGetLabInterpretResultId } from "@/hooks/useApi";
+import useTranslation from "@/locales/useLocale";
 import { InputData, InputDataResult } from "@/types/model.api";
 import AiInterpretLabResult from "./AiInterpretLebResult";
-import useTranslation from "@/locales/useLocale";
 
 const ContentContainer = styled(Stack)({
   height: "100%",
@@ -143,15 +143,18 @@ const GeneralInformationUnit = styled(Typography)({
 
 const AiInterpretResult = () => {
   const searchParams = useSearchParams();
-  const interpretId = searchParams.get("id") || "";
+  const exampleId = searchParams.get("exampleId") || "";
+  const transactionId = searchParams.get("transactionId") || "";
   const { translation } = useTranslation();
   const router = useRouter();
 
-  const { data, isLoading } = useGetLabExampleId(interpretId);
-  const interpretData = data?.data;
+  const labInterpretResult = useGetLabInterpretResultId(transactionId);
+  const labExampleResult = useGetLabExampleId(transactionId ? "" : exampleId);
 
+  const interpretData = labExampleResult.data?.data || labInterpretResult.data?.data;
   const aiResultData = interpretData?.aiResult.data || [];
   const inputDataResultData = interpretData?.inputData || [];
+  const isLoading = labExampleResult.isLoading || labInterpretResult.isLoading;
 
   const gender: Record<string, string> = {
     [GENDER.MALE]: translation("AiInterpret.aiInterpretResult.gender.male"),
@@ -179,7 +182,7 @@ const AiInterpretResult = () => {
   }, [inputDataResultData.length]);
 
   const handleClickEdit = () => {
-    router.push(`${webPaths.aiInterpret.tryInputData}?id=${interpretId}`);
+    router.push(`${webPaths.aiInterpret.tryInputData}?exampleId=${exampleId}`);
   };
 
   const handleClickBack = () => {

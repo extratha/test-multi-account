@@ -21,7 +21,7 @@ describe("InputDataModule", () => {
   let mockApiAdapter: MockAdapter;
   let interpretResult: InterpretResult;
 
-  const mockTransactionID = "transactionID";
+  const mockTransactionID = "labId";
   const userEvent = UserEvent.setup({ delay: null, advanceTimers: advanceTimersByTime });
 
   beforeEach(() => {
@@ -29,7 +29,7 @@ describe("InputDataModule", () => {
     spyRouter = spyUseRouter();
 
     spySearchParams.get.mockImplementation((key: string) => {
-      if (key === "id") return "interpretId";
+      if (key === "exampleId") return mockTransactionID;
     });
 
     jest.useFakeTimers();
@@ -42,9 +42,9 @@ describe("InputDataModule", () => {
     interpretResult.status = INTERPRET_STATUS.SUCCESS;
 
     mockApiAdapter = new MockAdapter(axiosInstance);
-    mockApiAdapter.onGet(API.AI_INTERPRET_URL).reply(200, mockAiInterpretResult);
-    mockApiAdapter.onPost(API.SUBMIT_HEALTH_DATA_URI).reply(200, { transactionID: mockTransactionID });
-    mockApiAdapter.onGet(`${API.SUBMIT_HEALTH_DATA_URI}/${mockTransactionID}`).reply(200, interpretResult);
+    mockApiAdapter.onGet(API.EXAMPLE_AI_INTERPRET_URL).reply(200, mockAiInterpretResult);
+    mockApiAdapter.onPost(API.SUBMIT_LAB_INTERPRETS_URL).reply(200, { transactionID: mockTransactionID });
+    mockApiAdapter.onGet(API.GET_LAB_INTERPRETS_ID_URL).reply(200, interpretResult);
   });
 
   afterEach(() => {
@@ -118,14 +118,14 @@ describe("InputDataModule", () => {
     await flushPromise();
     expect(screen.getByTestId("interpret-image-pending")).toBeInTheDocument();
 
-    await advanceTimersByTime(30000);
+    await advanceTimersByTime(60000);
     expect(Api.getLabInterpretsByTransactionId).toHaveBeenCalledTimes(2);
 
     expect(screen.getByTestId("interpret-image-failed")).toBeInTheDocument();
   });
 
   it("should display fetch interpret failed modal when submit health data network error", async () => {
-    mockApiAdapter.onGet(`${API.SUBMIT_HEALTH_DATA_URI}/${mockTransactionID}`).networkError();
+    mockApiAdapter.onGet(API.GET_LAB_INTERPRETS_ID_URL).networkError();
 
     await renderInputDataModule();
     await userEvent.click(screen.getByTestId("submit-interpret-button"));
@@ -136,5 +136,22 @@ describe("InputDataModule", () => {
 
     await advanceTimersByTime(1000);
     expect(screen.getByTestId("interpret-image-failed")).toBeInTheDocument();
+  });
+
+  it("should redirect to Ai Interpret Result page when submit health data success", async () => {
+    interpretResult.status = INTERPRET_STATUS.SUCCESS;
+
+    await renderInputDataModule();
+
+    await userEvent.click(screen.getByTestId("submit-interpret-button"));
+    await advanceTimersByTime(1000);
+    await flushPromise();
+
+    expect(Api.getLabInterpretsByTransactionId).toHaveBeenCalledWith(mockTransactionID);
+
+    await advanceTimersByTime(5000);
+    await flushPromise();
+
+    expect(spyRouter.push).toHaveBeenCalledWith(`${webPaths.aiInterpret.aiInterpretResult}?transactionId=mock_id`)
   });
 });

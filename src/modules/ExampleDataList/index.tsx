@@ -8,10 +8,10 @@ import { IconAiInterpret, IconPen, IconSparkle } from "@/assets";
 import { NEUTRAL } from "@/config/config-mui/theme/colors";
 import { webPaths } from "@/constant/webPaths";
 import { useGetLabExampleList } from "@/hooks/useApi";
+import useTranslation from "@/locales/useLocale";
 import { ExampleDataResult } from "@/types/model.api";
 import { ContentContainer, ContentContainerWrapper, TypographyPageHeadline } from "../HomePageModule/styled";
 import { ButtonEditDataStyled, ButtonInterpretDataStyled, TagValueStyle } from "./styled";
-import useTranslation from "@/locales/useLocale";
 
 const EmployeeDataList = () => {
   const router = useRouter();
@@ -22,14 +22,14 @@ const EmployeeDataList = () => {
   const exampleData = data?.data || [];
 
   const handleClickAiInterpret = (id: string) => {
-    router.push(`${webPaths.aiInterpret.aiInterpretResult}?id=${id}`);
+    router.push(`${webPaths.aiInterpret.aiInterpretResult}?exampleId=${id}`);
   };
 
   const handleClickEditData = (exampleData: ExampleDataResult) => {
     const { id } = exampleData;
     try {
       if (!id) throw "no data id.";
-      router.push(`${webPaths.aiInterpret.tryInputData}?id=${id}`);
+      router.push(`${webPaths.aiInterpret.tryInputData}?exampleId=${id}`);
     } catch (error) {
       console.log(error);
     }
