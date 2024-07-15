@@ -1,5 +1,5 @@
 "use client";
-import { IconHomePage, IconHomePageActive, IconLogout, IconSetting } from "@/assets";
+import { IconHomePage, IconHomePageActive } from "@/assets";
 import { webPaths } from "./webPaths";
 
 export interface MenuItem {
@@ -91,47 +91,6 @@ export const aiMenuList = (t: TFunction): MenuItem[] => {
       path: webPaths.symptomChecker,
       title: t("Common.menu.symptomChecker.title"),
       children: [],
-    },
-  ];
-};
-
-export const settingMenuList = (t: TFunction): MenuItem[] => {
-  return [
-    {
-      icon: <IconSetting width={iconSize} height={iconSize} />,
-      activeIcon: null,
-      path: webPaths.settingsTermsAndConditions,
-      title: t("Common.menu.settingAndOther.title"),
-      children: [
-        {
-          icon: null,
-          activeIcon: null,
-          path: webPaths.settingsTermsAndConditions,
-          title: t("Common.menu.settingAndOther.termsAndConditions"),
-          children: null,
-        },
-        {
-          icon: null,
-          activeIcon: null,
-          path: webPaths.settingsPrivacyPolicy,
-          title: t("Common.menu.settingAndOther.privacyPolicy"),
-          children: null,
-        },
-      ],
-    },
-    // {
-    //   icon: IconNotification,
-    //   activeIcon: null,
-    //   path: "",
-    //   title: t('menu.notification'),
-    //   children: null
-    // },
-    {
-      icon: <IconLogout style={iconStyles} />,
-      activeIcon: null,
-      path: "",
-      title: t("Common.menu.logout"),
-      children: null,
     },
   ];
 };

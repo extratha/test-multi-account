@@ -6,10 +6,9 @@ import { useEffect, useRef, useState } from "react";
 
 import { IconAiInterpret, IosDeviceFrame } from "@/assets";
 import PageTitle from "@/components/Typography/PageTitle";
-import { remoteConfigKey } from "@/constant/firebase";
 import useTranslation from "@/locales/useLocale";
-import { SymptomCheckerConfig } from "@/types/model.ui";
-import { remoteConfig } from "@/utils/firebase";
+import { SymptomCheckerConfigResult } from "@/types/model.ui";
+import { getSymptomCheckerConfig } from "@/utils/firebase";
 
 const Wrapper = styled(Stack)({
   flex: 1,
@@ -66,7 +65,7 @@ const DeviceImage = styled(Image)({
   pointerEvents: "none",
 });
 
-const initialConfig: SymptomCheckerConfig = {
+const initialConfig: SymptomCheckerConfigResult = {
   url: "",
 };
 
@@ -99,8 +98,8 @@ const SymptomChecker = () => {
 
   const fetchConfigData = async () => {
     setIsLoading(true);
-    const remoteConfigData = await remoteConfig.getString(remoteConfigKey.SYMPTOM_CHECKER);
-    setConfig(JSON.parse(remoteConfigData));
+    const remoteConfig = await getSymptomCheckerConfig();
+    setConfig(remoteConfig);
     setIsLoading(false);
   };
 
