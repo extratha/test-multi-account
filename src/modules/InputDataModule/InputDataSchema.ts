@@ -1,10 +1,10 @@
 import { useMemo } from "react";
 import * as Yup from "yup";
 
-import { InputGroupConfig } from "@/types/model.ui";
 import useTranslation from "@/locales/useLocale";
+import { InputGroupConfigResult } from "@/types/model.ui";
 
-export const useInputDataFieldYupSchema = (config: InputGroupConfig[]) => {
+export const useInputDataFieldYupSchema = (config: InputGroupConfigResult[]) => {
   const { translation } = useTranslation();
 
   const fieldConfig = useMemo(() => {
