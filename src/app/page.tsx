@@ -1,5 +1,4 @@
 "use client";
-
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
@@ -13,8 +12,8 @@ const LocalePage = () => {
   const router = useRouter();
 
   useEffect(() => {
-    router.push(webPaths.login);
-  });
+    router.push(webPaths.home);
+  }, []);
 
   return (
     <Page title={translation("Common.text.loading")}>

@@ -3,9 +3,8 @@ import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 
 import { IconChevronDown, IconChevronUp, IconConsentGroupDetail } from "@/assets";
-import { CUSTOM_COLORS, NEUTRAL } from "@/config/config-mui/theme/colors";
-import { ConsentData } from "@/types/model.api";
 import useTranslation from "@/locales/useLocale";
+import { ConsentData } from "@/types/model.api";
 
 export interface ConsentContentProps {
   name: string;
@@ -15,7 +14,6 @@ export interface ConsentContentProps {
 const Markdown = styled(ReactMarkdown)({
   fontSize: "16px",
   whiteSpace: "normal",
-  color: CUSTOM_COLORS.textHighEmp,
   "& > *:first-of-type": {
     marginTop: "0px",
   },
@@ -24,14 +22,14 @@ const Markdown = styled(ReactMarkdown)({
   },
 });
 
-const ContentSection = styled(Stack)({
+const ContentSection = styled(Stack)(({ theme }) => ({
   padding: "24px",
   borderRadius: "12px",
-  background: NEUTRAL[97],
-});
+  backgroundColor: theme.palette.surfaceGray.lowest,
+}));
 
 const ServiceItem = styled(Stack)(({ theme }) => ({
-  border: `1px solid ${NEUTRAL[80]}`,
+  border: `1px solid ${theme.palette.background.border}`,
   backgroundColor: theme.palette.background.paper,
   "&:first-of-type": {
     borderRadius: "12px 12px 0 0",
@@ -49,7 +47,7 @@ const ServiceHeader = styled(Stack)({
 
 const ServiceContent = styled(Stack)({
   padding: "16px",
-  borderTop: `1px solid ${NEUTRAL[80]}`,
+  // borderTop: `1px solid ${NEUTRAL[80]}`,
 });
 
 const ServiceLogo = styled("img")({
@@ -60,13 +58,13 @@ const ServiceLogo = styled("img")({
 const ArrowUp = styled(IconChevronUp)({
   width: "24px",
   height: "24px",
-  color: CUSTOM_COLORS.lightSteelgray,
+  // color: CUSTOM_COLORS.lightSteelgray,
 });
 
 const ArrowDown = styled(IconChevronDown)({
   width: "24px",
   height: "24px",
-  color: CUSTOM_COLORS.lightSteelgray,
+  // color: CUSTOM_COLORS.lightSteelgray,
 });
 
 const ConsentContent = (props: ConsentContentProps) => {
@@ -90,7 +88,7 @@ const ConsentContent = (props: ConsentContentProps) => {
       </ContentSection>
       {data.services.length > 0 && (
         <ContentSection data-testid={`${name}-service`}>
-          <Typography variant="titleLargeSemiBold" marginBottom="24px" color={CUSTOM_COLORS.textHighEmp}>
+          <Typography variant="titleBold" marginBottom="24px">
             {translation("Common.title.allServices")}
           </Typography>
           {data.services.map((service, index) => (
@@ -100,11 +98,7 @@ const ConsentContent = (props: ConsentContentProps) => {
                   <ServiceLogo src={service.logo} data-testid={`${name}-service-${index}-logo`} alt="" />
                 </Box>
                 <Stack flex="1" spacing="4px" marginLeft="12px">
-                  <Typography
-                    variant="titleLargeSemiBold"
-                    color={CUSTOM_COLORS.textHighEmp}
-                    data-testid={`${name}-service-${index}-title`}
-                  >
+                  <Typography variant="bodyMedium" data-testid={`${name}-service-${index}-title`}>
                     {service.title}
                   </Typography>
                   <IconConsentGroupDetail data-testid={`${name}-service-${index}-detail-icon`} />

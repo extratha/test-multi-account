@@ -4,24 +4,22 @@ exports[`Tag should render correctly 1`] = `
 <DocumentFragment>
   .emotion-0 {
   padding: 4px 8px;
-  background: #ECEFF1;
   border-radius: 4px;
+  background-color: #eceff1;
 }
 
 .emotion-1 {
   margin: 0;
-  font-weight: 500;
-  line-height: 20px;
-  letter-spacing: 0.1px;
-  font-size: 14px;
-  font-family: NotoSansThai-SemiBold,sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
 }
 
 <div
     class="MuiBox-root emotion-0"
   >
     <span
-      class="MuiTypography-root MuiTypography-labelLargeSemiBold emotion-1"
+      class="MuiTypography-root MuiTypography-labelExtraSmallBold emotion-1"
       data-testid="tag-tag"
     >
       string

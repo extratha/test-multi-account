@@ -1,10 +1,9 @@
-import { typography } from "@/config/config-mui/theme/typography";
 import { Typography, styled } from "@mui/material";
 
-const PageTitle = styled(Typography)(() => [
-  typography.displayMediumSemiBold,
+const PageTitle = styled(Typography)(({ theme }) => [
+  { ...theme.typography.headerExtraLargeBold },
   {
-    background: "linear-gradient(90deg, #023781 0%, #028DF5 50%, #01EAFF 100%)",
+    background: theme.palette.background.gradient,
     backgroundClip: "text",
     textFillColor: "transparent",
     lineHeight: "1.5",

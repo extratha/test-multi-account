@@ -8,7 +8,6 @@ import ReactMarkdown from "react-markdown";
 
 import { IconArrowLeft, IconCopy, IconPen, IconSparkle } from "@/assets";
 import Tag from "@/components/Tag";
-import { CUSTOM_COLORS, NEUTRAL, linearGradient } from "@/config/config-mui/theme/colors";
 import { GENDER, GENERAL_CHECK_UP, GROUP_NAME } from "@/constant/constant";
 import { webPaths } from "@/constant/webPaths";
 import { useGetLabExampleId, useGetLabInterpretResultId } from "@/hooks/useApi";
@@ -16,29 +15,29 @@ import useTranslation from "@/locales/useLocale";
 import { InputData, InputDataResult } from "@/types/model.api";
 import AiInterpretLabResult from "./AiInterpretLebResult";
 
-const ContentContainer = styled(Stack)({
-  height: "100%",
+const ContentContainer = styled(Stack)(({ theme }) => ({
+  flex: 1,
   width: "100%",
   padding: "24px",
-});
+  backgroundColor: theme.palette.background.grayLight,
+}));
 
 const ContentContainerWrapper = styled(Stack)(({ theme }) => ({
+  flex: 1,
+  width: "100%",
   maxWidth: "1080px",
-  margin: "auto",
+  margin: "0px auto",
   padding: "24px 30px",
   borderRadius: "16px",
-  overflowY: "auto",
   backgroundColor: theme.palette.background.paper,
   "& .MuiButton-root": {
-    width: "fit-content;",
-    height: "40px",
     padding: "10px 16px",
     alignItems: "center",
     borderRadius: "8px",
-    border: "1px solid #CFD8DC",
+    border: `1px solid ${theme.palette.background.border}`,
     fontSize: "12px",
     fontWeight: 700,
-    color: CUSTOM_COLORS.textHighEmp,
+    color: theme.palette.text.hight,
   },
   "& > .MuiButton-startIcon": {
     marginRight: "8px",
@@ -50,11 +49,9 @@ const DividerLine = styled(Divider)({
 });
 
 const InformationBackground = styled(Stack)(({ theme }) => ({
-  justifyContent: "center",
-  alignItems: "center",
   padding: "2px",
   borderRadius: "24px",
-  background: theme.palette.gradients?.main,
+  background: theme.palette.background.gradient,
 }));
 
 const InformationBox = styled(Stack)(({ theme }) => ({
@@ -66,38 +63,36 @@ const InformationBox = styled(Stack)(({ theme }) => ({
 
 const Example = styled(Typography)(({ theme }) => ({
   fontWeight: 600,
-  color: theme.palette.primary.lighter,
+  color: theme.palette.primary.main,
 }));
 
 const ModelVersion = styled(Stack)(({ theme }) => ({
-  color: theme.palette.primary.lighter,
+  color: theme.palette.primary.main,
 }));
 
 const Version = styled(Typography)({
   fontWeight: 600,
 });
 
-const Name = styled(Typography)({
+const Name = styled(Typography)(({ theme }) => ({
   fontWeight: 700,
-  color: CUSTOM_COLORS.textHighEmp,
-});
+  color: theme.palette.text.hight,
+}));
 
 const InterpretTile = styled(Stack)(({ theme }) => ({
   padding: "8px 16px",
   alignItems: "center",
-  alignSelf: "center",
+  margin: "-18px auto 0px",
   borderRadius: "32px",
-  background: theme.palette.gradients?.main,
+  background: theme.palette.background.gradient,
 }));
 
-const DividerDashed = styled("div")({
+const DividerDashed = styled("div")(({ theme }) => ({
   padding: "1px 0px",
-  margin: "0px 0px -18px 0px",
-  backgroundImage: linearGradient.dashed,
-  backgroundPosition: "top",
-  backgroundSize: "10px 1px",
+  backgroundImage: `linear-gradient(to right, ${theme.palette.background.border} 50%, #FFFFFF 50%)`,
+  backgroundSize: "12px 1px",
   backgroundRepeat: "repeat-x",
-});
+}));
 
 const Title = styled(Typography)(({ theme }) => ({
   fontWeight: 700,
@@ -106,26 +101,26 @@ const Title = styled(Typography)(({ theme }) => ({
 
 const TitleResult = styled(Typography)(({ theme }) => ({
   fontWeight: 600,
-  color: theme.palette.primary.lighter,
+  color: theme.palette.primary.main,
 }));
 
-const Markdown = styled(ReactMarkdown)({
+const Markdown = styled(ReactMarkdown)(({ theme }) => ({
   fontSize: "16px",
   whiteSpace: "normal",
-  color: CUSTOM_COLORS.textHighEmp,
-});
+  color: theme.palette.text.hight,
+}));
 
-const General = styled(Stack)({
-  color: CUSTOM_COLORS.textHighEmp,
-  border: `1px solid ${NEUTRAL[99]}`,
+const General = styled(Stack)(({ theme }) => ({
+  color: theme.palette.text.hight,
+  border: `1px solid ${theme.palette.background.borderLight}`,
   borderRadius: "8px",
   overflow: "hidden",
-});
+}));
 
-const GeneralHeader = styled(Stack)({
+const GeneralHeader = styled(Stack)(({ theme }) => ({
   padding: "24px 24px 12px 24px",
-  backgroundColor: NEUTRAL[97],
-});
+  backgroundColor: theme.palette.surfaceGray.lowest,
+}));
 
 const GeneralTitle = styled(Typography)({
   fontSize: "18px",
@@ -136,10 +131,10 @@ const GeneralInformation = styled(Stack)({
   padding: "12px 24px 24px",
 });
 
-const GeneralInformationUnit = styled(Typography)({
+const GeneralInformationUnit = styled(Typography)(({ theme }) => ({
   width: "60px",
-  color: CUSTOM_COLORS.lightSteelgray,
-});
+  color: theme.palette.text.medium,
+}));
 
 const AiInterpretResult = () => {
   const searchParams = useSearchParams();
@@ -233,19 +228,19 @@ const AiInterpretResult = () => {
               <InformationBox>
                 <Stack padding="24px" spacing="8px">
                   <Stack direction="row" justifyContent="space-between">
-                    <Example variant="labelMedium" data-testid="ai-interpret-example-rank">
+                    <Example variant="labelExtraSmallBold" data-testid="ai-interpret-example-rank">
                       {translation("AiInterpret.aiInterpretResult.example", { num: interpretData?.ranking })}
                     </Example>
                     <ModelVersion direction="row" spacing="4px">
-                      <Typography variant="bodySmall">
+                      <Typography variant="labelExtraSmall">
                         {translation("AiInterpret.aiInterpretResult.modalVersion")}
                       </Typography>
-                      <Version variant="labelMedium" data-testid="ai-interpret-version">
+                      <Version variant="labelExtraSmallBold" data-testid="ai-interpret-version">
                         {interpretData?.aiModelVersion}
                       </Version>
                     </ModelVersion>
                   </Stack>
-                  <Name variant="titleLargeSemiBold" data-testid="ai-interpret-example-name">
+                  <Name variant="titleLargeBold" data-testid="ai-interpret-example-name">
                     {interpretData?.caseName}
                   </Name>
                   <Stack direction="row" spacing="8px">
@@ -262,7 +257,7 @@ const AiInterpretResult = () => {
                       <DividerDashed />
                       <InterpretTile direction="row" spacing="6px">
                         <IconSparkle />
-                        <Title variant="labelMedium" data-testid="ai-interpret-title">
+                        <Title variant="labelExtraSmallBold" data-testid="ai-interpret-title">
                           {translation("AiInterpret.aiInterpretResult.title")}
                         </Title>
                       </InterpretTile>
@@ -270,19 +265,19 @@ const AiInterpretResult = () => {
                     <Stack padding="24px" spacing="24px" divider={<Divider flexItem />}>
                       {aiResultData.map((option, index) => (
                         <Stack key={`ai-interpret-result-${index}`} spacing="16px">
-                          <TitleResult variant="labelExtraLargeSemiBold" data-testid={`ai-interpret-title-${index}`}>
-                            {index + 1}. {option.title}
+                          <TitleResult data-testid={`ai-interpret-title-${index}`}>
+                            {`${index + 1}. ${option.title}`}
                           </TitleResult>
                           <Markdown data-testid={`ai-interpret-description-${index}`}>{option.description}</Markdown>
-                          <Button
-                            startIcon={<IconCopy />}
-                            onClick={() => {
-                              handleClickCopy(option.description);
-                            }}
-                            data-testid={`ai-interpret-button-copy-${index}`}
-                          >
-                            {translation("AiInterpret.aiInterpretResult.button.copy")}
-                          </Button>
+                          <Stack direction="row">
+                            <Button
+                              startIcon={<IconCopy />}
+                              onClick={() => handleClickCopy(option.description)}
+                              data-testid={`ai-interpret-button-copy-${index}`}
+                            >
+                              {translation("AiInterpret.aiInterpretResult.button.copy")}
+                            </Button>
+                          </Stack>
                         </Stack>
                       ))}
                     </Stack>
@@ -293,29 +288,24 @@ const AiInterpretResult = () => {
             {inputDataResultData.length > 0 && (
               <General>
                 <GeneralHeader>
-                  <GeneralTitle variant="titleMediumBold">
+                  <GeneralTitle variant="titleBold">
                     {translation("AiInterpret.aiInterpretResult.general.title")}
                   </GeneralTitle>
                 </GeneralHeader>
                 {generalData[0].data.map((item, index) => (
                   <GeneralInformation key={`general-${index}`} direction="row" justifyContent="space-between">
-                    <Typography
-                      variant="titleMediumBold"
-                      fontWeight={700}
-                      data-testid={`ai-interpret-general-information-title-${item.key}`}
-                    >
+                    <Typography variant="bodyBold" data-testid={`ai-interpret-general-information-title-${item.key}`}>
                       {translation(`AiInterpret.aiInterpretResult.general.information.${item.key}.title`)}
                     </Typography>
-
                     <Stack direction="row" spacing="36px">
                       <Typography
-                        variant="bodyMedium"
+                        variant="bodySmall"
                         data-testid={`ai-interpret-general-information-${item.key}-value`}
                       >
                         {getInformationValue(item)}
                       </Typography>
                       <GeneralInformationUnit
-                        variant="bodyMedium"
+                        variant="bodySmall"
                         data-testid={`ai-interpret-general-information-${item.key}-unit`}
                       >
                         {getInformationUnit(item)}

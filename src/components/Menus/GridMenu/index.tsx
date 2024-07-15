@@ -1,15 +1,14 @@
 "use client";
 
+import { Grid, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
 
 import { IconAiInterpret } from "@/assets";
 import { MenuItem } from "@/constant/menu";
-import { Grid, Typography, useTheme } from "@mui/material";
-import { CustomMenuItemWrapperStyle } from "./styled";
 import useTranslation from "@/locales/useLocale";
+import { CustomMenuItemWrapperStyle } from "./styled";
 
 const GridMenu: React.FC<{ menus: MenuItem[] }> = ({ menus }) => {
-  const theme = useTheme();
   const { translation } = useTranslation();
   const router = useRouter();
   const iconHeight = 48;
@@ -34,12 +33,12 @@ const GridMenu: React.FC<{ menus: MenuItem[] }> = ({ menus }) => {
           }}
           key={index}
         >
-          <CustomMenuItemWrapperStyle spacing={2} onClick={() => handleClickMenuGridItemMenu(menu)}>
-            <IconAiInterpret style={{ width: iconHeight, height: iconHeight, margin: "0 0 8px 0" }} />
-            <Typography variant="titleLargeSemiBold" textAlign="center">
+          <CustomMenuItemWrapperStyle spacing="4px" onClick={() => handleClickMenuGridItemMenu(menu)}>
+            <IconAiInterpret style={{ width: iconHeight, height: iconHeight, margin: "0 0 16px 0" }} />
+            <Typography variant="bodyBold" textAlign="center">
               {menu.title}
             </Typography>
-            <Typography variant="bodyLarge" color={theme.palette.grey[600]}>
+            <Typography variant="bodySmall" color="blueGrey.500">
               {translation("Common.text.interpret")}
             </Typography>
           </CustomMenuItemWrapperStyle>

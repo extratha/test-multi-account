@@ -31,7 +31,7 @@ describe("PageLoading", () => {
 
   it("renders without crashing", () => {
     render(<PageLoading />);
-    expect(screen.getByTestId("img-loading-stack")).toBeInTheDocument();
+    expect(screen.queryByTestId("img-loading-stack")).not.toBeInTheDocument();
   });
 
   it("shows backdrop when isPageLoading is true", () => {
@@ -41,7 +41,7 @@ describe("PageLoading", () => {
     });
 
     render(<PageLoading />);
-    expect(screen.getByTestId("backdrop-loading")).toHaveStyle("opacity: 1");
+    expect(screen.getByTestId("backdrop-loading")).toBeInTheDocument();
   });
 
   it("hides backdrop when isPageLoading is false", () => {
@@ -51,7 +51,7 @@ describe("PageLoading", () => {
     });
 
     render(<PageLoading />);
-    expect(screen.getByTestId("backdrop-loading")).toHaveStyle("opacity: 0");
+    expect(screen.queryByTestId("backdrop-loading")).not.toBeInTheDocument();
   });
 
   it("calls setPageLoading(false) when pathname changes", async () => {

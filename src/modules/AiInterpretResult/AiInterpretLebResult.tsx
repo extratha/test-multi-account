@@ -3,12 +3,11 @@ import { styled } from "@mui/material/styles";
 import { useMemo, useState } from "react";
 
 import { IconChevronDown, IconChevronUp, IconLabStatusBlack } from "@/assets";
-import { CUSTOM_COLORS, NEUTRAL } from "@/config/config-mui/theme/colors";
 import { HEMATOLOGY_BLOOD, HEMATOLOGY_BLOOD_GROUP, HEMATOLOGY_CBC, HEMATOLOGY_CBC_GROUP } from "@/constant/constant";
+import useTranslation from "@/locales/useLocale";
 import { InputData, InputDataResult } from "@/types/model.api";
 import { LabGroupConfig } from "@/types/model.ui";
 import AiInterpretLabUnit from "./AiInterpretLabUnit";
-import useTranslation from "@/locales/useLocale";
 
 export interface AiInterpretLabResultProps {
   name: string;
@@ -51,34 +50,33 @@ const LAB_SUB_GROUPS: Record<string, LabGroupConfig[]> = {
   ],
 };
 
-const Lab = styled(Stack)({
-  color: CUSTOM_COLORS.textHighEmp,
-  border: `1px solid ${NEUTRAL[99]}`,
+const Lab = styled(Stack)(({ theme }) => ({
+  border: `1px solid ${theme.palette.background.borderLight}`,
   borderRadius: "8px",
   overflow: "hidden",
   "& .MuiButton-root": {
     fontSize: "12px",
     fontWeight: 600,
-    color: "#ffffff",
-    backgroundColor: CUSTOM_COLORS.textHighEmp,
+    color: theme.palette.common.white,
+    backgroundColor: theme.palette.text.hight,
+    "&:hover": {
+      backgroundColor: theme.palette.text.hight,
+    },
   },
   "& .MuiButton-endIcon": {
     paddingLeft: "8px",
   },
-  "& .MuiButton-root:hover": {
-    backgroundColor: CUSTOM_COLORS.textHighEmp,
-  },
-});
+}));
 
 const IconLabStatus = styled(IconLabStatusBlack)({
   position: "absolute",
 });
 
-const LabHeader = styled(Stack)({
+const LabHeader = styled(Stack)(({ theme }) => ({
   padding: "24px 12px 12px 40px",
   justifyContent: "space-between",
-  backgroundColor: NEUTRAL[97],
-});
+  backgroundColor: theme.palette.surfaceGray.lowest,
+}));
 
 const LabTitle = styled(Typography)({
   fontSize: "18px",
@@ -131,7 +129,7 @@ const AiInterpretLabResult = (props: AiInterpretLabResultProps) => {
       <IconLabStatus />
       <LabHeader direction="row">
         <Stack direction="row">
-          <LabTitle variant="titleMediumBold" data-testid={`${name}-title-${group.groupName}`}>
+          <LabTitle variant="titleBold" data-testid={`${name}-title-${group.groupName}`}>
             {translation(`AiInterpret.aiInterpretResult.lab.group.${group.groupName}.title`)}
           </LabTitle>
         </Stack>
@@ -161,7 +159,7 @@ const AiInterpretLabResult = (props: AiInterpretLabResultProps) => {
                   spacing="16px"
                   data-testid={`${name}-title-sub-${group.groupName}-${itemSubGroup.group}`}
                 >
-                  <Typography variant="titleMediumBold" fontWeight={700} fontSize="18px">
+                  <Typography variant="titleBold">
                     {translation(`AiInterpret.aiInterpretResult.lab.group.${group.groupName}.${itemSubGroup.group}`)}
                   </Typography>
                   {itemSubGroup.groupName.map((key, index) => (

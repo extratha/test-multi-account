@@ -2,7 +2,7 @@ import { Stack, Typography, styled } from "@mui/material";
 
 export const ContentContainerWrapper = styled(Stack)(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
-  padding: "1rem",
+  padding: "24px",
   borderRadius: "20px",
   height: "100%",
   overflowY: "auto",
@@ -15,9 +15,9 @@ export const ContentContainer = styled(Stack)({
   padding: "1rem",
 });
 
-export const TypographyPageHeadline = styled(Typography)(() => ({
+export const TypographyPageHeadline = styled(Typography)(({ theme }) => ({
   width: "fit-content",
-  background: "linear-gradient(90deg, #023781 0%, #028DF5 50%, #01EAFF 100%)",
+  background: theme.palette.background.gradient,
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent",
   backgroundClip: "text",

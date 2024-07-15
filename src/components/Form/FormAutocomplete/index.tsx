@@ -1,10 +1,9 @@
 import { useController, useFormContext } from "react-hook-form";
 
-import { CUSTOM_COLORS } from "@/config/config-mui/theme/colors";
+import useTranslation from "@/locales/useLocale";
 import { KeyboardArrowDown } from "@mui/icons-material";
 import { ListItem, Autocomplete as MuiAutocomplete, styled, TextField, Typography } from "@mui/material";
 import { FieldErrorMessage } from "../FieldErrorMessage";
-import useTranslation from "@/locales/useLocale";
 
 export interface Option {
   label: string;
@@ -67,7 +66,7 @@ const FormAutocomplete = ({ name, options, required = false, placeholder }: Form
         )}
         renderOption={(props, option) => (
           <OptionItem {...props} key={(option as Option).value}>
-            <Typography variant="bodyLarge" color={CUSTOM_COLORS.lightSteelgray}>
+            <Typography variant="bodySmallMedium" color="blueGrey.500">
               {(option as Option).label}
             </Typography>
           </OptionItem>
@@ -77,11 +76,7 @@ const FormAutocomplete = ({ name, options, required = false, placeholder }: Form
         }}
         popupIcon={<KeyboardArrowDown data-testid="drop-icon" />}
       />
-      {error && (
-        <FieldErrorMessage data-testid={`error-field-${name}`} variant="bodyLarge">
-          {error}
-        </FieldErrorMessage>
-      )}
+      {error && <FieldErrorMessage data-testid={`error-field-${name}`}>{error}</FieldErrorMessage>}
     </>
   );
 };

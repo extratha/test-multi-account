@@ -1,8 +1,7 @@
 import { Stack, Typography } from "@mui/material";
 
-
-import { InputData } from "@/types/model.api";
 import useTranslation from "@/locales/useLocale";
+import { InputData } from "@/types/model.api";
 
 export interface AiInterpretLabUnitProps {
   name: string;
@@ -22,25 +21,15 @@ const AiInterpretLabUnit = (props: AiInterpretLabUnitProps) => {
   return (
     <Stack direction="row" justifyContent="space-between">
       <Stack width="100%" spacing="8px">
-        <Typography
-          variant="titleMedium"
-          fontSize="16px"
-          fontWeight={700}
-          data-testid={`${name}-${groupName}-${inputData.key}-label`}
-        >
+        <Typography variant="bodyBold" data-testid={`${name}-${groupName}-${inputData.key}-label`}>
           {translation(`AiInterpret.aiInterpretResult.lab.group.${groupName}.${inputData.key}.label`)}
         </Typography>
       </Stack>
       <Stack width="25%">
-        <Typography
-          variant="titleMedium"
-          fontWeight={700}
-          textAlign="end"
-          data-testid={`${name}-${groupName}-${inputData.key}-value`}
-        >
+        <Typography variant="bodyBold" textAlign="end" data-testid={`${name}-${groupName}-${inputData.key}-value`}>
           {getValue()}
         </Typography>
-        <Typography variant="bodyMedium" textAlign="end" data-testid={`${name}-${groupName}-${inputData.key}-unit`}>
+        <Typography variant="bodySmall" textAlign="end" data-testid={`${name}-${groupName}-${inputData.key}-unit`}>
           {inputData.unit && `(${inputData.range[0].value} ${inputData.unit})`}
         </Typography>
       </Stack>

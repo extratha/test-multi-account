@@ -23,9 +23,9 @@ export { ReactComponent as IconSparkleDisabled } from "./icons/icon-sparkle-disa
 export { ReactComponent as IconSparkle } from "./icons/icon-sparkle.svg";
 
 export { ReactComponent as ImageCarivaLogo } from "./images/cariva-logo.svg";
-export { ReactComponent as ImagePlaygroundLogoColor } from "./images/playground-logo-color.svg";
-export { ReactComponent as ImagePlaygroundLogoOverlay } from "./images/playground-logo-overlay.svg";
-export { ReactComponent as ImagePlaygroundLogo } from "./images/playground-logo.svg";
+export { ReactComponent as PlaygroundLogoColor } from "./images/playground-logo-color.svg";
+export { ReactComponent as PlaygroundLogoOverlay } from "./images/playground-logo-overlay.svg";
+export { ReactComponent as PlaygroundLogo } from "./images/playground-logo.svg";
 
 export { default as ImageCoverBg } from "./images/image-cover-bg.jpg";
 export { default as ImageLoadingStack } from "./images/loading-stack.gif";

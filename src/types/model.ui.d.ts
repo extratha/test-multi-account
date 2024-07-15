@@ -1,6 +1,20 @@
 export interface LocaleResource {
   [string]: any;
 }
+
+interface MenuItemConfig {
+  title: string;
+  key: string;
+  path?: string;
+  iconName?: string;
+  submenu?: MenuItemConfig[];
+}
+
+export interface AppMenuConfig {
+  title: string;
+  children: MenuItemConfig[];
+}
+
 export interface UserProfile {
   id: string;
   email: string;

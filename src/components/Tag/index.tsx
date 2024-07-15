@@ -1,22 +1,20 @@
-import { styled, Typography, Box } from "@mui/material";
-
-import { NEUTRAL } from "@/config/config-mui/theme/colors";
+import { Box, styled, Typography } from "@mui/material";
 
 export interface TagProps {
   name: string;
   text: string;
 }
 
-export const TagValue = styled(Box)(() => ({
+export const TagValue = styled(Box)(({ theme }) => ({
   padding: "4px 8px",
-  background: NEUTRAL[99],
   borderRadius: "4px",
+  backgroundColor: theme.palette.blueGrey[50],
 }));
 
 const Tag = (props: TagProps) => {
   return (
     <TagValue>
-      <Typography variant="labelLargeSemiBold" data-testid={`${props.name}-tag`}>
+      <Typography variant="labelExtraSmallBold" data-testid={`${props.name}-tag`}>
         {props.text}
       </Typography>
     </TagValue>

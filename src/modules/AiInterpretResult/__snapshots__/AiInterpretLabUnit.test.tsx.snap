@@ -36,13 +36,9 @@ exports[`AiInterpretLabUnit should render correctly 1`] = `
 
 .emotion-2 {
   margin: 0;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.15px;
-  font-size: 16px;
-  font-family: NotoSansThai-Medium,sans-serif;
   font-size: 16px;
   font-weight: 700;
+  line-height: 1.5;
 }
 
 .emotion-3 {
@@ -58,22 +54,16 @@ exports[`AiInterpretLabUnit should render correctly 1`] = `
 
 .emotion-4 {
   margin: 0;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.15px;
   font-size: 16px;
-  font-family: NotoSansThai-Medium,sans-serif;
   font-weight: 700;
+  line-height: 1.5;
   text-align: end;
 }
 
 .emotion-5 {
   margin: 0;
-  font-weight: 400;
-  line-height: 20px;
-  letter-spacing: 0.25px;
   font-size: 14px;
-  font-family: NotoSansThai-Regular,sans-serif;
+  line-height: 1.5;
   text-align: end;
 }
 
@@ -83,28 +73,28 @@ exports[`AiInterpretLabUnit should render correctly 1`] = `
     <div
       class="MuiStack-root emotion-1"
     >
-      <h3
-        class="MuiTypography-root MuiTypography-titleMedium emotion-2"
+      <p
+        class="MuiTypography-root MuiTypography-bodyBold emotion-2"
         data-testid="lab-unit-lipidProfile-cholesterol_value-label"
       >
         Cholesterol
-      </h3>
+      </p>
     </div>
     <div
       class="MuiStack-root emotion-3"
     >
-      <h3
-        class="MuiTypography-root MuiTypography-titleMedium emotion-4"
+      <p
+        class="MuiTypography-root MuiTypography-bodyBold emotion-4"
         data-testid="lab-unit-lipidProfile-cholesterol_value-value"
       >
         200 (mg/dL)
-      </h3>
-      <span
-        class="MuiTypography-root MuiTypography-bodyMedium emotion-5"
+      </p>
+      <p
+        class="MuiTypography-root MuiTypography-bodySmall emotion-5"
         data-testid="lab-unit-lipidProfile-cholesterol_value-unit"
       >
         (- mg/dL)
-      </span>
+      </p>
     </div>
   </div>
 </DocumentFragment>

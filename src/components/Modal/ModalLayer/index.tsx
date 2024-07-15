@@ -35,17 +35,21 @@ const ModalLayer = () => {
   const ModalContent = modal.content;
 
   return (
-    <StyledModal disableEnforceFocus open={modal.isVisible}>
-      <Container maxWidth="sm" disableGutters>
-        {modal.isInPaper ? (
-          <StyledPaper elevation={3}>
-            <ModalContent closeModal={closeModal} />
-          </StyledPaper>
-        ) : (
-          <ModalContent closeModal={closeModal} />
-        )}
-      </Container>
-    </StyledModal>
+    <>
+      {modal.isVisible && (
+        <StyledModal disableEnforceFocus open>
+          <Container maxWidth="sm" disableGutters>
+            {modal.isInPaper ? (
+              <StyledPaper elevation={3}>
+                <ModalContent closeModal={closeModal} />
+              </StyledPaper>
+            ) : (
+              <ModalContent closeModal={closeModal} />
+            )}
+          </Container>
+        </StyledModal>
+      )}
+    </>
   );
 };
 

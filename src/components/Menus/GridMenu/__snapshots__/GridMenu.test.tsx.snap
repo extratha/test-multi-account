@@ -68,7 +68,7 @@ exports[`GridMenu Component should render correctly 1`] = `
   }
 }
 
-@media (min-width:905px) {
+@media (min-width:900px) {
   .emotion-1 {
     -webkit-flex-basis: 33.333333%;
     -ms-flex-preferred-size: 33.333333%;
@@ -81,7 +81,7 @@ exports[`GridMenu Component should render correctly 1`] = `
   }
 }
 
-@media (min-width:1240px) {
+@media (min-width:1200px) {
   .emotion-1 {
     -webkit-flex-basis: 33.333333%;
     -ms-flex-preferred-size: 33.333333%;
@@ -94,7 +94,7 @@ exports[`GridMenu Component should render correctly 1`] = `
   }
 }
 
-@media (min-width:1440px) {
+@media (min-width:1536px) {
   .emotion-1 {
     -webkit-flex-basis: 33.333333%;
     -ms-flex-preferred-size: 33.333333%;
@@ -136,27 +136,22 @@ exports[`GridMenu Component should render correctly 1`] = `
 }
 
 .emotion-2>:not(style)~:not(style) {
-  margin-top: 16px;
+  margin-top: 4px;
 }
 
 .emotion-3 {
   margin: 0;
-  font-weight: 500;
-  line-height: 28px;
-  letter-spacing: 0;
-  font-size: 20px;
-  font-family: NotoSansThai-SemiBold,sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
   text-align: center;
 }
 
 .emotion-4 {
   margin: 0;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.5px;
-  font-size: 16px;
-  font-family: NotoSansThai-Regular,sans-serif;
-  color: #757575;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #607d8b;
 }
 
 <div
@@ -170,18 +165,18 @@ exports[`GridMenu Component should render correctly 1`] = `
         class="MuiStack-root emotion-2"
       >
         <svg
-          style="width: 48px; height: 48px; margin: 0px 0px 8px 0px;"
+          style="width: 48px; height: 48px; margin: 0px 0px 16px 0px;"
         />
-        <h3
-          class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-3"
+        <p
+          class="MuiTypography-root MuiTypography-bodyBold emotion-3"
         >
           Common.menu.home
-        </h3>
-        <span
-          class="MuiTypography-root MuiTypography-bodyLarge emotion-4"
+        </p>
+        <p
+          class="MuiTypography-root MuiTypography-bodySmall emotion-4"
         >
           แปลและสรุปผลสุขภาพ
-        </span>
+        </p>
       </div>
     </div>
     <div
@@ -192,18 +187,18 @@ exports[`GridMenu Component should render correctly 1`] = `
         class="MuiStack-root emotion-2"
       >
         <svg
-          style="width: 48px; height: 48px; margin: 0px 0px 8px 0px;"
+          style="width: 48px; height: 48px; margin: 0px 0px 16px 0px;"
         />
-        <h3
-          class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-3"
+        <p
+          class="MuiTypography-root MuiTypography-bodyBold emotion-3"
         >
           Common.menu.aiInterpret.title
-        </h3>
-        <span
-          class="MuiTypography-root MuiTypography-bodyLarge emotion-4"
+        </p>
+        <p
+          class="MuiTypography-root MuiTypography-bodySmall emotion-4"
         >
           แปลและสรุปผลสุขภาพ
-        </span>
+        </p>
       </div>
     </div>
     <div
@@ -214,18 +209,18 @@ exports[`GridMenu Component should render correctly 1`] = `
         class="MuiStack-root emotion-2"
       >
         <svg
-          style="width: 48px; height: 48px; margin: 0px 0px 8px 0px;"
+          style="width: 48px; height: 48px; margin: 0px 0px 16px 0px;"
         />
-        <h3
-          class="MuiTypography-root MuiTypography-titleLargeSemiBold emotion-3"
+        <p
+          class="MuiTypography-root MuiTypography-bodyBold emotion-3"
         >
           Common.menu.symptomChecker.title
-        </h3>
-        <span
-          class="MuiTypography-root MuiTypography-bodyLarge emotion-4"
+        </p>
+        <p
+          class="MuiTypography-root MuiTypography-bodySmall emotion-4"
         >
           แปลและสรุปผลสุขภาพ
-        </span>
+        </p>
       </div>
     </div>
   </div>

@@ -23,7 +23,7 @@ exports[`FormCheckbox should render correctly 1`] = `
 }
 
 .emotion-0 .MuiFormControlLabel-label.Mui-disabled {
-  color: rgba(0, 0, 0, 0.38);
+  color: #B0BEC5;
 }
 
 .emotion-1 {
@@ -62,7 +62,6 @@ exports[`FormCheckbox should render correctly 1`] = `
   padding: 9px;
   border-radius: 50%;
   color: rgba(0, 0, 0, 0.6);
-  color: #78909C;
 }
 
 .emotion-1::-moz-focus-inner {
@@ -82,7 +81,7 @@ exports[`FormCheckbox should render correctly 1`] = `
 }
 
 .emotion-1:hover {
-  background-color: rgba(25, 118, 210, 0.04);
+  background-color: rgba(33, 150, 243, 0.04);
 }
 
 @media (hover: none) {
@@ -93,7 +92,7 @@ exports[`FormCheckbox should render correctly 1`] = `
 
 .emotion-1.Mui-checked,
 .emotion-1.MuiCheckbox-indeterminate {
-  color: #1976d2;
+  color: #2196F3;
 }
 
 .emotion-1.Mui-disabled {
@@ -144,12 +143,10 @@ exports[`FormCheckbox should render correctly 1`] = `
 
 .emotion-5 {
   margin: 0;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.5px;
-  font-size: 16px;
-  font-family: NotoSansThai-SemiBold,sans-serif;
-  color: #78909C;
+  font-family: fontFamily;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 <form
@@ -186,12 +183,12 @@ exports[`FormCheckbox should render correctly 1`] = `
           class="MuiTouchRipple-root emotion-4"
         />
       </span>
-      <span
-        class="MuiTypography-root MuiTypography-bodyLargeSemiBold emotion-5"
+      <p
+        class="MuiTypography-root MuiTypography-body1 emotion-5"
         data-testid="test-checkbox-label"
       >
         test label
-      </span>
+      </p>
     </label>
     <button
       data-testid="submit-button"
