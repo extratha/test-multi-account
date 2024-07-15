@@ -1,4 +1,4 @@
-import { getLabExampleId, getLabExampleList } from "@/api/api";
+import { getLabExampleId, getLabExampleList, getLabInterpretsByTransactionId } from "@/api/api";
 import useSWR, { SWRConfiguration } from "swr";
 
 const useRequest = <T>(key: string | null, callback: (name: string, data: any) => Promise<T>) => {
@@ -7,7 +7,6 @@ const useRequest = <T>(key: string | null, callback: (name: string, data: any) =
     dedupingInterval: 5000,
     errorRetryCount: 0,
   };
-
   return useSWR(key, callback, config);
 };
 
@@ -16,6 +15,11 @@ export const useGetLabExampleList = () => {
 };
 
 export const useGetLabExampleId = (id: string) => {
-  const key = `${getLabExampleId.name}/${id}`;
+  const key = id ? `${getLabExampleId.name}/${id}` : null;
   return useRequest(key, () => getLabExampleId(id));
+};
+
+export const useGetLabInterpretResultId = (id: string) => {
+  const key = id ? `${getLabInterpretsByTransactionId.name}/${id}` : null;
+  return useRequest(key, () => getLabInterpretsByTransactionId(id));
 };

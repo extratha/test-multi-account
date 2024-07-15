@@ -8,7 +8,7 @@ describe("AiInterpretResultPage", () => {
   beforeEach(() => {
     spySearchParams = spyUseSearchParams();
     spySearchParams.get.mockImplementation((key: string) => {
-      if (key === "id") return "id";
+      if (key === "exampleId") return "labId";
     });
   });
 

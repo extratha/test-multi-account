@@ -3,12 +3,22 @@ import userEvent from "@testing-library/user-event";
 import MockAdapter from "axios-mock-adapter";
 
 import { mockAiInterpretResult } from "@/__mocks__/data";
-import { SpyUseRouter, spyUseRouter, SpyUseSearchParams, spyUseSearchParams } from "@/testUtils/navigation";
+import * as Api from "@/api/api";
+import { webPaths } from "@/constant/webPaths";
+import {
+  spyUsePathname,
+  SpyUseRouter,
+  spyUseRouter,
+  SpyUseSearchParams,
+  spyUseSearchParams,
+} from "@/testUtils/navigation";
 import { API, flushPromise, render } from "@/testUtils/testUtils";
 import axiosInstance from "@/utils/axios";
 import AiInterpretResult from ".";
 
 describe("AiInterpretResult", () => {
+  const mockInterpretId = "labId";
+
   let spySearchParams: SpyUseSearchParams;
   let mockApiAdapter: MockAdapter;
   let spyRouter: SpyUseRouter;
@@ -17,12 +27,16 @@ describe("AiInterpretResult", () => {
     spySearchParams = spyUseSearchParams();
     spyRouter = spyUseRouter();
 
+    jest.spyOn(Api, "getLabExampleId");
+    jest.spyOn(Api, "getLabInterpretsByTransactionId");
+
     spySearchParams.get.mockImplementation((key: string) => {
-      if (key === "id") return "interpretId";
+      if (key === "exampleId") return mockInterpretId;
     });
 
     mockApiAdapter = new MockAdapter(axiosInstance);
-    mockApiAdapter.onGet(API.AI_INTERPRET_URL).reply(200, mockAiInterpretResult);
+    mockApiAdapter.onGet(API.EXAMPLE_AI_INTERPRET_URL).reply(200, mockAiInterpretResult);
+    mockApiAdapter.onGet(API.GET_LAB_INTERPRETS_ID_URL).reply(200, mockAiInterpretResult);
 
     Object.assign(navigator, {
       clipboard: {
@@ -55,8 +69,36 @@ describe("AiInterpretResult", () => {
     expect(screen.getByTestId("ai-interpret-general-information-temperature-unit")).toHaveTextContent("°C");
   });
 
-  it("should display lab information", async () => {
+  it("should display lab information by exampleId when exampleId param is set", async () => {
+    spyUsePathname(`${webPaths.aiInterpret.aiInterpretResult}?exampleId=${mockInterpretId}`);
+
     await renderAiInterpretResult();
+
+    expect(Api.getLabExampleId).toHaveBeenCalledWith(mockInterpretId);
+    expect(Api.getLabInterpretsByTransactionId).not.toHaveBeenCalled();
+
+    expect(screen.getByTestId("ai-interpret-lab-title-hematologyCBC")).toHaveTextContent("โลหิตวิทยา");
+    expect(screen.getByTestId("ai-interpret-lab-hematologyCBC-hb_value-label")).toHaveTextContent("Hb");
+    expect(screen.getByTestId("ai-interpret-lab-hematologyCBC-hb_value-value")).toHaveTextContent("13.80 (g/dL)");
+    expect(screen.getByTestId("ai-interpret-lab-hematologyCBC-hb_value-unit")).toHaveTextContent("(- g/dL)");
+
+    expect(screen.getByTestId("ai-interpret-lab-title-bloodChemistry")).toHaveTextContent("สารเคมีในเลือด");
+    expect(screen.getByTestId("ai-interpret-lab-bloodChemistry-uric_acid_value-label")).toHaveTextContent(
+      "Uric Acid Test"
+    );
+  });
+
+  it("should display lab information by transactionId when transactionId param is set", async () => {
+    spyUsePathname(`${webPaths.aiInterpret.aiInterpretResult}?transactionId=${mockInterpretId}`);
+
+    spySearchParams.get.mockImplementation((key: string) => {
+      if (key === "transactionId") return mockInterpretId;
+    });
+
+    await renderAiInterpretResult();
+
+    expect(Api.getLabInterpretsByTransactionId).toHaveBeenCalledWith(mockInterpretId);
+    expect(Api.getLabExampleId).not.toHaveBeenCalled();
 
     expect(screen.getByTestId("ai-interpret-lab-title-hematologyCBC")).toHaveTextContent("โลหิตวิทยา");
     expect(screen.getByTestId("ai-interpret-lab-hematologyCBC-hb_value-label")).toHaveTextContent("Hb");
