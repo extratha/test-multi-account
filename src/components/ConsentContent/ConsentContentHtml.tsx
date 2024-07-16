@@ -8,7 +8,6 @@ export interface ConsentContentHtmlProps {
 const Html = styled("div")({
   fontSize: "16px",
   lineHeight: "28px",
-  whiteSpace: "pre-line",
   "& > h3, & > p": {
     "&:first-of-type": {
       marginTop: "0px",
@@ -19,28 +18,31 @@ const Html = styled("div")({
   },
   "& ul": {
     paddingLeft: "24px",
-    listStyle: "none",
+    listStyleType: "disc",
   },
   "& li": {
     margin: "16px 0px",
-    listStyleType: "disc",
   },
-  "& > ol, & > ul": {
-    paddingLeft: "24px",
-    "& > li > ol, & > li > ul": {
-      padding: "0px",
+  "& ol": {
+    listStyleType: "none",
+    counterReset: "item",
+    padding: "0px",
+    "& > li": {
+      display: "table-row",
+      counterIncrement: "item",
+      borderCollapse: "separate",
+      borderSpacing: "0px 6px",
+      "&:before": {
+        display: "table-cell",
+        content: `counters(item, ".") ". "`,
+        paddingRight: "4px",
+        whiteSpace: "nowrap",
+      },
     },
-    "& ol": {
-      listStyleType: "none",
-      counterReset: "item",
+    "& > ol, & > ul": {
       paddingLeft: "24px",
-      "& > li": {
-        counterIncrement: "item",
-        "&:before": {
-          content: `counters(item, ".") ". "`,
-          paddingRight: "2px",
-          whiteSpace: "nowrap",
-        },
+      "& > li > ol, & > li > ul": {
+        padding: "0px",
       },
     },
   },
@@ -48,6 +50,7 @@ const Html = styled("div")({
     width: "100%",
     borderCollapse: "collapse",
     tableLayout: "fixed",
+    margin: "16px 0px",
     "& li": {
       margin: "0px",
     },
