@@ -245,7 +245,7 @@
       "lab": {
         "seeResults": "ดูผล",
         "group": {
-          "hematologyBG": {
+          "hematologyBloodGroup": {
             "title": "หมู่เลือด",
             "bloodGroup": "หมู่เลือด",
             "blood_group": {
