@@ -12,6 +12,7 @@ const Modal = styled(MuiModal)({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+  backdropFilter: "blur(8px)",
 });
 
 const ImageSection = styled(Stack)({
