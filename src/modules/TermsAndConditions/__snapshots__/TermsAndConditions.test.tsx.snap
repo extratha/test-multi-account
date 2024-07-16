@@ -136,7 +136,6 @@ exports[`TermsAndConditions should render correctly 1`] = `
 .emotion-6 {
   font-size: 16px;
   line-height: 28px;
-  white-space: pre-line;
 }
 
 .emotion-6>h3:first-of-type,
@@ -151,49 +150,50 @@ exports[`TermsAndConditions should render correctly 1`] = `
 
 .emotion-6 ul {
   padding-left: 24px;
-  list-style: none;
+  list-style-type: disc;
 }
 
 .emotion-6 li {
   margin: 16px 0px;
-  list-style-type: disc;
 }
 
-.emotion-6>ol,
-.emotion-6>ul {
-  padding-left: 24px;
-}
-
-.emotion-6>ol>li>ol,
-.emotion-6>ul>li>ol,
-.emotion-6>ol>li>ul,
-.emotion-6>ul>li>ul {
+.emotion-6 ol {
+  list-style-type: none;
+  counter-reset: item;
   padding: 0px;
 }
 
-.emotion-6>ol ol,
-.emotion-6>ul ol {
-  list-style-type: none;
-  counter-reset: item;
+.emotion-6 ol>li {
+  display: table-row;
+  counter-increment: item;
+  border-collapse: separate;
+  border-spacing: 0px 6px;
+}
+
+.emotion-6 ol>li:before {
+  display: table-cell;
+  content: counters(item, ".") ". ";
+  padding-right: 4px;
+  white-space: nowrap;
+}
+
+.emotion-6 ol>ol,
+.emotion-6 ol>ul {
   padding-left: 24px;
 }
 
-.emotion-6>ol ol>li,
-.emotion-6>ul ol>li {
-  counter-increment: item;
-}
-
-.emotion-6>ol ol>li:before,
-.emotion-6>ul ol>li:before {
-  content: counters(item, ".") ". ";
-  padding-right: 2px;
-  white-space: nowrap;
+.emotion-6 ol>ol>li>ol,
+.emotion-6 ol>ul>li>ol,
+.emotion-6 ol>ol>li>ul,
+.emotion-6 ol>ul>li>ul {
+  padding: 0px;
 }
 
 .emotion-6 table {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
+  margin: 16px 0px;
 }
 
 .emotion-6 table li {
