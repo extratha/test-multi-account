@@ -85,7 +85,6 @@ const InputDataModule = () => {
   const interpretId = searchParams.get("exampleId");
 
   const [inputGroupConfigs, setInputGroupConfigs] = useState<InputGroupConfigResult[]>([]);
-  // const [isLoading, setIsLoading] = useState(true);
 
   const { data, isLoading: isGetLabExampleIdLoading } = useGetLabExampleId(interpretId || "");
   const inputData = data?.data?.inputData || [];
@@ -100,7 +99,7 @@ const InputDataModule = () => {
     mode: "onChange",
   });
 
-  const { handleSubmit, formState, setValue, trigger } = methods;
+  const { formState, setValue, trigger } = methods;
   const isDisableInterpretButton = isGetLabExampleIdLoading || !formState.isValid;
 
   const defaultInputData: DefaultValues = useMemo(() => {
@@ -173,15 +172,13 @@ const InputDataModule = () => {
 
   const onSubmit = async (formValues: FormInputDataValuesType) => {
     try {
-      setPageLoading(true);
-      const response = await submitLabInterprets(mapInputDataToSubmitInterprets(formValues, inputGroupConfigs));
       openModal((props) => <InterpretModals {...props} interpretStatus={INTERPRET_STATUS.PENDING} />, false);
+      const response = await submitLabInterprets(mapInputDataToSubmitInterprets(formValues, inputGroupConfigs));
       const aiResult = await fetchInterpretResult(response.data.transactionID, Date.now());
 
       router.replace(`${webPaths.aiInterpret.aiInterpretResult}?transactionId=${aiResult.id}`);
       closeModal();
     } catch (error) {
-      setPageLoading(false);
       openModal((props) => <InterpretModals {...props} interpretStatus={INTERPRET_STATUS.FAILED} />, false);
     }
   };
@@ -198,7 +195,7 @@ const InputDataModule = () => {
     if (inputData.length > 0 && defaultInputData) {
       trigger();
     }
-  }, [isLoading]);
+  }, [inputData.length]);
 
   return (
     <>
@@ -219,7 +216,7 @@ const InputDataModule = () => {
             <InputDataHeader
               isDisableSubmit={isDisableInterpretButton}
               modelVersion={modelVersion}
-              onSubmit={() => handleSubmit(onSubmit)()}
+              onSubmit={methods.handleSubmit(onSubmit)}
               onClickUseExampleData={handleClickUseExampleData}
             />
             <FormProvider {...methods}>
