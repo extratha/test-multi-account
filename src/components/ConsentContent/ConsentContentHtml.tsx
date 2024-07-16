@@ -18,11 +18,12 @@ const Html = styled("div")({
     },
   },
   "& ul": {
-    paddingLeft: "16px",
-    listStyleType: "disc",
+    paddingLeft: "24px",
+    listStyle: "none",
   },
   "& li": {
     margin: "16px 0px",
+    listStyleType: "disc",
   },
   "& > ol, & > ul": {
     paddingLeft: "24px",
@@ -64,7 +65,7 @@ const Html = styled("div")({
   },
   "& td": {
     border: "1px solid #000000",
-    padding: "4px",
+    padding: "8px",
     verticalAlign: "top",
   },
 });
