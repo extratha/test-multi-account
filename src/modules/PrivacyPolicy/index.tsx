@@ -1,13 +1,14 @@
 "use client";
 
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Button, Container, Divider, Paper, Stack, Typography, alpha, styled } from "@mui/material";
+import { Button, Container, Divider, Paper, Stack, Typography, styled } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
 import { getPrivacyPolicy, submitConsent } from "@/api/api";
 import ConsentContent from "@/components/ConsentContent";
+import ConsentHeader from "@/components/ConsentHeader";
 import FormCheckbox from "@/components/Form/FormCheckbox";
 import { CONSENT_TYPE } from "@/constant/constant";
 import { webPaths } from "@/constant/webPaths";
@@ -19,19 +20,6 @@ import usePrivacyPolicySchema from "./PrivacyPolicySchema";
 interface PrivacyPolicyFormValues {
   agreement: boolean;
 }
-
-const HeaderBar = styled(Paper)(({ theme }) => ({
-  position: "fixed",
-  top: 0,
-  left: 0,
-  width: "100%",
-  display: "inline-flex",
-  justifyContent: "center",
-  padding: "12px 24px",
-  borderRadius: "0px",
-  boxShadow: `0px 4px 6px -1px ${alpha(theme.palette.common.black, 0.1)}`,
-  overflow: "hidden",
-}));
 
 const Wrapper = styled(Container)({
   maxWidth: "1024px",
@@ -132,11 +120,7 @@ const PrivacyPolicyModule = () => {
     <>
       {consent && (
         <>
-          <HeaderBar>
-            <Typography variant="bodyBold" textAlign="center">
-              {translation("Common.title.privacyPolicy")}
-            </Typography>
-          </HeaderBar>
+          <ConsentHeader title={translation("Common.title.privacyPolicy")} />
           <Wrapper>
             <Content data-testid="terms-and-conditions-consent">
               <Typography variant="titleLargeBold">{translation("Common.pages.termsAndConditions")}</Typography>
