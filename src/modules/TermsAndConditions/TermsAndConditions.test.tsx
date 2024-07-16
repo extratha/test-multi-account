@@ -46,7 +46,7 @@ describe("TermsAndConditions", () => {
     await userEvent.click(screen.getByTestId("submit-button"));
 
     expect(Api.submitConsent).toHaveBeenCalledTimes(1);
-    expect(spyRouter.push).toHaveBeenCalledWith(webPaths.privacyPolicy);
+    expect(spyRouter.replace).toHaveBeenCalledWith(webPaths.privacyPolicy);
   });
 
   it("should not display consent when fetch consent error", () => {

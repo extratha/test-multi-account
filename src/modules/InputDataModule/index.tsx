@@ -1,7 +1,7 @@
 "use client";
 
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Button, CircularProgress, Divider, Paper, Stack, styled, Typography } from "@mui/material";
+import { Button, Divider, Paper, Stack, styled, Typography } from "@mui/material";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
@@ -12,6 +12,7 @@ import { INTERPRET_STATUS } from "@/constant/constant";
 import { webPaths } from "@/constant/webPaths";
 import { useGetLabExampleId } from "@/hooks/useApi";
 import useTranslation from "@/locales/useLocale";
+import { usePageLoadingStore } from "@/store";
 import useModal from "@/store/modal";
 import { InterpretResult } from "@/types/model.api";
 import { InputDataConfig, InputGroupConfigResult } from "@/types/model.ui";
@@ -71,26 +72,26 @@ const InputDataGroupContent = styled(Stack)({
   padding: "16px",
 });
 
-const CircularLoading = styled(CircularProgress)({
-  margin: "auto",
-});
-
 const MAX_INTERVAL = 60000;
 const INTERVAL_DELAY = 5000;
 
 const InputDataModule = () => {
   const router = useRouter();
-  const { translation } = useTranslation();
   const searchParams = useSearchParams();
-  const interpretId = searchParams.get("exampleId");
+  const { translation } = useTranslation();
   const { openModal, closeModal } = useModal();
+  const { isPageLoading, setPageLoading } = usePageLoadingStore();
+
+  const interpretId = searchParams.get("exampleId");
 
   const [inputGroupConfigs, setInputGroupConfigs] = useState<InputGroupConfigResult[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
   const { data, isLoading: isGetLabExampleIdLoading } = useGetLabExampleId(interpretId || "");
   const inputData = data?.data?.inputData || [];
   const modelVersion = data?.data?.aiModelVersion || "";
+
+  const isLoading = isGetLabExampleIdLoading || isPageLoading;
 
   const validateSchema = useInputDataFieldYupSchema(inputGroupConfigs);
   const methods = useForm<FormInputDataValuesType>({
@@ -100,7 +101,7 @@ const InputDataModule = () => {
   });
 
   const { handleSubmit, formState, setValue, trigger } = methods;
-  const isDisableInterpretButton = isGetLabExampleIdLoading || isLoading || !formState.isValid;
+  const isDisableInterpretButton = isGetLabExampleIdLoading || !formState.isValid;
 
   const defaultInputData: DefaultValues = useMemo(() => {
     const result: DefaultValues = {};
@@ -118,18 +119,33 @@ const InputDataModule = () => {
   }, [inputData.length]);
 
   const fetchConfigData = async () => {
-    setIsLoading(true);
+    setPageLoading(true);
     const remoteConfig = await getLabInterpretFieldsConfig();
     setInputGroupConfigs(remoteConfig);
-    setIsLoading(false);
+    setPageLoading(false);
   };
 
   const handleClickBackButton = () => {
-    router.push(webPaths.aiInterpret.tryExampleData);
+    router.replace(webPaths.aiInterpret.tryExampleData);
   };
 
   const handleClickUseExampleData = () => {
-    router.push(webPaths.aiInterpret.tryExampleData);
+    router.replace(webPaths.aiInterpret.tryExampleData);
+  };
+
+  const handleSetDefaultValue = () => {
+    const fieldNames = Object.keys(defaultInputData);
+
+    const setFieldValues = () => {
+      if (defaultInputData && fieldNames.length > 0) {
+        fieldNames.map((fieldName) => {
+          setValue(fieldName, defaultInputData[fieldName], { shouldValidate: true });
+          trigger(fieldName);
+        });
+      }
+    };
+
+    setFieldValues();
   };
 
   const waitTimer = (millisecond: number) => {
@@ -157,16 +173,15 @@ const InputDataModule = () => {
 
   const onSubmit = async (formValues: FormInputDataValuesType) => {
     try {
-      setIsLoading(true);
+      setPageLoading(true);
       const response = await submitLabInterprets(mapInputDataToSubmitInterprets(formValues, inputGroupConfigs));
-      setIsLoading(false);
       openModal((props) => <InterpretModals {...props} interpretStatus={INTERPRET_STATUS.PENDING} />, false);
       const aiResult = await fetchInterpretResult(response.data.transactionID, Date.now());
 
-      router.push(`${webPaths.aiInterpret.aiInterpretResult}?transactionId=${aiResult.id}`);
+      router.replace(`${webPaths.aiInterpret.aiInterpretResult}?transactionId=${aiResult.id}`);
       closeModal();
     } catch (error) {
-      setIsLoading(false);
+      setPageLoading(false);
       openModal((props) => <InterpretModals {...props} interpretStatus={INTERPRET_STATUS.FAILED} />, false);
     }
   };
@@ -176,18 +191,7 @@ const InputDataModule = () => {
   }, []);
 
   useEffect(() => {
-    const fieldNames = Object.keys(defaultInputData);
-
-    const setFieldValues = () => {
-      if (defaultInputData && fieldNames.length > 0) {
-        fieldNames.map((fieldName) => {
-          setValue(fieldName, defaultInputData[fieldName], { shouldValidate: true });
-          trigger(fieldName);
-        });
-      }
-    };
-
-    setFieldValues();
+    handleSetDefaultValue();
   }, [defaultInputData]);
 
   useEffect(() => {
@@ -197,32 +201,27 @@ const InputDataModule = () => {
   }, [isLoading]);
 
   return (
-    <ContentContainer>
-      <ContentContainerWrapper>
-        <Stack mb="16px" alignItems="flex-start">
-          <CommonButton
-            variant="outlined"
-            startIcon={<IconArrowLeft />}
-            data-testid="back-button"
-            onClick={handleClickBackButton}
-          >
-            {translation("AiInterpret.button.backToMain")}
-          </CommonButton>
-        </Stack>
-        <Divider />
-        <InputDataHeader
-          isDisableSubmit={isDisableInterpretButton}
-          modelVersion={modelVersion}
-          onSubmit={() => handleSubmit(onSubmit)()}
-          onClickUseExampleData={handleClickUseExampleData}
-        />
-
-        <Stack>
-          {isLoading ? (
-            <Stack width="100%">
-              <CircularLoading />
+    <>
+      {!isLoading && (
+        <ContentContainer>
+          <ContentContainerWrapper>
+            <Stack mb="16px" alignItems="flex-start">
+              <CommonButton
+                variant="outlined"
+                startIcon={<IconArrowLeft />}
+                data-testid="back-button"
+                onClick={handleClickBackButton}
+              >
+                {translation("AiInterpret.button.backToMain")}
+              </CommonButton>
             </Stack>
-          ) : (
+            <Divider />
+            <InputDataHeader
+              isDisableSubmit={isDisableInterpretButton}
+              modelVersion={modelVersion}
+              onSubmit={() => handleSubmit(onSubmit)()}
+              onClickUseExampleData={handleClickUseExampleData}
+            />
             <FormProvider {...methods}>
               <form onSubmit={methods.handleSubmit(onSubmit)}>
                 {inputGroupConfigs.map((group, groupIndex) => (
@@ -244,10 +243,10 @@ const InputDataModule = () => {
                 ))}
               </form>
             </FormProvider>
-          )}
-        </Stack>
-      </ContentContainerWrapper>
-    </ContentContainer>
+          </ContentContainerWrapper>
+        </ContentContainer>
+      )}
+    </>
   );
 };
 

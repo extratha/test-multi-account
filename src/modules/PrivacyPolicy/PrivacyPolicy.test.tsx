@@ -46,7 +46,7 @@ describe("PrivacyPolicyModule", () => {
     await userEvent.click(screen.getByTestId("submit-button"));
 
     expect(Api.submitConsent).toHaveBeenCalledTimes(1);
-    expect(spyRouter.push).toHaveBeenCalledWith(webPaths.home);
+    expect(spyRouter.replace).toHaveBeenCalledWith(webPaths.home);
   });
 
   it("should redirect to Home page when consent is submitted", async () => {

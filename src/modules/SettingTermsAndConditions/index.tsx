@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { getTermsAndConditionsLatest } from "@/api/api";
 import ConsentContent from "@/components/ConsentContent";
 import useTranslation from "@/locales/useLocale";
+import { usePageLoadingStore } from "@/store";
 import { ConsentResultLatest } from "@/types/model.api";
 
 const Wrapper = styled(Container)({
@@ -39,13 +40,16 @@ const TitleDivider = styled(Divider)({
 
 const SettingTermsAndConditions = () => {
   const { translation } = useTranslation();
+  const { setPageLoading } = usePageLoadingStore();
 
   const [consent, setConsent] = useState<ConsentResultLatest>();
 
   const fetchTermsAndConditions = async () => {
     try {
+      setPageLoading(true);
       const { data } = await getTermsAndConditionsLatest();
       setConsent(data);
+      setPageLoading(false);
     } catch (error) {
       //TODO : handle error
     }

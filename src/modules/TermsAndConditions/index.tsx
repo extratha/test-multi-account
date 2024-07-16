@@ -119,7 +119,7 @@ const TermsAndConsModules = () => {
     try {
       setPageLoading(true);
       await submitConsent(CONSENT_TYPE.TERMS_AND_CONDITIONS, consent?.version || "");
-      router.push(webPaths.privacyPolicy);
+      router.replace(webPaths.privacyPolicy);
     } catch (error) {
       setPageLoading(false);
     }

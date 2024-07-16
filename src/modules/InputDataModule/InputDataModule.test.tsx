@@ -69,7 +69,7 @@ describe("InputDataModule", () => {
     await userEvent.click(screen.getByTestId("back-button"));
     await advanceTimersByTime(1000);
 
-    expect(spyRouter.push).toHaveBeenCalledWith(webPaths.aiInterpret.tryExampleData);
+    expect(spyRouter.replace).toHaveBeenCalledWith(webPaths.aiInterpret.tryExampleData);
   });
 
   it("should call router push when click on use example data button", async () => {
@@ -78,7 +78,7 @@ describe("InputDataModule", () => {
     await userEvent.click(screen.getByTestId("use-example-data-button"));
     await advanceTimersByTime(1000);
 
-    expect(spyRouter.push).toHaveBeenCalledWith(webPaths.aiInterpret.tryExampleData);
+    expect(spyRouter.replace).toHaveBeenCalledWith(webPaths.aiInterpret.tryExampleData);
   });
 
   it("should disabled submit interpret button when form values is invalid", async () => {
@@ -152,6 +152,6 @@ describe("InputDataModule", () => {
     await advanceTimersByTime(5000);
     await flushPromise();
 
-    expect(spyRouter.push).toHaveBeenCalledWith(`${webPaths.aiInterpret.aiInterpretResult}?transactionId=mock_id`)
+    expect(spyRouter.replace).toHaveBeenCalledWith(`${webPaths.aiInterpret.aiInterpretResult}?transactionId=mock_id`);
   });
 });

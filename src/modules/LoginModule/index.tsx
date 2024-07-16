@@ -92,9 +92,9 @@ const LoginForm = () => {
           setUserProfile({ ...user, ...userProfile });
 
           if (!user.passwordChanged) {
-            router.push(webPaths.setNewPassword);
+            router.replace(webPaths.setNewPassword);
           } else {
-            router.push(webPaths.termsAndConditions);
+            router.replace(webPaths.termsAndConditions);
           }
         }
       }
@@ -103,6 +103,7 @@ const LoginForm = () => {
       setPageLoading(false);
     }
   };
+
   return (
     <Stack flex="1" alignItems="center">
       <Container>

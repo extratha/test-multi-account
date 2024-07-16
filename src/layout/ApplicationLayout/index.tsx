@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import PageLoading from "@/components/Loading/PageLoading";
+import FullScreenLoading from "@/components/Loading/FullScreenLoading";
 import ModalLayer from "@/components/Modal/ModalLayer";
 import ToastSnackBar from "@/components/Toast";
 
@@ -12,7 +12,7 @@ const ApplicationLayout = ({ children }: ApplicationLayoutProps) => {
   return (
     <>
       <ToastSnackBar />
-      <PageLoading />
+      <FullScreenLoading />
       <ModalLayer />
       {children}
     </>
