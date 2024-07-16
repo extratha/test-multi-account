@@ -26,8 +26,8 @@ describe("FullScreenLoading", () => {
   };
 
   it("should render correctly", () => {
-    const { asFragment } = renderFullScreenLoading();
-    expect(asFragment()).toMatchSnapshot();
+    const { baseElement } = renderFullScreenLoading();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("should not show fullscreen loading when isPageLoading is false", () => {
