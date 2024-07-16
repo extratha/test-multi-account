@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { getPrivacyPolicyLatest } from "@/api/api";
 import ConsentContent from "@/components/ConsentContent";
 import useTranslation from "@/locales/useLocale";
+import { usePageLoadingStore } from "@/store";
 import { ConsentResultLatest } from "@/types/model.api";
 
 const Wrapper = styled(Container)({
@@ -39,14 +40,18 @@ const TitleDivider = styled(Divider)({
 
 const SettingPrivacyPolicy = () => {
   const { translation } = useTranslation();
+  const { setPageLoading } = usePageLoadingStore();
 
   const [consent, setConsent] = useState<ConsentResultLatest>();
 
   const fetchPrivacyPolicy = async () => {
     try {
+      setPageLoading(true);
       const { data } = await getPrivacyPolicyLatest();
       setConsent(data);
+      setPageLoading(false);
     } catch (error) {
+      setPageLoading(false);
       //TODO : handle error
     }
   };

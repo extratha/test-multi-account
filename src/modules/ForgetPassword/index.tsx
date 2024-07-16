@@ -29,6 +29,7 @@ const ForgetPassword = () => {
   const [isDisableSubmit, setIsDisabledSubmit] = useState<boolean>(true);
   const { handleSubmit, control, getValues, setError } = useForm<ForgetPasswordForm>();
   const [showSuccess, setShowSuccess] = useState<boolean>(false);
+
   const onSubmit: SubmitHandler<ForgetPasswordForm> = async (data) => {
     setPageLoading(true);
     try {
@@ -38,6 +39,8 @@ const ForgetPassword = () => {
       if (response?.status === 204) {
         setShowSuccess(true);
       }
+
+      setPageLoading(false);
     } catch (error: any) {
       if (error.status === 404) {
         setShowSuccess(true);
@@ -48,10 +51,11 @@ const ForgetPassword = () => {
       } else {
         setErrorMessage(error.error);
       }
-    } finally {
+
       setPageLoading(false);
     }
   };
+
   return (
     <Stack
       sx={{

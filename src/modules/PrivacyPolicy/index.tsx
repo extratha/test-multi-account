@@ -118,7 +118,7 @@ const PrivacyPolicyModule = () => {
     try {
       setPageLoading(true);
       await submitConsent(CONSENT_TYPE.PRIVACY_AND_POLICY, consent?.version || "");
-      router.push(webPaths.home);
+      router.replace(webPaths.home);
     } catch (error) {
       setPageLoading(false);
     }

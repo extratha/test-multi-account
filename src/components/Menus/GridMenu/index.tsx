@@ -15,7 +15,7 @@ const GridMenu: React.FC<{ menus: MenuItem[] }> = ({ menus }) => {
 
   const handleClickMenuGridItemMenu = (menu: MenuItem) => {
     if (menu.path) {
-      router.push(menu.path);
+      router.replace(menu.path);
     }
   };
 

@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { IconAiInterpret, IosDeviceFrame } from "@/assets";
 import PageTitle from "@/components/Typography/PageTitle";
 import useTranslation from "@/locales/useLocale";
+import { usePageLoadingStore } from "@/store";
 import { SymptomCheckerConfigResult } from "@/types/model.ui";
 import { getSymptomCheckerConfig } from "@/utils/firebase";
 
@@ -71,8 +72,9 @@ const initialConfig: SymptomCheckerConfigResult = {
 
 const SymptomChecker = () => {
   const { translation } = useTranslation();
+  const { isPageLoading, setPageLoading } = usePageLoadingStore();
 
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
   const [config, setConfig] = useState(initialConfig);
 
   const refContent = useRef<HTMLDivElement>(null);
@@ -97,10 +99,10 @@ const SymptomChecker = () => {
   };
 
   const fetchConfigData = async () => {
-    setIsLoading(true);
+    setPageLoading(true);
     const remoteConfig = await getSymptomCheckerConfig();
     setConfig(remoteConfig);
-    setIsLoading(false);
+    setPageLoading(false);
   };
 
   useEffect(() => {
@@ -108,7 +110,7 @@ const SymptomChecker = () => {
   }, []);
 
   useEffect(() => {
-    if (isLoading) return;
+    if (isPageLoading) return;
 
     calculateDeviceFrame();
 
@@ -116,11 +118,11 @@ const SymptomChecker = () => {
     return () => {
       window.removeEventListener("resize", calculateDeviceFrame);
     };
-  }, [isLoading]);
+  }, [isPageLoading]);
 
   return (
     <>
-      {!isLoading && (
+      {!isPageLoading && (
         <Wrapper>
           <Paper>
             <Header>

@@ -116,7 +116,7 @@ describe("AiInterpretResult", () => {
 
     await userEvent.click(screen.getByTestId("ai-interpret-button-back"));
 
-    expect(spyRouter.push).toHaveBeenCalled();
+    expect(spyRouter.replace).toHaveBeenCalled();
   });
 
   it("should navigate to edit data when click edit button", async () => {
@@ -124,7 +124,7 @@ describe("AiInterpretResult", () => {
 
     await userEvent.click(screen.getByTestId("ai-interpret-button-edit"));
 
-    expect(spyRouter.push).toHaveBeenCalled();
+    expect(spyRouter.replace).toHaveBeenCalled();
   });
 
   it("should copy to example data when click copy button", async () => {

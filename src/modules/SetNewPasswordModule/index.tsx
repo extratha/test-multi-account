@@ -64,9 +64,8 @@ const SetNewPasswordModule = () => {
     };
   }
   const onSubmit: SubmitHandler<SetNewPasswordForm> = async () => {
-    setPageLoading(true);
-
     try {
+      setPageLoading(true);
       const response = await fetcher.post(apiUrl, submitParams);
       if (response?.status === 204) {
         setCookie(COOKIE.PASSWORD_CHANGED, true);
@@ -78,7 +77,7 @@ const SetNewPasswordModule = () => {
           severity: "success",
           icon: <div />,
         });
-        router.push(webPaths.login);
+        router.replace(webPaths.login);
       }
     } catch (error: any) {
       if (error.message) {
@@ -260,7 +259,6 @@ const SetNewPasswordModule = () => {
           >
             {errorMessage || ""}
           </Typography>
-
           <Stack mt={1}>
             <Typography variant="labelExtraSmallBold">
               {translation("Common.text.setNewPasswordValidateTitle")}

@@ -1,9 +1,9 @@
 "use client";
 
-import { Button, CircularProgress, Divider, Stack, Typography } from "@mui/material";
+import { Button, Divider, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import ReactMarkdown from "react-markdown";
 
 import { IconArrowLeft, IconCopy, IconPen, IconSparkle } from "@/assets";
@@ -12,6 +12,7 @@ import { GENDER, GENERAL_CHECK_UP, GROUP_NAME } from "@/constant/constant";
 import { webPaths } from "@/constant/webPaths";
 import { useGetLabExampleId, useGetLabInterpretResultId } from "@/hooks/useApi";
 import useTranslation from "@/locales/useLocale";
+import { usePageLoadingStore } from "@/store";
 import { InputData, InputDataResult } from "@/types/model.api";
 import AiInterpretLabResult from "./AiInterpretLebResult";
 
@@ -137,11 +138,13 @@ const GeneralInformationUnit = styled(Typography)(({ theme }) => ({
 }));
 
 const AiInterpretResult = () => {
+  const router = useRouter();
+  const { translation } = useTranslation();
+  const { setPageLoading } = usePageLoadingStore();
+
   const searchParams = useSearchParams();
   const exampleId = searchParams.get("exampleId") || "";
   const transactionId = searchParams.get("transactionId") || "";
-  const { translation } = useTranslation();
-  const router = useRouter();
 
   const labInterpretResult = useGetLabInterpretResultId(transactionId);
   const labExampleResult = useGetLabExampleId(transactionId ? "" : exampleId);
@@ -177,11 +180,11 @@ const AiInterpretResult = () => {
   }, [inputDataResultData.length]);
 
   const handleClickEdit = () => {
-    router.push(`${webPaths.aiInterpret.tryInputData}?exampleId=${exampleId}`);
+    router.replace(`${webPaths.aiInterpret.tryInputData}?exampleId=${exampleId}`);
   };
 
   const handleClickBack = () => {
-    router.push(webPaths.aiInterpret.tryExampleData);
+    router.replace(webPaths.aiInterpret.tryExampleData);
   };
 
   const handleClickCopy = (text: string) => {
@@ -206,122 +209,124 @@ const AiInterpretResult = () => {
     }
   };
 
+  useEffect(() => {
+    setPageLoading(isLoading);
+  }, [isLoading]);
+
   return (
-    <ContentContainer>
-      {isLoading ? (
-        <Stack width="100%" height="100%" data-testid="ai-interpret-loading">
-          <CircularProgress style={{ margin: "auto" }} data-testid="ai-interpret-circular-progress" />
-        </Stack>
-      ) : (
-        <ContentContainerWrapper>
-          <Stack direction="row" justifyContent="space-between">
-            <Button startIcon={<IconArrowLeft />} onClick={handleClickBack} data-testid="ai-interpret-button-back">
-              {translation("AiInterpret.aiInterpretResult.button.back")}
-            </Button>
-            <Button startIcon={<IconPen />} onClick={handleClickEdit} data-testid="ai-interpret-button-edit">
-              {translation("AiInterpret.aiInterpretResult.button.edit")}
-            </Button>
-          </Stack>
-          <DividerLine />
-          <Stack spacing="16px" padding="16px 0px">
-            <InformationBackground>
-              <InformationBox>
-                <Stack padding="24px" spacing="8px">
-                  <Stack direction="row" justifyContent="space-between">
-                    <Example variant="labelExtraSmallBold" data-testid="ai-interpret-example-rank">
-                      {translation("AiInterpret.aiInterpretResult.example", { num: interpretData?.ranking })}
-                    </Example>
-                    <ModelVersion direction="row" spacing="4px">
-                      <Typography variant="labelExtraSmall">
-                        {translation("AiInterpret.aiInterpretResult.modalVersion")}
-                      </Typography>
-                      <Version variant="labelExtraSmallBold" data-testid="ai-interpret-version">
-                        {interpretData?.aiModelVersion}
-                      </Version>
-                    </ModelVersion>
-                  </Stack>
-                  <Name variant="titleLargeBold" data-testid="ai-interpret-example-name">
-                    {interpretData?.caseName}
-                  </Name>
-                  <Stack direction="row" spacing="8px">
-                    <Tag name="ai-interpret-gender" text={gender[interpretData?.gender || ""]} />
-                    <Tag
-                      name="ai-interpret-age"
-                      text={translation("AiInterpret.aiInterpretResult.age", { age: interpretData?.age })}
-                    />
-                  </Stack>
-                </Stack>
-                {aiResultData.length > 0 && (
-                  <>
-                    <Stack padding="16px 0px 0px 0px">
-                      <DividerDashed />
-                      <InterpretTile direction="row" spacing="6px">
-                        <IconSparkle />
-                        <Title variant="labelExtraSmallBold" data-testid="ai-interpret-title">
-                          {translation("AiInterpret.aiInterpretResult.title")}
-                        </Title>
-                      </InterpretTile>
+    <>
+      {!isLoading && (
+        <ContentContainer>
+          <ContentContainerWrapper>
+            <Stack direction="row" justifyContent="space-between">
+              <Button startIcon={<IconArrowLeft />} onClick={handleClickBack} data-testid="ai-interpret-button-back">
+                {translation("AiInterpret.aiInterpretResult.button.back")}
+              </Button>
+              <Button startIcon={<IconPen />} onClick={handleClickEdit} data-testid="ai-interpret-button-edit">
+                {translation("AiInterpret.aiInterpretResult.button.edit")}
+              </Button>
+            </Stack>
+            <DividerLine />
+            <Stack spacing="16px" padding="16px 0px">
+              <InformationBackground>
+                <InformationBox>
+                  <Stack padding="24px" spacing="8px">
+                    <Stack direction="row" justifyContent="space-between">
+                      <Example variant="labelExtraSmallBold" data-testid="ai-interpret-example-rank">
+                        {translation("AiInterpret.aiInterpretResult.example", { num: interpretData?.ranking })}
+                      </Example>
+                      <ModelVersion direction="row" spacing="4px">
+                        <Typography variant="labelExtraSmall">
+                          {translation("AiInterpret.aiInterpretResult.modalVersion")}
+                        </Typography>
+                        <Version variant="labelExtraSmallBold" data-testid="ai-interpret-version">
+                          {interpretData?.aiModelVersion}
+                        </Version>
+                      </ModelVersion>
                     </Stack>
-                    <Stack padding="24px" spacing="24px" divider={<Divider flexItem />}>
-                      {aiResultData.map((option, index) => (
-                        <Stack key={`ai-interpret-result-${index}`} spacing="16px">
-                          <TitleResult data-testid={`ai-interpret-title-${index}`}>
-                            {`${index + 1}. ${option.title}`}
-                          </TitleResult>
-                          <Markdown data-testid={`ai-interpret-description-${index}`}>{option.description}</Markdown>
-                          <Stack direction="row">
-                            <Button
-                              startIcon={<IconCopy />}
-                              onClick={() => handleClickCopy(option.description)}
-                              data-testid={`ai-interpret-button-copy-${index}`}
-                            >
-                              {translation("AiInterpret.aiInterpretResult.button.copy")}
-                            </Button>
+                    <Name variant="titleLargeBold" data-testid="ai-interpret-example-name">
+                      {interpretData?.caseName}
+                    </Name>
+                    <Stack direction="row" spacing="8px">
+                      <Tag name="ai-interpret-gender" text={gender[interpretData?.gender || ""]} />
+                      <Tag
+                        name="ai-interpret-age"
+                        text={translation("AiInterpret.aiInterpretResult.age", { age: interpretData?.age })}
+                      />
+                    </Stack>
+                  </Stack>
+                  {aiResultData.length > 0 && (
+                    <>
+                      <Stack padding="16px 0px 0px 0px">
+                        <DividerDashed />
+                        <InterpretTile direction="row" spacing="6px">
+                          <IconSparkle />
+                          <Title variant="labelExtraSmallBold" data-testid="ai-interpret-title">
+                            {translation("AiInterpret.aiInterpretResult.title")}
+                          </Title>
+                        </InterpretTile>
+                      </Stack>
+                      <Stack padding="24px" spacing="24px" divider={<Divider flexItem />}>
+                        {aiResultData.map((option, index) => (
+                          <Stack key={`ai-interpret-result-${index}`} spacing="16px">
+                            <TitleResult data-testid={`ai-interpret-title-${index}`}>
+                              {`${index + 1}. ${option.title}`}
+                            </TitleResult>
+                            <Markdown data-testid={`ai-interpret-description-${index}`}>{option.description}</Markdown>
+                            <Stack direction="row">
+                              <Button
+                                startIcon={<IconCopy />}
+                                onClick={() => handleClickCopy(option.description)}
+                                data-testid={`ai-interpret-button-copy-${index}`}
+                              >
+                                {translation("AiInterpret.aiInterpretResult.button.copy")}
+                              </Button>
+                            </Stack>
                           </Stack>
-                        </Stack>
-                      ))}
-                    </Stack>
-                  </>
-                )}
-              </InformationBox>
-            </InformationBackground>
-            {inputDataResultData.length > 0 && (
-              <General>
-                <GeneralHeader>
-                  <GeneralTitle variant="titleBold">
-                    {translation("AiInterpret.aiInterpretResult.general.title")}
-                  </GeneralTitle>
-                </GeneralHeader>
-                {generalData[0].data.map((item, index) => (
-                  <GeneralInformation key={`general-${index}`} direction="row" justifyContent="space-between">
-                    <Typography variant="bodyBold" data-testid={`ai-interpret-general-information-title-${item.key}`}>
-                      {translation(`AiInterpret.aiInterpretResult.general.information.${item.key}.title`)}
-                    </Typography>
-                    <Stack direction="row" spacing="36px">
-                      <Typography
-                        variant="bodySmall"
-                        data-testid={`ai-interpret-general-information-${item.key}-value`}
-                      >
-                        {getInformationValue(item)}
+                        ))}
+                      </Stack>
+                    </>
+                  )}
+                </InformationBox>
+              </InformationBackground>
+              {inputDataResultData.length > 0 && (
+                <General>
+                  <GeneralHeader>
+                    <GeneralTitle variant="titleBold">
+                      {translation("AiInterpret.aiInterpretResult.general.title")}
+                    </GeneralTitle>
+                  </GeneralHeader>
+                  {generalData[0].data.map((item, index) => (
+                    <GeneralInformation key={`general-${index}`} direction="row" justifyContent="space-between">
+                      <Typography variant="bodyBold" data-testid={`ai-interpret-general-information-title-${item.key}`}>
+                        {translation(`AiInterpret.aiInterpretResult.general.information.${item.key}.title`)}
                       </Typography>
-                      <GeneralInformationUnit
-                        variant="bodySmall"
-                        data-testid={`ai-interpret-general-information-${item.key}-unit`}
-                      >
-                        {getInformationUnit(item)}
-                      </GeneralInformationUnit>
-                    </Stack>
-                  </GeneralInformation>
-                ))}
-              </General>
-            )}
-            {labData.map((item, index) => (
-              <AiInterpretLabResult key={`ai-interpret-lab-${index}`} name="ai-interpret-lab" group={item} />
-            ))}
-          </Stack>
-        </ContentContainerWrapper>
+                      <Stack direction="row" spacing="36px">
+                        <Typography
+                          variant="bodySmall"
+                          data-testid={`ai-interpret-general-information-${item.key}-value`}
+                        >
+                          {getInformationValue(item)}
+                        </Typography>
+                        <GeneralInformationUnit
+                          variant="bodySmall"
+                          data-testid={`ai-interpret-general-information-${item.key}-unit`}
+                        >
+                          {getInformationUnit(item)}
+                        </GeneralInformationUnit>
+                      </Stack>
+                    </GeneralInformation>
+                  ))}
+                </General>
+              )}
+              {labData.map((item, index) => (
+                <AiInterpretLabResult key={`ai-interpret-lab-${index}`} name="ai-interpret-lab" group={item} />
+              ))}
+            </Stack>
+          </ContentContainerWrapper>
+        </ContentContainer>
       )}
-    </ContentContainer>
+    </>
   );
 };
 
