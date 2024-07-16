@@ -50,12 +50,13 @@ exports[`ConsentContent should render correctly 1`] = `
 }
 
 .emotion-2 ul {
-  padding-left: 16px;
-  list-style-type: disc;
+  padding-left: 24px;
+  list-style: none;
 }
 
 .emotion-2 li {
   margin: 16px 0px;
+  list-style-type: disc;
 }
 
 .emotion-2>ol,
@@ -114,7 +115,7 @@ exports[`ConsentContent should render correctly 1`] = `
 
 .emotion-2 td {
   border: 1px solid #000000;
-  padding: 4px;
+  padding: 8px;
   vertical-align: top;
 }
 

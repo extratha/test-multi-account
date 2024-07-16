@@ -150,12 +150,13 @@ exports[`PrivacyPolicyModule should render correctly 1`] = `
 }
 
 .emotion-6 ul {
-  padding-left: 16px;
-  list-style-type: disc;
+  padding-left: 24px;
+  list-style: none;
 }
 
 .emotion-6 li {
   margin: 16px 0px;
+  list-style-type: disc;
 }
 
 .emotion-6>ol,
@@ -214,7 +215,7 @@ exports[`PrivacyPolicyModule should render correctly 1`] = `
 
 .emotion-6 td {
   border: 1px solid #000000;
-  padding: 4px;
+  padding: 8px;
   vertical-align: top;
 }
 
