@@ -28,6 +28,7 @@ exports[`InterpretingModals should render correctly 1`] = `
   font-weight: 700;
   line-height: 1.5;
   margin-top: 18px;
+  white-space: pre-line;
 }
 
 .emotion-3 {

@@ -17,6 +17,7 @@ const StatusImageInModal = styled(Image)({
 
 const StatusMessage = styled(Typography)({
   marginTop: "18px",
+  whiteSpace: "pre-line",
 });
 
 const ButtonInModal = styled(Button)(({ theme }) => ({

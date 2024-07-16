@@ -5,16 +5,11 @@ import { Container, Modal, Paper, styled } from "@mui/material";
 import useModal from "@/store/modal";
 
 const StyledModal = styled(Modal)(() => ({
-  position: "fixed",
-  zIndex: 999,
-  right: 0,
-  bottom: 0,
-  top: 0,
-  left: 0,
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   outline: 0,
+  backdropFilter: "blur(8px)",
   "& :focus-visible": {
     outline: 0,
   },
