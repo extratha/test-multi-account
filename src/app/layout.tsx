@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import { LOCALE_LANGUAGE } from "@/config/i18n";
+import { LOCALE_LANGUAGE } from "@/config";
 import ThemeProvider from "@/config/muiTheme/ThemeProvider";
 import ApplicationLayout from "@/layout/ApplicationLayout";
 import LocalesProvider from "@/locales/LocalesProvider";

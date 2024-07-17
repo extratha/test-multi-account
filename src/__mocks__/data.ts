@@ -5,6 +5,7 @@ import {
   InterpretResult,
   SubmitLabInterpretsRequest,
 } from "@/types/model.api";
+import { DashboardMenuConfigResult } from "@/types/model.ui";
 
 export const mockLoginResponse = {
   accessToken: "mockAccessToken",
@@ -27,6 +28,22 @@ export const mockLoginResponse = {
 };
 
 export const MOCK_ACCESS_TOKEN = "TOKENTOKENTOKEN";
+
+export const mockDashboardMenuConfigResult: DashboardMenuConfigResult = {
+  menu: [],
+  home: [
+    {
+      title: "Title 0",
+      description: "Description 0",
+      path: "/item-0",
+    },
+    {
+      title: "Title 1",
+      description: "Description 1",
+      path: "/item-1",
+    },
+  ],
+};
 
 export const mockExampleDataList: ExampleDataResult[] = [
   {

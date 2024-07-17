@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 
+import { LOCALE_LANGUAGE } from "@/config";
 import LocalesProvider, { LocalesProviderProps } from "./LocalesProvider";
-import { LOCALE_LANGUAGE } from "@/config/i18n";
 
 describe("LocalesProvider", () => {
   let props: LocalesProviderProps;

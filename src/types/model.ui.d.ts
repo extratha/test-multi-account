@@ -15,8 +15,15 @@ export interface AppMenuConfig {
   children: MenuItemConfig[];
 }
 
+export interface HomeMenuItemConfig {
+  title: string;
+  description: string;
+  path: string;
+}
+
 export interface DashboardMenuConfigResult {
   menu: AppMenuConfig[];
+  home: HomeMenuItemConfig[];
 }
 
 export interface UserProfile {
