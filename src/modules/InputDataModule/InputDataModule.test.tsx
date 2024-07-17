@@ -20,7 +20,6 @@ describe("InputDataModule", () => {
   let spyRouter: SpyUseRouter;
   let mockApiAdapter: MockAdapter;
   let interpretResult: InterpretResult;
-  const mockAbortController = new AbortController();
 
   const mockTransactionID = "labId";
   const userEvent = UserEvent.setup({ delay: null, advanceTimers: advanceTimersByTime });
@@ -101,7 +100,7 @@ describe("InputDataModule", () => {
 
     // TODO: expected called with data
     expect(Api.submitLabInterprets).toHaveBeenCalled();
-    expect(Api.getLabInterpretsByTransactionId).toHaveBeenCalledWith(mockTransactionID, mockAbortController.signal);
+    expect(Api.getLabInterpretsByTransactionId).toHaveBeenCalledWith(mockTransactionID);
   });
 
   it("should should display fetch interpret pending/failed modal when submit health data time pending and timeout", async () => {
@@ -113,7 +112,7 @@ describe("InputDataModule", () => {
     await advanceTimersByTime(1000);
     await flushPromise();
 
-    expect(Api.getLabInterpretsByTransactionId).toHaveBeenCalledWith(mockTransactionID, mockAbortController.signal);
+    expect(Api.getLabInterpretsByTransactionId).toHaveBeenCalledWith(mockTransactionID);
 
     await advanceTimersByTime(5000);
     await flushPromise();
@@ -133,7 +132,7 @@ describe("InputDataModule", () => {
     await advanceTimersByTime(1000);
     await flushPromise();
 
-    expect(Api.getLabInterpretsByTransactionId).toHaveBeenCalledWith(mockTransactionID, mockAbortController.signal);
+    expect(Api.getLabInterpretsByTransactionId).toHaveBeenCalledWith(mockTransactionID);
 
     await advanceTimersByTime(1000);
     expect(screen.getByTestId("interpret-image-failed")).toBeInTheDocument();
@@ -148,7 +147,7 @@ describe("InputDataModule", () => {
     await advanceTimersByTime(1000);
     await flushPromise();
 
-    expect(Api.getLabInterpretsByTransactionId).toHaveBeenCalledWith(mockTransactionID, mockAbortController.signal);
+    expect(Api.getLabInterpretsByTransactionId).toHaveBeenCalledWith(mockTransactionID);
 
     await advanceTimersByTime(5000);
     await flushPromise();

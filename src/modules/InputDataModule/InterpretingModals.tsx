@@ -32,11 +32,11 @@ const ButtonInModal = styled(Button)(({ theme }) => ({
 
 export interface InterpretingModalsProps extends BaseModalProps {
   interpretStatus: string;
-  onAbort?: () => void
+  onCancel?: () => void;
 }
 
 const InterpretingModals = (props: InterpretingModalsProps) => {
-  const { closeModal, interpretStatus, onAbort } = props;
+  const { closeModal, interpretStatus, onCancel } = props;
   const { translation } = useTranslation();
 
   return (
@@ -45,7 +45,7 @@ const InterpretingModals = (props: InterpretingModalsProps) => {
         <>
           <StatusImageInModal data-testid="interpret-image-pending" alt="" src={ImageLoadingStack} />
           <StatusMessage variant="bodyBold">{translation("AiInterpret.text.interpreting")}</StatusMessage>
-          <ButtonInModal data-testid="modal-ok-button" onClick={onAbort}>
+          <ButtonInModal data-testid="modal-ok-button" onClick={onCancel}>
             {translation("AiInterpret.button.cancel")}
           </ButtonInModal>
         </>

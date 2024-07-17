@@ -82,11 +82,10 @@ const InputDataModule = () => {
   const { openModal, closeModal } = useModal();
   const { isPageLoading, setPageLoading } = usePageLoadingStore();
 
-  const abortControllerRef = useRef<AbortController | null>(null);
-
   const interpretId = searchParams.get("exampleId");
 
   const [inputGroupConfigs, setInputGroupConfigs] = useState<InputGroupConfigResult[]>([]);
+  const refIsCancelledSubmit = useRef(false);
 
   const { data, isLoading: isGetLabExampleIdLoading } = useGetLabExampleId(interpretId || "");
   const inputData = data?.data?.inputData || [];
@@ -118,12 +117,6 @@ const InputDataModule = () => {
     });
     return result;
   }, [inputData.length]);
-
-  const abortRequest = () => {
-    if (abortControllerRef.current) {
-      abortControllerRef.current.abort();
-    }
-  };
 
   const fetchConfigData = async () => {
     setPageLoading(true);
@@ -163,48 +156,53 @@ const InputDataModule = () => {
     });
   };
 
-  const fetchInterpretResult = async (transactionID: string, startTime: number, abortSignal: AbortSignal): Promise<InterpretResult> => {
-    if (Date.now() - startTime > MAX_INTERVAL) {
+  const fetchInterpretResult = async (transactionID: string, startTime: number): Promise<InterpretResult> => {
+    if (refIsCancelledSubmit.current) {
+      throw new Error("CANCEL_SUBMIT");
+    } else if (Date.now() - startTime > MAX_INTERVAL) {
       throw new Error("fetchInterpretResult: timeout");
     }
 
-    const { data } = await getLabInterpretsByTransactionId(transactionID, abortSignal);
+    const { data } = await getLabInterpretsByTransactionId(transactionID);
 
     if (data.status === INTERPRET_STATUS.SUCCESS) {
       return data;
     } else {
       await waitTimer(INTERVAL_DELAY);
-      return fetchInterpretResult(transactionID, startTime, abortSignal);
+      return fetchInterpretResult(transactionID, startTime);
     }
   };
 
-  const onAbort = () => {
-    abortRequest()
-    closeModal()
-  }
+  const handleClickCancelSubmit = () => {
+    refIsCancelledSubmit.current = true;
+    closeModal();
+  };
 
   const onSubmit = async (formValues: FormInputDataValuesType) => {
-    abortRequest()
-    const abortController = new AbortController();
-    abortControllerRef.current = abortController;
-
     try {
-      openModal((props) => <InterpretModals {...props} interpretStatus={INTERPRET_STATUS.PENDING} onAbort={onAbort} />, false);
+      refIsCancelledSubmit.current = false;
+      openModal(
+        (props) => (
+          <InterpretModals {...props} interpretStatus={INTERPRET_STATUS.PENDING} onCancel={handleClickCancelSubmit} />
+        ),
+        false
+      );
+
       const response = await submitLabInterprets(mapInputDataToSubmitInterprets(formValues, inputGroupConfigs));
-      const aiResult = await fetchInterpretResult(response.data.transactionID, Date.now(), abortController.signal);
+      const aiResult = await fetchInterpretResult(response.data.transactionID, Date.now());
 
       router.replace(`${webPaths.aiInterpret.aiInterpretResult}?transactionId=${aiResult.id}`);
-      closeModal();
     } catch (error) {
-      if (!abortControllerRef.current.signal.aborted) {
+      if (!refIsCancelledSubmit.current) {
         openModal((props) => <InterpretModals {...props} interpretStatus={INTERPRET_STATUS.FAILED} />, false);
       }
+
+      refIsCancelledSubmit.current = false;
     }
   };
 
   useEffect(() => {
     fetchConfigData();
-    abortRequest();
   }, []);
 
   useEffect(() => {
