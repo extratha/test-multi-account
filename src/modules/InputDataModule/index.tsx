@@ -191,6 +191,7 @@ const InputDataModule = () => {
       const response = await submitLabInterprets(mapInputDataToSubmitInterprets(formValues, inputGroupConfigs));
       const aiResult = await fetchInterpretResult(response.data.transactionID, Date.now());
 
+      closeModal();
       router.replace(`${webPaths.aiInterpret.aiInterpretResult}?transactionId=${aiResult.id}`);
     } catch (error) {
       if (!refIsCancelledSubmit.current) {
