@@ -2,9 +2,11 @@ import { fetchAndActivate, getRemoteConfig, getValue } from "firebase/remote-con
 
 import firebaseApp from "@/config/firebase";
 import { DashboardMenuConfigResult, InputGroupConfigResult, SymptomCheckerConfigResult } from "@/types/model.ui";
+import { REMOTE_CONFIG_INTERVAL } from "../config";
 
 const getConfig = async (key: string) => {
   const remoteConfig = getRemoteConfig(firebaseApp);
+  remoteConfig.settings.minimumFetchIntervalMillis = REMOTE_CONFIG_INTERVAL;
   await fetchAndActivate(remoteConfig);
   return getValue(remoteConfig, key);
 };

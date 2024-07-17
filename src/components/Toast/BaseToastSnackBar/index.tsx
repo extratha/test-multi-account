@@ -3,6 +3,7 @@ import Snackbar, { SnackbarProps } from "@mui/material/Snackbar";
 import Stack from "@mui/material/Stack";
 import React, { FC } from "react";
 
+import { TOAST_AUTO_HIDE_DURATION } from "@/config";
 import Alert from "../Alert";
 
 export type ToastSnackBarProps = {
@@ -14,8 +15,6 @@ export type ToastSnackBarProps = {
   AlertProps: MuiAlertProps;
   onClose?: () => void;
 } & SnackbarProps;
-
-const AUTO_HIDE_DURATION = 3000;
 
 export const ToastSnackBar: FC<ToastSnackBarProps> = ({
   open = false,
@@ -35,19 +34,19 @@ export const ToastSnackBar: FC<ToastSnackBarProps> = ({
   };
 
   return (
-    <Stack spacing={2} sx={{ width: "100%"}}>
+    <Stack spacing={2} sx={{ width: "100%" }}>
       <Snackbar
         anchorOrigin={anchorOrigin}
         open={open}
         key={`snackbar-key-${message}-${AlertProps.severity ?? ""}`}
-        autoHideDuration={AUTO_HIDE_DURATION}
+        autoHideDuration={TOAST_AUTO_HIDE_DURATION}
         onClose={handleClose}
         {...rest}
       >
         <Alert
           {...AlertProps}
           onClose={handleClose}
-          sx={{ height:'60px',width: "100%", maxWidth: "100%", minWidth: 256, ...AlertProps.sx }}
+          sx={{ height: "60px", width: "100%", maxWidth: "100%", minWidth: 256, ...AlertProps.sx }}
         >
           {message}
         </Alert>

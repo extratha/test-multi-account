@@ -3,8 +3,8 @@
 import { ReactNode, useState } from "react";
 import { I18nextProvider } from "react-i18next";
 
-import { initI18next } from "./i18n";
 import { LocaleResource } from "@/types/model.ui";
+import { initI18next } from "./i18n";
 
 export interface LocalesProviderProps {
   lang: string;

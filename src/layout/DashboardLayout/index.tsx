@@ -10,11 +10,13 @@ interface DashboardLayoutProps {
 }
 
 const Layout = styled(Stack)({
-  flex: 1,
+  width: "100%",
+  height: "100%",
 });
 
 const Main = styled("main")(({ theme }) => ({
   width: "100%",
+  height: "100%",
   display: "flex",
   overflow: "hidden",
   backgroundColor: theme.palette.background.grayLight,
@@ -40,7 +42,6 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
 
   return (
     <>
-      {/* TODO: Display full screen loading */}
       {!isLoading && (
         <Layout direction="row">
           <DashboardPanel menuList={menus} />

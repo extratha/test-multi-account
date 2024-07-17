@@ -1,28 +1,16 @@
 "use client";
 
-import { Box, Divider, Paper as MuiPaper, Stack, styled, Typography } from "@mui/material";
+import { Box, Divider, Stack, styled, Typography } from "@mui/material";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 import { IconAiInterpret, IosDeviceFrame } from "@/assets";
+import DashboardPage from "@/components/Page/DashboardPage";
 import PageTitle from "@/components/Typography/PageTitle";
 import useTranslation from "@/locales/useLocale";
 import { usePageLoadingStore } from "@/store";
 import { SymptomCheckerConfigResult } from "@/types/model.ui";
 import { getSymptomCheckerConfig } from "@/utils/firebase";
-
-const Wrapper = styled(Stack)({
-  flex: 1,
-  width: "100%",
-  padding: "24px",
-});
-
-const Paper = styled(MuiPaper)({
-  flex: 1,
-  display: "flex",
-  flexDirection: "column",
-  borderRadius: "16px",
-});
 
 const Header = styled(Stack)({
   padding: "32px 40px 0px",
@@ -123,29 +111,27 @@ const SymptomChecker = () => {
   return (
     <>
       {!isPageLoading && (
-        <Wrapper>
-          <Paper>
-            <Header>
-              <Stack direction="row" alignItems="center">
-                <Box marginRight="12px">
-                  <IconAiInterpret />
-                </Box>
-                <PageTitle>{translation("Common.symptomChecker.title")}</PageTitle>
-                <Box flex="1" />
-                <Typography variant="bodyMedium">{translation("Common.symptomChecker.subtitle")}</Typography>
-              </Stack>
-              <Divider />
-            </Header>
-            <Content ref={refContent}>
-              <DeviceWrapper>
-                <DeviceFrameSection ref={refDeviceSection}>
-                  <DeviceImage src={IosDeviceFrame} fill alt="check" />
-                  <ContentIframe ref={refContentIframe} src={config.url} />
-                </DeviceFrameSection>
-              </DeviceWrapper>
-            </Content>
-          </Paper>
-        </Wrapper>
+        <DashboardPage>
+          <Header>
+            <Stack direction="row" alignItems="center">
+              <Box marginRight="12px">
+                <IconAiInterpret />
+              </Box>
+              <PageTitle>{translation("Common.symptomChecker.title")}</PageTitle>
+              <Box flex="1" />
+              <Typography variant="bodyMedium">{translation("Common.symptomChecker.subtitle")}</Typography>
+            </Stack>
+            <Divider />
+          </Header>
+          <Content ref={refContent}>
+            <DeviceWrapper>
+              <DeviceFrameSection ref={refDeviceSection}>
+                <DeviceImage src={IosDeviceFrame} fill alt="check" />
+                <ContentIframe ref={refContentIframe} src={config.url} />
+              </DeviceFrameSection>
+            </DeviceWrapper>
+          </Content>
+        </DashboardPage>
       )}
     </>
   );
