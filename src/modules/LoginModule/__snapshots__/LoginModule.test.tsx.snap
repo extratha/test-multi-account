@@ -665,19 +665,6 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-15:focus::-ms-input-
   opacity: 0.9;
 }
 
-.emotion-24 {
-  margin: 0;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.5;
-  text-transform: none;
-  color: rgba(0, 0, 0, 0.87);
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  margin: 16px auto 0;
-  cursor: pointer;
-}
-
 <div
     class="MuiStack-root emotion-0"
   >
@@ -818,11 +805,6 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-15:focus::-ms-input-
           เข้าสู่ระบบ
         </button>
       </form>
-      <p
-        class="MuiTypography-root MuiTypography-bodySmallMedium emotion-24"
-      >
-        ลืมรหัสผ่าน
-      </p>
     </div>
   </div>
 </DocumentFragment>

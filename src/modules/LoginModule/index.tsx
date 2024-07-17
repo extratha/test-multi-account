@@ -211,19 +211,6 @@ const LoginForm = () => {
             {translation("Common.text.login")}
           </SubmitButtonStyle>
         </form>
-        <Typography
-          variant="bodySmallMedium"
-          textTransform={"none"}
-          color={theme.palette.text.primary}
-          sx={{
-            textDecoration: "underline",
-            margin: "16px auto 0",
-            cursor: "pointer",
-          }}
-          onClick={() => router.replace(webPaths.forgetPassword)}
-        >
-          {translation("Common.button.forgetPassword")}
-        </Typography>
       </Container>
     </Stack>
   );

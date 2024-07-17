@@ -87,33 +87,6 @@ describe("LoginModule", () => {
 
     expect(passwordInput).toHaveAttribute("type", "text");
   });
-  it('redirects to forget password page when "Forget Password" link is clicked', async () => {
-    render(<LoginModule />);
-
-    const forgetPasswordLink = screen.getByText("ลืมรหัสผ่าน");
-    expect(forgetPasswordLink).toBeInTheDocument();
-
-    await userEvent.click(forgetPasswordLink);
-  });
-
-  // TODO: rename test case
-  // eslint-disable-next-line jest/no-identical-title
-  it("submits the form with valid inputs", async () => {
-    const responseData = mockLoginResponse;
-    (axiosPublicInstance.post as jest.Mock).mockResolvedValueOnce({ data: responseData });
-
-    render(<LoginModule />);
-
-    const emailInput = screen.getByPlaceholderText("อีเมล");
-    const passwordInput = screen.getByPlaceholderText("รหัสผ่าน");
-    const submitButton = screen.getByTestId("button-login");
-
-    await userEvent.type(emailInput, "test@example.com");
-    await userEvent.type(passwordInput, "Test@passw0rd");
-    await userEvent.click(submitButton);
-
-    expect(screen.getByText("CARIVA PLAYGROUND")).toBeInTheDocument();
-  });
 
   it("submits the form with valid inputs with password changed false", async () => {
     const responseData = mockLoginResponse;
