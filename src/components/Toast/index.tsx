@@ -8,7 +8,7 @@ import useToastStore from "@/store/useToastStore";
 const ToastSnackBar = () => {
   const {
     open,
-    description: { message = "", severity, anchorOrigin, icon },
+    description: { message = "", severity, anchorOrigin, icon, autoHideDuration },
     setToastOpen,
   } = useToastStore();
 
@@ -47,7 +47,7 @@ const ToastSnackBar = () => {
             },
           }}
           onClose={handleClose}
-          autoHideDuration={10000}
+          autoHideDuration={autoHideDuration || 3000}
         />
       )}
     </>
