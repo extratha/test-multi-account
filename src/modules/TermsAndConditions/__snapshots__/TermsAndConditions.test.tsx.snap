@@ -197,10 +197,6 @@ exports[`TermsAndConditions should render correctly 1`] = `
   list-style-type: disc;
 }
 
-.emotion-6 li {
-  margin: 16px 0px;
-}
-
 .emotion-6 ol {
   list-style-type: none;
   counter-reset: item;
@@ -217,7 +213,7 @@ exports[`TermsAndConditions should render correctly 1`] = `
 .emotion-6 ol>li:before {
   display: table-cell;
   content: counters(item, ".") ". ";
-  padding-right: 4px;
+  padding-right: 6px;
   white-space: nowrap;
 }
 
@@ -231,6 +227,20 @@ exports[`TermsAndConditions should render correctly 1`] = `
 .emotion-6 ol>ol>li>ul,
 .emotion-6 ol>ul>li>ul {
   padding: 0px;
+}
+
+.emotion-6 li {
+  margin: 16px 0px;
+}
+
+.emotion-6 li ol>li {
+  border-collapse: separate;
+  border-spacing: 0px 6px;
+}
+
+.emotion-6 li ol>li:before {
+  content: counters(item, ".") " ";
+  padding-right: 6px;
 }
 
 .emotion-6 table {

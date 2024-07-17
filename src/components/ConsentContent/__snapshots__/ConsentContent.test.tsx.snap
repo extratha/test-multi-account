@@ -53,10 +53,6 @@ exports[`ConsentContent should render correctly 1`] = `
   list-style-type: disc;
 }
 
-.emotion-2 li {
-  margin: 16px 0px;
-}
-
 .emotion-2 ol {
   list-style-type: none;
   counter-reset: item;
@@ -73,7 +69,7 @@ exports[`ConsentContent should render correctly 1`] = `
 .emotion-2 ol>li:before {
   display: table-cell;
   content: counters(item, ".") ". ";
-  padding-right: 4px;
+  padding-right: 6px;
   white-space: nowrap;
 }
 
@@ -87,6 +83,20 @@ exports[`ConsentContent should render correctly 1`] = `
 .emotion-2 ol>ol>li>ul,
 .emotion-2 ol>ul>li>ul {
   padding: 0px;
+}
+
+.emotion-2 li {
+  margin: 16px 0px;
+}
+
+.emotion-2 li ol>li {
+  border-collapse: separate;
+  border-spacing: 0px 6px;
+}
+
+.emotion-2 li ol>li:before {
+  content: counters(item, ".") " ";
+  padding-right: 6px;
 }
 
 .emotion-2 table {

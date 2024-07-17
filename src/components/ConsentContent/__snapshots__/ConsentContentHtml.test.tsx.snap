@@ -22,10 +22,6 @@ exports[`Html should render correctly 1`] = `
   list-style-type: disc;
 }
 
-.emotion-0 li {
-  margin: 16px 0px;
-}
-
 .emotion-0 ol {
   list-style-type: none;
   counter-reset: item;
@@ -42,7 +38,7 @@ exports[`Html should render correctly 1`] = `
 .emotion-0 ol>li:before {
   display: table-cell;
   content: counters(item, ".") ". ";
-  padding-right: 4px;
+  padding-right: 6px;
   white-space: nowrap;
 }
 
@@ -56,6 +52,20 @@ exports[`Html should render correctly 1`] = `
 .emotion-0 ol>ol>li>ul,
 .emotion-0 ol>ul>li>ul {
   padding: 0px;
+}
+
+.emotion-0 li {
+  margin: 16px 0px;
+}
+
+.emotion-0 li ol>li {
+  border-collapse: separate;
+  border-spacing: 0px 6px;
+}
+
+.emotion-0 li ol>li:before {
+  content: counters(item, ".") " ";
+  padding-right: 6px;
 }
 
 .emotion-0 table {
