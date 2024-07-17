@@ -20,9 +20,6 @@ const Html = styled("div")({
     paddingLeft: "24px",
     listStyleType: "disc",
   },
-  "& li": {
-    margin: "16px 0px",
-  },
   "& ol": {
     listStyleType: "none",
     counterReset: "item",
@@ -35,7 +32,7 @@ const Html = styled("div")({
       "&:before": {
         display: "table-cell",
         content: `counters(item, ".") ". "`,
-        paddingRight: "4px",
+        paddingRight: "6px",
         whiteSpace: "nowrap",
       },
     },
@@ -43,6 +40,17 @@ const Html = styled("div")({
       paddingLeft: "24px",
       "& > li > ol, & > li > ul": {
         padding: "0px",
+      },
+    },
+  },
+  "& li": {
+    margin: "16px 0px",
+    "& ol > li": {
+      borderCollapse: "separate",
+      borderSpacing: "0px 6px",
+      "&:before": {
+        content: `counters(item, ".") " "`,
+        paddingRight: "6px",
       },
     },
   },

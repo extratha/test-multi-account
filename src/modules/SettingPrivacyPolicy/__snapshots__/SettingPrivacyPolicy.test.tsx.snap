@@ -125,10 +125,6 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   list-style-type: disc;
 }
 
-.emotion-7 li {
-  margin: 16px 0px;
-}
-
 .emotion-7 ol {
   list-style-type: none;
   counter-reset: item;
@@ -145,7 +141,7 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
 .emotion-7 ol>li:before {
   display: table-cell;
   content: counters(item, ".") ". ";
-  padding-right: 4px;
+  padding-right: 6px;
   white-space: nowrap;
 }
 
@@ -159,6 +155,20 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
 .emotion-7 ol>ol>li>ul,
 .emotion-7 ol>ul>li>ul {
   padding: 0px;
+}
+
+.emotion-7 li {
+  margin: 16px 0px;
+}
+
+.emotion-7 li ol>li {
+  border-collapse: separate;
+  border-spacing: 0px 6px;
+}
+
+.emotion-7 li ol>li:before {
+  content: counters(item, ".") " ";
+  padding-right: 6px;
 }
 
 .emotion-7 table {
