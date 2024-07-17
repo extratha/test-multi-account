@@ -3,12 +3,13 @@
 import { useCallback } from "react";
 import { ToastSnackBar as UIToastSnackBar } from "./BaseToastSnackBar";
 
+import { AUTO_HIDE_DURATION } from "@/config/toast";
 import useToastStore from "@/store/useToastStore";
 
 const ToastSnackBar = () => {
   const {
     open,
-    description: { message = "", severity, anchorOrigin, icon },
+    description: { message = "", severity, anchorOrigin, icon, autoHideDuration },
     setToastOpen,
   } = useToastStore();
 
@@ -47,7 +48,7 @@ const ToastSnackBar = () => {
             },
           }}
           onClose={handleClose}
-          autoHideDuration={10000}
+          autoHideDuration={autoHideDuration || AUTO_HIDE_DURATION}
         />
       )}
     </>

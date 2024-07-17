@@ -20,6 +20,7 @@ type ToastDescription = {
     horizontal: HorizontalPosition;
   };
   icon?: Icon;
+  autoHideDuration?: number
 };
 
 const defaultDescription: ToastDescription = {
