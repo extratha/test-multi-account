@@ -162,7 +162,7 @@ exports[`HomePageModule should render correctly 1`] = `
   padding: 16px;
   box-shadow: none;
   border-radius: 12px;
-  border: 1px solid #CFD8DC;
+  border: 1px solid #cfd8dc;
 }
 
 .emotion-9 {
