@@ -1,6 +1,6 @@
 import { CommonColors, SurfaceGray, TypeText } from "@mui/material";
 import { amber, blueGrey } from "@mui/material/colors";
-import { createTheme } from "@mui/material/styles";
+import { alpha, createTheme } from "@mui/material/styles";
 import { IBM_Plex_Sans_Thai } from "next/font/google";
 
 const ibmPlexSansThai = IBM_Plex_Sans_Thai({
@@ -41,9 +41,9 @@ const createMuiTheme = () => {
       text: colors.text,
       common: colors.common,
       background: {
-        border: "#CFD8DC",
-        borderLight: "#ECEFF1",
-        grayLight: "#ECEFF1",
+        border: blueGrey[100],
+        borderLight: blueGrey[50],
+        grayLight: blueGrey[50],
         gradient: "linear-gradient(94deg, #0059D6 0%, #028DF5 50%, #00CBDD 100%)",
       },
     },
@@ -189,6 +189,14 @@ const createMuiTheme = () => {
           containedPrimary: {
             backgroundColor: colors.blue[500],
           },
+          outlinedSecondary: ({ theme }) => ({
+            border: `1px solid ${theme.palette.background.borderLight}`,
+            color: theme.palette.text.hight,
+            "&:hover": {
+              border: `1px solid ${theme.palette.background.borderLight}`,
+              backgroundColor: alpha(theme.palette.blueGrey[500], 0.04),
+            },
+          }),
         },
       },
     },

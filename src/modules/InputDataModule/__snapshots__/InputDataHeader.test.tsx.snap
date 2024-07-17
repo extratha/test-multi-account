@@ -129,7 +129,7 @@ exports[`InputDataHeaderSection should render correctly 1`] = `
   padding: 10px 16px;
   border-radius: 8px;
   color: #212121;
-  border: 1px solid #CFD8DC;
+  border: 1px solid #cfd8dc;
   background: #fff;
 }
 
@@ -168,7 +168,7 @@ exports[`InputDataHeaderSection should render correctly 1`] = `
 }
 
 .emotion-6:hover {
-  border: 1px solid #CFD8DC;
+  border: 1px solid #cfd8dc;
 }
 
 .emotion-7 {
