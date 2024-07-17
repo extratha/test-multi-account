@@ -134,7 +134,7 @@
       "settingAndOther": {
         "title": "ตั้งค่าและอื่น ๆ",
         "termsAndConditions": "ข้อกำหนดและเงื่อนไข",
-        "privacyPolicy" :"นโยบายความเป็นส่วนตัว"
+        "privacyPolicy": "นโยบายความเป็นส่วนตัว"
       },
       "notification": "การแจ้งเตือน",
       "logout": "ออกจากระบบ"
@@ -157,7 +157,8 @@
       "backToMain": "กลับหน้าหลัก",
       "useExampleData": "ใช้ข้อมูลตัวอย่าง",
       "ok": "ตกลง",
-      "retry": "ลองใหม่"
+      "retry": "ลองใหม่",
+      "cancel": "ยกเลิก"
     },
     "pages": {
       "aiInterpret": "AI Interpret",

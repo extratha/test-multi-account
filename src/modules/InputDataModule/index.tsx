@@ -3,7 +3,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, Divider, Paper, Stack, styled, Typography } from "@mui/material";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
 import { getLabInterpretsByTransactionId, submitLabInterprets } from "@/api/api";
@@ -82,6 +82,8 @@ const InputDataModule = () => {
   const { openModal, closeModal } = useModal();
   const { isPageLoading, setPageLoading } = usePageLoadingStore();
 
+  const abortControllerRef = useRef<AbortController | null>(null);
+
   const interpretId = searchParams.get("exampleId");
 
   const [inputGroupConfigs, setInputGroupConfigs] = useState<InputGroupConfigResult[]>([]);
@@ -116,6 +118,12 @@ const InputDataModule = () => {
     });
     return result;
   }, [inputData.length]);
+
+  const abortRequest = () => {
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+  };
 
   const fetchConfigData = async () => {
     setPageLoading(true);
@@ -155,36 +163,48 @@ const InputDataModule = () => {
     });
   };
 
-  const fetchInterpretResult = async (transactionID: string, startTime: number): Promise<InterpretResult> => {
+  const fetchInterpretResult = async (transactionID: string, startTime: number, abortSignal: AbortSignal): Promise<InterpretResult> => {
     if (Date.now() - startTime > MAX_INTERVAL) {
       throw new Error("fetchInterpretResult: timeout");
     }
 
-    const { data } = await getLabInterpretsByTransactionId(transactionID);
+    const { data } = await getLabInterpretsByTransactionId(transactionID, abortSignal);
 
     if (data.status === INTERPRET_STATUS.SUCCESS) {
       return data;
     } else {
       await waitTimer(INTERVAL_DELAY);
-      return fetchInterpretResult(transactionID, startTime);
+      return fetchInterpretResult(transactionID, startTime, abortSignal);
     }
   };
 
+  const onAbort = () => {
+    abortRequest()
+    closeModal()
+  }
+
   const onSubmit = async (formValues: FormInputDataValuesType) => {
+    abortRequest()
+    const abortController = new AbortController();
+    abortControllerRef.current = abortController;
+
     try {
-      openModal((props) => <InterpretModals {...props} interpretStatus={INTERPRET_STATUS.PENDING} />, false);
+      openModal((props) => <InterpretModals {...props} interpretStatus={INTERPRET_STATUS.PENDING} onAbort={onAbort} />, false);
       const response = await submitLabInterprets(mapInputDataToSubmitInterprets(formValues, inputGroupConfigs));
-      const aiResult = await fetchInterpretResult(response.data.transactionID, Date.now());
+      const aiResult = await fetchInterpretResult(response.data.transactionID, Date.now(), abortController.signal);
 
       router.replace(`${webPaths.aiInterpret.aiInterpretResult}?transactionId=${aiResult.id}`);
       closeModal();
     } catch (error) {
-      openModal((props) => <InterpretModals {...props} interpretStatus={INTERPRET_STATUS.FAILED} />, false);
+      if (!abortControllerRef.current.signal.aborted) {
+        openModal((props) => <InterpretModals {...props} interpretStatus={INTERPRET_STATUS.FAILED} />, false);
+      }
     }
   };
 
   useEffect(() => {
     fetchConfigData();
+    abortRequest();
   }, []);
 
   useEffect(() => {

@@ -12,6 +12,7 @@ describe("InterpretingModals", () => {
     props = {
       interpretStatus: INTERPRET_STATUS.PENDING,
       closeModal: jest.fn(),
+      onAbort: jest.fn(),
     };
   });
 
@@ -37,7 +38,7 @@ describe("InterpretingModals", () => {
 
     await userEvent.click(screen.getByTestId("modal-ok-button"));
 
-    expect(props.closeModal).toHaveBeenCalled();
+    expect(props.onAbort).toHaveBeenCalled();
 
     props.interpretStatus = INTERPRET_STATUS.FAILED;
     renderInterpretingModals();

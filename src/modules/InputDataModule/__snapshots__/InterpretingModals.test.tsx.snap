@@ -151,7 +151,7 @@ exports[`InterpretingModals should render correctly 1`] = `
       tabindex="0"
       type="button"
     >
-      ตกลง
+      ยกเลิก
       <span
         class="MuiTouchRipple-root emotion-4"
       />

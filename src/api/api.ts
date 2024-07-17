@@ -22,8 +22,10 @@ export const submitLabInterprets = (data: SubmitLabInterpretsRequest) => {
   return apiAxios.post<SubmitLabInterpretsResult>("/lab/interprets", data);
 };
 
-export const getLabInterpretsByTransactionId = (transactionId: string) => {
-  return apiAxios.get<InterpretResult>(`/lab/interprets/${transactionId}`);
+export const getLabInterpretsByTransactionId = (transactionId: string, abortSignal: AbortSignal) => {
+  return apiAxios.get<InterpretResult>(`/lab/interprets/${transactionId}`, {
+    signal: abortSignal
+  });
 };
 
 export const getTermsAndConditions = () => {
