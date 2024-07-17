@@ -11,15 +11,17 @@ export const mapInputDataToSubmitInterprets = (
   configs: InputGroupConfigResult[]
 ) => {
   const data: SubmitLabInterpretsRequest = {
-    labInfo: configs.map((group) => ({
-      groupName: group.groupName,
-      data: group.data.map((data) => ({
-        key: data.key,
-        value: convertValueToString(formValues[data.key]),
-        unit: data.unit,
-        range: data.range,
+    labInfo: configs
+      .filter((group) => (group.data && group.data.some((data) => formValues[data.key])))
+      .map((group) => ({
+        groupName: group.groupName,
+        data: group.data.map((data) => ({
+          key: data.key,
+          value: convertValueToString(formValues[data.key]),
+          unit: data.unit,
+          range: data.range,
+        })),
       })),
-    })),
   };
 
   return data;
