@@ -195,7 +195,7 @@ const InputDataModule = () => {
     if (inputData.length > 0 && defaultInputData) {
       trigger();
     }
-  }, [inputData.length]);
+  }, [inputData.length, isLoading]);
 
   return (
     <>
