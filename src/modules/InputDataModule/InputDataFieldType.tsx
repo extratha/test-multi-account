@@ -46,7 +46,7 @@ const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {
 
   return (
     <InputDataFieldWrapper container>
-      <Grid item xs={8}>
+      <Grid item xs={7}>
         <Stack direction="row">
           <Typography variant="bodyBold">{translation(`AiInterpret.th.field.${field.key}`)}</Typography>
           {field.required && (
@@ -59,7 +59,7 @@ const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {
           `AiInterpret.en.field.${field.key}`
         )})`}</Typography>
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={5}>
         <Stack direction="row" spacing="8px" width="100%">
           <Box width="100%">
             {field.fieldType === CONFIG_FIELD_TYPES.DROPDOWN && (
@@ -86,7 +86,7 @@ const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {
               />
             )}
           </Box>
-          <Stack width="80px" height="48px" justifyContent="center">
+          <Stack width="150px" height="48px" justifyContent="center">
             <TypoUnit variant="bodySmall" color="text.medium">
               {displayUnit(field)}
             </TypoUnit>
