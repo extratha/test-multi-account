@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`ModalLayer component closes the modal 1`] = `<DocumentFragment />`;
-
-exports[`ModalLayer component opens the modal with the correct content 1`] = `<DocumentFragment />`;

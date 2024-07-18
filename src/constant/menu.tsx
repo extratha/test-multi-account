@@ -1,52 +1,59 @@
-'use client'
-import { useTranslations } from "next-intl"
-import { webPaths } from "./webPaths"
-import { IconHomePage, IconHomePageActive, IconLogout, IconNotification, IconSetting } from "@/assets"
+"use client";
+import { IconHomePage, IconHomePageActive } from "@/assets";
+import { webPaths } from "./webPaths";
+
 export interface MenuItem {
-  icon: any,
-  activeIcon: any,
-  path: null | string,
-  title: null | string,
-  children: (never | MenuItem)[] | null
+  icon: any;
+  activeIcon: any;
+  path: null | string;
+  title: null | string;
+  children: (never | MenuItem)[] | null;
 }
 type TFunction = (key: string) => string;
-export const aiMenuList = (t : TFunction): MenuItem[] => {
+
+export const iconSize = 24;
+export const iconStyles = {
+  width: iconSize,
+  height: iconSize,
+};
+
+export const aiMenuList = (t: TFunction): MenuItem[] => {
   return [
     {
-      icon: IconHomePage,
-      activeIcon: IconHomePageActive,
+      icon: <IconHomePage style={iconStyles} />,
+      activeIcon: <IconHomePageActive style={iconStyles} />,
       path: webPaths.home,
-      title: t('menu.home'),
+      title: t("Common.menu.home"),
       children: [],
     },
     {
       icon: null,
       activeIcon: null,
       path: webPaths.aiInterpret.tryExampleData,
-      title: t('menu.aiInterpret.title'),
+      title: t("Common.menu.aiInterpret.title"),
       children: [
         {
           icon: null,
           activeIcon: null,
           path: webPaths.aiInterpret.tryExampleData,
-          title: t('menu.aiInterpret.tryExampleData'),
-          children: null
+          title: t("Common.menu.aiInterpret.tryExampleData"),
+          children: null,
         },
         {
           icon: null,
           activeIcon: null,
           path: webPaths.aiInterpret.tryInputData,
-          title: t('menu.aiInterpret.tryInputData'),
-          children: null
+          title: t("Common.menu.aiInterpret.tryInputData"),
+          children: null,
         },
         {
           icon: null,
           activeIcon: null,
           path: webPaths.aiInterpret.tryHospitalData,
-          title: t('menu.aiInterpret.tryHospitalData'),
-          children: null
+          title: t("Common.menu.aiInterpret.tryHospitalData"),
+          children: null,
         },
-      ]
+      ],
     },
     // {
     //   icon: null,
@@ -78,54 +85,12 @@ export const aiMenuList = (t : TFunction): MenuItem[] => {
     //     }
     //   ],
     // },
-    // {
-    //   icon: null,
-    //   activeIcon: null,
-    //   path: '',
-    //   title: t('menu.symtomChecker.title'),
-    //   children: [
-    //     {
-    //       icon: null,
-    //       activeIcon: null,
-    //       path: '',
-    //       title: "",
-    //       children: null
-    //     }
-    //   ],
-    // },
-  ]
-}
-
-export const settingMenuList = (t : TFunction): MenuItem[] => {
-  return [
-    // {
-    //   icon: IconSetting,
-    //   activeIcon: null,
-    //   path: '',
-    //   title: t('menu.settingAndOther.title'),
-    //   children: [
-    //     {
-    //       icon: null,
-    //       activeIcon: null,
-    //       path: '',
-    //       title: '',
-    //       children: null
-    //     }
-    //   ]
-    // },
-    // {
-    //   icon: IconNotification,
-    //   activeIcon: null,
-    //   path: "",
-    //   title: t('menu.notification'),
-    //   children: null
-    // },
     {
-      icon: IconLogout,
+      icon: null,
       activeIcon: null,
-      path: "",
-      title: t('menu.logout'),
-      children: null
-    }
-  ]
-}
+      path: webPaths.symptomChecker,
+      title: t("Common.menu.symptomChecker.title"),
+      children: [],
+    },
+  ];
+};

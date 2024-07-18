@@ -1,0 +1,2466 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AiInterpretResult should render correctly 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  width: 100%;
+  padding: 24px;
+  background-color: #ECEFF1;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0px auto;
+  padding: 24px 30px;
+  border-radius: 16px;
+  background-color: #fff;
+}
+
+.emotion-1 .MuiButton-root {
+  padding: 10px 16px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #CFD8DC;
+  font-size: 12px;
+  font-weight: 700;
+  color: #212121;
+}
+
+.emotion-1>.MuiButton-startIcon {
+  margin-right: 8px;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  font-family: fontFamily;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #2196F3;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.emotion-3::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-3.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-3 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-3:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(33, 150, 243, 0.04);
+}
+
+@media (hover: none) {
+  .emotion-3:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-3.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.emotion-4 {
+  display: inherit;
+  margin-right: 8px;
+  margin-left: -4px;
+}
+
+.emotion-4>*:nth-of-type(1) {
+  font-size: 20px;
+}
+
+.emotion-5 {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+}
+
+.emotion-9 {
+  margin: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  border-width: 0;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.12);
+  border-bottom-width: thin;
+  margin: 8px 0px;
+}
+
+.emotion-10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 16px 0px;
+}
+
+.emotion-10>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-10>:not(style)~:not(style) {
+  margin-top: 16px;
+}
+
+.emotion-11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 2px;
+  border-radius: 24px;
+  background: linear-gradient(94deg, #0059D6 0%, #028DF5 50%, #00CBDD 100%);
+}
+
+.emotion-12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: start;
+  justify-content: start;
+  border-radius: 22px;
+  background: #FFFFFF;
+}
+
+.emotion-13 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.emotion-13>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-13>:not(style)~:not(style) {
+  margin-top: 8px;
+}
+
+.emotion-15 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  font-weight: 600;
+  color: #2196F3;
+}
+
+.emotion-16 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  color: #2196F3;
+}
+
+.emotion-16>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-16>:not(style)~:not(style) {
+  margin-left: 4px;
+}
+
+.emotion-17 {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.emotion-18 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.emotion-19 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  font-weight: 700;
+  color: #212121;
+}
+
+.emotion-20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-20>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-20>:not(style)~:not(style) {
+  margin-left: 8px;
+}
+
+.emotion-21 {
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: #eceff1;
+}
+
+.emotion-22 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.emotion-25 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 16px 0px 0px 0px;
+}
+
+.emotion-26 {
+  padding: 1px 0px;
+  background-image: linear-gradient(to right, #CFD8DC 50%, #FFFFFF 50%);
+  -webkit-background-size: 12px 1px;
+  background-size: 12px 1px;
+  background-repeat: repeat-x;
+}
+
+.emotion-27 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 8px 16px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: -18px auto 0px;
+  border-radius: 32px;
+  background: linear-gradient(94deg, #0059D6 0%, #028DF5 50%, #00CBDD 100%);
+}
+
+.emotion-27>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-27>:not(style)~:not(style) {
+  margin-left: 6px;
+}
+
+.emotion-28 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.emotion-29 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.emotion-29>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-29>:not(style)~:not(style) {
+  margin-top: 24px;
+}
+
+.emotion-30 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-30>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-30>:not(style)~:not(style) {
+  margin-top: 16px;
+}
+
+.emotion-31 {
+  margin: 0;
+  font-family: fontFamily;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 600;
+  color: #2196F3;
+}
+
+.emotion-32 {
+  font-size: 16px;
+  white-space: normal;
+  color: #212121;
+}
+
+.emotion-33 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-37 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  color: #212121;
+  border: 1px solid #ECEFF1;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.emotion-38 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 24px 24px 12px 24px;
+  background-color: #FAFAFA;
+}
+
+.emotion-39 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.emotion-40 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  padding: 12px 24px 24px;
+}
+
+.emotion-41 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.emotion-42 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-42>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-42>:not(style)~:not(style) {
+  margin-left: 36px;
+}
+
+.emotion-43 {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.emotion-44 {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  width: 60px;
+  color: #607D8B;
+}
+
+.emotion-65 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border: 1px solid #ECEFF1;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.emotion-65 .MuiButton-root {
+  font-size: 12px;
+  font-weight: 600;
+  color: #FFFFFF;
+  background-color: #212121;
+}
+
+.emotion-65 .MuiButton-root:hover {
+  background-color: #212121;
+}
+
+.emotion-65 .MuiButton-endIcon {
+  padding-left: 8px;
+}
+
+.emotion-66 {
+  position: absolute;
+}
+
+.emotion-67 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 24px 12px 12px 40px;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  background-color: #FAFAFA;
+}
+
+.emotion-70 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  font-family: fontFamily;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #2196F3;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  padding: 8px 14px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px -1px #21212133,0px 2px 4px -2px #21212133;
+}
+
+.emotion-70::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-70.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-70 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-70:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(33, 150, 243, 0.04);
+}
+
+@media (hover: none) {
+  .emotion-70:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-70.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.emotion-70 svg {
+  width: 16px;
+  height: 16px;
+}
+
+.emotion-71 {
+  display: inherit;
+  margin-right: -4px;
+  margin-left: 8px;
+}
+
+.emotion-71>*:nth-of-type(1) {
+  font-size: 20px;
+}
+
+.emotion-73 {
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  visibility: hidden;
+}
+
+.emotion-74 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.emotion-75 {
+  width: 100%;
+}
+
+.emotion-76 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 12px 24px;
+}
+
+.emotion-76>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-76>:not(style)~:not(style) {
+  margin-top: 16px;
+}
+
+.emotion-79 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.emotion-81 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+}
+
+.emotion-81>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-81>:not(style)~:not(style) {
+  margin-top: 8px;
+}
+
+.emotion-83 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 25%;
+}
+
+.emotion-84 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: end;
+}
+
+.emotion-85 {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: end;
+}
+
+.emotion-92 {
+  margin: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  border-width: 0;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.12);
+  border-bottom-width: thin;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  height: auto;
+}
+
+<div
+    class="MuiStack-root emotion-0"
+  >
+    <div
+      class="MuiStack-root emotion-1"
+    >
+      <div
+        class="MuiStack-root emotion-2"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-3"
+          data-testid="ai-interpret-button-back"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium emotion-4"
+          >
+            <svg />
+          </span>
+          กลับหน้าหลัก
+          <span
+            class="MuiTouchRipple-root emotion-5"
+          />
+        </button>
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-3"
+          data-testid="ai-interpret-button-edit"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium emotion-4"
+          >
+            <svg />
+          </span>
+          ปรับแต่งข้อมูล
+          <span
+            class="MuiTouchRipple-root emotion-5"
+          />
+        </button>
+      </div>
+      <hr
+        class="MuiDivider-root MuiDivider-fullWidth emotion-9"
+      />
+      <div
+        class="MuiStack-root emotion-10"
+      >
+        <div
+          class="MuiStack-root emotion-11"
+        >
+          <div
+            class="MuiStack-root emotion-12"
+          >
+            <div
+              class="MuiStack-root emotion-13"
+            >
+              <div
+                class="MuiStack-root emotion-2"
+              >
+                <span
+                  class="MuiTypography-root MuiTypography-labelExtraSmallBold emotion-15"
+                  data-testid="ai-interpret-example-rank"
+                >
+                  ตัวอย่างข้อมูล 1
+                </span>
+                <div
+                  class="MuiStack-root emotion-16"
+                >
+                  <span
+                    class="MuiTypography-root MuiTypography-labelExtraSmall emotion-17"
+                  >
+                    Model Version
+                  </span>
+                  <span
+                    class="MuiTypography-root MuiTypography-labelExtraSmallBold emotion-18"
+                    data-testid="ai-interpret-version"
+                  >
+                    1.0.0
+                  </span>
+                </div>
+              </div>
+              <p
+                class="MuiTypography-root MuiTypography-titleLargeBold emotion-19"
+                data-testid="ai-interpret-example-name"
+              >
+                case name
+              </p>
+              <div
+                class="MuiStack-root emotion-20"
+              >
+                <div
+                  class="MuiBox-root emotion-21"
+                >
+                  <span
+                    class="MuiTypography-root MuiTypography-labelExtraSmallBold emotion-22"
+                    data-testid="ai-interpret-gender-tag"
+                  >
+                    เพศ ชาย
+                  </span>
+                </div>
+                <div
+                  class="MuiBox-root emotion-21"
+                >
+                  <span
+                    class="MuiTypography-root MuiTypography-labelExtraSmallBold emotion-22"
+                    data-testid="ai-interpret-age-tag"
+                  >
+                    อายุ 29
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="MuiStack-root emotion-25"
+            >
+              <div
+                class="emotion-26"
+              />
+              <div
+                class="MuiStack-root emotion-27"
+              >
+                <svg />
+                <span
+                  class="MuiTypography-root MuiTypography-labelExtraSmallBold emotion-28"
+                  data-testid="ai-interpret-title"
+                >
+                  แปลและสรุปข้อมูลได้ดังนี้
+                </span>
+              </div>
+            </div>
+            <div
+              class="MuiStack-root emotion-29"
+            >
+              <div
+                class="MuiStack-root emotion-30"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body1 emotion-31"
+                  data-testid="ai-interpret-title-0"
+                >
+                  1. title-ai-result
+                </p>
+                <div
+                  class="emotion-32"
+                  data-testid="ai-interpret-description-0"
+                >
+                  description-ai-result
+                </div>
+                <div
+                  class="MuiStack-root emotion-33"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-3"
+                    data-testid="ai-interpret-button-copy-0"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium emotion-4"
+                    >
+                      <svg />
+                    </span>
+                    คัดลอกข้อความ
+                    <span
+                      class="MuiTouchRipple-root emotion-5"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiStack-root emotion-37"
+        >
+          <div
+            class="MuiStack-root emotion-38"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-titleBold emotion-39"
+            >
+              การตรวจสุขภาพทั่วไป
+            </p>
+          </div>
+          <div
+            class="MuiStack-root emotion-40"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+              data-testid="ai-interpret-general-information-title-age"
+            >
+              อายุ
+            </p>
+            <div
+              class="MuiStack-root emotion-42"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-bodySmall emotion-43"
+                data-testid="ai-interpret-general-information-age-value"
+              >
+                40
+              </p>
+              <p
+                class="MuiTypography-root MuiTypography-bodySmall emotion-44"
+                data-testid="ai-interpret-general-information-age-unit"
+              >
+                ปี
+              </p>
+            </div>
+          </div>
+          <div
+            class="MuiStack-root emotion-40"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+              data-testid="ai-interpret-general-information-title-gender"
+            >
+              เพศ
+            </p>
+            <div
+              class="MuiStack-root emotion-42"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-bodySmall emotion-43"
+                data-testid="ai-interpret-general-information-gender-value"
+              >
+                ชาย
+              </p>
+              <p
+                class="MuiTypography-root MuiTypography-bodySmall emotion-44"
+                data-testid="ai-interpret-general-information-gender-unit"
+              />
+            </div>
+          </div>
+          <div
+            class="MuiStack-root emotion-40"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+              data-testid="ai-interpret-general-information-title-body_weight"
+            >
+              น้ำหนัก
+            </p>
+            <div
+              class="MuiStack-root emotion-42"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-bodySmall emotion-43"
+                data-testid="ai-interpret-general-information-body_weight-value"
+              >
+                40
+              </p>
+              <p
+                class="MuiTypography-root MuiTypography-bodySmall emotion-44"
+                data-testid="ai-interpret-general-information-body_weight-unit"
+              />
+            </div>
+          </div>
+          <div
+            class="MuiStack-root emotion-40"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+              data-testid="ai-interpret-general-information-title-body_height"
+            >
+              ส่วนสูง
+            </p>
+            <div
+              class="MuiStack-root emotion-42"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-bodySmall emotion-43"
+                data-testid="ai-interpret-general-information-body_height-value"
+              >
+                150
+              </p>
+              <p
+                class="MuiTypography-root MuiTypography-bodySmall emotion-44"
+                data-testid="ai-interpret-general-information-body_height-unit"
+              />
+            </div>
+          </div>
+          <div
+            class="MuiStack-root emotion-40"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+              data-testid="ai-interpret-general-information-title-temperature"
+            >
+              อุณหภูมิร่างกาย
+            </p>
+            <div
+              class="MuiStack-root emotion-42"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-bodySmall emotion-43"
+                data-testid="ai-interpret-general-information-temperature-value"
+              >
+                38.00
+              </p>
+              <p
+                class="MuiTypography-root MuiTypography-bodySmall emotion-44"
+                data-testid="ai-interpret-general-information-temperature-unit"
+              >
+                °C
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiStack-root emotion-65"
+        >
+          <svg
+            class="emotion-66"
+          />
+          <div
+            class="MuiStack-root emotion-67"
+          >
+            <div
+              class="MuiStack-root emotion-33"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-titleBold emotion-39"
+                data-testid="ai-interpret-lab-title-hematologyCBC"
+              >
+                โลหิตวิทยา
+              </p>
+            </div>
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-70"
+              data-testid="ai-interpret-lab-hematologyCBC-button-collapse"
+              tabindex="0"
+              type="button"
+            >
+              ดูผล
+              <span
+                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-71"
+              >
+                <svg />
+              </span>
+              <span
+                class="MuiTouchRipple-root emotion-5"
+              />
+            </button>
+          </div>
+          <div
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-73"
+            style="min-height: 0px;"
+          >
+            <div
+              class="MuiCollapse-wrapper MuiCollapse-vertical emotion-74"
+            >
+              <div
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-75"
+              >
+                <div
+                  class="MuiStack-root emotion-76"
+                >
+                  <div
+                    class="MuiStack-root emotion-30"
+                  >
+                    <div
+                      class="MuiStack-root emotion-30"
+                      data-testid="ai-interpret-lab-title-sub-hematologyCBC-hemoglobin"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-titleBold emotion-79"
+                      >
+                        ความเข้มข้นของเลือด
+                      </p>
+                      <div
+                        class="MuiStack-root emotion-2"
+                      >
+                        <div
+                          class="MuiStack-root emotion-81"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                            data-testid="ai-interpret-lab-hematologyCBC-hb_value-label"
+                          >
+                            Hb
+                          </p>
+                        </div>
+                        <div
+                          class="MuiStack-root emotion-83"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                            data-testid="ai-interpret-lab-hematologyCBC-hb_value-value"
+                          >
+                            13.80 (g/dL)
+                          </p>
+                          <p
+                            class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                            data-testid="ai-interpret-lab-hematologyCBC-hb_value-unit"
+                          >
+                            (- g/dL)
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="MuiStack-root emotion-2"
+                      >
+                        <div
+                          class="MuiStack-root emotion-81"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                            data-testid="ai-interpret-lab-hematologyCBC-hct_value-label"
+                          >
+                            HCT
+                          </p>
+                        </div>
+                        <div
+                          class="MuiStack-root emotion-83"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                            data-testid="ai-interpret-lab-hematologyCBC-hct_value-value"
+                          >
+                            40.60 (%)
+                          </p>
+                          <p
+                            class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                            data-testid="ai-interpret-lab-hematologyCBC-hct_value-unit"
+                          >
+                            (- %)
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <hr
+                      class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem emotion-92"
+                    />
+                    <div
+                      class="MuiStack-root emotion-30"
+                      data-testid="ai-interpret-lab-title-sub-hematologyCBC-redBlood"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-titleBold emotion-79"
+                      >
+                        ลักษณะเม็ดเลือดแดง
+                      </p>
+                      <div
+                        class="MuiStack-root emotion-2"
+                      >
+                        <div
+                          class="MuiStack-root emotion-81"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                            data-testid="ai-interpret-lab-hematologyCBC-mcv_value-label"
+                          >
+                            MCV
+                          </p>
+                        </div>
+                        <div
+                          class="MuiStack-root emotion-83"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                            data-testid="ai-interpret-lab-hematologyCBC-mcv_value-value"
+                          >
+                            82.70 (fl)
+                          </p>
+                          <p
+                            class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                            data-testid="ai-interpret-lab-hematologyCBC-mcv_value-unit"
+                          >
+                            (- fl)
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="MuiStack-root emotion-2"
+                      >
+                        <div
+                          class="MuiStack-root emotion-81"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                            data-testid="ai-interpret-lab-hematologyCBC-mch_value-label"
+                          >
+                            MCH
+                          </p>
+                        </div>
+                        <div
+                          class="MuiStack-root emotion-83"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                            data-testid="ai-interpret-lab-hematologyCBC-mch_value-value"
+                          >
+                            28.10 (pg)
+                          </p>
+                          <p
+                            class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                            data-testid="ai-interpret-lab-hematologyCBC-mch_value-unit"
+                          >
+                            (- pg)
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="MuiStack-root emotion-2"
+                      >
+                        <div
+                          class="MuiStack-root emotion-81"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                            data-testid="ai-interpret-lab-hematologyCBC-mchc_value-label"
+                          >
+                            MCHC
+                          </p>
+                        </div>
+                        <div
+                          class="MuiStack-root emotion-83"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                            data-testid="ai-interpret-lab-hematologyCBC-mchc_value-value"
+                          >
+                            34.00 (g/dL)
+                          </p>
+                          <p
+                            class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                            data-testid="ai-interpret-lab-hematologyCBC-mchc_value-unit"
+                          >
+                            (- g/dL)
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <hr
+                      class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem emotion-92"
+                    />
+                    <div
+                      class="MuiStack-root emotion-30"
+                      data-testid="ai-interpret-lab-title-sub-hematologyCBC-whiteBlood"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-titleBold emotion-79"
+                      >
+                        จำนวนเม็ดเลือดขาวและแยกชนิด
+                      </p>
+                      <div
+                        class="MuiStack-root emotion-2"
+                      >
+                        <div
+                          class="MuiStack-root emotion-81"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                            data-testid="ai-interpret-lab-hematologyCBC-wbc_value-label"
+                          >
+                            WBC
+                          </p>
+                        </div>
+                        <div
+                          class="MuiStack-root emotion-83"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                            data-testid="ai-interpret-lab-hematologyCBC-wbc_value-value"
+                          >
+                            5.08 (*10^3/mm^3)
+                          </p>
+                          <p
+                            class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                            data-testid="ai-interpret-lab-hematologyCBC-wbc_value-unit"
+                          >
+                            (- *10^3/mm^3)
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="MuiStack-root emotion-2"
+                      >
+                        <div
+                          class="MuiStack-root emotion-81"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                            data-testid="ai-interpret-lab-hematologyCBC-neutrophil_value-label"
+                          >
+                            Neutrophil
+                          </p>
+                        </div>
+                        <div
+                          class="MuiStack-root emotion-83"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                            data-testid="ai-interpret-lab-hematologyCBC-neutrophil_value-value"
+                          >
+                            58.30 (%)
+                          </p>
+                          <p
+                            class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                            data-testid="ai-interpret-lab-hematologyCBC-neutrophil_value-unit"
+                          >
+                            (- %)
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="MuiStack-root emotion-2"
+                      >
+                        <div
+                          class="MuiStack-root emotion-81"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                            data-testid="ai-interpret-lab-hematologyCBC-lymphocyte_value-label"
+                          >
+                            Lymphocyte
+                          </p>
+                        </div>
+                        <div
+                          class="MuiStack-root emotion-83"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                            data-testid="ai-interpret-lab-hematologyCBC-lymphocyte_value-value"
+                          >
+                            28.50 (%)
+                          </p>
+                          <p
+                            class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                            data-testid="ai-interpret-lab-hematologyCBC-lymphocyte_value-unit"
+                          >
+                            (- %)
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="MuiStack-root emotion-2"
+                      >
+                        <div
+                          class="MuiStack-root emotion-81"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                            data-testid="ai-interpret-lab-hematologyCBC-monocyte_value-label"
+                          >
+                            Monocyte 
+                          </p>
+                        </div>
+                        <div
+                          class="MuiStack-root emotion-83"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                            data-testid="ai-interpret-lab-hematologyCBC-monocyte_value-value"
+                          >
+                            5.90 (%)
+                          </p>
+                          <p
+                            class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                            data-testid="ai-interpret-lab-hematologyCBC-monocyte_value-unit"
+                          >
+                            (- %)
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="MuiStack-root emotion-2"
+                      >
+                        <div
+                          class="MuiStack-root emotion-81"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                            data-testid="ai-interpret-lab-hematologyCBC-eosinophil_value-label"
+                          >
+                            Eosinophil
+                          </p>
+                        </div>
+                        <div
+                          class="MuiStack-root emotion-83"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                            data-testid="ai-interpret-lab-hematologyCBC-eosinophil_value-value"
+                          >
+                            6.30 (%)
+                          </p>
+                          <p
+                            class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                            data-testid="ai-interpret-lab-hematologyCBC-eosinophil_value-unit"
+                          >
+                            (- %)
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="MuiStack-root emotion-2"
+                      >
+                        <div
+                          class="MuiStack-root emotion-81"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                            data-testid="ai-interpret-lab-hematologyCBC-basophil_value-label"
+                          >
+                            Basophil
+                          </p>
+                        </div>
+                        <div
+                          class="MuiStack-root emotion-83"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                            data-testid="ai-interpret-lab-hematologyCBC-basophil_value-value"
+                          >
+                            1.00 (%)
+                          </p>
+                          <p
+                            class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                            data-testid="ai-interpret-lab-hematologyCBC-basophil_value-unit"
+                          >
+                            (- %)
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="MuiStack-root emotion-2"
+                      >
+                        <div
+                          class="MuiStack-root emotion-81"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                            data-testid="ai-interpret-lab-hematologyCBC-platelet_count_value-label"
+                          >
+                            Platelet Count
+                          </p>
+                        </div>
+                        <div
+                          class="MuiStack-root emotion-83"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                            data-testid="ai-interpret-lab-hematologyCBC-platelet_count_value-value"
+                          >
+                            243 (*10^3/mm^3)
+                          </p>
+                          <p
+                            class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                            data-testid="ai-interpret-lab-hematologyCBC-platelet_count_value-unit"
+                          >
+                            (- *10^3/mm^3)
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiStack-root emotion-65"
+        >
+          <svg
+            class="emotion-66"
+          />
+          <div
+            class="MuiStack-root emotion-67"
+          >
+            <div
+              class="MuiStack-root emotion-33"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-titleBold emotion-39"
+                data-testid="ai-interpret-lab-title-lipidProfile"
+              >
+                ระดับไขมันในเลือด
+              </p>
+            </div>
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-70"
+              data-testid="ai-interpret-lab-lipidProfile-button-collapse"
+              tabindex="0"
+              type="button"
+            >
+              ดูผล
+              <span
+                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-71"
+              >
+                <svg />
+              </span>
+              <span
+                class="MuiTouchRipple-root emotion-5"
+              />
+            </button>
+          </div>
+          <div
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-73"
+            style="min-height: 0px;"
+          >
+            <div
+              class="MuiCollapse-wrapper MuiCollapse-vertical emotion-74"
+            >
+              <div
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-75"
+              >
+                <div
+                  class="MuiStack-root emotion-76"
+                >
+                  <div
+                    class="MuiStack-root emotion-2"
+                  >
+                    <div
+                      class="MuiStack-root emotion-81"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        data-testid="ai-interpret-lab-lipidProfile-cholesterol_value-label"
+                      >
+                        Cholesterol
+                      </p>
+                    </div>
+                    <div
+                      class="MuiStack-root emotion-83"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        data-testid="ai-interpret-lab-lipidProfile-cholesterol_value-value"
+                      >
+                        208 (mg/dL)
+                      </p>
+                      <p
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        data-testid="ai-interpret-lab-lipidProfile-cholesterol_value-unit"
+                      >
+                        (- mg/dL)
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiStack-root emotion-2"
+                  >
+                    <div
+                      class="MuiStack-root emotion-81"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        data-testid="ai-interpret-lab-lipidProfile-triglyceride_value-label"
+                      >
+                        Triglyceride
+                      </p>
+                    </div>
+                    <div
+                      class="MuiStack-root emotion-83"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        data-testid="ai-interpret-lab-lipidProfile-triglyceride_value-value"
+                      >
+                        72 (mg/dL)
+                      </p>
+                      <p
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        data-testid="ai-interpret-lab-lipidProfile-triglyceride_value-unit"
+                      >
+                        (- mg/dL)
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiStack-root emotion-2"
+                  >
+                    <div
+                      class="MuiStack-root emotion-81"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        data-testid="ai-interpret-lab-lipidProfile-hdl_value-label"
+                      >
+                        HDL
+                      </p>
+                    </div>
+                    <div
+                      class="MuiStack-root emotion-83"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        data-testid="ai-interpret-lab-lipidProfile-hdl_value-value"
+                      >
+                        45.00 (mg/dL)
+                      </p>
+                      <p
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        data-testid="ai-interpret-lab-lipidProfile-hdl_value-unit"
+                      >
+                        (- mg/dL)
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiStack-root emotion-2"
+                  >
+                    <div
+                      class="MuiStack-root emotion-81"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        data-testid="ai-interpret-lab-lipidProfile-ldl_value-label"
+                      >
+                        LDL
+                      </p>
+                    </div>
+                    <div
+                      class="MuiStack-root emotion-83"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        data-testid="ai-interpret-lab-lipidProfile-ldl_value-value"
+                      >
+                        155 (mg/dL)
+                      </p>
+                      <p
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        data-testid="ai-interpret-lab-lipidProfile-ldl_value-unit"
+                      >
+                        (- mg/dL)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiStack-root emotion-65"
+        >
+          <svg
+            class="emotion-66"
+          />
+          <div
+            class="MuiStack-root emotion-67"
+          >
+            <div
+              class="MuiStack-root emotion-33"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-titleBold emotion-39"
+                data-testid="ai-interpret-lab-title-bloodChemistry"
+              >
+                สารเคมีในเลือด
+              </p>
+            </div>
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-70"
+              data-testid="ai-interpret-lab-bloodChemistry-button-collapse"
+              tabindex="0"
+              type="button"
+            >
+              ดูผล
+              <span
+                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-71"
+              >
+                <svg />
+              </span>
+              <span
+                class="MuiTouchRipple-root emotion-5"
+              />
+            </button>
+          </div>
+          <div
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-73"
+            style="min-height: 0px;"
+          >
+            <div
+              class="MuiCollapse-wrapper MuiCollapse-vertical emotion-74"
+            >
+              <div
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-75"
+              >
+                <div
+                  class="MuiStack-root emotion-76"
+                >
+                  <div
+                    class="MuiStack-root emotion-2"
+                  >
+                    <div
+                      class="MuiStack-root emotion-81"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        data-testid="ai-interpret-lab-bloodChemistry-uric_acid_value-label"
+                      >
+                        Uric Acid Test
+                      </p>
+                    </div>
+                    <div
+                      class="MuiStack-root emotion-83"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        data-testid="ai-interpret-lab-bloodChemistry-uric_acid_value-value"
+                      >
+                        6.80 (mg/dL)
+                      </p>
+                      <p
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        data-testid="ai-interpret-lab-bloodChemistry-uric_acid_value-unit"
+                      >
+                        (- mg/dL)
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiStack-root emotion-2"
+                  >
+                    <div
+                      class="MuiStack-root emotion-81"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        data-testid="ai-interpret-lab-bloodChemistry-fbs_value-label"
+                      >
+                        Fasting Blood Sugar
+                      </p>
+                    </div>
+                    <div
+                      class="MuiStack-root emotion-83"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        data-testid="ai-interpret-lab-bloodChemistry-fbs_value-value"
+                      >
+                        93 (mg/dL)
+                      </p>
+                      <p
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        data-testid="ai-interpret-lab-bloodChemistry-fbs_value-unit"
+                      >
+                        (- mg/dL)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiStack-root emotion-65"
+        >
+          <svg
+            class="emotion-66"
+          />
+          <div
+            class="MuiStack-root emotion-67"
+          >
+            <div
+              class="MuiStack-root emotion-33"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-titleBold emotion-39"
+                data-testid="ai-interpret-lab-title-renalFunctionTest"
+              >
+                การทำงานของไต
+              </p>
+            </div>
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-70"
+              data-testid="ai-interpret-lab-renalFunctionTest-button-collapse"
+              tabindex="0"
+              type="button"
+            >
+              ดูผล
+              <span
+                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-71"
+              >
+                <svg />
+              </span>
+              <span
+                class="MuiTouchRipple-root emotion-5"
+              />
+            </button>
+          </div>
+          <div
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-73"
+            style="min-height: 0px;"
+          >
+            <div
+              class="MuiCollapse-wrapper MuiCollapse-vertical emotion-74"
+            >
+              <div
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-75"
+              >
+                <div
+                  class="MuiStack-root emotion-76"
+                >
+                  <div
+                    class="MuiStack-root emotion-2"
+                  >
+                    <div
+                      class="MuiStack-root emotion-81"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        data-testid="ai-interpret-lab-renalFunctionTest-creatinine_value-label"
+                      >
+                        Creatinine
+                      </p>
+                    </div>
+                    <div
+                      class="MuiStack-root emotion-83"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        data-testid="ai-interpret-lab-renalFunctionTest-creatinine_value-value"
+                      >
+                        0.89 (mg/dL)
+                      </p>
+                      <p
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        data-testid="ai-interpret-lab-renalFunctionTest-creatinine_value-unit"
+                      >
+                        (- mg/dL)
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiStack-root emotion-2"
+                  >
+                    <div
+                      class="MuiStack-root emotion-81"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        data-testid="ai-interpret-lab-renalFunctionTest-bun_value-label"
+                      >
+                        BUN
+                      </p>
+                    </div>
+                    <div
+                      class="MuiStack-root emotion-83"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        data-testid="ai-interpret-lab-renalFunctionTest-bun_value-value"
+                      >
+                        10.70 (mg/dL)
+                      </p>
+                      <p
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        data-testid="ai-interpret-lab-renalFunctionTest-bun_value-unit"
+                      >
+                        (- mg/dL)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiStack-root emotion-65"
+        >
+          <svg
+            class="emotion-66"
+          />
+          <div
+            class="MuiStack-root emotion-67"
+          >
+            <div
+              class="MuiStack-root emotion-33"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-titleBold emotion-39"
+                data-testid="ai-interpret-lab-title-liverFunctionTest"
+              >
+                การทำงานของตับ
+              </p>
+            </div>
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-70"
+              data-testid="ai-interpret-lab-liverFunctionTest-button-collapse"
+              tabindex="0"
+              type="button"
+            >
+              ดูผล
+              <span
+                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-71"
+              >
+                <svg />
+              </span>
+              <span
+                class="MuiTouchRipple-root emotion-5"
+              />
+            </button>
+          </div>
+          <div
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-73"
+            style="min-height: 0px;"
+          >
+            <div
+              class="MuiCollapse-wrapper MuiCollapse-vertical emotion-74"
+            >
+              <div
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-75"
+              >
+                <div
+                  class="MuiStack-root emotion-76"
+                >
+                  <div
+                    class="MuiStack-root emotion-2"
+                  >
+                    <div
+                      class="MuiStack-root emotion-81"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        data-testid="ai-interpret-lab-liverFunctionTest-sgot_value-label"
+                      >
+                        SGOT
+                      </p>
+                    </div>
+                    <div
+                      class="MuiStack-root emotion-83"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        data-testid="ai-interpret-lab-liverFunctionTest-sgot_value-value"
+                      >
+                        18 (U/L)
+                      </p>
+                      <p
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        data-testid="ai-interpret-lab-liverFunctionTest-sgot_value-unit"
+                      >
+                        (- U/L)
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiStack-root emotion-2"
+                  >
+                    <div
+                      class="MuiStack-root emotion-81"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        data-testid="ai-interpret-lab-liverFunctionTest-sgpt_value-label"
+                      >
+                        SGPT
+                      </p>
+                    </div>
+                    <div
+                      class="MuiStack-root emotion-83"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        data-testid="ai-interpret-lab-liverFunctionTest-sgpt_value-value"
+                      >
+                        17 (U/L)
+                      </p>
+                      <p
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        data-testid="ai-interpret-lab-liverFunctionTest-sgpt_value-unit"
+                      >
+                        (- U/L)
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiStack-root emotion-2"
+                  >
+                    <div
+                      class="MuiStack-root emotion-81"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        data-testid="ai-interpret-lab-liverFunctionTest-alp_value-label"
+                      >
+                        ALK Phosphatase
+                      </p>
+                    </div>
+                    <div
+                      class="MuiStack-root emotion-83"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        data-testid="ai-interpret-lab-liverFunctionTest-alp_value-value"
+                      >
+                        71 (U/L)
+                      </p>
+                      <p
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        data-testid="ai-interpret-lab-liverFunctionTest-alp_value-unit"
+                      >
+                        (- U/L)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiStack-root emotion-65"
+        >
+          <svg
+            class="emotion-66"
+          />
+          <div
+            class="MuiStack-root emotion-67"
+          >
+            <div
+              class="MuiStack-root emotion-33"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-titleBold emotion-39"
+                data-testid="ai-interpret-lab-title-urineAnalysis"
+              >
+                การวิเคราะห์ปัสสาวะ
+              </p>
+            </div>
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-70"
+              data-testid="ai-interpret-lab-urineAnalysis-button-collapse"
+              tabindex="0"
+              type="button"
+            >
+              ดูผล
+              <span
+                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-71"
+              >
+                <svg />
+              </span>
+              <span
+                class="MuiTouchRipple-root emotion-5"
+              />
+            </button>
+          </div>
+          <div
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-73"
+            style="min-height: 0px;"
+          >
+            <div
+              class="MuiCollapse-wrapper MuiCollapse-vertical emotion-74"
+            >
+              <div
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-75"
+              >
+                <div
+                  class="MuiStack-root emotion-76"
+                >
+                  <div
+                    class="MuiStack-root emotion-2"
+                  >
+                    <div
+                      class="MuiStack-root emotion-81"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        data-testid="ai-interpret-lab-urineAnalysis-urine_color_value-label"
+                      >
+                        Color
+                      </p>
+                    </div>
+                    <div
+                      class="MuiStack-root emotion-83"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        data-testid="ai-interpret-lab-urineAnalysis-urine_color_value-value"
+                      >
+                        Yellow
+                      </p>
+                      <p
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        data-testid="ai-interpret-lab-urineAnalysis-urine_color_value-unit"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiStack-root emotion-2"
+                  >
+                    <div
+                      class="MuiStack-root emotion-81"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        data-testid="ai-interpret-lab-urineAnalysis-urine_sp_gr_value-label"
+                      >
+                        SpGr
+                      </p>
+                    </div>
+                    <div
+                      class="MuiStack-root emotion-83"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        data-testid="ai-interpret-lab-urineAnalysis-urine_sp_gr_value-value"
+                      >
+                        1.006
+                      </p>
+                      <p
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        data-testid="ai-interpret-lab-urineAnalysis-urine_sp_gr_value-unit"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiStack-root emotion-2"
+                  >
+                    <div
+                      class="MuiStack-root emotion-81"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        data-testid="ai-interpret-lab-urineAnalysis-urine_ph_value-label"
+                      >
+                        pH
+                      </p>
+                    </div>
+                    <div
+                      class="MuiStack-root emotion-83"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        data-testid="ai-interpret-lab-urineAnalysis-urine_ph_value-value"
+                      >
+                        6.50
+                      </p>
+                      <p
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        data-testid="ai-interpret-lab-urineAnalysis-urine_ph_value-unit"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiStack-root emotion-2"
+                  >
+                    <div
+                      class="MuiStack-root emotion-81"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        data-testid="ai-interpret-lab-urineAnalysis-urine_wbc_value-label"
+                      >
+                        WBC
+                      </p>
+                    </div>
+                    <div
+                      class="MuiStack-root emotion-83"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        data-testid="ai-interpret-lab-urineAnalysis-urine_wbc_value-value"
+                      >
+                        0-5
+                      </p>
+                      <p
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        data-testid="ai-interpret-lab-urineAnalysis-urine_wbc_value-unit"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiStack-root emotion-2"
+                  >
+                    <div
+                      class="MuiStack-root emotion-81"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        data-testid="ai-interpret-lab-urineAnalysis-urine_protein_value-label"
+                      >
+                        Protein
+                      </p>
+                    </div>
+                    <div
+                      class="MuiStack-root emotion-83"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        data-testid="ai-interpret-lab-urineAnalysis-urine_protein_value-value"
+                      >
+                        Negative
+                      </p>
+                      <p
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        data-testid="ai-interpret-lab-urineAnalysis-urine_protein_value-unit"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiStack-root emotion-2"
+                  >
+                    <div
+                      class="MuiStack-root emotion-81"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        data-testid="ai-interpret-lab-urineAnalysis-urine_glucose_value-label"
+                      >
+                        Glucose
+                      </p>
+                    </div>
+                    <div
+                      class="MuiStack-root emotion-83"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        data-testid="ai-interpret-lab-urineAnalysis-urine_glucose_value-value"
+                      >
+                        Negative
+                      </p>
+                      <p
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        data-testid="ai-interpret-lab-urineAnalysis-urine_glucose_value-unit"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiStack-root emotion-2"
+                  >
+                    <div
+                      class="MuiStack-root emotion-81"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        data-testid="ai-interpret-lab-urineAnalysis-urine_erythrocyte_value-label"
+                      >
+                        Erythrocyte
+                      </p>
+                    </div>
+                    <div
+                      class="MuiStack-root emotion-83"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        data-testid="ai-interpret-lab-urineAnalysis-urine_erythrocyte_value-value"
+                      >
+                        Negative
+                      </p>
+                      <p
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        data-testid="ai-interpret-lab-urineAnalysis-urine_erythrocyte_value-unit"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiStack-root emotion-2"
+                  >
+                    <div
+                      class="MuiStack-root emotion-81"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        data-testid="ai-interpret-lab-urineAnalysis-urine_rbc_value-label"
+                      >
+                        RBC
+                      </p>
+                    </div>
+                    <div
+                      class="MuiStack-root emotion-83"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        data-testid="ai-interpret-lab-urineAnalysis-urine_rbc_value-value"
+                      >
+                        0-5
+                      </p>
+                      <p
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        data-testid="ai-interpret-lab-urineAnalysis-urine_rbc_value-unit"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiStack-root emotion-65"
+        >
+          <svg
+            class="emotion-66"
+          />
+          <div
+            class="MuiStack-root emotion-67"
+          >
+            <div
+              class="MuiStack-root emotion-33"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-titleBold emotion-39"
+                data-testid="ai-interpret-lab-title-papSmear"
+              >
+                Pap Smear
+              </p>
+            </div>
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-70"
+              data-testid="ai-interpret-lab-papSmear-button-collapse"
+              tabindex="0"
+              type="button"
+            >
+              ดูผล
+              <span
+                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-71"
+              >
+                <svg />
+              </span>
+              <span
+                class="MuiTouchRipple-root emotion-5"
+              />
+            </button>
+          </div>
+          <div
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-73"
+            style="min-height: 0px;"
+          >
+            <div
+              class="MuiCollapse-wrapper MuiCollapse-vertical emotion-74"
+            >
+              <div
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-75"
+              >
+                <div
+                  class="MuiStack-root emotion-76"
+                >
+                  <div
+                    class="MuiStack-root emotion-2"
+                  >
+                    <div
+                      class="MuiStack-root emotion-81"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        data-testid="ai-interpret-lab-papSmear-papsmear_finding-label"
+                      >
+                        การตรวจมะเร็งปากมดลูก
+                      </p>
+                    </div>
+                    <div
+                      class="MuiStack-root emotion-83"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        data-testid="ai-interpret-lab-papSmear-papsmear_finding-value"
+                      >
+                        Normal
+                      </p>
+                      <p
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        data-testid="ai-interpret-lab-papSmear-papsmear_finding-unit"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

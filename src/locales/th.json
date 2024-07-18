@@ -1,0 +1,587 @@
+{
+  "Common": {
+    "button": {
+      "next": "ถัดไป",
+      "select": "เลือก",
+      "cancel": "ยกเลิก",
+      "back": "กลับ",
+      "close": "ปิด",
+      "confirm": "ยืนยัน",
+      "uploadImage": "เลือกรูปภาพ",
+      "ok": "ตกลง",
+      "startAppointment": "เริ่มทำนัด",
+      "appointmentNotAvailable": "ตารางเต็ม",
+      "continue": "ดำเนินการต่อ",
+      "forgetPassword": "ลืมรหัสผ่าน",
+      "setNewPassword": "ตั้งรหัสผ่านใหม่",
+      "submitRequest": "ส่งคำขอ"
+    },
+    "error": {
+      "errorPleaseTryAgain": "เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง",
+      "emailFormat": "อีเมลไม่ถูกต้อง",
+      "phoneNoFormat": "เบอร์โทรศัพท์ไม่ถูกต้อง",
+      "uploadFileSize": "กรุณาเลือกรูปที่มีขนาดไม่เกิน {fileSize}",
+      "uploadFileType": "รองรับรูปแบบไฟล์เฉพาะ JPG, JPEG และ PNG เท่านั้น"
+    },
+    "calendar": {
+      "selectDate": "เลือกวันที่",
+      "day": "วัน",
+      "week": "สัปดาห์",
+      "month": "เดือน",
+      "year": "ปี",
+      "buddhistYear": "พ.ศ."
+    },
+    "gender": {
+      "male": "ชาย",
+      "female": "หญิง"
+    },
+    "validation": {
+      "require": "จำเป็นต้องใส่ข้อมูล",
+      "invalidInput": "ข้อมูลไม่ถูกต้อง",
+      "invalidPhoneNo": "เบอร์โทรศัพท์ไม่ถูกต้อง",
+      "invalidFirstName": "ชื่อจริงไม่ถูกต้อง",
+      "invalidLastName": "นามสกุลไม่ถูกต้อง",
+      "enterFirstName": "กรุณากรอกชื่อ",
+      "enterLastName": "กรุณากรอกนามสกุล",
+      "phoneNoFormat": "เบอร์โทรศัพท์ไม่ถูกต้อง",
+      "invalidEmail": "อีเมลไม่ถูกต้อง",
+      "invalidPassword": "รหัสผ่านต้องมีอย่างน้อย 8 หลัก",
+      "invalidPasswordFormat": "รหัสผ่านไม่ตรงเงื่อนไข",
+      "passwordIsNotMatch": "รหัสผ่านไม่ตรงกัน",
+      "valueMustBeInRange": "ข้อมูลต้องอยู่ในช่วง",
+      "valueMustNotExceed": "ข้อมูลต้องไม่เกิน",
+      "only": "เท่านั้น",
+      "selectRequire": "จำเป็นต้องเลือกข้อมูล",
+      "characters": "ตัวอักษร"
+    },
+    "text": {
+      "noOptions": "ไม่พบข้อมูล",
+      "loading": "กำลังโหลด",
+      "login": "เข้าสู่ระบบ",
+      "setNewPassword": "กรอกรหัสผ่านใหม่เพื่อตั้งค่ารหัสผ่านใหม่",
+      "setNewPasswordValidateTitle": "เงื่อนไขการตั้งรหัสผ่าน",
+      "setNewPasswordValidateMessage": " - มีอย่างน้อย 8 หลัก\n - มีตัวเลขอย่างน้อย 1 หลัก\n - ประกอบด้วยอักษรภาษาอังกฤษ\n   - ตัวพิมพ์ใหญ่อย่างน้อย 1 ตัว\n   - ตัวพิมพ์เล็กอย่างน้อย 1 ตัว\n   - สัญลักษณ์อย่างน้อย 1 ตัว",
+      "interpret": "แปลและสรุปผลสุขภาพ"
+    },
+    "status": {
+      "availableAppointment": "พร้อมนัดหมาย",
+      "notAvailableAppointment": "ตารางเต็ม",
+      "resetPasswordSuccess": "ส่งลิงก์ไปยังอีเมลของคุณแล้ว !"
+    },
+    "toast": {
+      "resetPasswordSuccess": "ตั้งค่ารหัสผ่านใหม่สำเร็จ !"
+    },
+    "file": {
+      "fileTooLarge": "กรุณาเลือกรูปที่มีขนาดไม่เกิน {size} {unit}"
+    },
+    "field": {
+      "optional": "(ถ้ามี)",
+      "agreement": "ฉันยอมรับเงื่อนไขและข้อตกลงการให้บริการ"
+    },
+    "placeholder": {
+      "completeYourEmail": "กรอกอีเมลของคุณ",
+      "select": "เลือก",
+      "enterValue": "กรอกข้อมูล",
+      "selectValue": "เลือกข้อมูล",
+      "data": "ข้อมูล"
+    },
+    "pages": {
+      "login": "Login Page",
+      "forgetPassword": "ลืมรหัสผ่าน",
+      "setNewPassword": "ตั้งค่ารหัสผ่านใหม่",
+      "home": "หน้าหลัก",
+      "termsAndConditions": "ข้อกำหนดและเงื่อนไข",
+      "privacyPolicy": "นโยบายความเป็นส่วนตัว"
+    },
+    "title": {
+      "carivaPlayground": "CARIVA PLAYGROUND",
+      "resetPassword": "ตั้งค่ารหัสผ่านใหม่",
+      "termsAndConditions": "เลื่อนขึ้นเพื่ออ่านข้อความทั้งหมดและดำเนินการต่อ",
+      "hello": "สวัสดี",
+      "pleaseSelectMenu": "โปรดเลือกเครื่องมือที่คุณต้องการ",
+      "allServices": "All Services",
+      "privacyPolicy": "เลื่อนขึ้นเพื่ออ่านข้อความทั้งหมดและดำเนินการต่อ"
+    },
+    "message": {
+      "resetPassword": "กรอกอีเมลของคุณเพื่อรับลิงก์สำหรับตั้งรหัสผ่านใหม่",
+      "resetPasswordSuccess": "กรุณาตรวจสอบอีเมลของคุณ"
+    },
+    "responseError": {
+      "invalidEmailOrPassword": "อีเมลหรือรหัสผ่านไม่ถูกต้อง กรุณาตรวจสอบอีกครั้ง"
+    },
+    "roles": {
+      "admin": "แอดมิน"
+    },
+    "menu": {
+      "aiMenus": "เครื่องมือวิเคราะห์ข้อมูลด้วย AI",
+      "settingMenus": "การตั้งค่าและอื่นๆ",
+      "home": "หน้าหลัก",
+      "aiInterpret": {
+        "title": "AI Interpret",
+        "tryExampleData": "ทดลองใช้ข้อมูลตัวอย่าง",
+        "tryInputData": "ทดลองใส่ข้อมูลเอง",
+        "tryHospitalData": "ใช้ข้อมูลจากโรงพยาบาล"
+      },
+      "healthVisualization": {
+        "title": "Health Visualization"
+      },
+      "asr": {
+        "title": "ASR"
+      },
+      "symptomChecker": {
+        "title": "Symptom Checker"
+      },
+      "settingAndOther": {
+        "title": "ตั้งค่าและอื่น ๆ",
+        "termsAndConditions": "ข้อกำหนดและเงื่อนไข",
+        "privacyPolicy": "นโยบายความเป็นส่วนตัว"
+      },
+      "notification": "การแจ้งเตือน",
+      "logout": "ออกจากระบบ"
+    },
+    "symptomChecker": {
+      "title": "Symptom Checker",
+      "subtitle": "ที่ปรึกษาทางการแพทย์อัจริยะ"
+    },
+    "settingTermsAndConditions": {
+      "title": "ข้อกำหนดและเงื่อนไข"
+    },
+    "settingPrivacyPolicy": {
+      "title": "นโยบายความเป็นส่วนตัว"
+    }
+  },
+  "AiInterpret": {
+    "button": {
+      "editData": "ปรับแต่งข้อมูล",
+      "interpretData": "แปลและสรุปข้อมูล",
+      "backToMain": "กลับหน้าหลัก",
+      "useExampleData": "ใช้ข้อมูลตัวอย่าง",
+      "ok": "ตกลง",
+      "retry": "ลองใหม่",
+      "cancel": "ยกเลิก"
+    },
+    "pages": {
+      "aiInterpret": "AI Interpret",
+      "tryExampleData": "ทดลองใช้ข้อมูลตัวอย่าง",
+      "tryInputData": "ทดลองใส่ข้อมูลเอง",
+      "aiInterpretResult": "AI Interpret Result"
+    },
+    "title": {
+      "tryInputData": "ทดลองใส่ข้อมูลเอง"
+    },
+    "label": {
+      "aiInterpret": "แปลและสรุปผลสุขภาพ",
+      "exampleData": "ตัวอย่างข้อมูล"
+    },
+    "field": {
+      "gender": "เพศ",
+      "age": "อายุ",
+      "modelVersion": "Model Version",
+      "yearsOld": "ปี"
+    },
+    "message": {
+      "noExampleData": "ไม่พบตัวอย่างข้อมูล"
+    },
+    "text": {
+      "male": "ชาย",
+      "female": "หญิง",
+      "other": "อื่น ๆ",
+      "myCredit": "เครดิตของฉัน",
+      "unlimited": "ใช้ได้ไม่จำกัด",
+      "interpreting": "กำลังประมวลผล",
+      "failedInterpret": "ประมวลผลไม่สำเร็จ\nกรุณาลองใหม่อีกครั้ง"
+    },
+    "aiInterpretResult": {
+      "modalVersion": "Model Version",
+      "example": "ตัวอย่างข้อมูล {{num}}",
+      "gender": {
+        "male": "เพศ ชาย",
+        "female": "เพศ หญิง"
+      },
+      "age": "อายุ {{age}}",
+      "title": "แปลและสรุปข้อมูลได้ดังนี้",
+      "button": {
+        "back": "กลับหน้าหลัก",
+        "edit": "ปรับแต่งข้อมูล",
+        "copy": "คัดลอกข้อความ"
+      },
+      "general": {
+        "title": "การตรวจสุขภาพทั่วไป",
+        "information": {
+          "age": {
+            "title": "อายุ",
+            "unit": "ปี"
+          },
+          "gender": {
+            "title": "เพศ",
+            "male": "ชาย",
+            "female": "หญิง"
+          },
+          "body_weight": {
+            "title": "น้ำหนัก"
+          },
+          "body_height": {
+            "title": "ส่วนสูง"
+          },
+          "waist_line": {
+            "title": "รอบเอว"
+          },
+          "blood_pressure_systolic": {
+            "title": "ค่าความดันตัวบน"
+          },
+          "blood_pressure_diastolic": {
+            "title": "ค่าความดันตัวล่าง"
+          },
+          "pulse": {
+            "title": "อัตราชีพจร"
+          },
+          "respiratory_rate": {
+            "title": "อัตราการหายใจ"
+          },
+          "temperature": {
+            "title": "อุณหภูมิร่างกาย"
+          }
+        }
+      },
+      "lab": {
+        "seeResults": "ดูผล",
+        "group": {
+          "hematologyBloodGroup": {
+            "title": "หมู่เลือด",
+            "bloodGroup": "หมู่เลือด",
+            "blood_group": {
+              "label": "หมู่เลือด (ABO)"
+            },
+            "blood_group_rh": {
+              "label": "หมู่เลือด (Rh)"
+            }
+          },
+          "hematologyCBC": {
+            "title": "โลหิตวิทยา",
+            "hemoglobin": "ความเข้มข้นของเลือด",
+            "redBlood": "ลักษณะเม็ดเลือดแดง",
+            "whiteBlood": "จำนวนเม็ดเลือดขาวและแยกชนิด",
+            "hb_value": {
+              "label": "Hb"
+            },
+            "hct_value": {
+              "label": "HCT"
+            },
+            "rbc_morphology_value": {
+              "label": "ลักษณะเม็ดเลือดแดง"
+            },
+            "wbc_value": {
+              "label": "WBC"
+            },
+            "lymphocyte_value": {
+              "label": "Lymphocyte"
+            },
+            "neutrophil_value": {
+              "label": "Neutrophil"
+            },
+            "monocyte_value": {
+              "label": "Monocyte "
+            },
+            "eosinophil_value": {
+              "label": "Eosinophil"
+            },
+            "basophil_value": {
+              "label": "Basophil"
+            },
+            "mcv_value": {
+              "label": "MCV"
+            },
+            "mch_value": {
+              "label": "MCH"
+            },
+            "mchc_value": {
+              "label": "MCHC"
+            },
+            "platelet_count_value": {
+              "label": "Platelet Count"
+            }
+          },
+          "lipidProfile": {
+            "title": "ระดับไขมันในเลือด",
+            "cholesterol_value": {
+              "label": "Cholesterol"
+            },
+            "triglyceride_value": {
+              "label": "Triglyceride"
+            },
+            "hdl_value": {
+              "label": "HDL"
+            },
+            "ldl_value": {
+              "label": "LDL"
+            }
+          },
+          "bloodChemistry": {
+            "title": "สารเคมีในเลือด",
+            "uric_acid_value": {
+              "label": "Uric Acid Test"
+            },
+            "fbs_value": {
+              "label": "Fasting Blood Sugar"
+            }
+          },
+          "renalFunctionTest": {
+            "title": "การทำงานของไต",
+            "creatinine_value": {
+              "label": "Creatinine"
+            },
+            "bun_value": {
+              "label": "BUN"
+            }
+          },
+          "liverFunctionTest": {
+            "title": "การทำงานของตับ",
+            "sgot_value": {
+              "label": "SGOT"
+            },
+            "sgpt_value": {
+              "label": "SGPT"
+            },
+            "alp_value": {
+              "label": "ALK Phosphatase"
+            }
+          },
+          "urineAnalysis": {
+            "title": "การวิเคราะห์ปัสสาวะ",
+            "urine_color_value": {
+              "label": "Color"
+            },
+            "urine_sp_gr_value": {
+              "label": "SpGr"
+            },
+            "urine_ph_value": {
+              "label": "pH"
+            },
+            "urine_wbc_value": {
+              "label": "WBC"
+            },
+            "urine_protein_value": {
+              "label": "Protein"
+            },
+            "urine_glucose_value": {
+              "label": "Glucose"
+            },
+            "urine_erythrocyte_value": {
+              "label": "Erythrocyte"
+            },
+            "urine_rbc_value": {
+              "label": "RBC"
+            }
+          },
+          "stoolExamination": {
+            "title": "การวิเคราะห์อุจจาระ",
+            "stool_color": {
+              "label": "Color"
+            },
+            "stool_wbc": {
+              "label": "WBC"
+            },
+            "stool_rbc": {
+              "label": "RBC"
+            },
+            "stool_parasite": {
+              "label": "Parasite"
+            },
+            "stool_occult_blood": {
+              "label": "Occult Blood"
+            },
+            "stool_culture": {
+              "label": "Stool Culture"
+            }
+          },
+          "papSmear": {
+            "title": "Pap Smear",
+            "papsmear_finding": {
+              "label": "การตรวจมะเร็งปากมดลูก"
+            }
+          },
+          "tumorMarker": {
+            "title": "Tumor marker",
+            "afp_value": {
+              "label": "สารบ่งชี้มะเร็งตับ"
+            },
+            "psa_value": {
+              "label": "สารบ่งชี้มะเร็งต่อมลูกหมาก "
+            },
+            "cea_value": {
+              "label": "สารบ่งชี้มะเร็งลำไส้"
+            }
+          }
+        }
+      }
+    },
+    "en": {
+      "groupName": {
+        "generalCheckUp": "General Check-up",
+        "hematologyBloodGroup": "Hematology (Blood Group)",
+        "hematologyCBC": "Hematology (CBC)",
+        "lipidProfile": "Lipid Profile",
+        "bloodChemistry": "Blood Chemistry",
+        "renalFunctionTest": "Renal Function Test",
+        "liverFunctionTest": "Liver Function Test",
+        "urineAnalysis": "Urine Analysis",
+        "stoolExamination": "Stool Examination",
+        "papSmear": "Pap Smear",
+        "tumorMarker": "Tumor marker"
+      },
+      "placeholder": {
+        "gender": "Select Gender"
+      },
+      "field": {
+        "age": "Age",
+        "gender": "Gender",
+        "body_weight": "Body Weight",
+        "body_height": "Body Height",
+        "waist_line": "Waistline",
+        "blood_pressure_systolic": "Blood Pressure Systolic",
+        "blood_pressure_diastolic": "Blood Pressure Diastolic",
+        "pulse": "Pulse",
+        "respiratory_rate": "Respiratory Rate",
+        "temperature": "Temperature",
+
+        "blood_group": "ABO",
+        "blood_group_rh": "Rh",
+
+        "hb_value": "Hb",
+        "hct_value": "Hct",
+        "rbc_morphology_value": "RBC Morphology",
+        "mcv_value": "MCV",
+        "mch_value": "MCH",
+        "mchc_value": "MCHC",
+        "wbc_value": "WBC",
+        "neutrophil_value": "Neutrophil",
+        "lymphocyte_value": "Lymphocyte",
+        "monocyte_value": "Monocyte",
+        "eosinophil_value": "Eosinophil",
+        "basophil_value": "Basophil",
+        "platelet_count_value": "Platelet",
+
+        "cholesterol_value": "Cholesterol",
+        "triglyceride_value": "Triglyceride",
+        "hdl_value": "HDL",
+        "ldl_value": "LDL",
+
+        "uric_acid_value": "Uric Acid Test",
+        "fbs_value": "Fasting Blood Sugar",
+
+        "creatinine_value": "Creatinine",
+        "bun_value": "BUN",
+
+        "sgot_value": "SGOT",
+        "sgpt_value": "SGPT",
+        "alp_value": "ALK Phosphatase",
+
+        "urine_color_value": "Color",
+        "urine_sp_gr_value": "SpGr",
+        "urine_ph_value": "pH",
+        "urine_wbc_value": "WBC",
+        "urine_protein_value": "Protein",
+        "urine_glucose_value": "Glucose",
+        "urine_erythrocyte_value": "Erythrocyte",
+        "urine_rbc_value": "RBC",
+
+        "stool_color": "Color",
+        "stool_wbc": "WBC",
+        "stool_rbc": "RBC",
+        "stool_parasite": "Parasite",
+        "stool_occult_blood": "Occult Blood",
+        "stool_culture": "Stool Culture",
+
+        "papsmear_finding": "Liquid Based Pap Test",
+
+        "afp_value": "AFP",
+        "psa_value": "PSA",
+        "cea_value": "CEA"
+      }
+    },
+    "th": {
+      "groupName": {
+        "generalCheckUp": "การตรวจสุขภาพทั่วไป",
+        "hematologyBloodGroup": "Hematology (Blood Group)",
+        "hematologyCBC": "Hematology (CBC)",
+        "lipidProfile": "Lipid Profile",
+        "bloodChemistry": "Blood Chemistry",
+        "renalFunctionTest": "Renal Function Test",
+        "liverFunctionTest": "Liver Function Test",
+        "urineAnalysis": "Urine Analysis",
+        "stoolExamination": "Stool Examination",
+        "papSmear": "Pap Smear",
+        "tumorMarker": "Tumor marker"
+      },
+      "placeholder": {
+        "gender": "เลือกเพศ"
+      },
+      "field": {
+        "age": "อายุ",
+        "gender": "เพศ",
+        "body_weight": "น้ำหนัก",
+        "body_height": "ส่วนสูง",
+        "waist_line": "เส้นรอบเอว",
+        "blood_pressure_systolic": "ความดันโลหิตขณะบีบตัว (ตัวบน)",
+        "blood_pressure_diastolic": "ความดันโลหิตขณะคลายตัว (ตัวล่าง)",
+        "pulse": "อัตราการเต้นหัวใจ",
+        "respiratory_rate": "อัตราการหายใจ",
+        "temperature": "อุณหภูมิร่างกาย",
+
+        "blood_group": "หมู่เลือด ABO",
+        "blood_group_rh": "หมู่เลือด Rh",
+
+        "hb_value": "Hb",
+        "hct_value": "Hct",
+        "rbc_morphology_value": "ลักษณะเม็ดเลือดแดง",
+        "mcv_value": "MCV",
+        "mch_value": "MCH",
+        "mchc_value": "MCHC",
+        "wbc_value": "WBC",
+        "neutrophil_value": "Neutrophil",
+        "lymphocyte_value": "Lymphocyte",
+        "monocyte_value": "Monocyte",
+        "eosinophil_value": "Eosinophil",
+        "basophil_value": "Basophil",
+        "platelet_count_value": "Platelet",
+
+        "cholesterol_value": "Cholesterol",
+        "triglyceride_value": "Triglyceride",
+        "hdl_value": "HDL",
+        "ldl_value": "LDL",
+
+        "uric_acid_value": "Uric Acid Test",
+        "fbs_value": "Fasting Blood Sugar",
+
+        "creatinine_value": "Creatinine",
+        "bun_value": "BUN",
+
+        "sgot_value": "SGOT",
+        "sgpt_value": "SGPT",
+        "alp_value": "ALK Phosphatase",
+
+        "urine_color_value": "Color",
+        "urine_sp_gr_value": "SpGr",
+        "urine_ph_value": "pH",
+        "urine_wbc_value": "WBC",
+        "urine_protein_value": "Protein",
+        "urine_glucose_value": "Glucose",
+        "urine_erythrocyte_value": "Erythrocyte",
+        "urine_rbc_value": "RBC",
+
+        "stool_color": "Color",
+        "stool_wbc": "WBC",
+        "stool_rbc": "RBC",
+        "stool_parasite": "Parasite",
+        "stool_occult_blood": "Occult Blood",
+        "stool_culture": "การตรวจเพาะเชื้ออุจจาระ",
+
+        "papsmear_finding": "การตรวจมะเร็งปากมดลูก",
+
+        "afp_value": "สารบ่งชี้มะเร็งตับ",
+        "psa_value": "สารบ่งชี้มะเร็งต่อมลูกหมาก",
+        "cea_value": "สารบ่งชี้มะเร็งลำไส้"
+      }
+    }
+  }
+}

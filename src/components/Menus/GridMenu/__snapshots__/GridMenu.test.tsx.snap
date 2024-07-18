@@ -1,0 +1,228 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GridMenu Component should render correctly 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin-top: -24px;
+  width: calc(100% + 24px);
+  margin-left: -24px;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.emotion-0>.MuiGrid-item {
+  padding-top: 24px;
+}
+
+.emotion-0>.MuiGrid-item {
+  padding-left: 24px;
+}
+
+.emotion-1 {
+  box-sizing: border-box;
+  margin: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-basis: 33.333333%;
+  -ms-flex-preferred-size: 33.333333%;
+  flex-basis: 33.333333%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  max-width: 33.333333%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 260px;
+}
+
+@media (min-width:600px) {
+  .emotion-1 {
+    -webkit-flex-basis: 33.333333%;
+    -ms-flex-preferred-size: 33.333333%;
+    flex-basis: 33.333333%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    max-width: 33.333333%;
+  }
+}
+
+@media (min-width:900px) {
+  .emotion-1 {
+    -webkit-flex-basis: 33.333333%;
+    -ms-flex-preferred-size: 33.333333%;
+    flex-basis: 33.333333%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    max-width: 33.333333%;
+  }
+}
+
+@media (min-width:1200px) {
+  .emotion-1 {
+    -webkit-flex-basis: 33.333333%;
+    -ms-flex-preferred-size: 33.333333%;
+    flex-basis: 33.333333%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    max-width: 33.333333%;
+  }
+}
+
+@media (min-width:1536px) {
+  .emotion-1 {
+    -webkit-flex-basis: 33.333333%;
+    -ms-flex-preferred-size: 33.333333%;
+    flex-basis: 33.333333%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    max-width: 33.333333%;
+  }
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border: 1px solid #bdbdbd;
+  border-radius: 20px;
+  padding: 16px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
+.emotion-2>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-2>:not(style)~:not(style) {
+  margin-top: 4px;
+}
+
+.emotion-3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.emotion-4 {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #607d8b;
+}
+
+<div
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 emotion-0"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 emotion-1"
+      data-testid="menu-item-0"
+    >
+      <div
+        class="MuiStack-root emotion-2"
+      >
+        <svg
+          style="width: 48px; height: 48px; margin: 0px 0px 16px 0px;"
+        />
+        <p
+          class="MuiTypography-root MuiTypography-bodyBold emotion-3"
+        >
+          Common.menu.home
+        </p>
+        <p
+          class="MuiTypography-root MuiTypography-bodySmall emotion-4"
+        >
+          แปลและสรุปผลสุขภาพ
+        </p>
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 emotion-1"
+      data-testid="menu-item-1"
+    >
+      <div
+        class="MuiStack-root emotion-2"
+      >
+        <svg
+          style="width: 48px; height: 48px; margin: 0px 0px 16px 0px;"
+        />
+        <p
+          class="MuiTypography-root MuiTypography-bodyBold emotion-3"
+        >
+          Common.menu.aiInterpret.title
+        </p>
+        <p
+          class="MuiTypography-root MuiTypography-bodySmall emotion-4"
+        >
+          แปลและสรุปผลสุขภาพ
+        </p>
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 emotion-1"
+      data-testid="menu-item-2"
+    >
+      <div
+        class="MuiStack-root emotion-2"
+      >
+        <svg
+          style="width: 48px; height: 48px; margin: 0px 0px 16px 0px;"
+        />
+        <p
+          class="MuiTypography-root MuiTypography-bodyBold emotion-3"
+        >
+          Common.menu.symptomChecker.title
+        </p>
+        <p
+          class="MuiTypography-root MuiTypography-bodySmall emotion-4"
+        >
+          แปลและสรุปผลสุขภาพ
+        </p>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

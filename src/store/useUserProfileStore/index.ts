@@ -1,6 +1,6 @@
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
-import { UserProfile } from '@/types/auth';
+import { UserProfile } from "@/types/model.ui";
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 interface UserProfileState {
   data: UserProfile;
@@ -13,16 +13,16 @@ interface UserProfileState {
 
 const initiateState: UserProfileState = {
   data: {
-    id: '',
-    email: '',
-    prefix: '',
-    firstName: '',
-    lastName: '',
+    id: "",
+    email: "",
+    prefix: "",
+    firstName: "",
+    lastName: "",
     isActive: false,
-    userId: '',
+    userId: "",
     passwordChanged: null,
-    createdAt: '',
-    updatedAt: '',
+    createdAt: "",
+    updatedAt: "",
   },
   isLoading: false,
   success: false,
@@ -54,16 +54,16 @@ const useUserProfileStore = create<UserProfileState>()(
       resetUserProfile: () =>
         set(() => ({
           data: {
-            id: '',
-            email: '',
-            prefix: '',
-            firstName: '',
-            lastName: '',
+            id: "",
+            email: "",
+            prefix: "",
+            firstName: "",
+            lastName: "",
             isActive: false,
-            userId: '',
+            userId: "",
             passwordChanged: null,
-            createdAt: '',
-            updatedAt: '',
+            createdAt: "",
+            updatedAt: "",
           },
           isLoading: false,
           success: false,
@@ -71,7 +71,7 @@ const useUserProfileStore = create<UserProfileState>()(
         })),
     }),
     {
-      name: 'userProfile',
+      name: "userProfile",
     }
   )
 );

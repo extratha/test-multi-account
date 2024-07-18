@@ -1,192 +1,182 @@
-'use client'
+"use client";
 
-import { useTranslations } from "next-intl";
-import { ContentContainer, ContentContainerWrapper, TypographyPageHeadline } from "../HomePageModule/styled";
-import { Button, CircularProgress, Divider, List, ListItem, Stack, Typography, useTheme } from "@mui/material";
-import Image from "next/image";
+import { Box, Button, Divider, List, ListItem, Stack, styled, Typography } from "@mui/material";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+
 import { IconAiInterpret, IconPen, IconSparkle } from "@/assets";
-import { useGetExampleDataList } from "@/hooks/services/useGetExampleDataList";
-import { ExampleData } from "@/types/aiInterpret";
-import { NEUTRAL } from "@/config/config-mui/theme/colors";
-import { ButtonEditDataStyled, ButtonInterpretDataStyled, TagValueStyle } from "./styled";
+import DashboardPage from "@/components/Page/DashboardPage";
+import PageTitle from "@/components/Typography/PageTitle";
+import { webPaths } from "@/constant/webPaths";
+import { useGetLabExampleList } from "@/hooks/useApi";
+import useTranslation from "@/locales/useLocale";
+import { usePageLoadingStore } from "@/store";
+import { ExampleDataResult } from "@/types/model.api";
+import { ButtonInterpretDataStyled } from "./styled";
+
+const ListTitle = styled(Typography)({
+  "& span": {
+    marginLeft: "4px",
+  },
+});
+
+const TagValueStyle = styled(Stack)(({ theme }) => ({
+  padding: "4px 8px",
+  backgroundColor: theme.palette.blueGrey[50],
+  borderRadius: "8px",
+}));
+
+const ButtonEditDataStyled = styled(Button)(({ theme }) => ({
+  height: 40,
+  borderRadius: "10px",
+  border: `1px solid ${theme.palette.grey[400]}`,
+  "&:hover": {
+    border: `1px solid ${theme.palette.grey[400]}`,
+  },
+}));
 
 const EmployeeDataList = () => {
-  const tAi = useTranslations('AiInterpret')
-  const theme = useTheme()
-  const {
-    data: exampleData,
-    isLoading: isGetExampleDataLoading,
-    error: getExampleDataError,
-  } = useGetExampleDataList(true)
+  const router = useRouter();
+  const { translation } = useTranslation();
+  const { setPageLoading } = usePageLoadingStore();
+
+  const { data, isLoading, error } = useGetLabExampleList();
+  const exampleData = data?.data || [];
+
+  const handleClickAiInterpret = (id: string) => {
+    router.replace(`${webPaths.aiInterpret.aiInterpretResult}?exampleId=${id}`);
+  };
+
+  const handleClickEditData = (exampleData: ExampleDataResult) => {
+    const { id } = exampleData;
+    try {
+      if (!id) throw "no data id.";
+      router.replace(`${webPaths.aiInterpret.tryInputData}?exampleId=${id}`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    setPageLoading(isLoading);
+  }, [isLoading]);
+
   return (
     <>
-      <ContentContainer>
-        <ContentContainerWrapper>
-          {isGetExampleDataLoading ?
-            <Stack width="100%" height="100%" >
-              <CircularProgress style={{ margin: 'auto' }} />
-            </Stack>
-            :
-            <Stack padding="2rem" position={"relative"}>
-              <Stack
-                spacing={2.4}
-              >
-                <Stack direction="row">
-                  <Image alt="" src={IconAiInterpret} data-testid="icon-menu-item" style={{ margin: "auto 0" }} ></Image>
-                  <TypographyPageHeadline
-                    variant='displayMediumSemiBold'
-                    sx={{
-                      margin: 'auto 0 auto 20px'
-                    }}
-                  >
-                    {tAi('pages.aiInterpret')}
-                  </TypographyPageHeadline>
-                  <Typography
-                    variant="labelExtraLargeSemiBold"
-                    sx={{
-                      margin: 'auto 10px 0 auto'
-                    }}
-                  >
-                    {tAi('label.aiInterpret')}
-                  </Typography>
-                </Stack>
-                <Divider ></Divider>
+      {!isLoading && (
+        <DashboardPage>
+          <Stack padding="2rem">
+            <Stack spacing={2.4}>
+              <Stack direction="row" alignItems="center">
+                <IconAiInterpret />
+                <PageTitle variant="headerExtraLargeBold" marginLeft="20px">
+                  {translation("AiInterpret.pages.aiInterpret")}
+                </PageTitle>
+                <Box flex="1" />
+                <Typography variant="bodyMedium">{translation("AiInterpret.label.aiInterpret")}</Typography>
               </Stack>
-
-              <Typography variant="headlineSmallSemiBold" mt={2}>
-                {tAi('pages.tryExampleData')}
+              <Divider></Divider>
+            </Stack>
+            <Typography variant="headerSemiBold" mt={2}>
+              {translation("AiInterpret.pages.tryExampleData")}
+            </Typography>
+            <ListTitle variant="titleSemibold" marginTop="16px">
+              {translation("AiInterpret.label.exampleData")}
+              {exampleData.length > 0 && <span>({exampleData.length})</span>}
+            </ListTitle>
+            {exampleData.length === 0 && (
+              <Typography variant="titleSemibold" textAlign="center">
+                {error?.message || translation("AiInterpret.message.noExampleData")}
               </Typography>
-              <Stack direction="row" mt={2}>
-                <Typography variant="titleLargeSemiBold" mr={1} >
-                  {tAi('label.exampleData')}
-                </Typography>
-                {
-                  exampleData?.length && exampleData.length > 0 ?
-                    <Typography variant="titleLargeSemiBold">({exampleData.length})</Typography>
-                    : null
-                }
-              </Stack>
-
-              {
-                !exampleData?.length ?
-                  <Typography variant="titleLargeSemiBold" textAlign={'center'}>
-                    {
-                      getExampleDataError?.message ??
-                      tAi('message.noExampleData')
-                    }
-                  </Typography>
-                  : null
-              }
-
-              <List
-                sx={{
-                  maxHeight: '100%',
-                  marginTop: '0 !important',
-                  overflowY: 'auto',
-                }}
+            )}
+            <List
+              sx={{
+                maxHeight: "100%",
+                marginTop: "0 !important",
+                overflowY: "auto",
+              }}
+            >
+              {exampleData.map((item: ExampleDataResult, index: number) => (
+                <ListItem
+                  key={index}
+                  sx={{
+                    padding: "0.8em 0",
+                  }}
                 >
-                {
-                  exampleData && exampleData.map((data: ExampleData, index: number) => {
-                    return (
-                      <ListItem
-                        key={index}
-                        sx={{
-                          padding: "0.8em 0"
-                        }}
-                      >
-                        <Stack
-                          direction="row"
-                          sx={{
-                            backgroundColor: NEUTRAL[97],
-                            borderRadius: '20px',
-                            padding: '1.5em',
-                            width: '100%'
-                          }}
+                  <Stack
+                    direction="row"
+                    sx={{
+                      backgroundColor: "surfaceGray.lowest",
+                      borderRadius: "20px",
+                      padding: "1.5em",
+                      width: "100%",
+                    }}
+                  >
+                    <Stack spacing={1}>
+                      <Typography variant="labelExtraSmallBold" color="primary">
+                        {`${translation("AiInterpret.label.exampleData")} ${index + 1}`}
+                      </Typography>
+                      <Typography variant="titleLargeBold">{item.caseName}</Typography>
+                      <Stack direction="row" spacing={1}>
+                        <TagValueStyle>
+                          {item.gender && (
+                            <Typography variant="labelExtraSmallBold">
+                              {`${translation("AiInterpret.field.gender")} ${translation(
+                                `AiInterpret.text.${item.gender.toLowerCase()}`
+                              )}`}
+                            </Typography>
+                          )}
+                        </TagValueStyle>
+                        <TagValueStyle>
+                          {item.age && (
+                            <Typography variant="labelExtraSmallBold">
+                              {`${translation("AiInterpret.field.age")} ${item.age} ${translation(
+                                "AiInterpret.field.yearsOld"
+                              )}`}
+                            </Typography>
+                          )}
+                        </TagValueStyle>
+                      </Stack>
+                    </Stack>
+                    <Stack minWidth="48%" spacing="16px" margin="10px 0 0 auto">
+                      <Stack direction="row" justifyContent={"end"} spacing={1}>
+                        <ButtonEditDataStyled
+                          variant="outlined"
+                          startIcon={<IconPen />}
+                          onClick={() => handleClickEditData(item)}
                         >
-                          <Stack spacing={1}>
-                            <Typography variant="titleMediumSemiBold" color={theme.palette.action.active}>
-                              {`${tAi('label.exampleData')} ${index + 1}`}
-                            </Typography>
-                            <Typography variant="titleLargeSemiBold" >
-                              {data.caseName}
-                            </Typography>
-                            <Stack direction="row" spacing={1}>
-                              <TagValueStyle>
-                                {
-                                  data.gender ?
-                                    <Typography variant="labelLargeSemiBold">
-                                      {`${tAi('field.gender')} ${tAi(`text.${data.gender.toLowerCase()}`)}`}
-                                    </Typography>
-                                    : null
-                                }
-                              </TagValueStyle>
-                              <TagValueStyle>
-                                {
-                                  data.age ?
-                                    <Typography variant="labelLargeSemiBold">
-                                      {`${tAi('field.age')} ${data.age} ${tAi('field.yearsOld')}`}
-                                    </Typography>
-                                    : null
-                                }
-                              </TagValueStyle>
-                            </Stack>
-
-                          </Stack>
-                          <Stack minWidth={'48%'} margin={'0 0 0 auto'}>
-                            <Stack direction="row" justifyContent={'end'} spacing={1}>
-                              <ButtonEditDataStyled
-                              >
-                                <Image alt="" src={IconPen}></Image>
-                                <Typography
-                                  variant="labelLargeSemiBold"
-                                  color={theme.palette.grey[700]}
-                                  ml={1}
-                                >
-                                  {tAi('button.editData')}
-                                </Typography>
-                              </ButtonEditDataStyled>
-                              <ButtonInterpretDataStyled
-                              >
-                                <Image alt="" src={IconSparkle} ></Image>
-                                <Typography
-                                  variant="labelLargeSemiBold"
-                                  color={theme.palette.background.paper}
-                                  ml={1}
-                                >
-                                  {tAi('button.interpretData')}
-                                </Typography>
-                              </ButtonInterpretDataStyled>
-                            </Stack>
-                            <Stack
-                              direction="row"
-                              spacing={1}
-                              margin={'10px 0 0 auto'}
-                              color={theme.palette.action.active}
-                            >
-                              <Typography
-                                variant="labelLarge"
-                              >
-                                {tAi('field.modelVersion')}
-                              </Typography>
-                              <Typography variant="labelLargeSemiBold">
-                                {data.aiModelVersion}
-                              </Typography>
-                            </Stack>
-
-                          </Stack>
-                        </Stack>
-                      </ListItem>
-                    )
-                  })
-                }
-              </List>
-            </Stack>
-          }
-
-        </ContentContainerWrapper>
-      </ContentContainer>
+                          <Typography variant="labelExtraSmallBold" color="text.hight">
+                            {translation("AiInterpret.button.editData")}
+                          </Typography>
+                        </ButtonEditDataStyled>
+                        <ButtonInterpretDataStyled
+                          variant="contained"
+                          startIcon={<IconSparkle />}
+                          onClick={() => handleClickAiInterpret(item.id)}
+                        >
+                          <Typography variant="labelExtraSmallBold">
+                            {translation("AiInterpret.button.interpretData")}
+                          </Typography>
+                        </ButtonInterpretDataStyled>
+                      </Stack>
+                      <Stack direction="row" spacing={1} justifyContent="flex-end">
+                        <Typography variant="labelExtraSmall" color="primary">
+                          {translation("AiInterpret.field.modelVersion")}
+                        </Typography>
+                        <Typography variant="labelExtraSmallBold" color="primary">
+                          {item.aiModelVersion}
+                        </Typography>
+                      </Stack>
+                    </Stack>
+                  </Stack>
+                </ListItem>
+              ))}
+            </List>
+          </Stack>
+        </DashboardPage>
+      )}
     </>
-  )
-}
+  );
+};
 
 export default EmployeeDataList;

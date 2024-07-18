@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AiInterpretLabUnit should render correctly 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+}
+
+.emotion-1>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-1>:not(style)~:not(style) {
+  margin-top: 8px;
+}
+
+.emotion-2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 25%;
+}
+
+.emotion-4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: end;
+}
+
+.emotion-5 {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: end;
+}
+
+<div
+    class="MuiStack-root emotion-0"
+  >
+    <div
+      class="MuiStack-root emotion-1"
+    >
+      <p
+        class="MuiTypography-root MuiTypography-bodyBold emotion-2"
+        data-testid="lab-unit-lipidProfile-cholesterol_value-label"
+      >
+        Cholesterol
+      </p>
+    </div>
+    <div
+      class="MuiStack-root emotion-3"
+    >
+      <p
+        class="MuiTypography-root MuiTypography-bodyBold emotion-4"
+        data-testid="lab-unit-lipidProfile-cholesterol_value-value"
+      >
+        200 (mg/dL)
+      </p>
+      <p
+        class="MuiTypography-root MuiTypography-bodySmall emotion-5"
+        data-testid="lab-unit-lipidProfile-cholesterol_value-unit"
+      >
+        (- mg/dL)
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

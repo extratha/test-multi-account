@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag should render correctly 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: #eceff1;
+}
+
+.emotion-1 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+<div
+    class="MuiBox-root emotion-0"
+  >
+    <span
+      class="MuiTypography-root MuiTypography-labelExtraSmallBold emotion-1"
+      data-testid="tag-tag"
+    >
+      string
+    </span>
+  </div>
+</DocumentFragment>
+`;
