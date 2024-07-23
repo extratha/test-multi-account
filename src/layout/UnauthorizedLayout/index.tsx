@@ -31,10 +31,11 @@ const UnauthorizedLayout = ({ children }: ProjectCoverLayoutProps) => {
 
   useEffect(() => {
     const accessToken = storage(SESSION.ACCESS_TOKEN);
-    setIsUnauthorized(!accessToken);
 
-    if (!accessToken) {
+    if (accessToken) {
       router.replace(NAVIGATION.HOME);
+    } else {
+      setIsUnauthorized(true);
     }
   }, []);
 
