@@ -13,13 +13,14 @@ interface AuthorizedLayoutProps {
 const AuthorizedLayout = ({ children }: AuthorizedLayoutProps) => {
   const router = useRouter();
   const [isAuthorized, setIsAuthorized] = useState(false);
-  const accessToken = storage(SESSION.ACCESS_TOKEN);
 
   useEffect(() => {
-    setIsAuthorized(!!accessToken);
+    const accessToken = storage(SESSION.ACCESS_TOKEN);
 
-    if (!accessToken) {
-      router.replace(NAVIGATION.LOGIN);
+    if (accessToken) {
+      setIsAuthorized(true);
+    } else {
+      router.replace(NAVIGATION.HOME);
     }
   }, []);
 
