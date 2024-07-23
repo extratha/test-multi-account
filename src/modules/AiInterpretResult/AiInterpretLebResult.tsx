@@ -3,7 +3,7 @@ import { styled } from "@mui/material/styles";
 import { useMemo, useState } from "react";
 
 import { IconChevronDown, IconChevronUp, IconLabStatusBlack } from "@/assets";
-import { HEMATOLOGY_BLOOD, HEMATOLOGY_BLOOD_GROUP, HEMATOLOGY_CBC, HEMATOLOGY_CBC_GROUP } from "@/constant/constant";
+import { HEMATOLOGY_BLOOD, HEMATOLOGY_BLOOD_GROUP, HEMATOLOGY_CBC, HEMATOLOGY_CBC_GROUP } from "@/constant";
 import useTranslation from "@/locales/useLocale";
 import { InputData, InputDataResult } from "@/types/model.api";
 import { LabGroupConfig } from "@/types/model.ui";

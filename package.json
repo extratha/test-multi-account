@@ -69,7 +69,6 @@
     "jest-environment-jsdom": "29.7.0",
     "jest-junit": "16.0.0",
     "jest-watch-typeahead": "2.2.2",
-    "ts-jest": "29.1.5",
     "typescript": "5.5.3"
   },
   "jest-junit": {

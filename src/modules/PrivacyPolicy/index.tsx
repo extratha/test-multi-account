@@ -10,8 +10,7 @@ import { getPrivacyPolicy, submitConsent } from "@/api/api";
 import ConsentContent from "@/components/ConsentContent";
 import ConsentHeader from "@/components/ConsentHeader";
 import FormCheckbox from "@/components/Form/FormCheckbox";
-import { CONSENT_TYPE } from "@/constant/constant";
-import { webPaths } from "@/constant/webPaths";
+import { CONSENT_TYPE, NAVIGATION } from "@/constant";
 import useTranslation from "@/locales/useLocale";
 import { usePageLoadingStore } from "@/store";
 import { ConsentResult } from "@/types/model.api";
@@ -92,7 +91,7 @@ const PrivacyPolicyModule = () => {
       setPageLoading(true);
       const response = await getPrivacyPolicy();
       if (response.data.isConsent) {
-        router.replace(webPaths.home);
+        router.replace(NAVIGATION.HOME);
       } else {
         setConsent(response.data);
         setPageLoading(false);
@@ -106,7 +105,7 @@ const PrivacyPolicyModule = () => {
     try {
       setPageLoading(true);
       await submitConsent(CONSENT_TYPE.PRIVACY_AND_POLICY, consent?.version || "");
-      router.replace(webPaths.home);
+      router.replace(NAVIGATION.HOME);
     } catch (error) {
       setPageLoading(false);
     }

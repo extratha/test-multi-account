@@ -3,15 +3,14 @@
 import { Stack, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 
+import { submitForgotPassword } from "@/api/apiUnauthorize";
 import { SubmitButtonStyle } from "@/components/Button/styled";
-import { API } from "@/constant/api";
-import { webPaths } from "@/constant/webPaths";
+import { NAVIGATION } from "@/constant";
 import useTranslation from "@/locales/useLocale";
 import { CustomTextField } from "@/modules/LoginModule/styled";
 import { usePageLoadingStore } from "@/store";
-import axiosPublicInstance from "@/utils/axios/login";
 import { validateEmail } from "@/utils/validation";
 
 interface ForgetPasswordForm {
@@ -26,16 +25,15 @@ const ForgetPassword = () => {
   const [errorMessage, setErrorMessage] = useState<string>("");
   const { setPageLoading } = usePageLoadingStore();
   const [newPassword, setNewPassword] = useState<string>("");
-  const [isDisableSubmit, setIsDisabledSubmit] = useState<boolean>(true);
+  const [isDisableSubmit, setIsDisableSubmit] = useState<boolean>(true);
   const { handleSubmit, control, getValues, setError } = useForm<ForgetPasswordForm>();
   const [showSuccess, setShowSuccess] = useState<boolean>(false);
 
-  const onSubmit: SubmitHandler<ForgetPasswordForm> = async (data) => {
-    setPageLoading(true);
+  const onSubmit = async (data: ForgetPasswordForm) => {
     try {
-      const response = await axiosPublicInstance.post(API.PATH.forgotPassword, {
-        email: data.email,
-      });
+      setPageLoading(true);
+      const response = await submitForgotPassword(data);
+
       if (response?.status === 204) {
         setShowSuccess(true);
       }
@@ -94,9 +92,9 @@ const ForgetPassword = () => {
                       const errorKey = validateEmail(value);
                       if (errorKey) {
                         setError(EMAIL, { type: "validate", message: translation(errorKey) });
-                        setIsDisabledSubmit(true);
+                        setIsDisableSubmit(true);
                       } else {
-                        setIsDisabledSubmit(false);
+                        setIsDisableSubmit(false);
                       }
                     }}
                     InputLabelProps={{
@@ -142,7 +140,7 @@ const ForgetPassword = () => {
             data-testid="button-go-login"
             onClick={() => {
               setPageLoading(true);
-              router.replace(webPaths.login);
+              router.replace(NAVIGATION.LOGIN);
             }}
           >
             {translation("Common.text.login")}

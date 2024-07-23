@@ -4,10 +4,10 @@ import MockAdapter from "axios-mock-adapter";
 
 import { mockTermsAndConsData } from "@/__mocks__/data";
 import * as Api from "@/api/api";
-import { webPaths } from "@/constant/webPaths";
+import { apiAxios } from "@/api/api";
+import { NAVIGATION } from "@/constant";
 import { spyUseRouter, SpyUseRouter } from "@/testUtils/navigation";
 import { API, flushPromise, render } from "@/testUtils/testUtils";
-import axiosInstance from "@/utils/axios";
 import TermsAndConsModules from ".";
 
 describe("TermsAndConditions", () => {
@@ -20,7 +20,7 @@ describe("TermsAndConditions", () => {
     jest.spyOn(Api, "getTermsAndConditions");
     jest.spyOn(Api, "submitConsent");
 
-    mockApiAdapter = new MockAdapter(axiosInstance);
+    mockApiAdapter = new MockAdapter(apiAxios);
     mockApiAdapter.onGet(API.TERMS_AND_CONDITIONS).reply(200, mockTermsAndConsData);
     mockApiAdapter.onPost(API.CONSENT).reply(201);
   });
@@ -46,7 +46,7 @@ describe("TermsAndConditions", () => {
     await userEvent.click(screen.getByTestId("submit-button"));
 
     expect(Api.submitConsent).toHaveBeenCalledTimes(1);
-    expect(spyRouter.replace).toHaveBeenCalledWith(webPaths.privacyPolicy);
+    expect(spyRouter.replace).toHaveBeenCalledWith(NAVIGATION.PRIVACY_POLICY);
   });
 
   it("should not display consent when fetch consent error", () => {

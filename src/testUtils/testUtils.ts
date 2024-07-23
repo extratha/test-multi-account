@@ -6,6 +6,7 @@ import { ReactElement } from "react";
 import { TestProvider } from "./TestProvider";
 
 export const API = {
+  LOGIN: "/auth/login",
   EXAMPLE_AI_INTERPRET_URL: "/lab/examples/labId",
   GET_LAB_INTERPRETS_ID_URL: "/lab/interprets/labId",
   SUBMIT_LAB_INTERPRETS_URL: "/lab/interprets",

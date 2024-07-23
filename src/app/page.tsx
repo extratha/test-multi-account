@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 import { Page } from "@/components/Page";
-import { webPaths } from "@/constant/webPaths";
+import { NAVIGATION } from "@/constant";
 import useTranslation from "@/locales/useLocale";
 import { usePageLoadingStore } from "@/store";
 
@@ -14,7 +14,7 @@ const LocalePage = () => {
 
   useEffect(() => {
     setPageLoading(true);
-    router.replace(webPaths.home);
+    router.replace(NAVIGATION.HOME);
   }, []);
 
   return <Page title={translation("Common.text.loading")} />;
