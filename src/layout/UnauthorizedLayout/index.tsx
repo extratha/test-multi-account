@@ -3,11 +3,11 @@
 import { Stack, styled } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { ReactNode, useEffect } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 import { ImageCarivaLogo, ImageCoverBg, PlaygroundLogo } from "@/assets";
-import { NAVIGATION } from "@/constant";
-import { useUserProfileStore } from "@/store";
+import { NAVIGATION, SESSION } from "@/constant";
+import { storage } from "@/utils/common";
 
 interface ProjectCoverLayoutProps {
   children: ReactNode;
@@ -27,11 +27,13 @@ const FormSection = styled(Stack)(({ theme }) => ({
 
 const UnauthorizedLayout = ({ children }: ProjectCoverLayoutProps) => {
   const router = useRouter();
-  const { data } = useUserProfileStore();
-  const isUnauthorized = !data;
+  const [isUnauthorized, setIsUnauthorized] = useState(false);
 
   useEffect(() => {
-    if (!isUnauthorized) {
+    const accessToken = storage(SESSION.ACCESS_TOKEN);
+    setIsUnauthorized(!accessToken);
+
+    if (!accessToken) {
       router.replace(NAVIGATION.HOME);
     }
   }, []);

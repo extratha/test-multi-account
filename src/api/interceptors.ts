@@ -2,7 +2,7 @@ import axios, { AxiosError, AxiosRequestConfig, InternalAxiosRequestConfig } fro
 
 import { ENV, NAVIGATION, SESSION } from "@/constant";
 import { RefreshTokenRequest, RefreshTokenResult } from "@/types/model.api";
-import { storage } from "@/utils/common";
+import { removeStorage, storage } from "@/utils/common";
 
 export const apiAxiosRefreshToken = axios.create({ baseURL: ENV.BASE_API_URL });
 
@@ -19,6 +19,8 @@ const refreshToken = async () => {
     localStorage.setItem(SESSION.ACCESS_TOKEN, data.accessToken);
     localStorage.setItem(SESSION.REFRESH_TOKEN, data.refreshToken);
   } catch (error) {
+    removeStorage(SESSION.ACCESS_TOKEN);
+    removeStorage(SESSION.REFRESH_TOKEN);
     location.replace(NAVIGATION.LOGIN);
   }
 };
