@@ -8,8 +8,7 @@ import ReactMarkdown from "react-markdown";
 
 import { IconArrowLeft, IconCopy, IconPen, IconSparkle } from "@/assets";
 import Tag from "@/components/Tag";
-import { GENDER, GENERAL_CHECK_UP, GROUP_NAME } from "@/constant/constant";
-import { webPaths } from "@/constant/webPaths";
+import { GENDER, GENERAL_CHECK_UP, GROUP_NAME, NAVIGATION } from "@/constant";
 import { useGetLabExampleId, useGetLabInterpretResultId } from "@/hooks/useApi";
 import useTranslation from "@/locales/useLocale";
 import { usePageLoadingStore } from "@/store";
@@ -180,11 +179,11 @@ const AiInterpretResult = () => {
   }, [inputDataResultData.length]);
 
   const handleClickEdit = () => {
-    router.replace(`${webPaths.aiInterpret.tryInputData}?exampleId=${exampleId}`);
+    router.replace(`${NAVIGATION.AI_INTERPRET_TRY_INPUT_DATA}?exampleId=${exampleId}`);
   };
 
   const handleClickBack = () => {
-    router.replace(webPaths.aiInterpret.tryExampleData);
+    router.replace(NAVIGATION.AI_INTERPRET_TRY_EXAMPLE_DATA);
   };
 
   const handleClickCopy = (text: string) => {

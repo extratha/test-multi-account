@@ -1,5 +1,42 @@
+export const ENV = {
+  BASE_API_URL: process.env.NEXT_PUBLIC_BASE_API_URL || "MOCK_NEXT_PUBLIC_BASE_API_URL",
+  FIREBASE_API_KEY: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "MOCK_NEXT_PUBLIC_FIREBASE_API_KEY",
+  FIREBASE_AUTH_DOMAIN: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "MOCK_NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN",
+  FIREBASE_PROJECT_ID: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "MOCK_NEXT_PUBLIC_FIREBASE_PROJECT_ID",
+  FIREBASE_STORAGE_BUCKET:
+    process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "MOCK_NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET",
+  FIREBASE_MESSAGING_SENDER_ID:
+    process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "MOCK_NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID",
+  FIREBASE_APP_ID: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "MOCK_NEXT_PUBLIC_FIREBASE_APP_ID",
+  FIREBASE_MEASUREMENT_ID:
+    process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || "MOCK_NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID",
+};
+
+export const SESSION = {
+  ACCESS_TOKEN: "access-token",
+  REFRESH_TOKEN: "refresh-token",
+  PASSWORD_CHANGED: "password-changed",
+  RESET_PASSWORD_TOKEN: "reset-password-token",
+  X_ROBOT_TOKEN: "x-robot-token",
+};
+
 export const MENU_CONDITION = {
   LOGOUT: "logout",
+};
+
+export const NAVIGATION = {
+  LOGIN: "/login",
+  HOME: "/home",
+  FORGET_PASSWORD: "/forget-password",
+  SET_NEW_PASSWORD: "/set-new-password",
+  TERMS_AND_CONDITIONS: "/terms-and-conditions",
+  PRIVACY_POLICY: "/privacy-policy",
+  AI_INTERPRET_RESULT: "/ai-interpret/interpret",
+  AI_INTERPRET_TRY_EXAMPLE_DATA: "/ai-interpret/try-example-data",
+  AI_INTERPRET_TRY_INPUT_DATA: "/ai-interpret/try-input-data",
+  SYMPTOM_CHECKER: "/symptom-checker",
+  SETTINGS_TERMS_AND_CONDITIONS: "/settings/terms-and-conditions",
+  SETTINGS_PRIVACY_POLICY: "/settings/privacy-policy",
 };
 
 export const GENDER = {
@@ -12,6 +49,7 @@ export const CONFIG_FIELD_TYPES = {
   NUMBER: "Number",
   DROPDOWN: "Dropdown",
 };
+
 export const GROUP_NAME = {
   GENERAL_CHECK_UP: "generalCheckUp",
   HEMATOLOGY_BG: "hematologyBG",
@@ -80,11 +118,4 @@ export const INTERPRET_STATUS = {
 export const CONSENT_TYPE = {
   TERMS_AND_CONDITIONS: "terms",
   PRIVACY_AND_POLICY: "privacy_policies",
-};
-
-export const COOKIE = {
-  ACCESS_TOKEN: "accessToken",
-  REFRESH_TOKEN: "refreshToken",
-  PASSWORD_CHANGED: "passwordChanged",
-  RESET_PASSWORD_TOKEN: "resetPasswordToken",
 };

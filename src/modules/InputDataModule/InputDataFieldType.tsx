@@ -3,7 +3,7 @@ import { Box, Grid, Stack, styled, Typography } from "@mui/material";
 import FormAutocomplete from "@/components/Form/FormAutocomplete";
 import FormNumberInput from "@/components/Form/FormNumberInput";
 import FormTextInput from "@/components/Form/FormTextInput";
-import { CONFIG_FIELD_TYPES } from "@/constant/constant";
+import { CONFIG_FIELD_TYPES } from "@/constant";
 import useTranslation from "@/locales/useLocale";
 import { InputDataConfig } from "@/types/model.ui";
 

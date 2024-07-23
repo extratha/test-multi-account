@@ -1,5 +1,5 @@
 // Import the functions you need from the SDKs you need
-import { envConfig } from "@/constant/env";
+import { ENV } from "@/constant";
 import { initializeApp } from "firebase/app";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -8,13 +8,13 @@ import { initializeApp } from "firebase/app";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: envConfig.firebase.apiKey,
-  authDomain: envConfig.firebase.authDomain,
-  projectId: envConfig.firebase.projectId,
-  storageBucket: envConfig.firebase.storageBucket,
-  messagingSenderId: envConfig.firebase.messagingSenderId,
-  appId: envConfig.firebase.appId,
-  measurementId: envConfig.firebase.measurementId,
+  apiKey: ENV.FIREBASE_API_KEY,
+  authDomain: ENV.FIREBASE_AUTH_DOMAIN,
+  projectId: ENV.FIREBASE_PROJECT_ID,
+  storageBucket: ENV.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: ENV.FIREBASE_MEASUREMENT_ID,
+  appId: ENV.FIREBASE_APP_ID,
+  measurementId: ENV.FIREBASE_MEASUREMENT_ID,
 };
 
 const firebaseApp = initializeApp(firebaseConfig);

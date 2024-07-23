@@ -1,15 +1,5 @@
 "use client";
 
-import { SubmitButtonStyle } from "@/components/Button/styled";
-import { API } from "@/constant/api";
-import { COOKIE } from "@/constant/constant";
-import { webPaths } from "@/constant/webPaths";
-import useTranslation from "@/locales/useLocale";
-import { CustomTextField } from "@/modules/LoginModule/styled";
-import { usePageLoadingStore } from "@/store";
-import useToastStore from "@/store/useToastStore";
-import axiosInstance, { AxiosInstance } from "@/utils/axios";
-import axiosPublicInstance from "@/utils/axios/login";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { IconButton, Stack, styled, Typography, useTheme } from "@mui/material";
@@ -17,6 +7,15 @@ import { deleteCookie, getCookie, setCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
+
+import { submitChangePassword } from "@/api/api";
+import { submitSetNewPassword } from "@/api/apiUnauthorize";
+import { SubmitButtonStyle } from "@/components/Button/styled";
+import { NAVIGATION, SESSION } from "@/constant";
+import useTranslation from "@/locales/useLocale";
+import { CustomTextField } from "@/modules/LoginModule/styled";
+import { usePageLoadingStore } from "@/store";
+import useToastStore from "@/store/useToastStore";
 
 interface SetNewPasswordForm {
   newPassword: string;
@@ -40,45 +39,39 @@ const SetNewPasswordModule = () => {
   const theme = useTheme();
   const router = useRouter();
   const { setToastOpen } = useToastStore();
-  const [errorMessage, setErrorMessage] = useState<string>("");
-  const [showPassword, setShowPassword] = useState<boolean>(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
   const { setPageLoading } = usePageLoadingStore();
-  const [newPassword, setNewPassword] = useState<string>("");
-  const [confirmNewPassword, setConfirmNewPassword] = useState<string>("");
-  const [isDisableSubmit, setIsDisabledSubmit] = useState(true);
+
+  const [errorMessage, setErrorMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmNewPassword, setConfirmNewPassword] = useState("");
+  const [isDisableSubmit, setIsDisableSubmit] = useState(true);
+
   const { handleSubmit, control, getValues, setError } = useForm<SetNewPasswordForm>();
-  const resetPasswordToken = getCookie(COOKIE.RESET_PASSWORD_TOKEN);
-  const fetcher: AxiosInstance = resetPasswordToken ? axiosPublicInstance : axiosInstance;
-  const apiUrl: string = resetPasswordToken ? API.PATH.setNewPassword : API.PATH.changePassword;
-  let submitParams = {};
-  if (resetPasswordToken) {
-    submitParams = {
-      passwordResetToken: resetPasswordToken,
-      password: newPassword,
-      confirmPassword: confirmNewPassword,
-    };
-  } else {
-    submitParams = {
-      newPassword: newPassword,
-    };
-  }
+
   const onSubmit: SubmitHandler<SetNewPasswordForm> = async () => {
     try {
       setPageLoading(true);
-      const response = await fetcher.post(apiUrl, submitParams);
-      if (response?.status === 204) {
-        setCookie(COOKIE.PASSWORD_CHANGED, true);
-        if (resetPasswordToken && resetPasswordToken?.length > 0) {
-          deleteCookie(COOKIE.RESET_PASSWORD_TOKEN);
-        }
-        setToastOpen(true, {
-          message: translation("Common.toast.resetPasswordSuccess"),
-          severity: "success",
-          icon: <div />,
-        });
-        router.replace(webPaths.login);
+      const passwordResetToken = getCookie(SESSION.RESET_PASSWORD_TOKEN) || "";
+
+      if (passwordResetToken) {
+        await submitSetNewPassword({ passwordResetToken, password: newPassword, confirmPassword: confirmNewPassword });
+      } else {
+        await submitChangePassword({ newPassword });
       }
+
+      setCookie(SESSION.PASSWORD_CHANGED, true);
+
+      if (passwordResetToken) deleteCookie(SESSION.RESET_PASSWORD_TOKEN);
+
+      setToastOpen(true, {
+        message: translation("Common.toast.resetPasswordSuccess"),
+        severity: "success",
+        icon: <div />,
+      });
+
+      router.replace(NAVIGATION.LOGIN);
     } catch (error: any) {
       if (error.message) {
         setErrorMessage(error.message);
@@ -88,18 +81,20 @@ const SetNewPasswordModule = () => {
       setPageLoading(false);
     }
   };
+
   const isValidPassword = (password: string) => {
     if (!passwordRegex.test(password)) {
       return false;
     }
     return true;
   };
+
   const validateConfirmNewPasswordField = (value: unknown, fieldNameProp: keyof SetNewPasswordForm) => {
     const siblingFieldName =
       fieldNameProp === fieldName.NEW_PASSWORD ? fieldName.CONFIRM_NEW_PASSWORD : fieldName.NEW_PASSWORD;
     const siblingValue = getValues(siblingFieldName);
     setError(fieldNameProp, { type: "", message: "" });
-    setIsDisabledSubmit(true);
+    setIsDisableSubmit(true);
     if (!value) {
       setError(fieldNameProp, { type: "validate", message: translation("Common.validation.require") });
       return true;
@@ -117,10 +112,11 @@ const SetNewPasswordModule = () => {
       setError(siblingFieldName, { type: "", message: "" });
     }
     if (value && siblingValue) {
-      setIsDisabledSubmit(false);
+      setIsDisableSubmit(false);
     }
     return false;
   };
+
   return (
     <SetNewPasswordWrapper>
       <Stack>

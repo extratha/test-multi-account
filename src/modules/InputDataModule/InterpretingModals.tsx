@@ -1,9 +1,10 @@
-import { IconErrorCircle, ImageLoadingStack } from "@/assets";
-import { INTERPRET_STATUS } from "@/constant/constant";
-import useTranslation from "@/locales/useLocale";
-import { BaseModalProps } from "@/store";
 import { Button, Stack, styled, Typography } from "@mui/material";
 import Image from "next/image";
+
+import { IconErrorCircle, ImageLoadingStack } from "@/assets";
+import { INTERPRET_STATUS } from "@/constant";
+import useTranslation from "@/locales/useLocale";
+import { BaseModalProps } from "@/store";
 
 const ModalStackWrapper = styled(Stack)(({ theme }) => ({
   alignItems: "center",

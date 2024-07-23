@@ -7,12 +7,10 @@ import "firebase/remote-config";
 
 import { mockAiInterpretResult } from "@/__mocks__/data";
 import * as Api from "@/api/api";
-import { INTERPRET_STATUS } from "@/constant/constant";
-import { webPaths } from "@/constant/webPaths";
+import { INTERPRET_STATUS, NAVIGATION } from "@/constant";
 import { spyUseRouter, SpyUseRouter, spyUseSearchParams, SpyUseSearchParams } from "@/testUtils/navigation";
 import { advanceTimersByTime, API, flushPromise, render, setMockDate } from "@/testUtils/testUtils";
 import { InterpretResult } from "@/types/model.api";
-import axiosInstance from "@/utils/axios";
 import InputDataModule from ".";
 
 describe("InputDataModule", () => {
@@ -41,7 +39,7 @@ describe("InputDataModule", () => {
     interpretResult = clone(mockAiInterpretResult);
     interpretResult.status = INTERPRET_STATUS.SUCCESS;
 
-    mockApiAdapter = new MockAdapter(axiosInstance);
+    mockApiAdapter = new MockAdapter(Api.apiAxios);
     mockApiAdapter.onGet(API.EXAMPLE_AI_INTERPRET_URL).reply(200, mockAiInterpretResult);
     mockApiAdapter.onPost(API.SUBMIT_LAB_INTERPRETS_URL).reply(200, { transactionID: mockTransactionID });
     mockApiAdapter.onGet(API.GET_LAB_INTERPRETS_ID_URL).reply(200, interpretResult);
@@ -69,7 +67,7 @@ describe("InputDataModule", () => {
     await userEvent.click(screen.getByTestId("back-button"));
     await advanceTimersByTime(1000);
 
-    expect(spyRouter.replace).toHaveBeenCalledWith(webPaths.aiInterpret.tryExampleData);
+    expect(spyRouter.replace).toHaveBeenCalledWith(NAVIGATION.AI_INTERPRET_TRY_EXAMPLE_DATA);
   });
 
   it("should call router push when click on use example data button", async () => {
@@ -78,7 +76,7 @@ describe("InputDataModule", () => {
     await userEvent.click(screen.getByTestId("use-example-data-button"));
     await advanceTimersByTime(1000);
 
-    expect(spyRouter.replace).toHaveBeenCalledWith(webPaths.aiInterpret.tryExampleData);
+    expect(spyRouter.replace).toHaveBeenCalledWith(NAVIGATION.AI_INTERPRET_TRY_EXAMPLE_DATA);
   });
 
   it("should disabled submit interpret button when form values is invalid", async () => {
@@ -152,6 +150,6 @@ describe("InputDataModule", () => {
     await advanceTimersByTime(5000);
     await flushPromise();
 
-    expect(spyRouter.replace).toHaveBeenCalledWith(`${webPaths.aiInterpret.aiInterpretResult}?transactionId=mock_id`);
+    expect(spyRouter.replace).toHaveBeenCalledWith(`${NAVIGATION.AI_INTERPRET_RESULT}?transactionId=mock_id`);
   });
 });
