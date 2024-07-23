@@ -8,8 +8,7 @@ import { FormProvider, useForm } from "react-hook-form";
 
 import { getLabInterpretsByTransactionId, submitLabInterprets } from "@/api/api";
 import { IconArrowLeft } from "@/assets";
-import { INTERPRET_STATUS } from "@/constant/constant";
-import { webPaths } from "@/constant/webPaths";
+import { INTERPRET_STATUS, NAVIGATION } from "@/constant";
 import { useGetLabExampleId } from "@/hooks/useApi";
 import useTranslation from "@/locales/useLocale";
 import { usePageLoadingStore } from "@/store";
@@ -126,11 +125,11 @@ const InputDataModule = () => {
   };
 
   const handleClickBackButton = () => {
-    router.replace(webPaths.aiInterpret.tryExampleData);
+    router.replace(NAVIGATION.AI_INTERPRET_TRY_EXAMPLE_DATA);
   };
 
   const handleClickUseExampleData = () => {
-    router.replace(webPaths.aiInterpret.tryExampleData);
+    router.replace(NAVIGATION.AI_INTERPRET_TRY_EXAMPLE_DATA);
   };
 
   const handleSetDefaultValue = () => {
@@ -192,7 +191,7 @@ const InputDataModule = () => {
       const aiResult = await fetchInterpretResult(response.data.transactionID, Date.now());
 
       closeModal();
-      router.replace(`${webPaths.aiInterpret.aiInterpretResult}?transactionId=${aiResult.id}`);
+      router.replace(`${NAVIGATION.AI_INTERPRET_RESULT}?transactionId=${aiResult.id}`);
     } catch (error) {
       if (!refIsCancelledSubmit.current) {
         openModal((props) => <InterpretModals {...props} interpretStatus={INTERPRET_STATUS.FAILED} />, false);

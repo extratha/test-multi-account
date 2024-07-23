@@ -1,10 +1,10 @@
 "use client";
 
-import { Box, Divider, Stack, styled, Typography } from "@mui/material";
+import { Box, Button, Divider, Stack, styled, Typography } from "@mui/material";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-import { IconAiInterpret, IosDeviceFrame } from "@/assets";
+import { IconAiInterpret, IconReload, IosDeviceFrame } from "@/assets";
 import DashboardPage from "@/components/Page/DashboardPage";
 import PageTitle from "@/components/Typography/PageTitle";
 import useTranslation from "@/locales/useLocale";
@@ -32,18 +32,18 @@ const DeviceWrapper = styled(Stack)({
   left: 0,
   width: "100%",
   height: "100%",
+  flexDirection: "row",
   justifyContent: "center",
   alignItems: "center",
 });
 
 const DeviceFrameSection = styled(Box)({
-  position: "absolute",
+  position: "relative",
   width: "0px",
   height: "0px",
 });
 
 const ContentIframe = styled("iframe")({
-  position: "absolute",
   width: "100%",
   height: "100%",
   padding: "16px",
@@ -51,7 +51,16 @@ const ContentIframe = styled("iframe")({
 });
 
 const DeviceImage = styled(Image)({
+  position: "absolute",
   pointerEvents: "none",
+});
+
+const ReloadButton = styled(Button)({
+  position: "absolute",
+  top: "24px",
+  left: "100%",
+  marginLeft: "24px",
+  whiteSpace: "nowrap",
 });
 
 const initialConfig: SymptomCheckerConfigResult = {
@@ -62,7 +71,6 @@ const SymptomChecker = () => {
   const { translation } = useTranslation();
   const { isPageLoading, setPageLoading } = usePageLoadingStore();
 
-  // const [isLoading, setIsLoading] = useState(true);
   const [config, setConfig] = useState(initialConfig);
 
   const refContent = useRef<HTMLDivElement>(null);
@@ -84,6 +92,12 @@ const SymptomChecker = () => {
     refDeviceSection.current.style.width = `${width}px`;
     refDeviceSection.current.style.height = `${height - margin}px`;
     refContentIframe.current.style.borderRadius = `${height * 0.075}px`;
+  };
+
+  const handleClickReload = () => {
+    if (refContentIframe.current) {
+      refContentIframe.current.src = config.url;
+    }
   };
 
   const fetchConfigData = async () => {
@@ -128,6 +142,14 @@ const SymptomChecker = () => {
               <DeviceFrameSection ref={refDeviceSection}>
                 <DeviceImage src={IosDeviceFrame} fill alt="check" />
                 <ContentIframe ref={refContentIframe} src={config.url} />
+                <ReloadButton
+                  variant="outlined"
+                  color="secondary"
+                  startIcon={<IconReload />}
+                  onClick={handleClickReload}
+                >
+                  {translation("Common.symptomChecker.button.reload")}
+                </ReloadButton>
               </DeviceFrameSection>
             </DeviceWrapper>
           </Content>

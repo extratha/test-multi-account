@@ -5,18 +5,14 @@ exports[`PageTitle should render correctly 1`] = `
   .emotion-0 {
   margin: 0;
   font-family: fontFamily;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5;
-  font-size: 36px;
   font-weight: 700;
+  font-size: 36px;
   line-height: 1.5;
   background: linear-gradient(94deg, #0059D6 0%, #028DF5 50%, #00CBDD 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-fill-color: transparent;
-  line-height: 1.5;
 }
 
 <p

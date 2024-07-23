@@ -1,15 +1,15 @@
 import MockAdapter from "axios-mock-adapter";
 
 import { mockTermsAndConsDataLatest } from "@/__mocks__/data";
+import { apiAxios } from "@/api/api";
 import { API, flushPromise, render } from "@/testUtils/testUtils";
-import axiosInstance from "@/utils/axios";
 import SettingTermsAndConditions from ".";
 
 describe("SettingTermsAndConditions", () => {
   let mockApiAdapter: MockAdapter;
 
   beforeEach(() => {
-    mockApiAdapter = new MockAdapter(axiosInstance);
+    mockApiAdapter = new MockAdapter(apiAxios);
     mockApiAdapter.onGet(API.TERMS_AND_CONDITIONS_LATEST).reply(200, mockTermsAndConsDataLatest);
   });
 

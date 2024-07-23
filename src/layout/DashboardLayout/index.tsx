@@ -1,3 +1,5 @@
+"use client";
+
 import { Stack, styled } from "@mui/material";
 import { ReactNode, useEffect, useState } from "react";
 

@@ -1,3 +1,59 @@
+export interface LoginRequest {
+  email: string;
+  password: string;
+}
+
+interface LoginUserData {
+  id: string;
+  email: string;
+  passwordChanged: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface LoginUserProfileData {
+  ID: string;
+  userID: string;
+  email: string;
+  prefix: string;
+  firstName: string;
+  lastName: string;
+  corporate: string;
+  isActive: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface LoginResult {
+  accessToken: string;
+  refreshToken: string;
+  user: LoginUserData;
+  userProfile: LoginUserProfileData;
+}
+
+export interface ForgotPasswordRequest {
+  email: string;
+}
+
+export interface SetNewPasswordRequest {
+  passwordResetToken: string;
+  password: string;
+  confirmPassword: string;
+}
+
+export interface ChangePasswordRequest {
+  newPassword: string;
+}
+
+export interface RefreshTokenRequest {
+  refreshToken: string;
+}
+
+export interface RefreshTokenResult {
+  accessToken: string;
+  refreshToken: string;
+}
+
 export interface ExampleDataResult {
   id: string;
   caseName: string;

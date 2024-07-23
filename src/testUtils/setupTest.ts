@@ -15,6 +15,11 @@ jest.mock("@/api/api", () => {
   return { ...actualModule, __esModule: true };
 });
 
+jest.mock("@/api/apiUnauthorize", () => {
+  const actualModule = jest.requireActual("@/api/apiUnauthorize");
+  return { ...actualModule, __esModule: true };
+});
+
 jest.mock("next/config", () => () => ({
   setConfig: jest.fn(),
   publicRuntimeConfig: {

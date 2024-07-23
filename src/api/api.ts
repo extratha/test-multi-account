@@ -1,4 +1,8 @@
+import axios from "axios";
+
+import { ENV } from "@/constant";
 import {
+  ChangePasswordRequest,
   ConsentResult,
   ConsentResultLatest,
   ExampleDataResult,
@@ -6,9 +10,16 @@ import {
   SubmitLabInterpretsRequest,
   SubmitLabInterpretsResult,
 } from "@/types/model.api";
-import axiosInstance from "@/utils/axios";
+import { appendHeaders, onRefreshToken } from "./interceptors";
 
-export const apiAxios = axiosInstance;
+export const apiAxios = axios.create({ baseURL: ENV.BASE_API_URL });
+
+apiAxios.interceptors.request.use(appendHeaders);
+apiAxios.interceptors.response.use((response) => response, onRefreshToken);
+
+export const submitChangePassword = (data: ChangePasswordRequest) => {
+  return apiAxios.post("/auth/change-password", data);
+};
 
 export const getLabExampleList = () => {
   return apiAxios.get<ExampleDataResult[]>("/lab/examples");

@@ -1,0 +1,18 @@
+import axios from "axios";
+
+import { ENV } from "@/constant";
+import { ForgotPasswordRequest, LoginRequest, LoginResult, SetNewPasswordRequest } from "@/types/model.api";
+
+export const apiUnauthorizedAxios = axios.create({ baseURL: ENV.BASE_API_URL });
+
+export const submitLogin = (data: LoginRequest) => {
+  return apiUnauthorizedAxios.post<LoginResult>("/auth/login", data);
+};
+
+export const submitForgotPassword = (data: ForgotPasswordRequest) => {
+  return apiUnauthorizedAxios.post("/auth/forgot-password", data);
+};
+
+export const submitSetNewPassword = (data: SetNewPasswordRequest) => {
+  return apiUnauthorizedAxios.post("/auth/reset-password", data);
+};

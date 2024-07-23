@@ -11,8 +11,7 @@ import { getTermsAndConditions, submitConsent } from "@/api/api";
 import ConsentContent from "@/components/ConsentContent";
 import ConsentHeader from "@/components/ConsentHeader";
 import FormCheckbox from "@/components/Form/FormCheckbox";
-import { CONSENT_TYPE } from "@/constant/constant";
-import { webPaths } from "@/constant/webPaths";
+import { CONSENT_TYPE, NAVIGATION } from "@/constant";
 import useTranslation from "@/locales/useLocale";
 import { usePageLoadingStore } from "@/store";
 import { ConsentResult } from "@/types/model.api";
@@ -93,12 +92,13 @@ const TermsAndConsModules = () => {
       const response = await getTermsAndConditions();
 
       if (response.data.isConsent) {
-        router.replace(webPaths.privacyPolicy);
+        router.replace(NAVIGATION.PRIVACY_POLICY);
       } else {
         setConsent(response.data);
         setPageLoading(false);
       }
     } catch (error) {
+      setPageLoading(false);
       //TODO : handle error
     }
   };
@@ -107,7 +107,7 @@ const TermsAndConsModules = () => {
     try {
       setPageLoading(true);
       await submitConsent(CONSENT_TYPE.TERMS_AND_CONDITIONS, consent?.version || "");
-      router.replace(webPaths.privacyPolicy);
+      router.replace(NAVIGATION.PRIVACY_POLICY);
     } catch (error) {
       setPageLoading(false);
     }

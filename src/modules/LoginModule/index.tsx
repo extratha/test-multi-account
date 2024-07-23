@@ -1,19 +1,16 @@
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { IconButton, Stack, styled, Typography, useTheme } from "@mui/material";
-import { setCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 
+import { submitLogin } from "@/api/apiUnauthorize";
 import { SubmitButtonStyle } from "@/components/Button/styled";
-import { API } from "@/constant/api";
-import { COOKIE } from "@/constant/constant";
-import { webPaths } from "@/constant/webPaths";
+import { NAVIGATION, SESSION } from "@/constant";
 import useFieldValidation from "@/hooks/useFieldValidation";
 import useTranslation from "@/locales/useLocale";
 import { usePageLoadingStore, useUserProfileStore } from "@/store";
-import axiosPublicInstance from "@/utils/axios/login";
 import { validateEmail, validatePassword } from "@/utils/validation";
 import { CustomTextField } from "./styled";
 
@@ -75,28 +72,22 @@ const LoginForm = () => {
 
   // TODO: unit after login
   const onSubmit: SubmitHandler<LoginFormValues> = async () => {
-    setPageLoading(true);
-    setErrorMessage("");
     try {
-      const response = await axiosPublicInstance.post(
-        API.PATH.login,
-        { email: emailValue, password: passwordValue },
-        { headers: { Authorization: undefined } }
-      );
-      if (response.data) {
-        const { accessToken, refreshToken, user, userProfile } = response.data;
-        setCookie(COOKIE.ACCESS_TOKEN, accessToken || "");
-        setCookie(COOKIE.REFRESH_TOKEN, refreshToken || "");
-        if (user) {
-          setCookie(COOKIE.PASSWORD_CHANGED, user.passwordChanged);
-          setUserProfile({ ...user, ...userProfile });
+      setPageLoading(true);
+      setErrorMessage("");
 
-          if (!user.passwordChanged) {
-            router.replace(webPaths.setNewPassword);
-          } else {
-            router.replace(webPaths.termsAndConditions);
-          }
-        }
+      const response = await submitLogin({ email: emailValue || "", password: passwordValue || "" });
+      const { accessToken, refreshToken, user, userProfile } = response.data;
+
+      localStorage.setItem(SESSION.ACCESS_TOKEN, accessToken);
+      localStorage.setItem(SESSION.REFRESH_TOKEN, refreshToken);
+
+      setUserProfile(userProfile);
+
+      if (user.passwordChanged) {
+        router.replace(NAVIGATION.TERMS_AND_CONDITIONS);
+      } else {
+        router.replace(NAVIGATION.SET_NEW_PASSWORD);
       }
     } catch (error: any) {
       setErrorMessage(error?.response?.data?.message || translation("Common.responseError.invalidEmailOrPassword"));

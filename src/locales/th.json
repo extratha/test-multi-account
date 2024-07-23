@@ -141,7 +141,10 @@
     },
     "symptomChecker": {
       "title": "Symptom Checker",
-      "subtitle": "ที่ปรึกษาทางการแพทย์อัจริยะ"
+      "subtitle": "ที่ปรึกษาทางการแพทย์อัจริยะ",
+      "button": {
+        "reload": "รีโหลดหน้า"
+      }
     },
     "settingTermsAndConditions": {
       "title": "ข้อกำหนดและเงื่อนไข"

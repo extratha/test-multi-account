@@ -2,8 +2,8 @@ import MockAdapter from "axios-mock-adapter";
 
 import { mockPrivacyPolicyDataLatest } from "@/__mocks__/data";
 import * as Api from "@/api/api";
+import { apiAxios } from "@/api/api";
 import { API, flushPromise, render } from "@/testUtils/testUtils";
-import axiosInstance from "@/utils/axios";
 import SettingPrivacyPolicyPage from "./page";
 
 jest.mock("react-markdown", () => (props: any) => {
@@ -16,7 +16,7 @@ describe("SettingPrivacyPolicyPage", () => {
   beforeEach(() => {
     jest.spyOn(Api, "getPrivacyPolicy");
 
-    mockApiAdapter = new MockAdapter(axiosInstance);
+    mockApiAdapter = new MockAdapter(apiAxios);
     mockApiAdapter.onGet(API.TERMS_AND_CONDITIONS).reply(200, mockPrivacyPolicyDataLatest);
   });
 

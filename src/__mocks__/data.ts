@@ -3,17 +3,20 @@ import {
   ConsentResultLatest,
   ExampleDataResult,
   InterpretResult,
+  LoginResult,
   SubmitLabInterpretsRequest,
 } from "@/types/model.api";
 import { DashboardMenuConfigResult } from "@/types/model.ui";
 
-export const mockLoginResponse = {
+export const mockLoginResponse: LoginResult = {
   accessToken: "mockAccessToken",
   refreshToken: "mockRefreshToken",
   user: {
     id: "mockUserId",
     email: "test@example.com",
     passwordChanged: true,
+    createdAt: "",
+    updatedAt: "",
   },
   userProfile: {
     ID: "mockUserProfileId",
@@ -24,6 +27,8 @@ export const mockLoginResponse = {
     lastName: "Doe",
     corporate: "Example Corp",
     isActive: true,
+    createdAt: "",
+    updatedAt: "",
   },
 };
 

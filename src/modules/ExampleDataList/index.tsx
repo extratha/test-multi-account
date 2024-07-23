@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { IconAiInterpret, IconPen, IconSparkle } from "@/assets";
 import DashboardPage from "@/components/Page/DashboardPage";
 import PageTitle from "@/components/Typography/PageTitle";
-import { webPaths } from "@/constant/webPaths";
+import { NAVIGATION } from "@/constant";
 import { useGetLabExampleList } from "@/hooks/useApi";
 import useTranslation from "@/locales/useLocale";
 import { usePageLoadingStore } from "@/store";
@@ -44,14 +44,17 @@ const EmployeeDataList = () => {
   const exampleData = data?.data || [];
 
   const handleClickAiInterpret = (id: string) => {
-    router.replace(`${webPaths.aiInterpret.aiInterpretResult}?exampleId=${id}`);
+    router.replace(`${NAVIGATION.AI_INTERPRET_RESULT}?exampleId=${id}`);
   };
 
   const handleClickEditData = (exampleData: ExampleDataResult) => {
     const { id } = exampleData;
     try {
-      if (!id) throw "no data id.";
-      router.replace(`${webPaths.aiInterpret.tryInputData}?exampleId=${id}`);
+      if (!id) {
+        throw new Error("no data id.");
+      }
+
+      router.replace(`${NAVIGATION.AI_INTERPRET_TRY_INPUT_DATA}?exampleId=${id}`);
     } catch (error) {
       console.log(error);
     }
