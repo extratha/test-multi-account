@@ -1,10 +1,10 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { ReactNode, useEffect } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
-import { NAVIGATION } from "@/constant";
-import { useUserProfileStore } from "@/store";
+import { NAVIGATION, SESSION } from "@/constant";
+import { storage } from "@/utils/common";
 
 interface AuthorizedLayoutProps {
   children: ReactNode;
@@ -12,16 +12,18 @@ interface AuthorizedLayoutProps {
 
 const AuthorizedLayout = ({ children }: AuthorizedLayoutProps) => {
   const router = useRouter();
-  const { data } = useUserProfileStore();
-  const isUnauthorized = !data;
+  const [isAuthorized, setIsAuthorized] = useState(false);
+  const accessToken = storage(SESSION.ACCESS_TOKEN);
 
   useEffect(() => {
-    if (isUnauthorized) {
+    setIsAuthorized(!!accessToken);
+
+    if (!accessToken) {
       router.replace(NAVIGATION.LOGIN);
     }
   }, []);
 
-  return isUnauthorized ? null : children;
+  return isAuthorized ? children : null;
 };
 
 export default AuthorizedLayout;

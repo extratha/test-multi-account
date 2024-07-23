@@ -48,7 +48,6 @@ const DashboardPanel = ({ menuList }: DashboardPanelProps) => {
   const onLogout = () => {
     removeStorage(SESSION.ACCESS_TOKEN);
     removeStorage(SESSION.REFRESH_TOKEN);
-    removeStorage(SESSION.PASSWORD_CHANGED);
     resetUserProfile();
     router.replace(NAVIGATION.LOGIN);
   };
