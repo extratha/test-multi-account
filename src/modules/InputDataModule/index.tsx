@@ -73,6 +73,9 @@ const InputDataGroupContent = styled(Stack)({
 
 const MAX_INTERVAL = 60000;
 const INTERVAL_DELAY = 5000;
+const PAPSMEAR_GROUP_NAME = "papSmear";
+const PAPSMEAR_FINDING = "papsmear_finding";
+const MALE = "Male";
 
 const InputDataModule = () => {
   const router = useRouter();
@@ -99,8 +102,10 @@ const InputDataModule = () => {
     mode: "onChange",
   });
 
-  const { formState, setValue, trigger } = methods;
-  const isDisableInterpretButton = isGetLabExampleIdLoading || !formState.isValid;
+  const { formState, setValue, trigger, watch } = methods;
+  const isDisableInterpretButton = isGetLabExampleIdLoading || formState.isValidating || !formState.isValid;
+  const gender = watch("gender");
+  const isGenderMale = gender === MALE;
 
   const defaultInputData: DefaultValues = useMemo(() => {
     const result: DefaultValues = {};
@@ -201,6 +206,12 @@ const InputDataModule = () => {
     }
   };
 
+  const renderByInputGroupConfig = useMemo(() => {
+    return inputGroupConfigs.filter(
+      (group) => group.groupName !== PAPSMEAR_GROUP_NAME || (group.groupName === PAPSMEAR_GROUP_NAME && !isGenderMale)
+    );
+  }, [inputGroupConfigs, gender]);
+
   useEffect(() => {
     fetchConfigData();
   }, []);
@@ -214,6 +225,12 @@ const InputDataModule = () => {
       trigger();
     }
   }, [inputData.length, isLoading]);
+
+  useEffect(() => {
+    if (isGenderMale) {
+      setValue(PAPSMEAR_FINDING, null);
+    }
+  }, [gender]);
 
   return (
     <>
@@ -239,7 +256,7 @@ const InputDataModule = () => {
             />
             <FormProvider {...methods}>
               <form onSubmit={methods.handleSubmit(onSubmit)}>
-                {inputGroupConfigs.map((group, groupIndex) => (
+                {renderByInputGroupConfig.map((group, groupIndex) => (
                   <InputDataGroupContainer key={groupIndex}>
                     <InputDataGroupHeader>
                       <Typography variant="titleBold">
