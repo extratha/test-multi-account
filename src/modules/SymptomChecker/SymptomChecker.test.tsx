@@ -1,7 +1,8 @@
+import * as RemoteConfig from "firebase/remote-config";
+
+import { mockDashboardMenuConfigResult } from "@/__mocks__/data";
 import { flushPromise, render } from "@/testUtils/testUtils";
 import SymptomChecker from ".";
-
-import * as RemoteConfig from "firebase/remote-config";
 
 describe("SymptomChecker", () => {
   const renderSymptomChecker = async () => {
@@ -11,11 +12,11 @@ describe("SymptomChecker", () => {
   };
 
   beforeEach(() => {
-    const spyRemoteAsString = jest.fn().mockImplementation(() => {
-      return JSON.stringify({ url: "http://web-url" });
+    jest.spyOn(RemoteConfig, "getValue").mockImplementation((_, key): any => {
+      if (key === "DashboardMenu") {
+        return { asString: () => JSON.stringify(mockDashboardMenuConfigResult) };
+      }
     });
-
-    jest.spyOn(RemoteConfig, "getValue").mockReturnValue({ asString: spyRemoteAsString } as any);
   });
 
   it("should render correctly", async () => {

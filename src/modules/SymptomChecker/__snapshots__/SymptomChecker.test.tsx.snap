@@ -316,7 +316,7 @@ exports[`SymptomChecker should render correctly 1`] = `
               />
               <iframe
                 class="emotion-14"
-                src="http://web-url"
+                src="url://symptom-checker"
                 style="border-radius: -1.7999999999999998px;"
               />
               <button

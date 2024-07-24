@@ -3,7 +3,7 @@ import { persist } from "zustand/middleware";
 
 import { LoginUserProfileData } from "@/types/model.api";
 
-interface UserProfileState {
+export interface UserProfileStore {
   data: LoginUserProfileData;
   isLoading: boolean;
   success: boolean;
@@ -12,7 +12,7 @@ interface UserProfileState {
   resetUserProfile: () => void;
 }
 
-const initiateState: UserProfileState = {
+const initiateState: UserProfileStore = {
   data: {
     ID: "",
     userID: "",
@@ -32,7 +32,7 @@ const initiateState: UserProfileState = {
   resetUserProfile: () => {},
 };
 
-const useUserProfileStore = create<UserProfileState>()(
+const useUserProfileStore = create<UserProfileStore>()(
   persist(
     (set) => ({
       ...initiateState,

@@ -1,3 +1,4 @@
+import { ASR_SERVICE } from "@/constant";
 import {
   ConsentResult,
   ConsentResultLatest,
@@ -48,6 +49,19 @@ export const mockDashboardMenuConfigResult: DashboardMenuConfigResult = {
       path: "/item-1",
     },
   ],
+  asr: [
+    {
+      name: ASR_SERVICE.ORDER_ASR,
+      url: "url://service-0",
+    },
+    {
+      name: ASR_SERVICE.SOAP_ASR,
+      url: "url://service-1",
+    },
+  ],
+  symptomChecker: {
+    url: "url://symptom-checker",
+  },
 };
 
 export const mockExampleDataList: ExampleDataResult[] = [
