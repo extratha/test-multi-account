@@ -3,7 +3,6 @@
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { IconButton, Stack, styled, Typography, useTheme } from "@mui/material";
-import { deleteCookie, getCookie, setCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
@@ -16,6 +15,7 @@ import useTranslation from "@/locales/useLocale";
 import { CustomTextField } from "@/modules/LoginModule/styled";
 import { usePageLoadingStore } from "@/store";
 import useToastStore from "@/store/useToastStore";
+import { removeStorage, storage } from "@/utils/common";
 
 interface SetNewPasswordForm {
   newPassword: string;
@@ -53,7 +53,7 @@ const SetNewPasswordModule = () => {
   const onSubmit: SubmitHandler<SetNewPasswordForm> = async () => {
     try {
       setPageLoading(true);
-      const passwordResetToken = getCookie(SESSION.RESET_PASSWORD_TOKEN) || "";
+      const passwordResetToken = storage(SESSION.RESET_PASSWORD_TOKEN) || "";
 
       if (passwordResetToken) {
         await submitSetNewPassword({ passwordResetToken, password: newPassword, confirmPassword: confirmNewPassword });
@@ -61,9 +61,7 @@ const SetNewPasswordModule = () => {
         await submitChangePassword({ newPassword });
       }
 
-      setCookie(SESSION.PASSWORD_CHANGED, true);
-
-      if (passwordResetToken) deleteCookie(SESSION.RESET_PASSWORD_TOKEN);
+      if (passwordResetToken) removeStorage(SESSION.RESET_PASSWORD_TOKEN);
 
       setToastOpen(true, {
         message: translation("Common.toast.resetPasswordSuccess"),

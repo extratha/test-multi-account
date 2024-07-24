@@ -41,14 +41,17 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
 
 .emotion-2 {
   background-color: #fff;
-  color: unset;
+  color: rgba(0, 0, 0, 0.87);
   -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  border-radius: 16px;
-  box-shadow: none;
+  border-radius: 4px;
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+  color: unset;
   width: 100%;
   height: 100%;
   padding: 36px 40px;
+  border-radius: 16px;
+  box-shadow: none;
   overflow-y: auto;
 }
 
@@ -60,7 +63,7 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
 }
 
 .emotion-4 {
-  margin: 8px 0px 24px;
+  margin: 0;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -68,9 +71,13 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.12);
   border-bottom-width: thin;
+  margin: 8px 0px 24px;
 }
 
 .emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -86,6 +93,9 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
 }
 
 .emotion-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -200,6 +210,9 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
 }
 
 .emotion-10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -217,11 +230,17 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
 }
 
 .emotion-11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  cursor: pointer;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  cursor: pointer;
   padding: 24px;
 }
 
@@ -231,6 +250,9 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
 }
 
 .emotion-14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -257,6 +279,9 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
 }
 
 .emotion-16 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -268,6 +293,9 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
 }
 
 .emotion-17 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -284,8 +312,8 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   outline: 0;
   border: 0;
   margin: 0;
-  border-radius: 50%;
-  padding: 8px;
+  border-radius: 0;
+  padding: 0;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -296,13 +324,16 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   -webkit-appearance: none;
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.54);
+  color: inherit;
   text-align: center;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   font-size: 1.5rem;
+  padding: 8px;
+  border-radius: 50%;
   overflow: visible;
+  color: rgba(0, 0, 0, 0.54);
   -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
@@ -364,6 +395,9 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
 }
 
 .emotion-21 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
 }
@@ -373,6 +407,9 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
 }
 
 .emotion-23 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -390,11 +427,11 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
         class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 emotion-2"
         data-testid="privacy-policy-consent"
       >
-        <p
+        <span
           class="MuiTypography-root MuiTypography-titleLargeBold emotion-3"
         >
           นโยบายความเป็นส่วนตัว
-        </p>
+        </span>
         <hr
           class="MuiDivider-root MuiDivider-fullWidth emotion-4"
         />
@@ -415,11 +452,11 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
             class="MuiStack-root emotion-6"
             data-testid="privacy-policy-service"
           >
-            <p
+            <span
               class="MuiTypography-root MuiTypography-titleBold emotion-9"
             >
               All Services
-            </p>
+            </span>
             <div
               class="MuiStack-root emotion-10"
             >
@@ -440,12 +477,12 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
                 <div
                   class="MuiStack-root emotion-14"
                 >
-                  <p
+                  <span
                     class="MuiTypography-root MuiTypography-bodyMedium emotion-15"
                     data-testid="privacy-policy-service-0-title"
                   >
                     Service Title 0
-                  </p>
+                  </span>
                   <svg
                     data-testid="privacy-policy-service-0-detail-icon"
                   />

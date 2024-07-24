@@ -15,7 +15,6 @@ export const ENV = {
 export const SESSION = {
   ACCESS_TOKEN: "access-token",
   REFRESH_TOKEN: "refresh-token",
-  PASSWORD_CHANGED: "password-changed",
   RESET_PASSWORD_TOKEN: "reset-password-token",
   X_ROBOT_TOKEN: "x-robot-token",
 };

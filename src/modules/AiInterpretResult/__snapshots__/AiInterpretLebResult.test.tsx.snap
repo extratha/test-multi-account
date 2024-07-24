@@ -3,6 +3,9 @@
 exports[`AiInterpretLabResult should render correctly 1`] = `
 <DocumentFragment>
   .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -32,6 +35,9 @@ exports[`AiInterpretLabResult should render correctly 1`] = `
 }
 
 .emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -44,6 +50,9 @@ exports[`AiInterpretLabResult should render correctly 1`] = `
 }
 
 .emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -55,9 +64,14 @@ exports[`AiInterpretLabResult should render correctly 1`] = `
   font-size: 18px;
   font-weight: 700;
   line-height: 24px;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .emotion-5 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -74,8 +88,8 @@ exports[`AiInterpretLabResult should render correctly 1`] = `
   outline: 0;
   border: 0;
   margin: 0;
-  border-radius: 8px;
-  padding: 8px 14px;
+  border-radius: 0;
+  padding: 0;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -86,15 +100,23 @@ exports[`AiInterpretLabResult should render correctly 1`] = `
   -webkit-appearance: none;
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: #2196F3;
+  color: inherit;
   font-family: fontFamily;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 1.5;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
   text-transform: uppercase;
   min-width: 64px;
+  padding: 6px 8px;
+  border-radius: 4px;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #2196F3;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  padding: 8px 14px;
+  border-radius: 8px;
   box-shadow: 0px 4px 6px -1px #21212133,0px 2px 4px -2px #21212133;
 }
 
@@ -166,6 +188,9 @@ exports[`AiInterpretLabResult should render correctly 1`] = `
 }
 
 .emotion-9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
 }
@@ -175,6 +200,9 @@ exports[`AiInterpretLabResult should render correctly 1`] = `
 }
 
 .emotion-11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -191,6 +219,9 @@ exports[`AiInterpretLabResult should render correctly 1`] = `
 }
 
 .emotion-12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -201,6 +232,9 @@ exports[`AiInterpretLabResult should render correctly 1`] = `
 }
 
 .emotion-13 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -224,6 +258,9 @@ exports[`AiInterpretLabResult should render correctly 1`] = `
 }
 
 .emotion-15 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -258,12 +295,12 @@ exports[`AiInterpretLabResult should render correctly 1`] = `
       <div
         class="MuiStack-root emotion-3"
       >
-        <p
+        <span
           class="MuiTypography-root MuiTypography-titleBold emotion-4"
           data-testid="lab-title-lipidProfile"
         >
           ระดับไขมันในเลือด
-        </p>
+        </span>
       </div>
       <button
         class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-5"
@@ -301,28 +338,28 @@ exports[`AiInterpretLabResult should render correctly 1`] = `
               <div
                 class="MuiStack-root emotion-13"
               >
-                <p
+                <span
                   class="MuiTypography-root MuiTypography-bodyBold emotion-14"
                   data-testid="lab-lipidProfile-cholesterol_value-label"
                 >
                   Cholesterol
-                </p>
+                </span>
               </div>
               <div
                 class="MuiStack-root emotion-15"
               >
-                <p
+                <span
                   class="MuiTypography-root MuiTypography-bodyBold emotion-16"
                   data-testid="lab-lipidProfile-cholesterol_value-value"
                 >
                   208 (mg/dL)
-                </p>
-                <p
+                </span>
+                <span
                   class="MuiTypography-root MuiTypography-bodySmall emotion-17"
                   data-testid="lab-lipidProfile-cholesterol_value-unit"
                 >
                   (- mg/dL)
-                </p>
+                </span>
               </div>
             </div>
           </div>
