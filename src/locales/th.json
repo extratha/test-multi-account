@@ -194,6 +194,11 @@
       "interpreting": "กำลังประมวลผล",
       "failedInterpret": "ประมวลผลไม่สำเร็จ\nกรุณาลองใหม่อีกครั้ง"
     },
+    "tooltip": {
+      "normalRange": "ค่าปกติ",
+      "male": "ผู้ชาย",
+      "female": "ผู้หญิง"
+    },
     "aiInterpretResult": {
       "modalVersion": "Model Version",
       "example": "ตัวอย่างข้อมูล {{num}}",

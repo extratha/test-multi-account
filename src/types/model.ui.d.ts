@@ -39,6 +39,7 @@ export interface DashboardMenuConfigResult {
 
 interface NormalRange {
   value: string;
+  type: string;
   description: string;
 }
 
