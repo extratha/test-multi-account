@@ -3,6 +3,9 @@
 exports[`AiInterpretLabUnit should render correctly 1`] = `
 <DocumentFragment>
   .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -13,6 +16,9 @@ exports[`AiInterpretLabUnit should render correctly 1`] = `
 }
 
 .emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -36,6 +42,9 @@ exports[`AiInterpretLabUnit should render correctly 1`] = `
 }
 
 .emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -64,28 +73,28 @@ exports[`AiInterpretLabUnit should render correctly 1`] = `
     <div
       class="MuiStack-root emotion-1"
     >
-      <p
+      <span
         class="MuiTypography-root MuiTypography-bodyBold emotion-2"
         data-testid="lab-unit-lipidProfile-cholesterol_value-label"
       >
         Cholesterol
-      </p>
+      </span>
     </div>
     <div
       class="MuiStack-root emotion-3"
     >
-      <p
+      <span
         class="MuiTypography-root MuiTypography-bodyBold emotion-4"
         data-testid="lab-unit-lipidProfile-cholesterol_value-value"
       >
         200 (mg/dL)
-      </p>
-      <p
+      </span>
+      <span
         class="MuiTypography-root MuiTypography-bodySmall emotion-5"
         data-testid="lab-unit-lipidProfile-cholesterol_value-unit"
       >
         (- mg/dL)
-      </p>
+      </span>
     </div>
   </div>
 </DocumentFragment>

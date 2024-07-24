@@ -3,11 +3,15 @@
 exports[`TermsAndConditions should render correctly 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  background-color: #FFFFFF;
-  color: #212121;
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.87);
   -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+  color: unset;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -22,6 +26,11 @@ exports[`TermsAndConditions should render correctly 1`] = `
   top: 0;
   left: auto;
   right: 0;
+  background-color: #2196F3;
+  color: #fff;
+  color: #212121;
+  background-color: #FFFFFF;
+  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 @media print {
@@ -39,6 +48,9 @@ exports[`TermsAndConditions should render correctly 1`] = `
 
 .emotion-1 {
   position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -70,11 +82,11 @@ exports[`TermsAndConditions should render correctly 1`] = `
     <div
       class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-dense emotion-1"
     >
-      <p
+      <span
         class="MuiTypography-root MuiTypography-bodyBold emotion-2"
       >
         เลื่อนขึ้นเพื่ออ่านข้อความทั้งหมดและดำเนินการต่อ
-      </p>
+      </span>
     </div>
   </header>
   .emotion-0 {
@@ -104,12 +116,15 @@ exports[`TermsAndConditions should render correctly 1`] = `
 
 .emotion-1 {
   background-color: #fff;
-  color: unset;
+  color: rgba(0, 0, 0, 0.87);
   -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 4px;
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+  color: unset;
+  padding: 36px 40px;
   border-radius: 16px;
   box-shadow: none;
-  padding: 36px 40px;
 }
 
 .emotion-2 {
@@ -120,7 +135,7 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-3 {
-  margin: 8px 0px 24px;
+  margin: 0;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -128,9 +143,13 @@ exports[`TermsAndConditions should render correctly 1`] = `
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.12);
   border-bottom-width: thin;
+  margin: 8px 0px 24px;
 }
 
 .emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -146,6 +165,9 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -260,6 +282,9 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -277,11 +302,17 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  cursor: pointer;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  cursor: pointer;
   padding: 24px;
 }
 
@@ -291,6 +322,9 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-13 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -317,6 +351,9 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-15 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -328,6 +365,9 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-16 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -344,8 +384,8 @@ exports[`TermsAndConditions should render correctly 1`] = `
   outline: 0;
   border: 0;
   margin: 0;
-  border-radius: 50%;
-  padding: 8px;
+  border-radius: 0;
+  padding: 0;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -356,13 +396,16 @@ exports[`TermsAndConditions should render correctly 1`] = `
   -webkit-appearance: none;
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.54);
+  color: inherit;
   text-align: center;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   font-size: 1.5rem;
+  padding: 8px;
+  border-radius: 50%;
   overflow: visible;
+  color: rgba(0, 0, 0, 0.54);
   -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
@@ -424,6 +467,9 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
 }
@@ -433,6 +479,9 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-22 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -445,6 +494,9 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-70 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -479,6 +531,9 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-71 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -495,8 +550,8 @@ exports[`TermsAndConditions should render correctly 1`] = `
   outline: 0;
   border: 0;
   margin: 0;
-  border-radius: 50%;
-  padding: 9px;
+  border-radius: 0;
+  padding: 0;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -507,6 +562,9 @@ exports[`TermsAndConditions should render correctly 1`] = `
   -webkit-appearance: none;
   -webkit-text-decoration: none;
   text-decoration: none;
+  color: inherit;
+  padding: 9px;
+  border-radius: 50%;
   color: rgba(0, 0, 0, 0.6);
 }
 
@@ -584,6 +642,9 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-76 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -596,6 +657,9 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-77 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -608,12 +672,12 @@ exports[`TermsAndConditions should render correctly 1`] = `
   position: relative;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
-  background-color: #2196F3;
+  background-color: transparent;
   outline: 0;
   border: 0;
   margin: 0;
-  border-radius: 4px;
-  padding: 6px 16px;
+  border-radius: 0;
+  padding: 0;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -624,16 +688,24 @@ exports[`TermsAndConditions should render correctly 1`] = `
   -webkit-appearance: none;
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: #fff;
+  color: inherit;
   font-family: fontFamily;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 1.5;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
   text-transform: uppercase;
   min-width: 64px;
+  padding: 6px 16px;
+  border-radius: 4px;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #fff;
+  background-color: #2196F3;
   box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  background-color: #2196F3;
   height: 44px;
   width: 100%;
   max-width: 400px;
@@ -694,11 +766,11 @@ exports[`TermsAndConditions should render correctly 1`] = `
       class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 emotion-1"
       data-testid="terms-and-conditions-consent"
     >
-      <p
+      <span
         class="MuiTypography-root MuiTypography-titleLargeBold emotion-2"
       >
         ข้อกำหนดและเงื่อนไข
-      </p>
+      </span>
       <hr
         class="MuiDivider-root MuiDivider-fullWidth emotion-3"
       />
@@ -725,11 +797,11 @@ We value your privacy. This policy explains how we collect and use your informat
           class="MuiStack-root emotion-5"
           data-testid="term-and-conditions-service"
         >
-          <p
+          <span
             class="MuiTypography-root MuiTypography-titleBold emotion-8"
           >
             All Services
-          </p>
+          </span>
           <div
             class="MuiStack-root emotion-9"
           >
@@ -750,12 +822,12 @@ We value your privacy. This policy explains how we collect and use your informat
               <div
                 class="MuiStack-root emotion-13"
               >
-                <p
+                <span
                   class="MuiTypography-root MuiTypography-bodyMedium emotion-14"
                   data-testid="term-and-conditions-service-0-title"
                 >
                   mock-test-title
-                </p>
+                </span>
                 <svg
                   data-testid="term-and-conditions-service-0-detail-icon"
                 />
@@ -836,12 +908,12 @@ AI Interpret provides advanced language translation capabilities...
               <div
                 class="MuiStack-root emotion-13"
               >
-                <p
+                <span
                   class="MuiTypography-root MuiTypography-bodyMedium emotion-14"
                   data-testid="term-and-conditions-service-1-title"
                 >
                   Health Visualization
-                </p>
+                </span>
                 <svg
                   data-testid="term-and-conditions-service-1-detail-icon"
                 />
@@ -922,12 +994,12 @@ Health Visualization helps you understand your health data through visual repres
               <div
                 class="MuiStack-root emotion-13"
               >
-                <p
+                <span
                   class="MuiTypography-root MuiTypography-bodyMedium emotion-14"
                   data-testid="term-and-conditions-service-2-title"
                 >
                   ASR
-                </p>
+                </span>
                 <svg
                   data-testid="term-and-conditions-service-2-detail-icon"
                 />
@@ -1008,12 +1080,12 @@ ASR (Automatic Speech Recognition) converts spoken language into text...
               <div
                 class="MuiStack-root emotion-13"
               >
-                <p
+                <span
                   class="MuiTypography-root MuiTypography-bodyMedium emotion-14"
                   data-testid="term-and-conditions-service-3-title"
                 >
                   Symptom Checker
-                </p>
+                </span>
                 <svg
                   data-testid="term-and-conditions-service-3-detail-icon"
                 />

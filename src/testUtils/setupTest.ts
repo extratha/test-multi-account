@@ -31,9 +31,3 @@ jest.mock("next/config", () => () => ({
     publicApiHost: "http://localhost:3000/",
   },
 }));
-
-jest.mock("cookies-next", () => ({
-  __esModule: true,
-  ...jest.requireActual("cookies-next"),
-  getCookie: jest.fn().mockReturnValue("MOCK_ACCESS_TOKEN"),
-}));

@@ -3,6 +3,9 @@
 exports[`InputDataModule should render correctly 1`] = `
 <DocumentFragment>
   .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -17,21 +20,26 @@ exports[`InputDataModule should render correctly 1`] = `
 
 .emotion-1 {
   background-color: #fff;
-  color: unset;
+  color: rgba(0, 0, 0, 0.87);
   -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  border-radius: 20px;
+  border-radius: 4px;
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+  color: unset;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
   width: 100%;
   max-width: 1080px;
   padding: 32px;
+  border-radius: 20px;
   margin: 0px auto;
 }
 
 .emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -44,6 +52,9 @@ exports[`InputDataModule should render correctly 1`] = `
 }
 
 .emotion-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -58,10 +69,10 @@ exports[`InputDataModule should render correctly 1`] = `
   -webkit-tap-highlight-color: transparent;
   background-color: transparent;
   outline: 0;
-  border: 1px solid #cfd8dc;
+  border: 0;
   margin: 0;
-  border-radius: 10px;
-  padding: 5px 15px;
+  border-radius: 0;
+  padding: 0;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -72,16 +83,26 @@ exports[`InputDataModule should render correctly 1`] = `
   -webkit-appearance: none;
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: #212121;
+  color: inherit;
   font-family: fontFamily;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 1.5;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
   text-transform: uppercase;
   min-width: 64px;
+  padding: 5px 15px;
+  border-radius: 4px;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border: 1px solid rgba(33, 150, 243, 0.5);
+  color: #2196F3;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
   height: 40px;
+  color: #212121;
+  border-radius: 10px;
+  border: 1px solid #cfd8dc;
   background: #fff;
 }
 
@@ -157,6 +178,9 @@ exports[`InputDataModule should render correctly 1`] = `
 }
 
 .emotion-7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -165,6 +189,9 @@ exports[`InputDataModule should render correctly 1`] = `
 }
 
 .emotion-8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -172,6 +199,9 @@ exports[`InputDataModule should render correctly 1`] = `
 }
 
 .emotion-9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -190,6 +220,9 @@ exports[`InputDataModule should render correctly 1`] = `
 }
 
 .emotion-11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -198,6 +231,9 @@ exports[`InputDataModule should render correctly 1`] = `
 }
 
 .emotion-12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -217,6 +253,9 @@ exports[`InputDataModule should render correctly 1`] = `
 }
 
 .emotion-13 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -231,10 +270,10 @@ exports[`InputDataModule should render correctly 1`] = `
   -webkit-tap-highlight-color: transparent;
   background-color: transparent;
   outline: 0;
-  border: 1px solid #cfd8dc;
+  border: 0;
   margin: 0;
-  border-radius: 8px;
-  padding: 10px 16px;
+  border-radius: 0;
+  padding: 0;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -245,16 +284,27 @@ exports[`InputDataModule should render correctly 1`] = `
   -webkit-appearance: none;
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: #212121;
+  color: inherit;
   font-family: fontFamily;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 1.5;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
   text-transform: uppercase;
   min-width: 64px;
+  padding: 5px 15px;
+  border-radius: 4px;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border: 1px solid rgba(33, 150, 243, 0.5);
+  color: #2196F3;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
   height: 40px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: #212121;
+  border: 1px solid #cfd8dc;
   background: #fff;
 }
 
@@ -297,6 +347,9 @@ exports[`InputDataModule should render correctly 1`] = `
 }
 
 .emotion-16 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -309,12 +362,12 @@ exports[`InputDataModule should render correctly 1`] = `
   position: relative;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
-  background-color: #2196F3;
+  background-color: transparent;
   outline: 0;
   border: 0;
   margin: 0;
-  border-radius: 10px;
-  padding: 6px 16px;
+  border-radius: 0;
+  padding: 0;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -325,17 +378,26 @@ exports[`InputDataModule should render correctly 1`] = `
   -webkit-appearance: none;
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: #fff;
+  color: inherit;
   font-family: fontFamily;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 1.5;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
   text-transform: uppercase;
   min-width: 64px;
+  padding: 6px 16px;
+  border-radius: 4px;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #fff;
+  background-color: #2196F3;
   box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  background-color: #2196F3;
   height: 40px;
+  border-radius: 10px;
   background: linear-gradient(94deg, #0059D6 0%, #028DF5 50%, #00CBDD 100%);
 }
 
@@ -388,6 +450,9 @@ exports[`InputDataModule should render correctly 1`] = `
 }
 
 .emotion-19 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -396,6 +461,9 @@ exports[`InputDataModule should render correctly 1`] = `
 }
 
 .emotion-20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -424,6 +492,9 @@ exports[`InputDataModule should render correctly 1`] = `
 }
 
 .emotion-23 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -440,6 +511,9 @@ exports[`InputDataModule should render correctly 1`] = `
 }
 
 .emotion-26 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -450,6 +524,9 @@ exports[`InputDataModule should render correctly 1`] = `
 }
 
 .emotion-27 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -474,6 +551,9 @@ exports[`InputDataModule should render correctly 1`] = `
 }
 
 .emotion-30 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -483,6 +563,9 @@ exports[`InputDataModule should render correctly 1`] = `
 
 .emotion-31 {
   box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-box-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
@@ -654,6 +737,9 @@ exports[`InputDataModule should render correctly 1`] = `
 }
 
 .emotion-38 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -674,6 +760,9 @@ exports[`InputDataModule should render correctly 1`] = `
 }
 
 .emotion-40 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -696,12 +785,17 @@ exports[`InputDataModule should render correctly 1`] = `
   box-sizing: border-box;
   position: relative;
   cursor: text;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
+  position: relative;
+  border-radius: 4px;
   border-radius: 8px;
 }
 
@@ -737,7 +831,7 @@ exports[`InputDataModule should render correctly 1`] = `
   font: inherit;
   letter-spacing: inherit;
   color: currentColor;
-  padding: 12px;
+  padding: 4px 0 5px;
   border: 0;
   box-sizing: content-box;
   background: none;
@@ -751,6 +845,8 @@ exports[`InputDataModule should render correctly 1`] = `
   animation-name: mui-auto-fill-cancel;
   -webkit-animation-duration: 10ms;
   animation-duration: 10ms;
+  padding: 16.5px 14px;
+  padding: 12px;
 }
 
 .emotion-42::-webkit-input-placeholder {
@@ -870,6 +966,9 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-42:focus::-ms-input-
 }
 
 .emotion-45 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -886,8 +985,9 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-42:focus::-ms-input-
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
-  color: #757575;
+  color: #607D8B;
   word-break: break-word;
+  color: #757575;
 }
 
 .emotion-56 {
@@ -1041,14 +1141,19 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-42:focus::-ms-input-
   box-sizing: border-box;
   position: relative;
   cursor: text;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  border-radius: 8px;
+  position: relative;
+  border-radius: 4px;
   padding-right: 14px;
+  border-radius: 8px;
 }
 
 .emotion-58.Mui-disabled {
@@ -1083,7 +1188,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-42:focus::-ms-input-
   font: inherit;
   letter-spacing: inherit;
   color: currentColor;
-  padding: 12px;
+  padding: 4px 0 5px;
   border: 0;
   box-sizing: content-box;
   background: none;
@@ -1097,7 +1202,9 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-42:focus::-ms-input-
   animation-name: mui-auto-fill-cancel;
   -webkit-animation-duration: 10ms;
   animation-duration: 10ms;
+  padding: 16.5px 14px;
   padding-right: 0;
+  padding: 12px;
 }
 
 .emotion-59::-webkit-input-placeholder {
@@ -1199,6 +1306,9 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
 }
 
 .emotion-61 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -1215,8 +1325,8 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
   outline: 0;
   border: 0;
   margin: 0;
-  border-radius: 50%;
-  padding: 4px;
+  border-radius: 0;
+  padding: 0;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -1227,16 +1337,20 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
   -webkit-appearance: none;
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.54);
+  color: inherit;
   text-align: center;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   font-size: 1.5rem;
+  padding: 8px;
+  border-radius: 50%;
   overflow: visible;
+  color: rgba(0, 0, 0, 0.54);
   -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   margin-right: -2px;
+  padding: 4px;
   visibility: hidden;
 }
 
@@ -1289,6 +1403,9 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
 }
 
 .emotion-64 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -1305,8 +1422,8 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
   outline: 0;
   border: 0;
   margin: 0;
-  border-radius: 50%;
-  padding: 2px;
+  border-radius: 0;
+  padding: 0;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -1317,15 +1434,19 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
   -webkit-appearance: none;
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.54);
+  color: inherit;
   text-align: center;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   font-size: 1.5rem;
+  padding: 8px;
+  border-radius: 50%;
   overflow: visible;
+  color: rgba(0, 0, 0, 0.54);
   -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  padding: 2px;
   margin-right: -2px;
 }
 
@@ -1382,6 +1503,9 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
 }
 
 .emotion-108 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -1402,6 +1526,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
   flex-shrink: 0;
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
   font-size: 20px;
   color: #607D8B;
 }
@@ -1444,12 +1569,12 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
           <div
             class="MuiStack-root emotion-9"
           >
-            <h3
+            <span
               class="MuiTypography-root MuiTypography-headerSemiBold emotion-10"
               data-testid="page-title"
             >
               ทดลองใส่ข้อมูลเอง
-            </h3>
+            </span>
           </div>
           <div
             class="MuiStack-root emotion-11"
@@ -1532,16 +1657,16 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
           <div
             class="MuiStack-root emotion-27"
           >
-            <p
+            <span
               class="MuiTypography-root MuiTypography-titleBold emotion-28"
             >
               การตรวจสุขภาพทั่วไป
-            </p>
-            <p
+            </span>
+            <span
               class="MuiTypography-root MuiTypography-bodySmall emotion-29"
             >
               (General Check-up)
-            </p>
+            </span>
           </div>
           <div
             class="MuiStack-root emotion-30"
@@ -1555,22 +1680,22 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                 <div
                   class="MuiStack-root emotion-8"
                 >
-                  <p
+                  <span
                     class="MuiTypography-root MuiTypography-bodyBold emotion-34"
                   >
                     อายุ
-                  </p>
-                  <p
+                  </span>
+                  <span
                     class="MuiTypography-root MuiTypography-bodyBold emotion-35"
                   >
                     *
-                  </p>
+                  </span>
                 </div>
-                <p
+                <span
                   class="MuiTypography-root MuiTypography-bodySmall emotion-36"
                 >
                   (Age)
-                </p>
+                </span>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-5 emotion-37"
@@ -1618,11 +1743,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                   <div
                     class="MuiStack-root emotion-45"
                   >
-                    <p
+                    <span
                       class="MuiTypography-root MuiTypography-bodySmall emotion-46"
                     >
                       ปี
-                    </p>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -1636,22 +1761,22 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                 <div
                   class="MuiStack-root emotion-8"
                 >
-                  <p
+                  <span
                     class="MuiTypography-root MuiTypography-bodyBold emotion-34"
                   >
                     เพศ
-                  </p>
-                  <p
+                  </span>
+                  <span
                     class="MuiTypography-root MuiTypography-bodyBold emotion-35"
                   >
                     *
-                  </p>
+                  </span>
                 </div>
-                <p
+                <span
                   class="MuiTypography-root MuiTypography-bodySmall emotion-36"
                 >
                   (Gender)
-                </p>
+                </span>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-5 emotion-37"
@@ -1757,7 +1882,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                   <div
                     class="MuiStack-root emotion-45"
                   >
-                    <p
+                    <span
                       class="MuiTypography-root MuiTypography-bodySmall emotion-46"
                     />
                   </div>
@@ -1773,22 +1898,22 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                 <div
                   class="MuiStack-root emotion-8"
                 >
-                  <p
+                  <span
                     class="MuiTypography-root MuiTypography-bodyBold emotion-34"
                   >
                     น้ำหนัก
-                  </p>
-                  <p
+                  </span>
+                  <span
                     class="MuiTypography-root MuiTypography-bodyBold emotion-35"
                   >
                     *
-                  </p>
+                  </span>
                 </div>
-                <p
+                <span
                   class="MuiTypography-root MuiTypography-bodySmall emotion-36"
                 >
                   (Body Weight)
-                </p>
+                </span>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-5 emotion-37"
@@ -1836,11 +1961,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                   <div
                     class="MuiStack-root emotion-45"
                   >
-                    <p
+                    <span
                       class="MuiTypography-root MuiTypography-bodySmall emotion-46"
                     >
                       Kg
-                    </p>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -1854,22 +1979,22 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                 <div
                   class="MuiStack-root emotion-8"
                 >
-                  <p
+                  <span
                     class="MuiTypography-root MuiTypography-bodyBold emotion-34"
                   >
                     ส่วนสูง
-                  </p>
-                  <p
+                  </span>
+                  <span
                     class="MuiTypography-root MuiTypography-bodyBold emotion-35"
                   >
                     *
-                  </p>
+                  </span>
                 </div>
-                <p
+                <span
                   class="MuiTypography-root MuiTypography-bodySmall emotion-36"
                 >
                   (Body Height)
-                </p>
+                </span>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-5 emotion-37"
@@ -1917,11 +2042,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                   <div
                     class="MuiStack-root emotion-45"
                   >
-                    <p
+                    <span
                       class="MuiTypography-root MuiTypography-bodySmall emotion-46"
                     >
                       Cm
-                    </p>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -1935,11 +2060,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                 <div
                   class="MuiStack-root emotion-8"
                 >
-                  <p
+                  <span
                     class="MuiTypography-root MuiTypography-bodyBold emotion-34"
                   >
                     เส้นรอบเอว
-                  </p>
+                  </span>
                   <div
                     class="MuiBox-root emotion-107"
                   >
@@ -1961,11 +2086,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                     </div>
                   </div>
                 </div>
-                <p
+                <span
                   class="MuiTypography-root MuiTypography-bodySmall emotion-36"
                 >
                   (Waistline)
-                </p>
+                </span>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-5 emotion-37"
@@ -2013,11 +2138,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                   <div
                     class="MuiStack-root emotion-45"
                   >
-                    <p
+                    <span
                       class="MuiTypography-root MuiTypography-bodySmall emotion-46"
                     >
                       Cm
-                    </p>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -2031,11 +2156,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                 <div
                   class="MuiStack-root emotion-8"
                 >
-                  <p
+                  <span
                     class="MuiTypography-root MuiTypography-bodyBold emotion-34"
                   >
                     ความดันโลหิตขณะบีบตัว (ตัวบน)
-                  </p>
+                  </span>
                   <div
                     class="MuiBox-root emotion-107"
                   >
@@ -2057,11 +2182,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                     </div>
                   </div>
                 </div>
-                <p
+                <span
                   class="MuiTypography-root MuiTypography-bodySmall emotion-36"
                 >
                   (Blood Pressure Systolic)
-                </p>
+                </span>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-5 emotion-37"
@@ -2109,11 +2234,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                   <div
                     class="MuiStack-root emotion-45"
                   >
-                    <p
+                    <span
                       class="MuiTypography-root MuiTypography-bodySmall emotion-46"
                     >
                       mmhg
-                    </p>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -2127,11 +2252,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                 <div
                   class="MuiStack-root emotion-8"
                 >
-                  <p
+                  <span
                     class="MuiTypography-root MuiTypography-bodyBold emotion-34"
                   >
                     ความดันโลหิตขณะคลายตัว (ตัวล่าง)
-                  </p>
+                  </span>
                   <div
                     class="MuiBox-root emotion-107"
                   >
@@ -2153,11 +2278,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                     </div>
                   </div>
                 </div>
-                <p
+                <span
                   class="MuiTypography-root MuiTypography-bodySmall emotion-36"
                 >
                   (Blood Pressure Diastolic)
-                </p>
+                </span>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-5 emotion-37"
@@ -2205,11 +2330,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                   <div
                     class="MuiStack-root emotion-45"
                   >
-                    <p
+                    <span
                       class="MuiTypography-root MuiTypography-bodySmall emotion-46"
                     >
                       mmhg
-                    </p>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -2223,11 +2348,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                 <div
                   class="MuiStack-root emotion-8"
                 >
-                  <p
+                  <span
                     class="MuiTypography-root MuiTypography-bodyBold emotion-34"
                   >
                     อัตราการเต้นหัวใจ
-                  </p>
+                  </span>
                   <div
                     class="MuiBox-root emotion-107"
                   >
@@ -2249,11 +2374,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                     </div>
                   </div>
                 </div>
-                <p
+                <span
                   class="MuiTypography-root MuiTypography-bodySmall emotion-36"
                 >
                   (Pulse)
-                </p>
+                </span>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-5 emotion-37"
@@ -2301,11 +2426,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                   <div
                     class="MuiStack-root emotion-45"
                   >
-                    <p
+                    <span
                       class="MuiTypography-root MuiTypography-bodySmall emotion-46"
                     >
                       Bpm
-                    </p>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -2319,11 +2444,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                 <div
                   class="MuiStack-root emotion-8"
                 >
-                  <p
+                  <span
                     class="MuiTypography-root MuiTypography-bodyBold emotion-34"
                   >
                     อัตราการหายใจ
-                  </p>
+                  </span>
                   <div
                     class="MuiBox-root emotion-107"
                   >
@@ -2345,11 +2470,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                     </div>
                   </div>
                 </div>
-                <p
+                <span
                   class="MuiTypography-root MuiTypography-bodySmall emotion-36"
                 >
                   (Respiratory Rate)
-                </p>
+                </span>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-5 emotion-37"
@@ -2397,11 +2522,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                   <div
                     class="MuiStack-root emotion-45"
                   >
-                    <p
+                    <span
                       class="MuiTypography-root MuiTypography-bodySmall emotion-46"
                     >
                       Bpm
-                    </p>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -2415,11 +2540,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                 <div
                   class="MuiStack-root emotion-8"
                 >
-                  <p
+                  <span
                     class="MuiTypography-root MuiTypography-bodyBold emotion-34"
                   >
                     อุณหภูมิร่างกาย
-                  </p>
+                  </span>
                   <div
                     class="MuiBox-root emotion-107"
                   >
@@ -2441,11 +2566,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                     </div>
                   </div>
                 </div>
-                <p
+                <span
                   class="MuiTypography-root MuiTypography-bodySmall emotion-36"
                 >
                   (Temperature)
-                </p>
+                </span>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-5 emotion-37"
@@ -2493,11 +2618,11 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                   <div
                     class="MuiStack-root emotion-45"
                   >
-                    <p
+                    <span
                       class="MuiTypography-root MuiTypography-bodySmall emotion-46"
                     >
                       °C
-                    </p>
+                    </span>
                   </div>
                 </div>
               </div>
