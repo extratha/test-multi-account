@@ -9,8 +9,8 @@ import DashboardPage from "@/components/Page/DashboardPage";
 import PageTitle from "@/components/Typography/PageTitle";
 import useTranslation from "@/locales/useLocale";
 import { usePageLoadingStore } from "@/store";
-import { SymptomCheckerConfigResult } from "@/types/model.ui";
-import { getSymptomCheckerConfig } from "@/utils/firebase";
+import { SymptomCheckerConfig } from "@/types/model.ui";
+import { getDashboardMenuConfig } from "@/utils/firebase";
 
 const Header = styled(Stack)({
   padding: "32px 40px 0px",
@@ -63,7 +63,7 @@ const ReloadButton = styled(Button)({
   whiteSpace: "nowrap",
 });
 
-const initialConfig: SymptomCheckerConfigResult = {
+const initialConfig: SymptomCheckerConfig = {
   url: "",
 };
 
@@ -102,8 +102,8 @@ const SymptomChecker = () => {
 
   const fetchConfigData = async () => {
     setPageLoading(true);
-    const remoteConfig = await getSymptomCheckerConfig();
-    setConfig(remoteConfig);
+    const remoteConfig = await getDashboardMenuConfig();
+    setConfig(remoteConfig.symptomChecker);
     setPageLoading(false);
   };
 

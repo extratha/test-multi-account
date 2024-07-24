@@ -119,3 +119,13 @@ export const CONSENT_TYPE = {
   TERMS_AND_CONDITIONS: "terms",
   PRIVACY_AND_POLICY: "privacy_policies",
 };
+
+export const ASR_SERVICE = {
+  ORDER_ASR: "order-asr",
+  SOAP_ASR: "soap-asr",
+};
+
+export const ASR_SERVICE_KEY: Record<string, string> = {
+  [ASR_SERVICE.ORDER_ASR]: "orderAsr",
+  [ASR_SERVICE.SOAP_ASR]: "soapAsr",
+};

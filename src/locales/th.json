@@ -586,5 +586,11 @@
         "cea_value": "สารบ่งชี้มะเร็งลำไส้"
       }
     }
+  },
+  "orderAsr": {
+    "title": "Order ASR"
+  },
+  "soapAsr": {
+    "title": "SOAP ASR"
   }
 }

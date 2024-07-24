@@ -1,11 +1,11 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
-type PageLoadingState = {
+export interface PageLoadingStore {
   isPageLoading: boolean;
   setPageLoading: (loading: boolean) => void;
-};
+}
 
-const usePageLoadingStore = create<PageLoadingState>((set) => ({
+const usePageLoadingStore = create<PageLoadingStore>((set) => ({
   isPageLoading: false,
   setPageLoading: (loading: boolean) => set(() => ({ isPageLoading: loading })),
 }));
