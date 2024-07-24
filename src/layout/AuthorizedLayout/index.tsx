@@ -20,7 +20,7 @@ const AuthorizedLayout = ({ children }: AuthorizedLayoutProps) => {
     if (accessToken) {
       setIsAuthorized(true);
     } else {
-      router.replace(NAVIGATION.HOME);
+      router.replace(NAVIGATION.LOGIN);
     }
   }, []);
 
