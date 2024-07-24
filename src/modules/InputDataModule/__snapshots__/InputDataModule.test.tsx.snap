@@ -575,7 +575,6 @@ exports[`InputDataModule should render correctly 1`] = `
   font-size: 16px;
   font-weight: 700;
   line-height: 1.5;
-  margin-left: 4px;
   color: #d32f2f;
 }
 
@@ -1378,6 +1377,35 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
   font-size: 1.5rem;
 }
 
+.emotion-107 {
+  margin-left: 12px;
+}
+
+.emotion-108 {
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-109 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 20px;
+  color: #607D8B;
+}
+
 <div
     class="MuiStack-root emotion-0"
   >
@@ -1912,6 +1940,26 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                   >
                     เส้นรอบเอว
                   </p>
+                  <div
+                    class="MuiBox-root emotion-107"
+                  >
+                    <div
+                      class="MuiStack-root emotion-108"
+                      data-mui-internal-clone-element="true"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-109"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
                 <p
                   class="MuiTypography-root MuiTypography-bodySmall emotion-36"
@@ -1938,7 +1986,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                           aria-invalid="false"
                           class="MuiInputBase-input MuiOutlinedInput-input emotion-42"
                           data-testid="input-number-waist_line"
-                          id=":r5:"
+                          id=":r6:"
                           name="waist_line"
                           placeholder="กรอกข้อมูล"
                           step="1"
@@ -1988,6 +2036,26 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                   >
                     ความดันโลหิตขณะบีบตัว (ตัวบน)
                   </p>
+                  <div
+                    class="MuiBox-root emotion-107"
+                  >
+                    <div
+                      class="MuiStack-root emotion-108"
+                      data-mui-internal-clone-element="true"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-109"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
                 <p
                   class="MuiTypography-root MuiTypography-bodySmall emotion-36"
@@ -2014,7 +2082,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                           aria-invalid="false"
                           class="MuiInputBase-input MuiOutlinedInput-input emotion-42"
                           data-testid="input-number-blood_pressure_systolic"
-                          id=":r6:"
+                          id=":r8:"
                           name="blood_pressure_systolic"
                           placeholder="กรอกข้อมูล"
                           step="1"
@@ -2064,6 +2132,26 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                   >
                     ความดันโลหิตขณะคลายตัว (ตัวล่าง)
                   </p>
+                  <div
+                    class="MuiBox-root emotion-107"
+                  >
+                    <div
+                      class="MuiStack-root emotion-108"
+                      data-mui-internal-clone-element="true"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-109"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
                 <p
                   class="MuiTypography-root MuiTypography-bodySmall emotion-36"
@@ -2090,7 +2178,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                           aria-invalid="false"
                           class="MuiInputBase-input MuiOutlinedInput-input emotion-42"
                           data-testid="input-number-blood_pressure_diastolic"
-                          id=":r7:"
+                          id=":ra:"
                           name="blood_pressure_diastolic"
                           placeholder="กรอกข้อมูล"
                           step="1"
@@ -2140,6 +2228,26 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                   >
                     อัตราการเต้นหัวใจ
                   </p>
+                  <div
+                    class="MuiBox-root emotion-107"
+                  >
+                    <div
+                      class="MuiStack-root emotion-108"
+                      data-mui-internal-clone-element="true"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-109"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
                 <p
                   class="MuiTypography-root MuiTypography-bodySmall emotion-36"
@@ -2166,7 +2274,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                           aria-invalid="false"
                           class="MuiInputBase-input MuiOutlinedInput-input emotion-42"
                           data-testid="input-number-pulse"
-                          id=":r8:"
+                          id=":rc:"
                           name="pulse"
                           placeholder="กรอกข้อมูล"
                           step="1"
@@ -2216,6 +2324,26 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                   >
                     อัตราการหายใจ
                   </p>
+                  <div
+                    class="MuiBox-root emotion-107"
+                  >
+                    <div
+                      class="MuiStack-root emotion-108"
+                      data-mui-internal-clone-element="true"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-109"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
                 <p
                   class="MuiTypography-root MuiTypography-bodySmall emotion-36"
@@ -2242,7 +2370,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                           aria-invalid="false"
                           class="MuiInputBase-input MuiOutlinedInput-input emotion-42"
                           data-testid="input-number-respiratory_rate"
-                          id=":r9:"
+                          id=":re:"
                           name="respiratory_rate"
                           placeholder="กรอกข้อมูล"
                           step="1"
@@ -2292,6 +2420,26 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                   >
                     อุณหภูมิร่างกาย
                   </p>
+                  <div
+                    class="MuiBox-root emotion-107"
+                  >
+                    <div
+                      class="MuiStack-root emotion-108"
+                      data-mui-internal-clone-element="true"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-109"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
                 <p
                   class="MuiTypography-root MuiTypography-bodySmall emotion-36"
@@ -2318,7 +2466,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-59:focus::-ms-input-
                           aria-invalid="false"
                           class="MuiInputBase-input MuiOutlinedInput-input emotion-42"
                           data-testid="input-number-temperature"
-                          id=":ra:"
+                          id=":rg:"
                           name="temperature"
                           placeholder="กรอกข้อมูล"
                           step="1"

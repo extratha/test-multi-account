@@ -1,11 +1,14 @@
 import { Box, Grid, Stack, styled, Typography } from "@mui/material";
+import { useMemo } from "react";
+import { useFormContext } from "react-hook-form";
 
 import FormAutocomplete from "@/components/Form/FormAutocomplete";
 import FormNumberInput from "@/components/Form/FormNumberInput";
 import FormTextInput from "@/components/Form/FormTextInput";
+import Tooltip from "@/components/Tooltip";
 import { CONFIG_FIELD_TYPES } from "@/constant";
 import useTranslation from "@/locales/useLocale";
-import { InputDataConfig } from "@/types/model.ui";
+import { InputDataConfig, NormalRange } from "@/types/model.ui";
 
 interface InputDataFieldTypeProps {
   field: InputDataConfig;
@@ -21,11 +24,22 @@ const TypoUnit = styled(Typography)(({ theme }) => ({
   color: theme.palette.grey[600],
 }));
 
+const GENDER_FIELD = "gender";
+
 const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {
   const { translation } = useTranslation();
+  const fieldRange = field.range || [];
+
+  const { watch } = useFormContext();
+  const gender: string = watch(GENDER_FIELD) || "";
+
+  const normalRange = useMemo(() => {
+    if (!gender) return fieldRange;
+    return fieldRange.filter((range) => range.type === gender.toLowerCase());
+  }, [fieldRange.length, gender]);
 
   const getPlaceholder = () => {
-    if (field.key === "gender") {
+    if (field.key === GENDER_FIELD) {
       return translation("AiInterpret.th.placeholder.gender");
     }
     return "";
@@ -39,7 +53,12 @@ const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {
     }));
   };
 
-  const displayUnit = (field: InputDataConfig) => {
+  const getTooltip = (range: NormalRange) => {
+    const prefix = gender ? "" : `${translation(`AiInterpret.tooltip.${range.type}`)}: `;
+    return `${prefix}${range.value}`;
+  };
+
+  const getUnit = (field: InputDataConfig) => {
     if (field.key === "age") return translation("AiInterpret.field.yearsOld");
     return field.unit;
   };
@@ -50,9 +69,27 @@ const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {
         <Stack direction="row">
           <Typography variant="bodyBold">{translation(`AiInterpret.th.field.${field.key}`)}</Typography>
           {field.required && (
-            <Typography ml={0.5} variant="bodyBold" color="error">
+            <Typography variant="bodyBold" color="error">
               *
             </Typography>
+          )}
+          {normalRange.length > 0 && (
+            <Box marginLeft="12px">
+              <Tooltip
+                content={
+                  <Stack>
+                    <Typography variant="bodySmallMedium" marginBottom="6px">
+                      {translation("AiInterpret.tooltip.normalRange")}
+                    </Typography>
+                    {normalRange.map((range, index) => (
+                      <Typography key={index} variant="bodySmall">
+                        {getTooltip(range)}
+                      </Typography>
+                    ))}
+                  </Stack>
+                }
+              />
+            </Box>
           )}
         </Stack>
         <Typography variant="bodySmall" color="text.medium">{`(${translation(
@@ -88,7 +125,7 @@ const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {
           </Box>
           <Stack width="150px" height="48px" justifyContent="center">
             <TypoUnit variant="bodySmall" color="text.medium">
-              {displayUnit(field)}
+              {getUnit(field)}
             </TypoUnit>
           </Stack>
         </Stack>
