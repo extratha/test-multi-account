@@ -153,6 +153,26 @@
       "title": "นโยบายความเป็นส่วนตัว"
     }
   },
+  "login": {
+    "text": {
+      "carivaPlayground": "CARIVA PLAYGROUND",
+      "login": "เข้าสู่ระบบ",
+      "password": "รหัสผ่าน",
+      "placeholder": {
+        "email": "อีเมล",
+        "forgetPassword": "ลืมรหัสผ่าน"
+      },
+      "error": {
+        "invalidEmailOrPassword": "อีเมลหรือรหัสผ่านไม่ถูกต้อง กรุณาตรวจสอบอีกครั้ง"
+      }
+    },
+    "button": {
+      "login": "เข้าสู่ระบบ",
+      "forgetPassword": "ลืมรหัสผ่าน",
+      "termsAndConditions": "ข้อกำหนดและเงื่อนไข",
+      "privacyPolicy": "นโยบายความเป็นส่วนตัว"
+    }
+  },
   "AiInterpret": {
     "button": {
       "editData": "ปรับแต่งข้อมูล",

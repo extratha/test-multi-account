@@ -932,3 +932,31 @@ export const mockHtml = `<p>html</p>
 <ul>
   <li>Coffee</li>
 </ul>`;
+
+export const mockPublicPrivacyPolicy: ConsentResultLatest = {
+  version: "Version",
+  consent: {
+    content: "<h2>Privacy Policy</h2>",
+    services: [
+      {
+        title: "Service Title 0",
+        logo: "/service/logo/0",
+        content: "Consent Content 0",
+      },
+    ],
+  },
+};
+
+export const mockPublicTermsAndCons: ConsentResultLatest = {
+  version: "Version",
+  consent: {
+    content: "<h2>Terms and condition</h2>",
+    services: [
+      {
+        title: "Service Title 0",
+        logo: "/service/logo/0",
+        content: "Consent Content 0",
+      },
+    ],
+  },
+};
