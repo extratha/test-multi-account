@@ -3,6 +3,7 @@
 import { Stack, styled } from "@mui/material";
 import { ReactNode, useEffect, useState } from "react";
 
+import { usePageLoadingStore } from "@/store";
 import { AppMenuConfig } from "@/types/model.ui";
 import { getDashboardMenuConfig } from "@/utils/firebase";
 import DashboardPanel from "./DashboardPanel";
@@ -25,16 +26,21 @@ const Main = styled("main")(({ theme }) => ({
 }));
 
 const DashboardLayout = ({ children }: DashboardLayoutProps) => {
+  const { setPageLoading } = usePageLoadingStore();
   const [isLoading, setIsLoading] = useState(true);
   const [menus, setMenus] = useState<AppMenuConfig[]>([]);
 
   const fetchMenuConfig = async () => {
     try {
+      setPageLoading(true);
+
       const remoteConfig = await getDashboardMenuConfig();
       setMenus(remoteConfig.menu);
       setIsLoading(false);
+      setPageLoading(false);
     } catch (error) {
       setIsLoading(false);
+      setPageLoading(false);
     }
   };
 

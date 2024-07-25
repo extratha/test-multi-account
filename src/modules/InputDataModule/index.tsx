@@ -12,7 +12,6 @@ import { INTERPRET_STATUS, NAVIGATION } from "@/constant";
 import { useGetLabExampleId } from "@/hooks/useApi";
 import useTranslation from "@/locales/useLocale";
 import { usePageLoadingStore } from "@/store";
-import useModal from "@/store/modal";
 import { InterpretResult } from "@/types/model.api";
 import { InputDataConfig, InputGroupConfigResult } from "@/types/model.ui";
 import { getLabInterpretFieldsConfig } from "@/utils/firebase";
@@ -20,7 +19,7 @@ import { mapInputDataToSubmitInterprets } from "@/utils/mapper";
 import InputDataFieldType from "./InputDataFieldType";
 import InputDataHeader from "./InputDataHeader";
 import { useInputDataFieldYupSchema } from "./InputDataSchema";
-import InterpretModals from "./InterpretingModals";
+import InterpretModal from "./InterpretModal";
 
 export type FormInputDataValuesType = Record<string, unknown>;
 
@@ -73,16 +72,17 @@ const InputDataGroupContent = styled(Stack)({
 
 const MAX_INTERVAL = 60000;
 const INTERVAL_DELAY = 5000;
-const PAPSMEAR_GROUP_NAME = "papSmear";
-const PAPSMEAR_FINDING = "papsmear_finding";
+const PAP_SMEAR_GROUP_NAME = "papSmear";
+const PAP_SMEAR_FINDING = "papsmear_finding";
 const MALE = "Male";
 
 const InputDataModule = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { translation } = useTranslation();
-  const { openModal, closeModal } = useModal();
   const { isPageLoading, setPageLoading } = usePageLoadingStore();
+
+  const [modalInterpretStatus, setModalInterpretStatus] = useState("");
 
   const interpretId = searchParams.get("exampleId");
 
@@ -177,38 +177,33 @@ const InputDataModule = () => {
     }
   };
 
-  const handleClickCancelSubmit = () => {
-    refIsCancelledSubmit.current = true;
-    closeModal();
+  const handleClickCloseModalInterpretStatus = () => {
+    refIsCancelledSubmit.current = modalInterpretStatus === INTERPRET_STATUS.PENDING;
+    setModalInterpretStatus("");
   };
 
   const onSubmit = async (formValues: FormInputDataValuesType) => {
     try {
       refIsCancelledSubmit.current = false;
-      openModal(
-        (props) => (
-          <InterpretModals {...props} interpretStatus={INTERPRET_STATUS.PENDING} onCancel={handleClickCancelSubmit} />
-        ),
-        false
-      );
+      setModalInterpretStatus(INTERPRET_STATUS.PENDING);
 
       const response = await submitLabInterprets(mapInputDataToSubmitInterprets(formValues, inputGroupConfigs));
       const aiResult = await fetchInterpretResult(response.data.transactionID, Date.now());
 
-      closeModal();
       router.replace(`${NAVIGATION.AI_INTERPRET_RESULT}?transactionId=${aiResult.id}`);
     } catch (error) {
-      if (!refIsCancelledSubmit.current) {
-        openModal((props) => <InterpretModals {...props} interpretStatus={INTERPRET_STATUS.FAILED} />, false);
-      }
-
+      const isNotCancelled = !refIsCancelledSubmit.current;
       refIsCancelledSubmit.current = false;
+
+      if (isNotCancelled) {
+        setModalInterpretStatus(INTERPRET_STATUS.FAILED);
+      }
     }
   };
 
   const renderByInputGroupConfig = useMemo(() => {
     return inputGroupConfigs.filter(
-      (group) => group.groupName !== PAPSMEAR_GROUP_NAME || (group.groupName === PAPSMEAR_GROUP_NAME && !isGenderMale)
+      (group) => group.groupName !== PAP_SMEAR_GROUP_NAME || (group.groupName === PAP_SMEAR_GROUP_NAME && !isGenderMale)
     );
   }, [inputGroupConfigs, gender]);
 
@@ -228,7 +223,7 @@ const InputDataModule = () => {
 
   useEffect(() => {
     if (isGenderMale) {
-      setValue(PAPSMEAR_FINDING, null);
+      setValue(PAP_SMEAR_FINDING, null);
     }
   }, [gender]);
 
@@ -277,6 +272,9 @@ const InputDataModule = () => {
             </FormProvider>
           </ContentContainerWrapper>
         </ContentContainer>
+      )}
+      {modalInterpretStatus && (
+        <InterpretModal status={modalInterpretStatus} onClose={handleClickCloseModalInterpretStatus} />
       )}
     </>
   );
