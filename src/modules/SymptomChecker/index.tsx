@@ -5,10 +5,10 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 import { IconAiInterpret, IconReload, IosDeviceFrame } from "@/assets";
+import FullScreenLoading from "@/components/Loading/FullScreenLoading";
 import DashboardPage from "@/components/Page/DashboardPage";
 import PageTitle from "@/components/Typography/PageTitle";
 import useTranslation from "@/locales/useLocale";
-import { usePageLoadingStore } from "@/store";
 import { SymptomCheckerConfig } from "@/types/model.ui";
 import { getDashboardMenuConfig } from "@/utils/firebase";
 
@@ -69,9 +69,9 @@ const initialConfig: SymptomCheckerConfig = {
 
 const SymptomChecker = () => {
   const { translation } = useTranslation();
-  const { isPageLoading, setPageLoading } = usePageLoadingStore();
 
   const [config, setConfig] = useState(initialConfig);
+  const [isLoading, setIsLoading] = useState(true);
 
   const refContent = useRef<HTMLDivElement>(null);
   const refDeviceSection = useRef<HTMLDivElement>(null);
@@ -101,10 +101,10 @@ const SymptomChecker = () => {
   };
 
   const fetchConfigData = async () => {
-    setPageLoading(true);
+    setIsLoading(true);
     const remoteConfig = await getDashboardMenuConfig();
     setConfig(remoteConfig.symptomChecker);
-    setPageLoading(false);
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -112,19 +112,20 @@ const SymptomChecker = () => {
   }, []);
 
   useEffect(() => {
-    if (isPageLoading) return;
+    if (isLoading) return;
 
     calculateDeviceFrame();
-
     window.addEventListener("resize", calculateDeviceFrame);
     return () => {
       window.removeEventListener("resize", calculateDeviceFrame);
     };
-  }, [isPageLoading]);
+  }, [isLoading]);
 
   return (
     <>
-      {!isPageLoading && (
+      {isLoading ? (
+        <FullScreenLoading />
+      ) : (
         <DashboardPage>
           <Header>
             <Stack direction="row" alignItems="center">

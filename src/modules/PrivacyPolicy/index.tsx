@@ -10,9 +10,9 @@ import { getPrivacyPolicy, submitConsent } from "@/api/api";
 import ConsentContent from "@/components/ConsentContent";
 import ConsentHeader from "@/components/ConsentHeader";
 import FormCheckbox from "@/components/Form/FormCheckbox";
+import FullScreenLoading from "@/components/Loading/FullScreenLoading";
 import { CONSENT_TYPE, NAVIGATION } from "@/constant";
 import useTranslation from "@/locales/useLocale";
-import { usePageLoadingStore } from "@/store";
 import { ConsentResult } from "@/types/model.api";
 import usePrivacyPolicySchema from "./PrivacyPolicySchema";
 
@@ -72,9 +72,9 @@ const initialFormValue: PrivacyPolicyFormValues = {
 const PrivacyPolicyModule = () => {
   const { translation } = useTranslation();
   const router = useRouter();
-  const { setPageLoading } = usePageLoadingStore();
 
   const [consent, setConsent] = useState<ConsentResult>();
+  const [isLoading, setIsLoading] = useState(true);
 
   const validateSchema = usePrivacyPolicySchema();
 
@@ -88,26 +88,27 @@ const PrivacyPolicyModule = () => {
 
   const fetchPrivacyPolicy = async () => {
     try {
-      setPageLoading(true);
+      setIsLoading(true);
       const response = await getPrivacyPolicy();
+
       if (response.data.isConsent) {
         router.replace(NAVIGATION.HOME);
       } else {
         setConsent(response.data);
-        setPageLoading(false);
+        setIsLoading(false);
       }
     } catch (error) {
-      setPageLoading(false);
+      setIsLoading(false);
     }
   };
 
   const onSubmit = async () => {
     try {
-      setPageLoading(true);
+      setIsLoading(true);
       await submitConsent(CONSENT_TYPE.PRIVACY_AND_POLICY, consent?.version || "");
       router.replace(NAVIGATION.HOME);
     } catch (error) {
-      setPageLoading(false);
+      setIsLoading(false);
     }
   };
 
@@ -117,6 +118,7 @@ const PrivacyPolicyModule = () => {
 
   return (
     <>
+      {isLoading && <FullScreenLoading />}
       {consent && (
         <>
           <ConsentHeader title={translation("Common.title.privacyPolicy")} />

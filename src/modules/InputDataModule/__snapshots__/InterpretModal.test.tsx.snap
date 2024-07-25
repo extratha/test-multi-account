@@ -17,6 +17,7 @@ exports[`InterpretModal should render correctly 1`] = `
 }
 
 .emotion-0 .MuiPaper-root {
+  background-color: transparent;
   box-shadow: none;
 }
 

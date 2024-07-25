@@ -3,15 +3,15 @@
 import { Button, Divider, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import ReactMarkdown from "react-markdown";
 
 import { IconArrowLeft, IconCopy, IconPen, IconSparkle } from "@/assets";
+import FullScreenLoading from "@/components/Loading/FullScreenLoading";
 import Tag from "@/components/Tag";
 import { GENDER, GENERAL_CHECK_UP, GROUP_NAME, NAVIGATION } from "@/constant";
 import { useGetLabExampleId, useGetLabInterpretResultId } from "@/hooks/useApi";
 import useTranslation from "@/locales/useLocale";
-import { usePageLoadingStore } from "@/store";
 import { InputData, InputDataResult } from "@/types/model.api";
 import AiInterpretLabResult from "./AiInterpretLebResult";
 
@@ -139,7 +139,6 @@ const GeneralInformationUnit = styled(Typography)(({ theme }) => ({
 const AiInterpretResult = () => {
   const router = useRouter();
   const { translation } = useTranslation();
-  const { setPageLoading } = usePageLoadingStore();
 
   const searchParams = useSearchParams();
   const exampleId = searchParams.get("exampleId") || "";
@@ -208,13 +207,11 @@ const AiInterpretResult = () => {
     }
   };
 
-  useEffect(() => {
-    setPageLoading(isLoading);
-  }, [isLoading]);
-
   return (
     <>
-      {!isLoading && (
+      {isLoading ? (
+        <FullScreenLoading />
+      ) : (
         <ContentContainer>
           <ContentContainerWrapper>
             <Stack direction="row" justifyContent="space-between">

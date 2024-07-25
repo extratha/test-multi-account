@@ -11,9 +11,9 @@ import { getTermsAndConditions, submitConsent } from "@/api/api";
 import ConsentContent from "@/components/ConsentContent";
 import ConsentHeader from "@/components/ConsentHeader";
 import FormCheckbox from "@/components/Form/FormCheckbox";
+import FullScreenLoading from "@/components/Loading/FullScreenLoading";
 import { CONSENT_TYPE, NAVIGATION } from "@/constant";
 import useTranslation from "@/locales/useLocale";
-import { usePageLoadingStore } from "@/store";
 import { ConsentResult } from "@/types/model.api";
 
 interface TermsAndConsFormValues {
@@ -70,9 +70,9 @@ const initialFormValue: TermsAndConsFormValues = {
 const TermsAndConsModules = () => {
   const { translation } = useTranslation();
   const router = useRouter();
-  const { setPageLoading } = usePageLoadingStore();
 
   const [consent, setConsent] = useState<ConsentResult>();
+  const [isLoading, setIsLoading] = useState(true);
 
   const validateSchema = yup.object().shape({
     agreement: yup.boolean().defined(),
@@ -88,28 +88,28 @@ const TermsAndConsModules = () => {
 
   const fetchTermsAndConditions = async () => {
     try {
-      setPageLoading(true);
+      setIsLoading(true);
       const response = await getTermsAndConditions();
 
       if (response.data.isConsent) {
         router.replace(NAVIGATION.PRIVACY_POLICY);
       } else {
         setConsent(response.data);
-        setPageLoading(false);
+        setIsLoading(false);
       }
     } catch (error) {
-      setPageLoading(false);
+      setIsLoading(false);
       //TODO : handle error
     }
   };
 
   const onSubmit = async () => {
     try {
-      setPageLoading(true);
+      setIsLoading(true);
       await submitConsent(CONSENT_TYPE.TERMS_AND_CONDITIONS, consent?.version || "");
       router.replace(NAVIGATION.PRIVACY_POLICY);
     } catch (error) {
-      setPageLoading(false);
+      setIsLoading(false);
     }
   };
 
@@ -119,6 +119,7 @@ const TermsAndConsModules = () => {
 
   return (
     <>
+      {isLoading && <FullScreenLoading />}
       {consent && (
         <>
           <ConsentHeader title={translation("Common.title.termsAndConditions")} />
