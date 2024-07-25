@@ -3,15 +3,11 @@
 exports[`TermsAndConditions should render correctly 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  background-color: #fff;
-  color: rgba(0, 0, 0, 0.87);
+  background-color: #FFFFFF;
+  color: #212121;
   -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
-  color: unset;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
+  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1);
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -26,11 +22,6 @@ exports[`TermsAndConditions should render correctly 1`] = `
   top: 0;
   left: auto;
   right: 0;
-  background-color: #2196F3;
-  color: #fff;
-  color: #212121;
-  background-color: #FFFFFF;
-  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 @media print {
@@ -48,9 +39,6 @@ exports[`TermsAndConditions should render correctly 1`] = `
 
 .emotion-1 {
   position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -116,15 +104,12 @@ exports[`TermsAndConditions should render correctly 1`] = `
 
 .emotion-1 {
   background-color: #fff;
-  color: rgba(0, 0, 0, 0.87);
+  color: unset;
   -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  border-radius: 4px;
-  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
-  color: unset;
-  padding: 36px 40px;
   border-radius: 16px;
   box-shadow: none;
+  padding: 36px 40px;
 }
 
 .emotion-2 {
@@ -135,7 +120,7 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-3 {
-  margin: 0;
+  margin: 8px 0px 24px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -143,13 +128,9 @@ exports[`TermsAndConditions should render correctly 1`] = `
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.12);
   border-bottom-width: thin;
-  margin: 8px 0px 24px;
 }
 
 .emotion-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -165,9 +146,6 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -282,9 +260,6 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-9 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -302,17 +277,11 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-10 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  cursor: pointer;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  cursor: pointer;
   padding: 24px;
 }
 
@@ -322,9 +291,6 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-13 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -351,9 +317,6 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-15 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -365,9 +328,6 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-16 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -384,8 +344,8 @@ exports[`TermsAndConditions should render correctly 1`] = `
   outline: 0;
   border: 0;
   margin: 0;
-  border-radius: 0;
-  padding: 0;
+  border-radius: 50%;
+  padding: 8px;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -396,16 +356,13 @@ exports[`TermsAndConditions should render correctly 1`] = `
   -webkit-appearance: none;
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: inherit;
+  color: rgba(0, 0, 0, 0.54);
   text-align: center;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   font-size: 1.5rem;
-  padding: 8px;
-  border-radius: 50%;
   overflow: visible;
-  color: rgba(0, 0, 0, 0.54);
   -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
@@ -467,9 +424,6 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-20 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
 }
@@ -479,9 +433,6 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-22 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -494,9 +445,6 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-70 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -531,9 +479,6 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-71 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -550,8 +495,8 @@ exports[`TermsAndConditions should render correctly 1`] = `
   outline: 0;
   border: 0;
   margin: 0;
-  border-radius: 0;
-  padding: 0;
+  border-radius: 50%;
+  padding: 9px;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -562,9 +507,6 @@ exports[`TermsAndConditions should render correctly 1`] = `
   -webkit-appearance: none;
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: inherit;
-  padding: 9px;
-  border-radius: 50%;
   color: rgba(0, 0, 0, 0.6);
 }
 
@@ -642,9 +584,6 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-76 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -657,9 +596,6 @@ exports[`TermsAndConditions should render correctly 1`] = `
 }
 
 .emotion-77 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -672,12 +608,12 @@ exports[`TermsAndConditions should render correctly 1`] = `
   position: relative;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
-  background-color: transparent;
+  background-color: #2196F3;
   outline: 0;
   border: 0;
   margin: 0;
-  border-radius: 0;
-  padding: 0;
+  border-radius: 4px;
+  padding: 6px 16px;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -688,24 +624,16 @@ exports[`TermsAndConditions should render correctly 1`] = `
   -webkit-appearance: none;
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: inherit;
+  color: #fff;
   font-family: fontFamily;
-  font-weight: 500;
-  font-size: 0.875rem;
-  line-height: 1.75;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.5;
   text-transform: uppercase;
   min-width: 64px;
-  padding: 6px 16px;
-  border-radius: 4px;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  color: #fff;
-  background-color: #2196F3;
   box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 1.5;
-  background-color: #2196F3;
   height: 44px;
   width: 100%;
   max-width: 400px;

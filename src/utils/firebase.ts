@@ -1,7 +1,7 @@
 import { fetchAndActivate, getRemoteConfig, getValue } from "firebase/remote-config";
 
 import firebaseApp from "@/config/firebase";
-import { DashboardMenuConfigResult, InputGroupConfigResult, SymptomCheckerConfigResult } from "@/types/model.ui";
+import { DashboardMenuConfigResult, InputGroupConfigResult } from "@/types/model.ui";
 import { REMOTE_CONFIG_INTERVAL } from "../config";
 
 const getConfig = async (key: string) => {
@@ -19,9 +19,4 @@ export const getDashboardMenuConfig = async () => {
 export const getLabInterpretFieldsConfig = async () => {
   const config = await getConfig("LabInterpretRequireFields");
   return JSON.parse(config.asString()) as InputGroupConfigResult[];
-};
-
-export const getSymptomCheckerConfig = async () => {
-  const config = await getConfig("SymptomChecker");
-  return JSON.parse(config.asString()) as SymptomCheckerConfigResult;
 };
