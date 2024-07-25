@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 
 import FullScreenLoading from "@/components/Loading/FullScreenLoading";
-import ModalLayer from "@/components/Modal/ModalLayer";
 import ToastSnackBar from "@/components/Toast";
 
 interface ApplicationLayoutProps {
@@ -13,7 +12,6 @@ const ApplicationLayout = ({ children }: ApplicationLayoutProps) => {
     <>
       <ToastSnackBar />
       <FullScreenLoading />
-      <ModalLayer />
       {children}
     </>
   );
