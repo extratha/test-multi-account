@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { ReactNode, useEffect, useState } from "react";
 
+import FullScreenLoading from "@/components/Loading/FullScreenLoading";
 import { NAVIGATION, SESSION } from "@/constant";
 import { storage } from "@/utils/common";
 
@@ -12,19 +13,19 @@ interface AuthorizedLayoutProps {
 
 const AuthorizedLayout = ({ children }: AuthorizedLayoutProps) => {
   const router = useRouter();
-  const [isAuthorized, setIsAuthorized] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const accessToken = storage(SESSION.ACCESS_TOKEN);
 
     if (accessToken) {
-      setIsAuthorized(true);
+      setIsLoading(false);
     } else {
       router.replace(NAVIGATION.LOGIN);
     }
   }, []);
 
-  return isAuthorized ? children : null;
+  return <>{isLoading ? <FullScreenLoading /> : children}</>;
 };
 
 export default AuthorizedLayout;

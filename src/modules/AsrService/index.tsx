@@ -3,11 +3,12 @@ import { styled } from "@mui/material";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
+import FullScreenLoading from "@/components/Loading/FullScreenLoading";
 import { Page } from "@/components/Page";
 import DashboardPage from "@/components/Page/DashboardPage";
 import { ASR_SERVICE_KEY } from "@/constant";
 import useTranslation from "@/locales/useLocale";
-import { usePageLoadingStore, useUserProfileStore } from "@/store";
+import { useUserProfileStore } from "@/store";
 import { AsrConfig } from "@/types/model.ui";
 import { getDashboardMenuConfig } from "@/utils/firebase";
 
@@ -22,13 +23,18 @@ const IFrame = styled("iframe")({
   border: "0px",
 });
 
+const initialConfig: AsrConfig = {
+  name: "",
+  url: "",
+};
+
 const AsrService = () => {
   const { service } = useParams<AsrServiceParams>();
-  const { setPageLoading } = usePageLoadingStore();
   const { data } = useUserProfileStore();
   const { translation } = useTranslation();
 
-  const [config, setConfig] = useState<AsrConfig>();
+  const [config, setConfig] = useState(initialConfig);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getTitle = () => {
     return translation(`${ASR_SERVICE_KEY[service]}.title`);
@@ -36,16 +42,16 @@ const AsrService = () => {
 
   const fetchConfig = async () => {
     try {
-      setPageLoading(true);
+      setIsLoading(true);
       const { asr } = await getDashboardMenuConfig();
       const pageConfig = asr.find((item) => item.name === service);
 
       if (!pageConfig) throw new Error("config not found");
 
       setConfig(pageConfig);
-      setPageLoading(false);
+      setIsLoading(false);
     } catch (error) {
-      setPageLoading(false);
+      setIsLoading(false);
     }
   };
 
@@ -55,7 +61,9 @@ const AsrService = () => {
 
   return (
     <>
-      {config && (
+      {isLoading ? (
+        <FullScreenLoading />
+      ) : (
         <Page title={getTitle()}>
           <DashboardPage>
             <IFrame src={`${config.url}?source=${data.corporate}`} allow="camera; microphone" />

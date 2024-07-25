@@ -8,10 +8,10 @@ import { FormProvider, useForm } from "react-hook-form";
 
 import { getLabInterpretsByTransactionId, submitLabInterprets } from "@/api/api";
 import { IconArrowLeft } from "@/assets";
+import FullScreenLoading from "@/components/Loading/FullScreenLoading";
 import { INTERPRET_STATUS, NAVIGATION } from "@/constant";
 import { useGetLabExampleId } from "@/hooks/useApi";
 import useTranslation from "@/locales/useLocale";
-import { usePageLoadingStore } from "@/store";
 import { InterpretResult } from "@/types/model.api";
 import { InputDataConfig, InputGroupConfigResult } from "@/types/model.ui";
 import { getLabInterpretFieldsConfig } from "@/utils/firebase";
@@ -80,8 +80,7 @@ const InputDataModule = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { translation } = useTranslation();
-  const { isPageLoading, setPageLoading } = usePageLoadingStore();
-
+  const [isFetching, setIsFetching] = useState(true);
   const [modalInterpretStatus, setModalInterpretStatus] = useState("");
 
   const interpretId = searchParams.get("exampleId");
@@ -93,7 +92,7 @@ const InputDataModule = () => {
   const inputData = data?.data?.inputData || [];
   const modelVersion = data?.data?.aiModelVersion || "";
 
-  const isLoading = isGetLabExampleIdLoading || isPageLoading;
+  const isLoading = isGetLabExampleIdLoading || isFetching;
 
   const validateSchema = useInputDataFieldYupSchema(inputGroupConfigs);
   const methods = useForm<FormInputDataValuesType>({
@@ -123,10 +122,10 @@ const InputDataModule = () => {
   }, [inputData.length]);
 
   const fetchConfigData = async () => {
-    setPageLoading(true);
+    setIsFetching(true);
     const remoteConfig = await getLabInterpretFieldsConfig();
     setInputGroupConfigs(remoteConfig);
-    setPageLoading(false);
+    setIsFetching(false);
   };
 
   const handleClickBackButton = () => {
@@ -229,7 +228,9 @@ const InputDataModule = () => {
 
   return (
     <>
-      {!isLoading && (
+      {isLoading ? (
+        <FullScreenLoading />
+      ) : (
         <ContentContainer>
           <ContentContainerWrapper>
             <Stack mb="16px" alignItems="flex-start">

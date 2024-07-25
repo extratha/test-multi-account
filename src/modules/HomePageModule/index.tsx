@@ -4,11 +4,11 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { IconAiInterpret } from "@/assets";
+import FullScreenLoading from "@/components/Loading/FullScreenLoading";
 import DashboardPage from "@/components/Page/DashboardPage";
 import PageTitle from "@/components/Typography/PageTitle";
 import useTranslation from "@/locales/useLocale";
-import { usePageLoadingStore } from "@/store";
-import { DashboardMenuConfigResult, HomeMenuItemConfig } from "@/types/model.ui";
+import { HomeMenuItemConfig } from "@/types/model.ui";
 import { getDashboardMenuConfig } from "@/utils/firebase";
 
 const Card = styled(MuiCard)(({ theme }) => ({
@@ -25,9 +25,9 @@ const Card = styled(MuiCard)(({ theme }) => ({
 
 const HomePageModule = () => {
   const { translation } = useTranslation();
-  const { setPageLoading } = usePageLoadingStore();
   const router = useRouter();
-  const [config, setConfig] = useState<DashboardMenuConfigResult>();
+  const [config, setConfig] = useState<HomeMenuItemConfig[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleClickMenuItem = (item: HomeMenuItemConfig) => {
     router.replace(item.path);
@@ -35,13 +35,13 @@ const HomePageModule = () => {
 
   const fetchConfig = async () => {
     try {
-      setPageLoading(true);
+      setIsLoading(true);
       const configData = await getDashboardMenuConfig();
 
-      setConfig(configData);
-      setPageLoading(false);
+      setConfig(configData.home);
+      setIsLoading(false);
     } catch (error) {
-      setPageLoading(false);
+      setIsLoading(false);
     }
   };
 
@@ -51,14 +51,16 @@ const HomePageModule = () => {
 
   return (
     <>
-      {config && (
+      {isLoading ? (
+        <FullScreenLoading />
+      ) : (
         <DashboardPage>
           <Stack spacing="16px" alignItems="flex-start" padding="40px">
             <PageTitle>{`${translation("Common.title.hello")} ${translation("Common.roles.admin")}`}</PageTitle>
             <Typography variant="headerExtraLargeBold">{translation("Common.title.pleaseSelectMenu")} </Typography>
           </Stack>
           <Grid container padding="0px 40px" spacing="24px">
-            {config.home.map((item, index) => (
+            {config.map((item, index) => (
               <Grid key={index} item width="264px">
                 <Card onClick={() => handleClickMenuItem(item)}>
                   <IconAiInterpret />

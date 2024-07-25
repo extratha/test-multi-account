@@ -25,6 +25,7 @@ const colors = {
   common: {
     black: "#000000",
     white: "#FFFFFF",
+    transparent: "transparent",
   } as CommonColors,
 };
 

@@ -3,63 +3,56 @@
 exports[`SettingPrivacyPolicy should render correctly 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  width: 100%;
-  margin-left: auto;
-  box-sizing: border-box;
-  margin-right: auto;
-  display: block;
-  padding-left: 16px;
-  padding-right: 16px;
-  position: relative;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  max-width: 1024px;
-}
-
-@media (min-width:600px) {
-  .emotion-0 {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-}
-
-@media (min-width:1200px) {
-  .emotion-0 {
-    max-width: 1200px;
-  }
+  padding: 24px;
+  overflow: hidden;
 }
 
 .emotion-1 {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  padding: 24px;
-}
-
-.emotion-2 {
   background-color: #fff;
   color: unset;
   -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   border-radius: 16px;
   box-shadow: none;
-  width: 100%;
-  height: 100%;
-  padding: 36px 40px;
-  overflow-y: auto;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.emotion-2 {
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .emotion-3 {
+  padding: 36px 40px;
+}
+
+.emotion-4 {
   margin: 0;
   font-size: 20px;
   font-weight: 700;
   line-height: 28px;
 }
 
-.emotion-4 {
+.emotion-5 {
   margin: 8px 0px 24px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -70,22 +63,22 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   border-bottom-width: thin;
 }
 
-.emotion-5 {
+.emotion-6 {
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
 }
 
-.emotion-5>:not(style):not(style) {
+.emotion-6>:not(style):not(style) {
   margin: 0;
 }
 
-.emotion-5>:not(style)~:not(style) {
+.emotion-6>:not(style)~:not(style) {
   margin-top: 24px;
 }
 
-.emotion-6 {
+.emotion-7 {
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -95,84 +88,84 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   background-color: #FAFAFA;
 }
 
-.emotion-7 {
+.emotion-8 {
   font-size: 16px;
   line-height: 28px;
 }
 
-.emotion-7>h3:first-of-type,
-.emotion-7>p:first-of-type {
+.emotion-8>h3:first-of-type,
+.emotion-8>p:first-of-type {
   margin-top: 0px;
 }
 
-.emotion-7>h3:last-of-type,
-.emotion-7>p:last-of-type {
+.emotion-8>h3:last-of-type,
+.emotion-8>p:last-of-type {
   margin-bottom: 0px;
 }
 
-.emotion-7 ul {
+.emotion-8 ul {
   padding-left: 24px;
   list-style-type: disc;
 }
 
-.emotion-7 ol {
+.emotion-8 ol {
   list-style-type: none;
   counter-reset: item;
   padding: 0px;
 }
 
-.emotion-7 ol>li {
+.emotion-8 ol>li {
   display: table-row;
   counter-increment: item;
   border-collapse: separate;
   border-spacing: 0px 6px;
 }
 
-.emotion-7 ol>li:before {
+.emotion-8 ol>li:before {
   display: table-cell;
   content: counters(item, ".") ". ";
   padding-right: 6px;
   white-space: nowrap;
 }
 
-.emotion-7 ol>ol,
-.emotion-7 ol>ul {
+.emotion-8 ol>ol,
+.emotion-8 ol>ul {
   padding-left: 24px;
 }
 
-.emotion-7 ol>ol>li>ol,
-.emotion-7 ol>ul>li>ol,
-.emotion-7 ol>ol>li>ul,
-.emotion-7 ol>ul>li>ul {
+.emotion-8 ol>ol>li>ol,
+.emotion-8 ol>ul>li>ol,
+.emotion-8 ol>ol>li>ul,
+.emotion-8 ol>ul>li>ul {
   padding: 0px;
 }
 
-.emotion-7 li {
+.emotion-8 li {
   margin: 16px 0px;
 }
 
-.emotion-7 li ol>li {
+.emotion-8 li ol>li {
   border-collapse: separate;
   border-spacing: 0px 6px;
 }
 
-.emotion-7 li ol>li:before {
+.emotion-8 li ol>li:before {
   content: counters(item, ".") " ";
   padding-right: 6px;
 }
 
-.emotion-7 table {
+.emotion-8 table {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
   margin: 16px 0px;
 }
 
-.emotion-7 table li {
+.emotion-8 table li {
   margin: 0px;
 }
 
-.emotion-7 th {
+.emotion-8 th {
   height: 48px;
   text-align: center;
   color: #ffffff;
@@ -181,17 +174,17 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   background-color: #002060;
 }
 
-.emotion-7 th:last-child {
+.emotion-8 th:last-child {
   border-color: #000000;
 }
 
-.emotion-7 td {
+.emotion-8 td {
   border: 1px solid #000000;
   padding: 8px;
   vertical-align: top;
 }
 
-.emotion-9 {
+.emotion-10 {
   margin: 0;
   font-size: 18px;
   font-weight: 700;
@@ -199,7 +192,7 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   margin-bottom: 24px;
 }
 
-.emotion-10 {
+.emotion-11 {
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -208,15 +201,15 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   background-color: #fff;
 }
 
-.emotion-10:first-of-type {
+.emotion-11:first-of-type {
   border-radius: 12px 12px 0 0;
 }
 
-.emotion-10:last-of-type {
+.emotion-11:last-of-type {
   border-radius: 0 0 12px 12px;
 }
 
-.emotion-11 {
+.emotion-12 {
   display: flex;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -225,12 +218,12 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   padding: 24px;
 }
 
-.emotion-13 {
+.emotion-14 {
   max-width: 52px;
   max-height: 52px;
 }
 
-.emotion-14 {
+.emotion-15 {
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -241,22 +234,22 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   margin-left: 12px;
 }
 
-.emotion-14>:not(style):not(style) {
+.emotion-15>:not(style):not(style) {
   margin: 0;
 }
 
-.emotion-14>:not(style)~:not(style) {
+.emotion-15>:not(style)~:not(style) {
   margin-top: 4px;
 }
 
-.emotion-15 {
+.emotion-16 {
   margin: 0;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
 }
 
-.emotion-16 {
+.emotion-17 {
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -267,7 +260,7 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   justify-content: center;
 }
 
-.emotion-17 {
+.emotion-18 {
   display: inline-flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -307,43 +300,43 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.emotion-17::-moz-focus-inner {
+.emotion-18::-moz-focus-inner {
   border-style: none;
 }
 
-.emotion-17.Mui-disabled {
+.emotion-18.Mui-disabled {
   pointer-events: none;
   cursor: default;
 }
 
 @media print {
-  .emotion-17 {
+  .emotion-18 {
     -webkit-print-color-adjust: exact;
     color-adjust: exact;
   }
 }
 
-.emotion-17:hover {
+.emotion-18:hover {
   background-color: rgba(0, 0, 0, 0.04);
 }
 
 @media (hover: none) {
-  .emotion-17:hover {
+  .emotion-18:hover {
     background-color: transparent;
   }
 }
 
-.emotion-17.Mui-disabled {
+.emotion-18.Mui-disabled {
   background-color: transparent;
   color: rgba(0, 0, 0, 0.26);
 }
 
-.emotion-18 {
+.emotion-19 {
   width: 24px;
   height: 24px;
 }
 
-.emotion-19 {
+.emotion-20 {
   overflow: hidden;
   pointer-events: none;
   position: absolute;
@@ -355,7 +348,7 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   border-radius: inherit;
 }
 
-.emotion-20 {
+.emotion-21 {
   height: 0;
   overflow: hidden;
   -webkit-transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -363,16 +356,16 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
   visibility: hidden;
 }
 
-.emotion-21 {
+.emotion-22 {
   display: flex;
   width: 100%;
 }
 
-.emotion-22 {
+.emotion-23 {
   width: 100%;
 }
 
-.emotion-23 {
+.emotion-24 {
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -381,111 +374,115 @@ exports[`SettingPrivacyPolicy should render correctly 1`] = `
 }
 
 <div
-    class="MuiContainer-root MuiContainer-maxWidthLg emotion-0"
+    class="MuiStack-root emotion-0"
   >
     <div
-      class="MuiBox-root emotion-1"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 emotion-1"
     >
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 emotion-2"
-        data-testid="privacy-policy-consent"
+        class="MuiStack-root emotion-2"
       >
-        <span
-          class="MuiTypography-root MuiTypography-titleLargeBold emotion-3"
-        >
-          นโยบายความเป็นส่วนตัว
-        </span>
-        <hr
-          class="MuiDivider-root MuiDivider-fullWidth emotion-4"
-        />
         <div
-          class="MuiStack-root emotion-5"
+          class="MuiBox-root emotion-3"
+          data-testid="privacy-policy-consent"
         >
+          <span
+            class="MuiTypography-root MuiTypography-titleLargeBold emotion-4"
+          >
+            นโยบายความเป็นส่วนตัว
+          </span>
+          <hr
+            class="MuiDivider-root MuiDivider-fullWidth emotion-5"
+          />
           <div
             class="MuiStack-root emotion-6"
           >
             <div
-              class="emotion-7"
-              data-testid="privacy-policy-content"
+              class="MuiStack-root emotion-7"
             >
-              Consent Content
+              <div
+                class="emotion-8"
+                data-testid="privacy-policy-content"
+              >
+                Consent Content
+              </div>
             </div>
-          </div>
-          <div
-            class="MuiStack-root emotion-6"
-            data-testid="privacy-policy-service"
-          >
-            <span
-              class="MuiTypography-root MuiTypography-titleBold emotion-9"
-            >
-              All Services
-            </span>
             <div
-              class="MuiStack-root emotion-10"
+              class="MuiStack-root emotion-7"
+              data-testid="privacy-policy-service"
             >
+              <span
+                class="MuiTypography-root MuiTypography-titleBold emotion-10"
+              >
+                All Services
+              </span>
               <div
                 class="MuiStack-root emotion-11"
-                data-testid="privacy-policy-service-0"
               >
                 <div
-                  class="MuiBox-root emotion-12"
-                >
-                  <img
-                    alt=""
-                    class="emotion-13"
-                    data-testid="privacy-policy-service-0-logo"
-                    src="/service/logo/0"
-                  />
-                </div>
-                <div
-                  class="MuiStack-root emotion-14"
-                >
-                  <span
-                    class="MuiTypography-root MuiTypography-bodyMedium emotion-15"
-                    data-testid="privacy-policy-service-0-title"
-                  >
-                    Service Title 0
-                  </span>
-                  <svg
-                    data-testid="privacy-policy-service-0-detail-icon"
-                  />
-                </div>
-                <div
-                  class="MuiStack-root emotion-16"
-                >
-                  <button
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium emotion-17"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <svg
-                      class="emotion-18"
-                    />
-                    <span
-                      class="MuiTouchRipple-root emotion-19"
-                    />
-                  </button>
-                </div>
-              </div>
-              <div
-                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-20"
-                style="min-height: 0px;"
-              >
-                <div
-                  class="MuiCollapse-wrapper MuiCollapse-vertical emotion-21"
+                  class="MuiStack-root emotion-12"
+                  data-testid="privacy-policy-service-0"
                 >
                   <div
-                    class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-22"
+                    class="MuiBox-root emotion-13"
+                  >
+                    <img
+                      alt=""
+                      class="emotion-14"
+                      data-testid="privacy-policy-service-0-logo"
+                      src="/service/logo/0"
+                    />
+                  </div>
+                  <div
+                    class="MuiStack-root emotion-15"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-bodyMedium emotion-16"
+                      data-testid="privacy-policy-service-0-title"
+                    >
+                      Service Title 0
+                    </span>
+                    <svg
+                      data-testid="privacy-policy-service-0-detail-icon"
+                    />
+                  </div>
+                  <div
+                    class="MuiStack-root emotion-17"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium emotion-18"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <svg
+                        class="emotion-19"
+                      />
+                      <span
+                        class="MuiTouchRipple-root emotion-20"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-21"
+                  style="min-height: 0px;"
+                >
+                  <div
+                    class="MuiCollapse-wrapper MuiCollapse-vertical emotion-22"
                   >
                     <div
-                      class="MuiStack-root emotion-23"
-                      data-testid="privacy-policy-service-0-content"
+                      class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-23"
                     >
                       <div
-                        class="emotion-7"
-                        data-testid="privacy-policy-content"
+                        class="MuiStack-root emotion-24"
+                        data-testid="privacy-policy-service-0-content"
                       >
-                        Consent Content 0
+                        <div
+                          class="emotion-8"
+                          data-testid="privacy-policy-content"
+                        >
+                          Consent Content 0
+                        </div>
                       </div>
                     </div>
                   </div>
