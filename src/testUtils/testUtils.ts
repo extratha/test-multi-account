@@ -15,6 +15,8 @@ export const API = {
   TERMS_AND_CONDITIONS_LATEST: "/consents/terms-conditions/latest",
   PRIVACY_POLICY: "/consents/privacy-policies",
   PRIVACY_POLICY_LATEST: "/consents/privacy-policies/latest",
+  PUBLIC_TERMS_CONDITIONS: "/consents/terms-conditions/public",
+  PUBLIC_PRIVACY_POLICIES: "/consents/privacy-policies/public",
 };
 
 export const render = (ui: ReactElement) => {

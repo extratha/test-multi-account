@@ -16,3 +16,7 @@ export const submitForgotPassword = (data: ForgotPasswordRequest) => {
 export const submitSetNewPassword = (data: SetNewPasswordRequest) => {
   return apiUnauthorizedAxios.post("/auth/reset-password", data);
 };
+
+export const getPublicConsent = (consentType: string) => {
+  return apiUnauthorizedAxios.get(`/consents/${consentType}/public`);
+};

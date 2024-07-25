@@ -1,11 +1,4 @@
-import { Container, styled, TextField } from "@mui/material";
-
-export const LoginContainer = styled(Container)(() => ({
-  backgroundColor: "#1E6AF6",
-  margin: "auto",
-  borderRadius: "30px",
-  maxWidth: "unset",
-}));
+import { styled, TextField } from "@mui/material";
 
 export const CustomTextField = styled(TextField)(({ theme }) => ({
   background: theme.palette.background.paper,

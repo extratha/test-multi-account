@@ -24,6 +24,7 @@ export const MENU_CONDITION = {
 };
 
 export const NAVIGATION = {
+  NOT_FOUND: "/not-found",
   LOGIN: "/login",
   HOME: "/home",
   FORGET_PASSWORD: "/forget-password",
@@ -36,6 +37,8 @@ export const NAVIGATION = {
   SYMPTOM_CHECKER: "/symptom-checker",
   SETTINGS_TERMS_AND_CONDITIONS: "/settings/terms-and-conditions",
   SETTINGS_PRIVACY_POLICY: "/settings/privacy-policy",
+  PUBLIC_TERMS_AND_CONDITIONS: "/public/consents/terms-conditions",
+  PUBLIC_PRIVACY_POLICY: "/public/consents/privacy-policies",
 };
 
 export const GENDER = {
@@ -127,4 +130,9 @@ export const ASR_SERVICE = {
 export const ASR_SERVICE_KEY: Record<string, string> = {
   [ASR_SERVICE.ORDER_ASR]: "orderAsr",
   [ASR_SERVICE.SOAP_ASR]: "soapAsr",
+};
+
+export const CONSENT_PATH_TYPE = {
+  TERMS_AND_CONDITIONS: "terms-conditions",
+  PRIVACY_POLICY: "privacy-policies",
 };
