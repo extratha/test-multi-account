@@ -365,10 +365,10 @@
           "liverFunctionTest": {
             "title": "การทำงานของตับ",
             "sgot_value": {
-              "label": "SGOT"
+              "label": "SGOT/AST"
             },
             "sgpt_value": {
-              "label": "SGPT"
+              "label": "SGPT/ALT"
             },
             "alp_value": {
               "label": "ALK Phosphatase"
@@ -500,8 +500,8 @@
         "creatinine_value": "Creatinine",
         "bun_value": "BUN",
 
-        "sgot_value": "SGOT",
-        "sgpt_value": "SGPT",
+        "sgot_value": "SGOT/AST",
+        "sgpt_value": "SGPT/ALT",
         "alp_value": "ALK Phosphatase",
 
         "urine_color_value": "Color",
@@ -584,8 +584,8 @@
         "creatinine_value": "Creatinine",
         "bun_value": "BUN",
 
-        "sgot_value": "SGOT",
-        "sgpt_value": "SGPT",
+        "sgot_value": "SGOT/AST",
+        "sgpt_value": "SGPT/ALT",
         "alp_value": "ALK Phosphatase",
 
         "urine_color_value": "Color",

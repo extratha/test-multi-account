@@ -1914,7 +1914,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                         class="MuiTypography-root MuiTypography-bodyBold emotion-41"
                         data-testid="ai-interpret-lab-liverFunctionTest-sgot_value-label"
                       >
-                        SGOT
+                        SGOT/AST
                       </span>
                     </div>
                     <div
@@ -1944,7 +1944,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                         class="MuiTypography-root MuiTypography-bodyBold emotion-41"
                         data-testid="ai-interpret-lab-liverFunctionTest-sgpt_value-label"
                       >
-                        SGPT
+                        SGPT/ALT
                       </span>
                     </div>
                     <div
