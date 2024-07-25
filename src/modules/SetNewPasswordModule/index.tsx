@@ -2,20 +2,19 @@
 
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import { IconButton, Stack, styled, Typography, useTheme } from "@mui/material";
-import { useRouter } from "next/navigation";
+import { IconButton, Stack, styled, Typography } from "@mui/material";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 
 import { submitChangePassword } from "@/api/api";
 import { submitSetNewPassword } from "@/api/apiUnauthorize";
 import { SubmitButtonStyle } from "@/components/Button/styled";
-import { NAVIGATION, SESSION } from "@/constant";
+import { NAVIGATION } from "@/constant";
 import useTranslation from "@/locales/useLocale";
 import { CustomTextField } from "@/modules/LoginModule/styled";
 import { usePageLoadingStore } from "@/store";
 import useToastStore from "@/store/useToastStore";
-import { removeStorage, storage } from "@/utils/common";
 
 interface SetNewPasswordForm {
   newPassword: string;
@@ -36,8 +35,9 @@ const SetNewPasswordWrapper = styled(Stack)(({ theme }) => ({
 
 const SetNewPasswordModule = () => {
   const { translation } = useTranslation();
-  const theme = useTheme();
   const router = useRouter();
+  const searchParams = useSearchParams();
+
   const { setToastOpen } = useToastStore();
   const { setPageLoading } = usePageLoadingStore();
 
@@ -53,15 +53,17 @@ const SetNewPasswordModule = () => {
   const onSubmit: SubmitHandler<SetNewPasswordForm> = async () => {
     try {
       setPageLoading(true);
-      const passwordResetToken = storage(SESSION.RESET_PASSWORD_TOKEN) || "";
+      const passwordResetToken = searchParams.get("token");
 
       if (passwordResetToken) {
-        await submitSetNewPassword({ passwordResetToken, password: newPassword, confirmPassword: confirmNewPassword });
+        await submitSetNewPassword({
+          passwordResetToken,
+          password: newPassword,
+          confirmPassword: confirmNewPassword,
+        });
       } else {
         await submitChangePassword({ newPassword });
       }
-
-      if (passwordResetToken) removeStorage(SESSION.RESET_PASSWORD_TOKEN);
 
       setToastOpen(true, {
         message: translation("Common.toast.resetPasswordSuccess"),
@@ -126,7 +128,7 @@ const SetNewPasswordModule = () => {
         </Typography>
         <form onSubmit={handleSubmit(onSubmit)} autoFocus>
           <Controller
-            name={fieldName.NEW_PASSWORD as keyof SetNewPasswordForm}
+            name={fieldName.NEW_PASSWORD}
             control={control}
             render={({ field, fieldState: { error } }) => (
               <Stack direction="column" spacing={2} mt={1}>
@@ -148,19 +150,17 @@ const SetNewPasswordModule = () => {
                   }}
                   InputProps={{
                     endAdornment: (
-                      <a>
-                        <IconButton
-                          aria-label="Toggle show password"
-                          data-testid="button-toggle-show-new-password"
-                          onClick={() => setShowPassword((prev) => !prev)}
-                        >
-                          {showPassword ? (
-                            <VisibilityIcon aria-label="Showing password" />
-                          ) : (
-                            <VisibilityOffIcon aria-label="Hiding password" />
-                          )}
-                        </IconButton>
-                      </a>
+                      <IconButton
+                        aria-label="Toggle show password"
+                        data-testid="button-toggle-show-new-password"
+                        onClick={() => setShowPassword((prev) => !prev)}
+                      >
+                        {showPassword ? (
+                          <VisibilityIcon aria-label="Showing password" />
+                        ) : (
+                          <VisibilityOffIcon aria-label="Hiding password" />
+                        )}
+                      </IconButton>
                     ),
                   }}
                   InputLabelProps={{
@@ -170,15 +170,7 @@ const SetNewPasswordModule = () => {
                     marginTop: "2em",
                   }}
                 />
-                <Typography
-                  data-testid="error"
-                  variant="labelExtraSmallMedium"
-                  mt={0}
-                  sx={{
-                    textAlign: "left",
-                    color: theme.palette.error.main,
-                  }}
-                >
+                <Typography data-testid="error" variant="labelExtraSmallMedium" mt={0} textAlign="left" color="error">
                   {error?.message || ""}
                 </Typography>
               </Stack>
@@ -186,7 +178,7 @@ const SetNewPasswordModule = () => {
           />
 
           <Controller
-            name={fieldName.CONFIRM_NEW_PASSWORD as keyof SetNewPasswordForm}
+            name={fieldName.CONFIRM_NEW_PASSWORD}
             control={control}
             render={({ field, fieldState: { error } }) => (
               <Stack direction="column" spacing={2} mt={1}>
@@ -199,7 +191,7 @@ const SetNewPasswordModule = () => {
                   id={fieldName.CONFIRM_NEW_PASSWORD}
                   data-testid={fieldName.CONFIRM_NEW_PASSWORD}
                   placeholder={!confirmNewPassword ? "ตั้งรหัสผ่านใหม่อีกครั้ง" : ""}
-                  value={(confirmNewPassword as unknown) ?? ""}
+                  value={confirmNewPassword}
                   onChange={(event) => {
                     const value = event?.target?.value;
                     field.onChange(event);
@@ -226,31 +218,16 @@ const SetNewPasswordModule = () => {
                   InputLabelProps={{
                     shrink: true,
                   }}
-                  sx={{
-                    marginTop: "2em",
-                  }}
+                  sx={{ marginTop: "2em" }}
                 />
-                <Typography
-                  data-testid="error"
-                  variant="labelExtraSmallMedium"
-                  sx={{
-                    textAlign: "left",
-                    color: theme.palette.error.main,
-                  }}
-                >
+                <Typography data-testid="error" variant="labelExtraSmallMedium" textAlign="left" color="error">
                   {error?.message || ""}
                 </Typography>
               </Stack>
             )}
           />
 
-          <Typography
-            variant="labelExtraSmallMedium"
-            sx={{
-              textAlign: "left",
-              color: theme.palette.error.main,
-            }}
-          >
+          <Typography variant="labelExtraSmallMedium" textAlign="left" color="error">
             {errorMessage || ""}
           </Typography>
           <Stack mt={1}>
