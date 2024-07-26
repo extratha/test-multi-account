@@ -4,7 +4,6 @@ import { useState } from "react";
 
 import { PlaygroundLogoColor } from "@/assets";
 import { MENU_CONDITION, NAVIGATION, SESSION } from "@/constant";
-import { useUserProfileStore } from "@/store";
 import { AppMenuConfig, MenuItemConfig } from "@/types/model.ui";
 import { removeStorage } from "@/utils/common";
 import DashboardPanelMenu from "./DashboardPanelMenu";
@@ -41,14 +40,12 @@ const SubHeader = styled(Typography)({
 
 const DashboardPanel = ({ menuList }: DashboardPanelProps) => {
   const router = useRouter();
-  const { resetUserProfile } = useUserProfileStore();
 
   const [showSubmenu, setShowSubmenu] = useState("");
 
   const onLogout = () => {
     removeStorage(SESSION.ACCESS_TOKEN);
     removeStorage(SESSION.REFRESH_TOKEN);
-    resetUserProfile();
     router.replace(NAVIGATION.LOGIN);
   };
 

@@ -1,10 +1,10 @@
-import { BoxProps } from "@mui/material";
 import { ReactNode } from "react";
 
-export type PageProps = {
+export interface PageProps {
   meta?: ReactNode;
   title?: string;
-} & BoxProps;
+  children?: ReactNode;
+}
 
 export const Page = ({ children, title, meta }: PageProps) => (
   <>

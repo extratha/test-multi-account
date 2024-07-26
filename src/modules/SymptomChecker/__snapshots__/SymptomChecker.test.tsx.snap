@@ -2,6 +2,9 @@
 
 exports[`SymptomChecker should render correctly 1`] = `
 <DocumentFragment>
+  <title>
+    Symptom Checker
+  </title>
   .emotion-0 {
   display: flex;
   -webkit-flex-direction: column;

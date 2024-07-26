@@ -29,8 +29,8 @@ export const NAVIGATION = {
   HOME: "/home",
   FORGET_PASSWORD: "/forget-password",
   SET_NEW_PASSWORD: "/set-new-password",
-  TERMS_AND_CONDITIONS: "/terms-and-conditions",
-  PRIVACY_POLICY: "/privacy-policy",
+  CONSENT_TERMS_CONDITIONS: "/consents/terms-conditions",
+  CONSENT_PRIVACY_POLICIES: "/consents/privacy-policies",
   AI_INTERPRET_RESULT: "/ai-interpret/interpret",
   AI_INTERPRET_TRY_EXAMPLE_DATA: "/ai-interpret/try-example-data",
   AI_INTERPRET_TRY_INPUT_DATA: "/ai-interpret/try-input-data",
@@ -117,11 +117,6 @@ export const INTERPRET_STATUS = {
   FAILED: "failed",
 };
 
-export const CONSENT_TYPE = {
-  TERMS_AND_CONDITIONS: "terms",
-  PRIVACY_AND_POLICY: "privacy_policies",
-};
-
 export const ASR_SERVICE = {
   ORDER_ASR: "order-asr",
   SOAP_ASR: "soap-asr",
@@ -132,7 +127,12 @@ export const ASR_SERVICE_KEY: Record<string, string> = {
   [ASR_SERVICE.SOAP_ASR]: "soapAsr",
 };
 
-export const CONSENT_PATH_TYPE = {
-  TERMS_AND_CONDITIONS: "terms-conditions",
-  PRIVACY_POLICY: "privacy-policies",
+export const CONSENT_TYPE = {
+  TERMS_CONDITIONS: "terms-conditions",
+  PRIVACY_POLICIES: "privacy-policies",
+};
+
+export const SUBMIT_CONSENT_TYPE = {
+  [CONSENT_TYPE.TERMS_CONDITIONS]: "terms",
+  [CONSENT_TYPE.PRIVACY_POLICIES]: "privacy_policies",
 };

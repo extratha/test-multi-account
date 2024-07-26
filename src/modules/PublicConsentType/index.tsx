@@ -1,14 +1,16 @@
 "use client";
 
-import { Container, Divider, Paper, Stack, styled, Typography } from "@mui/material";
-import { useParams, useRouter } from "next/navigation";
+import { Divider, styled, Typography } from "@mui/material";
+import { useParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 
 import { getPublicConsent } from "@/api/apiUnauthorize";
 import ConsentContent from "@/components/ConsentContent";
 import FullScreenLoading from "@/components/Loading/FullScreenLoading";
 import { Page } from "@/components/Page";
-import { CONSENT_PATH_TYPE, NAVIGATION } from "@/constant";
+import ConsentPage from "@/components/Page/ConsentPage";
+import PageNotFound from "@/components/Page/PageNotFound";
+import { CONSENT_TYPE } from "@/constant";
 import useTranslation from "@/locales/useLocale";
 import { ConsentResult } from "@/types/model.api";
 
@@ -17,44 +19,28 @@ export interface PublicConsentTypeParams {
   consentType: string;
 }
 
-const Backdrop = styled(Stack)(({ theme }) => ({
-  position: "fixed",
-  top: 0,
-  left: 0,
-  width: "100%",
-  height: "100%",
-  backgroundColor: theme.palette.blueGrey[50],
-  zIndex: -1,
-}));
-
-const Wrapper = styled(Container)({
-  maxWidth: "1024px",
-  margin: "0px auto",
-  padding: "24px 16px",
-});
-
-const Content = styled(Paper)({
-  padding: "36px 40px",
-  borderRadius: "16px",
-  boxShadow: "none",
-});
-
 const TitleDivider = styled(Divider)({
   margin: "8px 0px 24px",
 });
 
 const PublicConsentType = () => {
   const { consentType } = useParams<PublicConsentTypeParams>();
-  const router = useRouter();
   const { translation } = useTranslation();
+
   const [consent, setConsent] = useState<ConsentResult>();
   const [isLoading, setIsLoading] = useState(true);
+  const [isNotFound, setIsNotFound] = useState(false);
 
   const title = useMemo(() => {
-    return consentType == CONSENT_PATH_TYPE.TERMS_AND_CONDITIONS
-      ? translation("Common.pages.termsAndConditions")
-      : translation("Common.pages.privacyPolicy");
-  }, []);
+    switch (consentType) {
+      case CONSENT_TYPE.TERMS_CONDITIONS:
+        return translation("Common.pages.termsAndConditions");
+      case CONSENT_TYPE.PRIVACY_POLICIES:
+        return translation("Common.pages.privacyPolicy");
+      default:
+        return "";
+    }
+  }, [consentType]);
 
   const fetchConsent = async () => {
     try {
@@ -65,11 +51,8 @@ const PublicConsentType = () => {
       setIsLoading(false);
     } catch (error) {
       const statusCode = error?.response?.status;
-      if (statusCode === 404) {
-        router.replace(NAVIGATION.NOT_FOUND);
-      } else {
-        setIsLoading(false);
-      }
+      setIsNotFound(statusCode === 404);
+      setIsLoading(false);
     }
   };
 
@@ -78,23 +61,19 @@ const PublicConsentType = () => {
   }, []);
 
   return (
-    <>
+    <Page title={title}>
       {isLoading && <FullScreenLoading />}
+      {isNotFound && <PageNotFound />}
       {consent && (
-        <Page title={title}>
-          <Backdrop />
-          <Wrapper>
-            <Content data-testid="public-consent-type-content">
-              <Typography variant="titleLargeBold" data-testid="public-consent-type-title">
-                {title}
-              </Typography>
-              <TitleDivider />
-              <ConsentContent name="public-consent-type" data={consent.consent} />
-            </Content>
-          </Wrapper>
-        </Page>
+        <ConsentPage>
+          <Typography variant="titleLargeBold" data-testid="public-consent-type-title">
+            {title}
+          </Typography>
+          <TitleDivider />
+          <ConsentContent name="public-consent-type" data={consent.consent} />
+        </ConsentPage>
       )}
-    </>
+    </Page>
   );
 };
 

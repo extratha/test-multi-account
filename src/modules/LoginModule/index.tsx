@@ -40,7 +40,7 @@ const ConsentFooter = styled(Stack)({
 
 const LoginForm = () => {
   const router = useRouter();
-  const { setUserProfile } = useUserProfileStore();
+  const { resetUserProfile, setUserProfile } = useUserProfileStore();
   const { translation } = useTranslation();
 
   const [isDisableSubmit, setIsDisableSubmit] = useState(true);
@@ -87,6 +87,7 @@ const LoginForm = () => {
     try {
       setIsSubmitting(true);
       setErrorMessage("");
+      resetUserProfile();
 
       const response = await submitLogin({ email: emailValue || "", password: passwordValue || "" });
       const { accessToken, refreshToken, user, userProfile } = response.data;
@@ -97,7 +98,7 @@ const LoginForm = () => {
       setUserProfile(userProfile);
 
       if (user.passwordChanged) {
-        router.replace(NAVIGATION.TERMS_AND_CONDITIONS);
+        router.replace(NAVIGATION.CONSENT_TERMS_CONDITIONS);
       } else {
         router.replace(NAVIGATION.SET_NEW_PASSWORD);
       }
@@ -108,9 +109,11 @@ const LoginForm = () => {
   };
 
   const onClickTermsAndPrivacy = (isTermsAndCon: boolean) => {
-    isTermsAndCon
-      ? router.replace(NAVIGATION.PUBLIC_TERMS_AND_CONDITIONS)
-      : router.replace(NAVIGATION.PUBLIC_PRIVACY_POLICY);
+    if (isTermsAndCon) {
+      router.replace(NAVIGATION.PUBLIC_TERMS_AND_CONDITIONS);
+    } else {
+      router.replace(NAVIGATION.PUBLIC_PRIVACY_POLICY);
+    }
   };
 
   return (
