@@ -1,6 +1,7 @@
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { IconButton, Stack, styled, Typography } from "@mui/material";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
@@ -42,6 +43,10 @@ const ConsentFooter = styled(Stack)({
     minWidth: "160px",
     padding: "8px 16px",
     textAlign: "center",
+  },
+  "& a": {
+    textDecoration: "none",
+    color: "inherit",
   },
 });
 
@@ -112,14 +117,6 @@ const LoginForm = () => {
     } catch (error) {
       setErrorMessage(error?.response?.data?.message || translation("login.text.error.invalidEmailOrPassword"));
       setIsSubmitting(false);
-    }
-  };
-
-  const onClickTermsAndPrivacy = (isTermsAndCon: boolean) => {
-    if (isTermsAndCon) {
-      router.replace(NAVIGATION.PUBLIC_TERMS_AND_CONDITIONS);
-    } else {
-      router.replace(NAVIGATION.PUBLIC_PRIVACY_POLICY);
     }
   };
 
@@ -222,20 +219,16 @@ const LoginForm = () => {
           </Container>
         </Stack>
         <ConsentFooter direction="row" spacing="8px">
-          <Typography
-            variant="labelExtraSmallMedium"
-            data-testid="button-term-and-conditions"
-            onClick={() => onClickTermsAndPrivacy(true)}
-          >
-            {translation("login.button.termsAndConditions")}
-          </Typography>
-          <Typography
-            variant="labelExtraSmallMedium"
-            data-testid="button-privacy-policy"
-            onClick={() => onClickTermsAndPrivacy(false)}
-          >
-            {translation("login.button.privacyPolicy")}
-          </Typography>
+          <Link href={NAVIGATION.PUBLIC_TERMS_AND_CONDITIONS} target="_blank">
+            <Typography variant="labelExtraSmallMedium" data-testid="button-term-and-conditions">
+              {translation("login.button.termsAndConditions")}
+            </Typography>
+          </Link>
+          <Link href={NAVIGATION.PUBLIC_PRIVACY_POLICY} target="_blank">
+            <Typography variant="labelExtraSmallMedium" data-testid="button-privacy-policy">
+              {translation("login.button.privacyPolicy")}
+            </Typography>
+          </Link>
         </ConsentFooter>
       </Stack>
     </>
