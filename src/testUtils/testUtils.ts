@@ -17,6 +17,7 @@ export const API = {
   PRIVACY_POLICY_LATEST: "/consents/privacy-policies/latest",
   PUBLIC_TERMS_CONDITIONS: "/consents/terms-conditions/public",
   PUBLIC_PRIVACY_POLICIES: "/consents/privacy-policies/public",
+  VALIDATE_RESET_PASSWORD_TOKEN: "/auth/reset-password/validate-token",
 };
 
 export const render = (ui: ReactElement) => {
