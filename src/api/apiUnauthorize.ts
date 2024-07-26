@@ -17,6 +17,10 @@ export const submitSetNewPassword = (data: SetNewPasswordRequest) => {
   return apiUnauthorizedAxios.post("/auth/reset-password", data);
 };
 
+export const getValidateResetPasswordToken = (token: string) => {
+  return apiUnauthorizedAxios.get(`/auth/reset-password/validate-token?token=${token}`);
+};
+
 export const getPublicConsent = (consentType: string) => {
   return apiUnauthorizedAxios.get(`/consents/${consentType}/public`);
 };

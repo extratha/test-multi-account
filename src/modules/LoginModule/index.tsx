@@ -27,6 +27,13 @@ const Container = styled(Stack)({
   padding: "16px",
 });
 
+const ForgetPassword = styled(Typography)({
+  paddingTop: "32px",
+  textDecoration: "underline",
+  textAlign: "center",
+  cursor: "pointer",
+});
+
 const ConsentFooter = styled(Stack)({
   justifyContent: "center",
   padding: "16px 0px 32px",
@@ -204,6 +211,14 @@ const LoginForm = () => {
                 {translation("login.button.login")}
               </SubmitButtonStyle>
             </form>
+            <ForgetPassword
+              variant="bodySmallMedium"
+              textTransform={"none"}
+              color="text.primary"
+              onClick={() => router.replace(NAVIGATION.FORGET_PASSWORD)}
+            >
+              {translation("login.button.forgetPassword")}
+            </ForgetPassword>
           </Container>
         </Stack>
         <ConsentFooter direction="row" spacing="8px">

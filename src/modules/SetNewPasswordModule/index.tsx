@@ -4,12 +4,14 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { IconButton, Stack, styled, Typography } from "@mui/material";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 
 import { submitChangePassword } from "@/api/api";
-import { submitSetNewPassword } from "@/api/apiUnauthorize";
+import { getValidateResetPasswordToken, submitSetNewPassword } from "@/api/apiUnauthorize";
+import { IconExclamation } from "@/assets";
 import { SubmitButtonStyle } from "@/components/Button/styled";
+import Dialog from "@/components/Dialog";
 import FullScreenLoading from "@/components/Loading/FullScreenLoading";
 import { NAVIGATION } from "@/constant";
 import useTranslation from "@/locales/useLocale";
@@ -33,10 +35,17 @@ const SetNewPasswordWrapper = styled(Stack)(({ theme }) => ({
   margin: "auto",
 }));
 
+const DialogExpired = styled(Dialog)({
+  "& .content-dialog": {
+    width: "400px",
+  },
+});
+
 const SetNewPasswordModule = () => {
   const { translation } = useTranslation();
   const router = useRouter();
   const searchParams = useSearchParams();
+  const token = searchParams.get("token");
 
   const { setToastOpen } = useToastStore();
 
@@ -46,18 +55,34 @@ const SetNewPasswordModule = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmNewPassword, setConfirmNewPassword] = useState("");
   const [isDisableSubmit, setIsDisableSubmit] = useState(true);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isExpired, setIsExpired] = useState(false);
 
   const { handleSubmit, control, getValues, setError } = useForm<SetNewPasswordForm>();
 
+  const fetchValidateToken = async () => {
+    try {
+      if (token) {
+        setIsLoading(true);
+        const response = await getValidateResetPasswordToken(token);
+        setIsLoading(false);
+        if (response.data.valid === false) {
+          setIsExpired(true);
+        }
+      }
+    } catch (error) {
+      setIsLoading(false);
+      setIsExpired(true);
+    }
+  };
+
   const onSubmit: SubmitHandler<SetNewPasswordForm> = async () => {
     try {
-      setIsSubmitting(true);
-      const passwordResetToken = searchParams.get("token");
+      setIsLoading(true);
 
-      if (passwordResetToken) {
+      if (token) {
         await submitSetNewPassword({
-          passwordResetToken,
+          passwordResetToken: token,
           password: newPassword,
           confirmPassword: confirmNewPassword,
         });
@@ -66,7 +91,7 @@ const SetNewPasswordModule = () => {
       }
 
       setToastOpen(true, {
-        message: translation("Common.toast.resetPasswordSuccess"),
+        message: translation("setNewPassword.toast.resetPasswordSuccess"),
         severity: "success",
         icon: <div />,
       });
@@ -74,11 +99,11 @@ const SetNewPasswordModule = () => {
       router.replace(NAVIGATION.LOGIN);
     } catch (error: any) {
       if (error.message) {
-        setErrorMessage(error.message);
+        setIsExpired(true);
       } else {
         setErrorMessage(error.error);
       }
-      setIsSubmitting(false);
+      setIsLoading(false);
     }
   };
 
@@ -95,14 +120,17 @@ const SetNewPasswordModule = () => {
     const siblingValue = getValues(siblingFieldName);
     setError(fieldNameProp, { type: "", message: "" });
     setIsDisableSubmit(true);
+
     if (!value) {
       setError(fieldNameProp, { type: "validate", message: translation("Common.validation.require") });
       return true;
     }
+
     if (typeof value === "string" && !isValidPassword(value)) {
       setError(fieldNameProp, { type: "validate", message: translation("Common.validation.invalidPasswordFormat") });
       return true;
     }
+
     const isPasswordMatched = value === siblingValue;
     if (value && siblingValue && !isPasswordMatched) {
       setError(fieldNameProp, { type: "validate", message: translation("Common.validation.passwordIsNotMatch") });
@@ -111,22 +139,27 @@ const SetNewPasswordModule = () => {
     } else {
       setError(siblingFieldName, { type: "", message: "" });
     }
+
     if (value && siblingValue) {
       setIsDisableSubmit(false);
     }
     return false;
   };
 
+  useEffect(() => {
+    fetchValidateToken();
+  }, []);
+
   return (
     <>
-      {isSubmitting && <FullScreenLoading />}
+      {isLoading && <FullScreenLoading />}
       <SetNewPasswordWrapper>
         <Stack>
           <Typography variant="headerBold" mb={2}>
-            {translation("Common.pages.setNewPassword")}
+            {translation("setNewPassword.pages")}
           </Typography>
           <Typography variant="bodySmall" color="text.medium" mb={2}>
-            {translation("Common.text.setNewPassword")}
+            {translation("setNewPassword.text.inputSetNewPassword")}
           </Typography>
           <form onSubmit={handleSubmit(onSubmit)} autoFocus>
             <Controller
@@ -141,9 +174,9 @@ const SetNewPasswordModule = () => {
                     id={fieldName.NEW_PASSWORD}
                     data-testid={fieldName.NEW_PASSWORD}
                     type={showPassword ? "text" : "password"}
-                    placeholder={!newPassword ? "ตั้งค่ารหัสผ่าน" : ""}
+                    placeholder={!newPassword ? translation("setNewPassword.placeholder.newPassword") : ""}
                     name={fieldName.NEW_PASSWORD}
-                    value={newPassword}
+                    value={(newPassword as unknown) ?? ""}
                     onChange={(event) => {
                       const value = event?.target?.value;
                       field.onChange(event);
@@ -197,7 +230,7 @@ const SetNewPasswordModule = () => {
                     type={showConfirmPassword ? "text" : "password"}
                     id={fieldName.CONFIRM_NEW_PASSWORD}
                     data-testid={fieldName.CONFIRM_NEW_PASSWORD}
-                    placeholder={!confirmNewPassword ? "ตั้งรหัสผ่านใหม่อีกครั้ง" : ""}
+                    placeholder={!confirmNewPassword ? translation("setNewPassword.placeholder.newPasswordAgain") : ""}
                     value={confirmNewPassword}
                     onChange={(event) => {
                       const value = event?.target?.value;
@@ -229,24 +262,30 @@ const SetNewPasswordModule = () => {
                 </Stack>
               )}
             />
-
             <Typography variant="labelExtraSmallMedium" textAlign="left" color="error">
               {errorMessage || ""}
             </Typography>
             <Stack mt={1}>
-              <Typography variant="labelExtraSmallBold">
-                {translation("Common.text.setNewPasswordValidateTitle")}
-              </Typography>
+              <Typography variant="labelExtraSmallBold">{translation("setNewPassword.validate.title")}</Typography>
               <Typography variant="labelExtraSmall" whiteSpace={"break-spaces"}>
-                {translation("Common.text.setNewPasswordValidateMessage")}
+                {translation("setNewPassword.validate.message")}
               </Typography>
             </Stack>
             <SubmitButtonStyle data-testid="button-set-new-password" type="submit" disabled={isDisableSubmit}>
-              {translation("Common.button.setNewPassword")}
+              {translation("setNewPassword.button.setNewPassword")}
             </SubmitButtonStyle>
           </form>
         </Stack>
       </SetNewPasswordWrapper>
+      <DialogExpired
+        open={isExpired}
+        name="expired"
+        logo={<IconExclamation />}
+        title={translation("setNewPassword.dialog.title")}
+        description={translation("setNewPassword.dialog.message")}
+        confirm={translation("setNewPassword.dialog.button")}
+        onConfirm={() => router.replace(NAVIGATION.LOGIN)}
+      />
     </>
   );
 };
