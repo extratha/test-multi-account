@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { IconAiInterpret, IconReload, IosDeviceFrame } from "@/assets";
 import FullScreenLoading from "@/components/Loading/FullScreenLoading";
+import { Page } from "@/components/Page";
 import DashboardPage from "@/components/Page/DashboardPage";
 import PageTitle from "@/components/Typography/PageTitle";
 import useTranslation from "@/locales/useLocale";
@@ -122,7 +123,7 @@ const SymptomChecker = () => {
   }, [isLoading]);
 
   return (
-    <>
+    <Page title={translation("Common.symptomChecker.title")}>
       {isLoading ? (
         <FullScreenLoading />
       ) : (
@@ -156,7 +157,7 @@ const SymptomChecker = () => {
           </Content>
         </DashboardPage>
       )}
-    </>
+    </Page>
   );
 };
 

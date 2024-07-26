@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { ReactNode } from "react";
 
 import { LOCALE_LANGUAGE } from "@/config";
@@ -9,8 +10,14 @@ interface RootLayoutProps {
   children: ReactNode;
 }
 
+export const metadata: Metadata = {
+  title: "Cariva Playground",
+  description: "Cariva Playground",
+};
+
 const AppLayout = async ({ children }: RootLayoutProps) => {
   const locale = await import("@/locales/th.json");
+
   return (
     <LocalesProvider lang={LOCALE_LANGUAGE.TH} resource={locale.default}>
       <html lang={LOCALE_LANGUAGE.TH} suppressHydrationWarning>

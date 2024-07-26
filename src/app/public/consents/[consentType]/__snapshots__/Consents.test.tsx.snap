@@ -15,8 +15,8 @@ exports[`Consents should render correctly 1`] = `
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #eceff1;
   z-index: -1;
+  background-color: #eceff1;
 }
 
 <div
@@ -391,7 +391,6 @@ exports[`Consents should render correctly 1`] = `
   >
     <div
       class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 emotion-1"
-      data-testid="public-consent-type-content"
     >
       <span
         class="MuiTypography-root MuiTypography-titleLargeBold emotion-2"
