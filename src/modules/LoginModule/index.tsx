@@ -212,7 +212,7 @@ const LoginForm = () => {
               variant="bodySmallMedium"
               textTransform={"none"}
               color="text.primary"
-              onClick={() => router.replace(NAVIGATION.FORGET_PASSWORD)}
+              onClick={() => router.push(NAVIGATION.FORGET_PASSWORD)}
             >
               {translation("login.button.forgetPassword")}
             </ForgetPassword>
