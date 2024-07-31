@@ -60,7 +60,7 @@ exports[`AsrServicePage should render correctly 1`] = `
         class="MuiStack-root emotion-2"
       >
         <iframe
-          allow="camera; microphone"
+          allow="camera; microphone; clipboard-read; clipboard-write;"
           class="emotion-3"
           src="url://service-0?source=corporate"
         />

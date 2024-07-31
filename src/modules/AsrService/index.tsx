@@ -66,7 +66,10 @@ const AsrService = () => {
       ) : (
         <Page title={getTitle()}>
           <DashboardPage>
-            <IFrame src={`${config.url}?source=${data.corporate}`} allow="camera; microphone" />
+            <IFrame
+              src={`${config.url}?source=${data.corporate}`}
+              allow="camera; microphone; clipboard-read; clipboard-write;"
+            />
           </DashboardPage>
         </Page>
       )}
