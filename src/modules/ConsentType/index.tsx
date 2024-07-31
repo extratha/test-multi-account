@@ -100,17 +100,21 @@ const ConsentType = () => {
     }
   }, []);
 
+  const navigateNext = () => {
+    if (consentType === CONSENT_TYPE.TERMS_CONDITIONS) {
+      router.replace(NAVIGATION.CONSENT_PRIVACY_POLICIES);
+    } else {
+      router.replace(NAVIGATION.HOME);
+    }
+  };
+
   const fetchConsent = async () => {
     try {
       setIsLoading(true);
       const response = await getConsent(consentType);
 
       if (response.data.isConsent) {
-        if (consentType === CONSENT_TYPE.TERMS_CONDITIONS) {
-          router.replace(NAVIGATION.CONSENT_PRIVACY_POLICIES);
-        } else {
-          router.replace(NAVIGATION.HOME);
-        }
+        navigateNext();
       } else {
         setConsent(response.data);
         setIsLoading(false);
@@ -127,7 +131,7 @@ const ConsentType = () => {
     try {
       setIsLoading(true);
       await submitConsent(SUBMIT_CONSENT_TYPE[consentType], consent?.version || "");
-      router.replace(NAVIGATION.HOME);
+      navigateNext();
     } catch (error) {
       setIsLoading(false);
     }
