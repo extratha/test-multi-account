@@ -11,22 +11,19 @@ export interface FormTextInputProps {
 const FormTextInput = ({ name, placeholder, required }: FormTextInputProps) => {
   const { control } = useFormContext();
   const { field, fieldState } = useController({ name, control });
+  const value = field.value;
   const error = fieldState.error?.message || "";
 
   return (
     <>
       <TextField
         {...field}
-        value={field.value || ""}
+        value={value}
         required={required}
         fullWidth
         error={!!error}
         placeholder={placeholder}
-        InputProps={{
-          inputProps: {
-            "data-testid": `input-text-${name}`,
-          },
-        }}
+        inputProps={{ "data-testid": `input-text-${name}` }}
       />
       {error && <FieldErrorMessage data-testid={`error-field-${name}`}>{error}</FieldErrorMessage>}
     </>
