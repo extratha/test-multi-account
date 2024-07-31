@@ -2,11 +2,7 @@
 
 exports[`FormAutocomplete should render correctly 1`] = `
 <DocumentFragment>
-  .emotion-0 {
-  min-width: 200px;
-}
-
-.emotion-0.Mui-focused .MuiAutocomplete-clearIndicator {
+  .emotion-0.Mui-focused .MuiAutocomplete-clearIndicator {
   visibility: visible;
 }
 
@@ -342,7 +338,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-3:focus::-ms-input-p
   border: 0;
   margin: 0;
   border-radius: 50%;
-  padding: 4px;
+  padding: 2px;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -363,7 +359,6 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-3:focus::-ms-input-p
   -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   margin-right: -2px;
-  visibility: hidden;
 }
 
 .emotion-5::-moz-focus-inner {
@@ -411,7 +406,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-3:focus::-ms-input-p
   flex-shrink: 0;
   -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 
 .emotion-7 {
@@ -427,95 +422,6 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-3:focus::-ms-input-p
 }
 
 .emotion-8 {
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  position: relative;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-  background-color: transparent;
-  outline: 0;
-  border: 0;
-  margin: 0;
-  border-radius: 50%;
-  padding: 2px;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  vertical-align: middle;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  color: rgba(0, 0, 0, 0.54);
-  text-align: center;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  font-size: 1.5rem;
-  overflow: visible;
-  -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  margin-right: -2px;
-}
-
-.emotion-8::-moz-focus-inner {
-  border-style: none;
-}
-
-.emotion-8.Mui-disabled {
-  pointer-events: none;
-  cursor: default;
-}
-
-@media print {
-  .emotion-8 {
-    -webkit-print-color-adjust: exact;
-    color-adjust: exact;
-  }
-}
-
-.emotion-8:hover {
-  background-color: rgba(0, 0, 0, 0.04);
-}
-
-@media (hover: none) {
-  .emotion-8:hover {
-    background-color: transparent;
-  }
-}
-
-.emotion-8.Mui-disabled {
-  background-color: transparent;
-  color: rgba(0, 0, 0, 0.26);
-}
-
-.emotion-9 {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  fill: currentColor;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.5rem;
-}
-
-.emotion-11 {
   text-align: left;
   position: absolute;
   bottom: 0;
@@ -533,7 +439,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-3:focus::-ms-input-p
   border-color: rgba(0, 0, 0, 0.23);
 }
 
-.emotion-12 {
+.emotion-9 {
   float: unset;
   width: auto;
   overflow: hidden;
@@ -547,7 +453,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-3:focus::-ms-input-p
     novalidate=""
   >
     <div
-      class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon emotion-0"
+      class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon emotion-0"
       data-testid="autocomplete-test"
       name="test"
     >
@@ -565,7 +471,6 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-3:focus::-ms-input-p
             autocomplete="off"
             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused emotion-3"
             id=":r0:"
-            placeholder="เลือกข้อมูล"
             role="combobox"
             spellcheck="false"
             type="text"
@@ -575,37 +480,15 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-3:focus::-ms-input-p
             class="MuiAutocomplete-endAdornment emotion-4"
           >
             <button
-              aria-label="Clear"
-              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-clearIndicator emotion-5"
-              tabindex="-1"
-              title="Clear"
-              type="button"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall emotion-6"
-                data-testid="CloseIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                />
-              </svg>
-              <span
-                class="MuiTouchRipple-root emotion-7"
-              />
-            </button>
-            <button
               aria-label="Open"
-              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator emotion-8"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator emotion-5"
               tabindex="-1"
               title="Open"
               type="button"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-9"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
                 data-testid="drop-icon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -621,10 +504,10 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-3:focus::-ms-input-p
           </div>
           <fieldset
             aria-hidden="true"
-            class="MuiOutlinedInput-notchedOutline emotion-11"
+            class="MuiOutlinedInput-notchedOutline emotion-8"
           >
             <legend
-              class="emotion-12"
+              class="emotion-9"
             >
               <span
                 class="notranslate"

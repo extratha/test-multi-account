@@ -564,7 +564,10 @@
         "tumorMarker": "Tumor marker"
       },
       "placeholder": {
-        "gender": "เลือกเพศ"
+        "gender": "เลือก เพศ",
+        "select": "เลือกข้อมูล",
+        "selectColor": "เลือก สี",
+        "selectStatus": "เลือก สถานะ"
       },
       "field": {
         "age": "อายุ",
