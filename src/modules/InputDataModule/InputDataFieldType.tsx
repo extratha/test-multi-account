@@ -7,6 +7,7 @@ import FormNumberInput from "@/components/Form/FormNumberInput";
 import FormTextInput from "@/components/Form/FormTextInput";
 import Tooltip from "@/components/Tooltip";
 import { CONFIG_FIELD_TYPES } from "@/constant";
+import { FIELD_NAME } from "@/constant/AiInterpret";
 import useTranslation from "@/locales/useLocale";
 import { InputDataConfig, NormalRange } from "@/types/model.ui";
 
@@ -23,24 +24,6 @@ const TypoUnit = styled(Typography)(({ theme }) => ({
   color: theme.palette.grey[600],
 }));
 
-const FIELD_NAME = {
-  GENDER: "gender",
-  STOOL_COLOR: "stool_color",
-  STOOL_WBC: "stool_wbc",
-  STOOL_RBC: "stool_rbc",
-  STOOL_PARASITE: "stool_parasite",
-  STOOL_OCCULT_BLOOD: "stool_occult_blood",
-  STOOL_CULTURE: "stool_culture",
-  URINE_COLOR: "urine_color_value",
-  URINE_SP_GR_VALUE: "urine_sp_gr_value",
-  URINE_PH_VALUE: "urine_ph_value",
-  URINE_WBC_VALUE: "urine_wbc_value",
-  URINE_PROTEIN_VALUE: "urine_protein_value",
-  URINE_GLUCOSE_VALUE: "urine_glucose_value",
-  URINE_ERYTHROCYTE_VALUE: "urine_erythrocyte_value",
-  URINE_RBC_VALUE: "urine_rbc_value",
-};
-
 const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {
   const { translation } = useTranslation();
   const fieldRange = field.range || [];
@@ -54,27 +37,9 @@ const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {
   }, [fieldRange.length, gender]);
 
   const getPlaceholder = () => {
-    switch (field.key) {
-      case FIELD_NAME.GENDER:
-        return translation("AiInterpret.th.placeholder.gender");
-      case FIELD_NAME.STOOL_COLOR:
-      case FIELD_NAME.URINE_COLOR:
-        return translation("AiInterpret.th.placeholder.selectColor");
-      case FIELD_NAME.STOOL_WBC:
-      case FIELD_NAME.STOOL_RBC:
-      case FIELD_NAME.STOOL_PARASITE:
-      case FIELD_NAME.STOOL_OCCULT_BLOOD:
-      case FIELD_NAME.STOOL_CULTURE:
-      case FIELD_NAME.URINE_SP_GR_VALUE:
-      case FIELD_NAME.URINE_PH_VALUE:
-      case FIELD_NAME.URINE_WBC_VALUE:
-      case FIELD_NAME.URINE_PROTEIN_VALUE:
-      case FIELD_NAME.URINE_GLUCOSE_VALUE:
-      case FIELD_NAME.URINE_ERYTHROCYTE_VALUE:
-        return translation("AiInterpret.th.placeholder.selectStatus");
-      default:
-        return translation("AiInterpret.th.placeholder.select");
-    }
+    return field.key === FIELD_NAME.GENDER
+      ? translation("AiInterpret.th.placeholder.gender")
+      : translation("AiInterpret.th.placeholder.select");
   };
 
   const getDropdownOptions = () => {
