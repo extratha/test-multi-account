@@ -36,12 +36,6 @@ const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {
     return fieldRange.filter((range) => range.type === gender.toLowerCase());
   }, [fieldRange.length, gender]);
 
-  const getPlaceholder = () => {
-    return field.key === FIELD_NAME.GENDER
-      ? translation("AiInterpret.th.placeholder.gender")
-      : translation("AiInterpret.th.placeholder.select");
-  };
-
   const getDropdownOptions = () => {
     const dropdown = field.dropdownValue || [];
     return dropdown.map((value) => ({
@@ -101,7 +95,7 @@ const InputDataFieldType = ({ field }: InputDataFieldTypeProps) => {
                 name={field.key}
                 label={translation(`AiInterpret.th.field.${field.key}`)}
                 options={getDropdownOptions()}
-                placeholder={getPlaceholder()}
+                placeholder={translation("AiInterpret.th.placeholder.select")}
                 required={field.required}
               />
             )}
