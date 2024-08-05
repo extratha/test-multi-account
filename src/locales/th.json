@@ -150,10 +150,16 @@
       "title": "นโยบายความเป็นส่วนตัว"
     }
   },
+  "dashboard": {
+    "userInformation": {
+      "version": "V {{version}}"
+    }
+  },
   "login": {
     "text": {
       "carivaPlayground": "CARIVA PLAYGROUND",
       "login": "เข้าสู่ระบบ",
+      "version": "V {{version}}",
       "password": "รหัสผ่าน",
       "placeholder": {
         "email": "อีเมล",

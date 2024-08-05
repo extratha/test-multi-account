@@ -13,6 +13,7 @@ import { NAVIGATION, SESSION } from "@/constant";
 import useFieldValidation from "@/hooks/useFieldValidation";
 import useTranslation from "@/locales/useLocale";
 import { useUserProfileStore } from "@/store";
+import { getVersion } from "@/utils/common";
 import { validateEmail, validatePassword } from "@/utils/validation";
 import { CustomTextField } from "./styled";
 
@@ -50,11 +51,10 @@ const ConsentFooter = styled(Stack)({
   },
 });
 
-const LoginForm = () => {
+const LoginModule = () => {
+  const { translation } = useTranslation();
   const router = useRouter();
   const { resetUserProfile, setUserProfile } = useUserProfileStore();
-  const { translation } = useTranslation();
-
   const [isDisableSubmit, setIsDisableSubmit] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const { control, setError, handleSubmit } = useForm<LoginFormValues>();
@@ -131,6 +131,9 @@ const LoginForm = () => {
                 {translation("login.text.login")}
               </Typography>
               <Typography variant="headerBold">{translation("login.text.carivaPlayground")}</Typography>
+              <Typography variant="labelExtraSmall" color="text.disabled">
+                {translation("login.text.version", { version: getVersion() })}
+              </Typography>
             </Stack>
             <form onSubmit={handleSubmit(onSubmit)}>
               <Controller
@@ -140,7 +143,7 @@ const LoginForm = () => {
                   <Stack direction="column" spacing={2} mt={1}>
                     <CustomTextField
                       fullWidth
-                      data-testid={EMAIL_FIELD_NAME}
+                      data-testid="email-input"
                       id={EMAIL_FIELD_NAME}
                       placeholder={!emailValue ? translation("login.text.placeholder.email") : ""}
                       name={EMAIL_FIELD_NAME}
@@ -150,7 +153,12 @@ const LoginForm = () => {
                       inputRef={emailRef}
                       InputLabelProps={{ shrink: true }}
                     />
-                    <Typography data-testid="error" variant="labelExtraSmallMedium" textAlign="left" color="error">
+                    <Typography
+                      data-testid="email-error"
+                      variant="labelExtraSmallMedium"
+                      textAlign="left"
+                      color="error"
+                    >
                       {error?.message || ""}
                     </Typography>
                   </Stack>
@@ -165,7 +173,7 @@ const LoginForm = () => {
                       fullWidth
                       name={PASSWORD_FIELD_NAME}
                       type={showPassword ? "text" : "password"}
-                      data-testid={PASSWORD_FIELD_NAME}
+                      data-testid="password-input"
                       id={PASSWORD_FIELD_NAME}
                       placeholder={!passwordValue ? translation("login.text.placeholder.forgetPassword") : ""}
                       value={passwordValue ?? ""}
@@ -194,7 +202,12 @@ const LoginForm = () => {
                         shrink: true,
                       }}
                     />
-                    <Typography data-testid="error" variant="labelExtraSmallMedium" textAlign="left" color="error">
+                    <Typography
+                      data-testid="password-error"
+                      variant="labelExtraSmallMedium"
+                      textAlign="left"
+                      color="error"
+                    >
                       {error?.message || ""}
                     </Typography>
                   </Stack>
@@ -235,4 +248,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default LoginModule;
