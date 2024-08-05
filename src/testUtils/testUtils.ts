@@ -6,6 +6,7 @@ import { ReactElement } from "react";
 import { TestProvider } from "./TestProvider";
 
 export const API = {
+  LOGIN: "/auth/login",
   EXAMPLE_AI_INTERPRET_URL: "/lab/examples/labId",
   GET_LAB_INTERPRETS_ID_URL: "/lab/interprets/labId",
   SUBMIT_LAB_INTERPRETS_URL: "/lab/interprets",
@@ -14,6 +15,9 @@ export const API = {
   TERMS_AND_CONDITIONS_LATEST: "/consents/terms-conditions/latest",
   PRIVACY_POLICY: "/consents/privacy-policies",
   PRIVACY_POLICY_LATEST: "/consents/privacy-policies/latest",
+  PUBLIC_TERMS_CONDITIONS: "/consents/terms-conditions/public",
+  PUBLIC_PRIVACY_POLICIES: "/consents/privacy-policies/public",
+  VALIDATE_RESET_PASSWORD_TOKEN: "/auth/reset-password/validate-token",
 };
 
 export const render = (ui: ReactElement) => {

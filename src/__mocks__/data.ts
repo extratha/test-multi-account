@@ -1,19 +1,23 @@
+import { ASR_SERVICE } from "@/constant";
 import {
   ConsentResult,
   ConsentResultLatest,
   ExampleDataResult,
   InterpretResult,
+  LoginResult,
   SubmitLabInterpretsRequest,
 } from "@/types/model.api";
 import { DashboardMenuConfigResult } from "@/types/model.ui";
 
-export const mockLoginResponse = {
+export const mockLoginResponse: LoginResult = {
   accessToken: "mockAccessToken",
   refreshToken: "mockRefreshToken",
   user: {
     id: "mockUserId",
     email: "test@example.com",
     passwordChanged: true,
+    createdAt: "",
+    updatedAt: "",
   },
   userProfile: {
     ID: "mockUserProfileId",
@@ -24,6 +28,8 @@ export const mockLoginResponse = {
     lastName: "Doe",
     corporate: "Example Corp",
     isActive: true,
+    createdAt: "",
+    updatedAt: "",
   },
 };
 
@@ -43,6 +49,19 @@ export const mockDashboardMenuConfigResult: DashboardMenuConfigResult = {
       path: "/item-1",
     },
   ],
+  asr: [
+    {
+      name: ASR_SERVICE.ORDER_ASR,
+      url: "url://service-0",
+    },
+    {
+      name: ASR_SERVICE.SOAP_ASR,
+      url: "url://service-1",
+    },
+  ],
+  symptomChecker: {
+    url: "url://symptom-checker",
+  },
 };
 
 export const mockExampleDataList: ExampleDataResult[] = [
@@ -913,3 +932,31 @@ export const mockHtml = `<p>html</p>
 <ul>
   <li>Coffee</li>
 </ul>`;
+
+export const mockPublicPrivacyPolicy: ConsentResultLatest = {
+  version: "Version",
+  consent: {
+    content: "<h2>Privacy Policy</h2>",
+    services: [
+      {
+        title: "Service Title 0",
+        logo: "/service/logo/0",
+        content: "Consent Content 0",
+      },
+    ],
+  },
+};
+
+export const mockPublicTermsAndCons: ConsentResultLatest = {
+  version: "Version",
+  consent: {
+    content: "<h2>Terms and condition</h2>",
+    services: [
+      {
+        title: "Service Title 0",
+        logo: "/service/logo/0",
+        content: "Consent Content 0",
+      },
+    ],
+  },
+};

@@ -1,26 +1,27 @@
-import { UserProfile } from "@/types/model.ui";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-interface UserProfileState {
-  data: UserProfile;
+import { LoginUserProfileData } from "@/types/model.api";
+
+export interface UserProfileStore {
+  data: LoginUserProfileData;
   isLoading: boolean;
   success: boolean;
   error: boolean;
-  setUserProfile: (value: UserProfile) => void;
+  setUserProfile: (value: LoginUserProfileData) => void;
   resetUserProfile: () => void;
 }
 
-const initiateState: UserProfileState = {
+const initiateState: UserProfileStore = {
   data: {
-    id: "",
+    ID: "",
+    userID: "",
     email: "",
     prefix: "",
     firstName: "",
     lastName: "",
     isActive: false,
-    userId: "",
-    passwordChanged: null,
+    corporate: "",
     createdAt: "",
     updatedAt: "",
   },
@@ -31,40 +32,17 @@ const initiateState: UserProfileState = {
   resetUserProfile: () => {},
 };
 
-const useUserProfileStore = create<UserProfileState>()(
+const useUserProfileStore = create<UserProfileStore>()(
   persist(
     (set) => ({
       ...initiateState,
       setUserProfile: (value) =>
         set((state) => ({
-          data: {
-            ...state.data,
-            id: value.id,
-            email: value.email,
-            prefix: value.prefix,
-            firstName: value.firstName,
-            lastName: value.lastName,
-            isActive: value.isActive,
-            userId: value.userId,
-            passwordChanged: value.passwordChanged,
-            createdAt: value.createdAt,
-            updatedAt: value.updatedAt,
-          },
+          data: { ...state.data, ...value },
         })),
       resetUserProfile: () =>
         set(() => ({
-          data: {
-            id: "",
-            email: "",
-            prefix: "",
-            firstName: "",
-            lastName: "",
-            isActive: false,
-            userId: "",
-            passwordChanged: null,
-            createdAt: "",
-            updatedAt: "",
-          },
+          data: initiateState.data,
           isLoading: false,
           success: false,
           error: false,

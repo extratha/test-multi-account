@@ -4,7 +4,7 @@ import MockAdapter from "axios-mock-adapter";
 
 import { mockAiInterpretResult } from "@/__mocks__/data";
 import * as Api from "@/api/api";
-import { webPaths } from "@/constant/webPaths";
+import { NAVIGATION } from "@/constant";
 import {
   spyUsePathname,
   SpyUseRouter,
@@ -13,7 +13,6 @@ import {
   spyUseSearchParams,
 } from "@/testUtils/navigation";
 import { API, flushPromise, render } from "@/testUtils/testUtils";
-import axiosInstance from "@/utils/axios";
 import AiInterpretResult from ".";
 
 describe("AiInterpretResult", () => {
@@ -34,7 +33,7 @@ describe("AiInterpretResult", () => {
       if (key === "exampleId") return mockInterpretId;
     });
 
-    mockApiAdapter = new MockAdapter(axiosInstance);
+    mockApiAdapter = new MockAdapter(Api.apiAxios);
     mockApiAdapter.onGet(API.EXAMPLE_AI_INTERPRET_URL).reply(200, mockAiInterpretResult);
     mockApiAdapter.onGet(API.GET_LAB_INTERPRETS_ID_URL).reply(200, mockAiInterpretResult);
 
@@ -70,7 +69,7 @@ describe("AiInterpretResult", () => {
   });
 
   it("should display lab information by exampleId when exampleId param is set", async () => {
-    spyUsePathname(`${webPaths.aiInterpret.aiInterpretResult}?exampleId=${mockInterpretId}`);
+    spyUsePathname(`${NAVIGATION.AI_INTERPRET_RESULT}?exampleId=${mockInterpretId}`);
 
     await renderAiInterpretResult();
 
@@ -89,7 +88,7 @@ describe("AiInterpretResult", () => {
   });
 
   it("should display lab information by transactionId when transactionId param is set", async () => {
-    spyUsePathname(`${webPaths.aiInterpret.aiInterpretResult}?transactionId=${mockInterpretId}`);
+    spyUsePathname(`${NAVIGATION.AI_INTERPRET_RESULT}?transactionId=${mockInterpretId}`);
 
     spySearchParams.get.mockImplementation((key: string) => {
       if (key === "transactionId") return mockInterpretId;

@@ -21,26 +21,25 @@ export interface HomeMenuItemConfig {
   path: string;
 }
 
+interface AsrConfig {
+  name: string;
+  url: string;
+}
+
+interface SymptomCheckerConfig {
+  url: string;
+}
+
 export interface DashboardMenuConfigResult {
   menu: AppMenuConfig[];
   home: HomeMenuItemConfig[];
-}
-
-export interface UserProfile {
-  id: string;
-  email: string;
-  prefix: string;
-  firstName: string;
-  lastName: string;
-  isActive: boolean;
-  userId: string;
-  passwordChanged: boolean | null;
-  createdAt: string;
-  updatedAt: string;
+  asr: AsrConfig[];
+  symptomChecker: SymptomCheckerConfigResult;
 }
 
 interface NormalRange {
   value: string;
+  type: string;
   description: string;
 }
 
@@ -66,8 +65,4 @@ export interface InputGroupConfigResult {
 export interface LabGroupConfig {
   group: string;
   value: string[];
-}
-
-export interface SymptomCheckerConfigResult {
-  url: string;
 }

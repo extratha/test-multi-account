@@ -1,4 +1,4 @@
-import { SubmitLabInterpretsRequest } from "@/types/model.api";
+import { FieldValuesForSubmit, LabInfoData } from "@/types/model.api";
 import { InputGroupConfigResult } from "@/types/model.ui";
 
 const convertValueToString = (value: unknown) => {
@@ -10,19 +10,26 @@ export const mapInputDataToSubmitInterprets = (
   formValues: Record<string, unknown>,
   configs: InputGroupConfigResult[]
 ) => {
-  const data: SubmitLabInterpretsRequest = {
-    labInfo: configs
-      .filter((group) => (group.data && group.data.some((data) => formValues[data.key])))
-      .map((group) => ({
-        groupName: group.groupName,
-        data: group.data.map((data) => ({
-          key: data.key,
-          value: convertValueToString(formValues[data.key]),
-          unit: data.unit,
-          range: data.range,
-        })),
-      })),
-  };
+  const labInfo: LabInfoData[] = [];
 
-  return data;
+  configs.forEach(({ groupName, data }) => {
+    const dataValue: FieldValuesForSubmit[] = [];
+
+    data.forEach((value) => {
+      if (formValues[value.key]) {
+        dataValue.push({
+          key: value.key,
+          value: convertValueToString(formValues[value.key]),
+          unit: value.unit,
+          range: value.range,
+        });
+      }
+    });
+
+    if (dataValue.length > 0) {
+      labInfo.push({ groupName, data: dataValue });
+    }
+  });
+
+  return { labInfo };
 };

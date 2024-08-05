@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`PrivacyPolicyPage should render correctly 1`] = `
-<DocumentFragment>
-  <title>
-    นโยบายความเป็นส่วนตัว
-  </title>
-</DocumentFragment>
-`;

@@ -1,6 +1,9 @@
+"use client";
+
 import { Stack, styled } from "@mui/material";
 import { ReactNode, useEffect, useState } from "react";
 
+import FullScreenLoading from "@/components/Loading/FullScreenLoading";
 import { AppMenuConfig } from "@/types/model.ui";
 import { getDashboardMenuConfig } from "@/utils/firebase";
 import DashboardPanel from "./DashboardPanel";
@@ -28,6 +31,8 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
 
   const fetchMenuConfig = async () => {
     try {
+      setIsLoading(true);
+
       const remoteConfig = await getDashboardMenuConfig();
       setMenus(remoteConfig.menu);
       setIsLoading(false);
@@ -42,7 +47,9 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
 
   return (
     <>
-      {!isLoading && (
+      {isLoading ? (
+        <FullScreenLoading />
+      ) : (
         <Layout direction="row">
           <DashboardPanel menuList={menus} />
           <Main>{children}</Main>

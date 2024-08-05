@@ -58,9 +58,6 @@
       "noOptions": "ไม่พบข้อมูล",
       "loading": "กำลังโหลด",
       "login": "เข้าสู่ระบบ",
-      "setNewPassword": "กรอกรหัสผ่านใหม่เพื่อตั้งค่ารหัสผ่านใหม่",
-      "setNewPasswordValidateTitle": "เงื่อนไขการตั้งรหัสผ่าน",
-      "setNewPasswordValidateMessage": " - มีอย่างน้อย 8 หลัก\n - มีตัวเลขอย่างน้อย 1 หลัก\n - ประกอบด้วยอักษรภาษาอังกฤษ\n   - ตัวพิมพ์ใหญ่อย่างน้อย 1 ตัว\n   - ตัวพิมพ์เล็กอย่างน้อย 1 ตัว\n   - สัญลักษณ์อย่างน้อย 1 ตัว",
       "interpret": "แปลและสรุปผลสุขภาพ"
     },
     "status": {
@@ -141,13 +138,61 @@
     },
     "symptomChecker": {
       "title": "Symptom Checker",
-      "subtitle": "ที่ปรึกษาทางการแพทย์อัจริยะ"
+      "subtitle": "ที่ปรึกษาทางการแพทย์อัจริยะ",
+      "button": {
+        "reload": "รีโหลดหน้า"
+      }
     },
     "settingTermsAndConditions": {
       "title": "ข้อกำหนดและเงื่อนไข"
     },
     "settingPrivacyPolicy": {
       "title": "นโยบายความเป็นส่วนตัว"
+    }
+  },
+  "login": {
+    "text": {
+      "carivaPlayground": "CARIVA PLAYGROUND",
+      "login": "เข้าสู่ระบบ",
+      "password": "รหัสผ่าน",
+      "placeholder": {
+        "email": "อีเมล",
+        "forgetPassword": "ลืมรหัสผ่าน"
+      },
+      "error": {
+        "invalidEmailOrPassword": "อีเมลหรือรหัสผ่านไม่ถูกต้อง กรุณาตรวจสอบอีกครั้ง"
+      }
+    },
+    "button": {
+      "login": "เข้าสู่ระบบ",
+      "forgetPassword": "ลืมรหัสผ่าน",
+      "termsAndConditions": "ข้อกำหนดและเงื่อนไข",
+      "privacyPolicy": "นโยบายความเป็นส่วนตัว"
+    }
+  },
+  "setNewPassword": {
+    "pages": "ตั้งค่ารหัสผ่านใหม่",
+    "text": {
+      "inputSetNewPassword": "กรอกรหัสผ่านใหม่เพื่อตั้งค่ารหัสผ่านใหม่"
+    },
+    "placeholder": {
+      "newPassword": "ตั้งค่ารหัสผ่านใหม่",
+      "newPasswordAgain": "ตั้งรหัสผ่านใหม่อีกครั้ง"
+    },
+    "validate": {
+      "title": "เงื่อนไขการตั้งรหัสผ่าน",
+      "message": " - มีอย่างน้อย 8 หลัก\n - มีตัวเลขอย่างน้อย 1 หลัก\n - ประกอบด้วยอักษรภาษาอังกฤษ\n   - ตัวพิมพ์ใหญ่อย่างน้อย 1 ตัว\n   - ตัวพิมพ์เล็กอย่างน้อย 1 ตัว\n   - สัญลักษณ์อย่างน้อย 1 ตัว"
+    },
+    "button": {
+      "setNewPassword": "ตั้งรหัสผ่านใหม่"
+    },
+    "dialog": {
+      "title": " ลิงค์ไม่ถูกต้อง",
+      "message": "ลิงค์นี้ไม่สามารถใช้งานได้\nกรุณาตรวจสอบลิงค์อีกครั้ง",
+      "button": "ตกลง"
+    },
+    "toast": {
+      "resetPasswordSuccess": "ตั้งค่ารหัสผ่านใหม่สำเร็จ"
     }
   },
   "AiInterpret": {
@@ -190,6 +235,11 @@
       "unlimited": "ใช้ได้ไม่จำกัด",
       "interpreting": "กำลังประมวลผล",
       "failedInterpret": "ประมวลผลไม่สำเร็จ\nกรุณาลองใหม่อีกครั้ง"
+    },
+    "tooltip": {
+      "normalRange": "ค่าปกติ",
+      "male": "ผู้ชาย",
+      "female": "ผู้หญิง"
     },
     "aiInterpretResult": {
       "modalVersion": "Model Version",
@@ -337,10 +387,10 @@
           "liverFunctionTest": {
             "title": "การทำงานของตับ",
             "sgot_value": {
-              "label": "SGOT"
+              "label": "SGOT/AST"
             },
             "sgpt_value": {
-              "label": "SGPT"
+              "label": "SGPT/ALT"
             },
             "alp_value": {
               "label": "ALK Phosphatase"
@@ -472,8 +522,8 @@
         "creatinine_value": "Creatinine",
         "bun_value": "BUN",
 
-        "sgot_value": "SGOT",
-        "sgpt_value": "SGPT",
+        "sgot_value": "SGOT/AST",
+        "sgpt_value": "SGPT/ALT",
         "alp_value": "ALK Phosphatase",
 
         "urine_color_value": "Color",
@@ -514,7 +564,10 @@
         "tumorMarker": "Tumor marker"
       },
       "placeholder": {
-        "gender": "เลือกเพศ"
+        "gender": "เลือก เพศ",
+        "select": "เลือกข้อมูล",
+        "selectColor": "เลือก สี",
+        "selectStatus": "เลือก สถานะ"
       },
       "field": {
         "age": "อายุ",
@@ -556,8 +609,8 @@
         "creatinine_value": "Creatinine",
         "bun_value": "BUN",
 
-        "sgot_value": "SGOT",
-        "sgpt_value": "SGPT",
+        "sgot_value": "SGOT/AST",
+        "sgpt_value": "SGPT/ALT",
         "alp_value": "ALK Phosphatase",
 
         "urine_color_value": "Color",
@@ -583,5 +636,11 @@
         "cea_value": "สารบ่งชี้มะเร็งลำไส้"
       }
     }
+  },
+  "orderAsr": {
+    "title": "Order ASR"
+  },
+  "soapAsr": {
+    "title": "SOAP ASR"
   }
 }

@@ -1,19 +1,18 @@
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import { IconButton, Stack, styled, Typography, useTheme } from "@mui/material";
-import { setCookie } from "cookies-next";
+import { IconButton, Stack, styled, Typography } from "@mui/material";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 
+import { submitLogin } from "@/api/apiUnauthorize";
 import { SubmitButtonStyle } from "@/components/Button/styled";
-import { API } from "@/constant/api";
-import { COOKIE } from "@/constant/constant";
-import { webPaths } from "@/constant/webPaths";
+import FullScreenLoading from "@/components/Loading/FullScreenLoading";
+import { NAVIGATION, SESSION } from "@/constant";
 import useFieldValidation from "@/hooks/useFieldValidation";
 import useTranslation from "@/locales/useLocale";
-import { usePageLoadingStore, useUserProfileStore } from "@/store";
-import axiosPublicInstance from "@/utils/axios/login";
+import { useUserProfileStore } from "@/store";
 import { validateEmail, validatePassword } from "@/utils/validation";
 import { CustomTextField } from "./styled";
 
@@ -29,16 +28,38 @@ const Container = styled(Stack)({
   padding: "16px",
 });
 
+const ForgetPassword = styled(Typography)({
+  paddingTop: "32px",
+  textDecoration: "underline",
+  textAlign: "center",
+  cursor: "pointer",
+});
+
+const ConsentFooter = styled(Stack)({
+  justifyContent: "center",
+  padding: "16px 0px 32px",
+  "& .MuiTypography-root": {
+    cursor: "pointer",
+    minWidth: "160px",
+    padding: "8px 16px",
+    textAlign: "center",
+  },
+  "& a": {
+    textDecoration: "none",
+    color: "inherit",
+  },
+});
+
 const LoginForm = () => {
-  const theme = useTheme();
-  const { setUserProfile } = useUserProfileStore();
-  const [isDisableSubmit, setIsDisabledSubmit] = useState(true);
-  const [showPassword, setShowPassword] = useState(false);
-  const { setPageLoading } = usePageLoadingStore();
   const router = useRouter();
-  const { control, setError, handleSubmit } = useForm<LoginFormValues>();
+  const { resetUserProfile, setUserProfile } = useUserProfileStore();
   const { translation } = useTranslation();
+
+  const [isDisableSubmit, setIsDisableSubmit] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
+  const { control, setError, handleSubmit } = useForm<LoginFormValues>();
   const [errorMessage, setErrorMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const EMAIL_FIELD_NAME = "email";
   const PASSWORD_FIELD_NAME = "password";
@@ -63,9 +84,9 @@ const LoginForm = () => {
   useEffect(() => {
     if (!isEmailDirty || !isPasswordDirty) return;
     if (!(isEmailValid && isPasswordValid)) {
-      setIsDisabledSubmit(true);
+      setIsDisableSubmit(true);
     } else {
-      setIsDisabledSubmit(false);
+      setIsDisableSubmit(false);
     }
   }, [emailValue, passwordValue]);
 
@@ -75,144 +96,142 @@ const LoginForm = () => {
 
   // TODO: unit after login
   const onSubmit: SubmitHandler<LoginFormValues> = async () => {
-    setPageLoading(true);
-    setErrorMessage("");
     try {
-      const response = await axiosPublicInstance.post(
-        API.PATH.login,
-        { email: emailValue, password: passwordValue },
-        { headers: { Authorization: undefined } }
-      );
-      if (response.data) {
-        const { accessToken, refreshToken, user, userProfile } = response.data;
-        setCookie(COOKIE.ACCESS_TOKEN, accessToken || "");
-        setCookie(COOKIE.REFRESH_TOKEN, refreshToken || "");
-        if (user) {
-          setCookie(COOKIE.PASSWORD_CHANGED, user.passwordChanged);
-          setUserProfile({ ...user, ...userProfile });
+      setIsSubmitting(true);
+      setErrorMessage("");
+      resetUserProfile();
 
-          if (!user.passwordChanged) {
-            router.replace(webPaths.setNewPassword);
-          } else {
-            router.replace(webPaths.termsAndConditions);
-          }
-        }
+      const response = await submitLogin({ email: emailValue || "", password: passwordValue || "" });
+      const { accessToken, refreshToken, user, userProfile } = response.data;
+
+      localStorage.setItem(SESSION.ACCESS_TOKEN, accessToken);
+      localStorage.setItem(SESSION.REFRESH_TOKEN, refreshToken);
+
+      setUserProfile(userProfile);
+
+      if (user.passwordChanged) {
+        router.replace(NAVIGATION.CONSENT_TERMS_CONDITIONS);
+      } else {
+        router.replace(NAVIGATION.SET_NEW_PASSWORD);
       }
-    } catch (error: any) {
-      setErrorMessage(error?.response?.data?.message || translation("Common.responseError.invalidEmailOrPassword"));
-      setPageLoading(false);
+    } catch (error) {
+      setErrorMessage(error?.response?.data?.message || translation("login.text.error.invalidEmailOrPassword"));
+      setIsSubmitting(false);
     }
   };
 
   return (
-    <Stack flex="1" alignItems="center">
-      <Container>
-        <Stack spacing="8px" marginBottom="32px">
-          <Typography variant="titleBold" color="text.medium">
-            {translation("Common.text.login")}
-          </Typography>
-          <Typography variant="headerBold">{translation("Common.title.carivaPlayground")}</Typography>
-        </Stack>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <Controller
-            name={EMAIL_FIELD_NAME}
-            control={control}
-            render={({ fieldState: { error } }) => (
-              <Stack direction="column" spacing={2} mt={1}>
-                <CustomTextField
-                  fullWidth
-                  data-testid={EMAIL_FIELD_NAME}
-                  id={EMAIL_FIELD_NAME}
-                  placeholder={!emailValue ? "อีเมล" : ""}
-                  name={EMAIL_FIELD_NAME}
-                  value={emailValue ?? ""}
-                  onChange={onEmailChange}
-                  onBlur={onEmailBlur}
-                  inputRef={emailRef}
-                  InputLabelProps={{ shrink: true }}
-                />
-                <Typography
-                  data-testid="error"
-                  variant="labelExtraSmallMedium"
-                  sx={{
-                    textAlign: "left",
-                    color: theme.palette.error.main,
-                  }}
-                >
-                  {error?.message || ""}
-                </Typography>
-              </Stack>
-            )}
-          />
-          <Controller
-            name={PASSWORD_FIELD_NAME}
-            control={control}
-            render={({ fieldState: { error } }) => (
-              <Stack direction="column" spacing={2} mt={1}>
-                <CustomTextField
-                  fullWidth
-                  name={PASSWORD_FIELD_NAME}
-                  type={showPassword ? "text" : "password"}
-                  data-testid={PASSWORD_FIELD_NAME}
-                  id={PASSWORD_FIELD_NAME}
-                  placeholder={!passwordValue ? "รหัสผ่าน" : ""}
-                  value={passwordValue ?? ""}
-                  onChange={onPasswordChange}
-                  onBlur={onPasswordBlur}
-                  inputRef={passwordRef}
-                  inputProps={{
-                    autoComplete: "password",
-                  }}
-                  InputProps={{
-                    endAdornment: (
-                      <a>
-                        <IconButton
-                          data-testid="button-toggle-show-password"
-                          aria-label="Toggle show password"
-                          onClick={handleToggleShowPassword}
-                        >
-                          {showPassword ? (
-                            <VisibilityIcon aria-label="Showing password" />
-                          ) : (
-                            <VisibilityOffIcon aria-label="Hiding password" />
-                          )}
-                        </IconButton>
-                      </a>
-                    ),
-                  }}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                />
-                <Typography
-                  data-testid="error"
-                  variant="labelExtraSmallMedium"
-                  sx={{
-                    textAlign: "left",
-                    color: theme.palette.error.main,
-                  }}
-                >
-                  {error?.message || ""}
-                </Typography>
-              </Stack>
-            )}
-          />
-          <Typography
-            variant="labelExtraSmallMedium"
-            sx={{
-              textAlign: "left",
-              color: theme.palette.error.main,
-            }}
-          >
-            {errorMessage || ""}
-          </Typography>
+    <>
+      {isSubmitting && <FullScreenLoading />}
+      <Stack flex="1">
+        <Stack flex="1" alignItems="center">
+          <Container>
+            <Stack spacing="8px" marginBottom="32px">
+              <Typography variant="titleBold" color="text.medium">
+                {translation("login.text.login")}
+              </Typography>
+              <Typography variant="headerBold">{translation("login.text.carivaPlayground")}</Typography>
+            </Stack>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <Controller
+                name={EMAIL_FIELD_NAME}
+                control={control}
+                render={({ fieldState: { error } }) => (
+                  <Stack direction="column" spacing={2} mt={1}>
+                    <CustomTextField
+                      fullWidth
+                      data-testid={EMAIL_FIELD_NAME}
+                      id={EMAIL_FIELD_NAME}
+                      placeholder={!emailValue ? translation("login.text.placeholder.email") : ""}
+                      name={EMAIL_FIELD_NAME}
+                      value={emailValue ?? ""}
+                      onChange={onEmailChange}
+                      onBlur={onEmailBlur}
+                      inputRef={emailRef}
+                      InputLabelProps={{ shrink: true }}
+                    />
+                    <Typography data-testid="error" variant="labelExtraSmallMedium" textAlign="left" color="error">
+                      {error?.message || ""}
+                    </Typography>
+                  </Stack>
+                )}
+              />
+              <Controller
+                name={PASSWORD_FIELD_NAME}
+                control={control}
+                render={({ fieldState: { error } }) => (
+                  <Stack direction="column" spacing={2} mt={1}>
+                    <CustomTextField
+                      fullWidth
+                      name={PASSWORD_FIELD_NAME}
+                      type={showPassword ? "text" : "password"}
+                      data-testid={PASSWORD_FIELD_NAME}
+                      id={PASSWORD_FIELD_NAME}
+                      placeholder={!passwordValue ? translation("login.text.placeholder.forgetPassword") : ""}
+                      value={passwordValue ?? ""}
+                      onChange={onPasswordChange}
+                      onBlur={onPasswordBlur}
+                      inputRef={passwordRef}
+                      inputProps={{
+                        autoComplete: "password",
+                      }}
+                      InputProps={{
+                        endAdornment: (
+                          <IconButton
+                            data-testid="button-toggle-show-password"
+                            aria-label="Toggle show password"
+                            onClick={handleToggleShowPassword}
+                          >
+                            {showPassword ? (
+                              <VisibilityIcon aria-label="Showing password" />
+                            ) : (
+                              <VisibilityOffIcon aria-label="Hiding password" />
+                            )}
+                          </IconButton>
+                        ),
+                      }}
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                    />
+                    <Typography data-testid="error" variant="labelExtraSmallMedium" textAlign="left" color="error">
+                      {error?.message || ""}
+                    </Typography>
+                  </Stack>
+                )}
+              />
+              <Typography variant="labelExtraSmallMedium" textAlign="left" color="error">
+                {errorMessage || ""}
+              </Typography>
 
-          <SubmitButtonStyle type="submit" data-testid="button-login" disabled={isDisableSubmit}>
-            {translation("Common.text.login")}
-          </SubmitButtonStyle>
-        </form>
-      </Container>
-    </Stack>
+              <SubmitButtonStyle type="submit" data-testid="button-login" disabled={isDisableSubmit}>
+                {translation("login.button.login")}
+              </SubmitButtonStyle>
+            </form>
+            <ForgetPassword
+              variant="bodySmallMedium"
+              textTransform={"none"}
+              color="text.primary"
+              onClick={() => router.push(NAVIGATION.FORGET_PASSWORD)}
+            >
+              {translation("login.button.forgetPassword")}
+            </ForgetPassword>
+          </Container>
+        </Stack>
+        <ConsentFooter direction="row" spacing="8px">
+          <Link href={NAVIGATION.PUBLIC_TERMS_AND_CONDITIONS} target="_blank">
+            <Typography variant="labelExtraSmallMedium" data-testid="button-term-and-conditions">
+              {translation("login.button.termsAndConditions")}
+            </Typography>
+          </Link>
+          <Link href={NAVIGATION.PUBLIC_PRIVACY_POLICY} target="_blank">
+            <Typography variant="labelExtraSmallMedium" data-testid="button-privacy-policy">
+              {translation("login.button.privacyPolicy")}
+            </Typography>
+          </Link>
+        </ConsentFooter>
+      </Stack>
+    </>
   );
 };
 

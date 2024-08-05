@@ -14,22 +14,23 @@ export interface FormNumberInputProps {
 const FormNumberInput = ({ name, placeholder, decimalScale, min, max }: FormNumberInputProps) => {
   const { control } = useFormContext();
   const { field, fieldState } = useController({ name, control });
+
+  const value = field.value || "";
   const error = fieldState.error?.message || "";
+
   return (
     <>
       <TextField
         {...field}
-        value={field.value || ""}
+        value={value}
         fullWidth
         error={!!error}
         placeholder={placeholder}
-        InputProps={{
-          inputProps: {
-            min,
-            max,
-            step: decimalScale ? 1 / Math.pow(10, decimalScale) : 1,
-            "data-testid": `input-number-${name}`,
-          },
+        inputProps={{
+          min,
+          max,
+          step: decimalScale ? 1 / Math.pow(10, decimalScale) : 1,
+          "data-testid": `input-number-${name}`,
         }}
       />
       {error && (

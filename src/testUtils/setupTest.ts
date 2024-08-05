@@ -15,6 +15,11 @@ jest.mock("@/api/api", () => {
   return { ...actualModule, __esModule: true };
 });
 
+jest.mock("@/api/apiUnauthorize", () => {
+  const actualModule = jest.requireActual("@/api/apiUnauthorize");
+  return { ...actualModule, __esModule: true };
+});
+
 jest.mock("next/config", () => () => ({
   setConfig: jest.fn(),
   publicRuntimeConfig: {
@@ -25,10 +30,4 @@ jest.mock("next/config", () => () => ({
     globalEndpoint: "playground-dashboard",
     publicApiHost: "http://localhost:3000/",
   },
-}));
-
-jest.mock("cookies-next", () => ({
-  __esModule: true,
-  ...jest.requireActual("cookies-next"),
-  getCookie: jest.fn().mockReturnValue("MOCK_ACCESS_TOKEN"),
 }));

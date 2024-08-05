@@ -1,4 +1,8 @@
+import axios from "axios";
+
+import { ENV } from "@/constant";
 import {
+  ChangePasswordRequest,
   ConsentResult,
   ConsentResultLatest,
   ExampleDataResult,
@@ -6,9 +10,16 @@ import {
   SubmitLabInterpretsRequest,
   SubmitLabInterpretsResult,
 } from "@/types/model.api";
-import axiosInstance from "@/utils/axios";
+import { appendHeaders, onRefreshToken } from "./interceptors";
 
-export const apiAxios = axiosInstance;
+export const apiAxios = axios.create({ baseURL: ENV.BASE_API_URL });
+
+apiAxios.interceptors.request.use(appendHeaders);
+apiAxios.interceptors.response.use((response) => response, onRefreshToken);
+
+export const submitChangePassword = (data: ChangePasswordRequest) => {
+  return apiAxios.post("/auth/change-password", data);
+};
 
 export const getLabExampleList = () => {
   return apiAxios.get<ExampleDataResult[]>("/lab/examples");
@@ -26,22 +37,14 @@ export const getLabInterpretsByTransactionId = (transactionId: string) => {
   return apiAxios.get<InterpretResult>(`/lab/interprets/${transactionId}`);
 };
 
-export const getTermsAndConditions = () => {
-  return apiAxios.get<ConsentResult>("/consents/terms-conditions");
+export const getConsent = (type: string) => {
+  return apiAxios.get<ConsentResult>(`/consents/${type}`);
 };
 
-export const getTermsAndConditionsLatest = () => {
-  return apiAxios.get<ConsentResultLatest>("/consents/terms-conditions/latest");
+export const getConsentLatest = (type: string) => {
+  return apiAxios.get<ConsentResultLatest>(`/consents/${type}/latest`);
 };
 
 export const submitConsent = (type: string, version: string) => {
   return apiAxios.post<ConsentResult>("/consents", { type, version });
-};
-
-export const getPrivacyPolicy = () => {
-  return apiAxios.get<ConsentResult>("/consents/privacy-policies");
-};
-
-export const getPrivacyPolicyLatest = () => {
-  return apiAxios.get<ConsentResult>("/consents/privacy-policies/latest");
 };

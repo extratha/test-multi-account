@@ -3,9 +3,6 @@
 exports[`HomePageModule should render correctly 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -19,31 +16,22 @@ exports[`HomePageModule should render correctly 1`] = `
 
 .emotion-1 {
   background-color: #fff;
-  color: rgba(0, 0, 0, 0.87);
+  color: unset;
   -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  border-radius: 4px;
-  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
-  color: unset;
+  border-radius: 16px;
+  box-shadow: none;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
   overflow: auto;
-  border-radius: 16px;
-  box-shadow: none;
 }
 
 .emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -54,9 +42,6 @@ exports[`HomePageModule should render correctly 1`] = `
 }
 
 .emotion-3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -79,18 +64,14 @@ exports[`HomePageModule should render correctly 1`] = `
 .emotion-4 {
   margin: 0;
   font-family: fontFamily;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5;
-  font-size: 36px;
   font-weight: 700;
+  font-size: 36px;
   line-height: 1.5;
   background: linear-gradient(94deg, #0059D6 0%, #028DF5 50%, #00CBDD 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-fill-color: transparent;
-  line-height: 1.5;
 }
 
 .emotion-5 {
@@ -102,20 +83,16 @@ exports[`HomePageModule should render correctly 1`] = `
 
 .emotion-6 {
   box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  width: 100%;
+  width: calc(100% + 24px);
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
   margin-top: -24px;
-  width: calc(100% + 24px);
   margin-left: -24px;
   padding: 0px 40px;
 }
@@ -139,17 +116,13 @@ exports[`HomePageModule should render correctly 1`] = `
 
 .emotion-8 {
   background-color: #fff;
-  color: rgba(0, 0, 0, 0.87);
+  color: unset;
   -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  border-radius: 4px;
-  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
-  color: unset;
+  border-radius: 12px;
+  box-shadow: none;
   overflow: hidden;
   cursor: pointer;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -160,9 +133,7 @@ exports[`HomePageModule should render correctly 1`] = `
   align-items: center;
   text-align: center;
   padding: 16px;
-  box-shadow: none;
-  border-radius: 12px;
-  border: 1px solid #CFD8DC;
+  border: 1px solid #cfd8dc;
 }
 
 .emotion-9 {
@@ -198,11 +169,11 @@ exports[`HomePageModule should render correctly 1`] = `
           >
             สวัสดี แอดมิน
           </p>
-          <h1
+          <span
             class="MuiTypography-root MuiTypography-headerExtraLargeBold emotion-5"
           >
             โปรดเลือกเครื่องมือที่คุณต้องการ 
-          </h1>
+          </span>
         </div>
         <div
           class="MuiGrid-root MuiGrid-container emotion-6"
@@ -214,16 +185,16 @@ exports[`HomePageModule should render correctly 1`] = `
               class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root emotion-8"
             >
               <svg />
-              <p
+              <span
                 class="MuiTypography-root MuiTypography-bodyBold emotion-9"
               >
                 Title 0
-              </p>
-              <p
+              </span>
+              <span
                 class="MuiTypography-root MuiTypography-bodySmall emotion-10"
               >
                 Description 0
-              </p>
+              </span>
             </div>
           </div>
           <div
@@ -233,16 +204,16 @@ exports[`HomePageModule should render correctly 1`] = `
               class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root emotion-8"
             >
               <svg />
-              <p
+              <span
                 class="MuiTypography-root MuiTypography-bodyBold emotion-9"
               >
                 Title 1
-              </p>
-              <p
+              </span>
+              <span
                 class="MuiTypography-root MuiTypography-bodySmall emotion-10"
               >
                 Description 1
-              </p>
+              </span>
             </div>
           </div>
         </div>

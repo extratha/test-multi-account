@@ -1,13 +1,11 @@
 import { Divider as MuiDivider, List as MuiList, Stack, styled, Typography } from "@mui/material";
-import { deleteCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 import { PlaygroundLogoColor } from "@/assets";
-import { COOKIE, MENU_CONDITION } from "@/constant/constant";
-import { webPaths } from "@/constant/webPaths";
-import { useUserProfileStore } from "@/store";
+import { MENU_CONDITION, NAVIGATION, SESSION } from "@/constant";
 import { AppMenuConfig, MenuItemConfig } from "@/types/model.ui";
+import { removeStorage } from "@/utils/common";
 import DashboardPanelMenu from "./DashboardPanelMenu";
 import DashboardUserInformation from "./DashboardUserInformation";
 
@@ -42,16 +40,13 @@ const SubHeader = styled(Typography)({
 
 const DashboardPanel = ({ menuList }: DashboardPanelProps) => {
   const router = useRouter();
-  const { resetUserProfile } = useUserProfileStore();
 
   const [showSubmenu, setShowSubmenu] = useState("");
 
   const onLogout = () => {
-    deleteCookie(COOKIE.ACCESS_TOKEN);
-    deleteCookie(COOKIE.REFRESH_TOKEN);
-    deleteCookie(COOKIE.PASSWORD_CHANGED);
-    resetUserProfile();
-    router.replace(webPaths.login);
+    removeStorage(SESSION.ACCESS_TOKEN);
+    removeStorage(SESSION.REFRESH_TOKEN);
+    router.replace(NAVIGATION.LOGIN);
   };
 
   const handleCLickMenuItem = (item: MenuItemConfig) => {

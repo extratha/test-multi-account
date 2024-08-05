@@ -10,8 +10,9 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
     "incremental": true,
+    "useUnknownInCatchVariables": false,
+    "jsx": "preserve",
     "plugins": [
       {
         "name": "next"

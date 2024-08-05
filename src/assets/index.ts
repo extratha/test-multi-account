@@ -18,9 +18,11 @@ export { ReactComponent as IconMenuItem } from "./icons/icon-menu-item.svg";
 export { ReactComponent as IconNotification } from "./icons/icon-notification.svg";
 export { ReactComponent as IconPen } from "./icons/icon-pen.svg";
 export { ReactComponent as IconPerson } from "./icons/icon-person.svg";
+export { ReactComponent as IconReload } from "./icons/icon-reload.svg";
 export { ReactComponent as IconSetting } from "./icons/icon-setting.svg";
 export { ReactComponent as IconSparkleDisabled } from "./icons/icon-sparkle-disabled.svg";
 export { ReactComponent as IconSparkle } from "./icons/icon-sparkle.svg";
+export { ReactComponent as IconExclamation } from "./icons/icon-exclamation.svg";
 
 export { ReactComponent as ImageCarivaLogo } from "./images/cariva-logo.svg";
 export { ReactComponent as PlaygroundLogoColor } from "./images/playground-logo-color.svg";
