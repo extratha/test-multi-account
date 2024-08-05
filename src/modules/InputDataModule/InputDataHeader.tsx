@@ -2,6 +2,7 @@ import { Button, Stack, styled, Typography } from "@mui/material";
 
 import { IconImportExampleData, IconSparkle, IconSparkleDisabled } from "@/assets";
 import useTranslation from "@/locales/useLocale";
+import { useSearchParams } from "next/navigation";
 import { ButtonInterpretDataStyled } from "../ExampleDataList/styled";
 
 const CommonButton = styled(Button)(({ theme }) => ({
@@ -26,6 +27,10 @@ export interface InputDataHeaderProps {
 const InputDataHeader = (props: InputDataHeaderProps) => {
   const { isDisableSubmit, onSubmit, onClickUseExampleData, modelVersion } = props;
   const { translation } = useTranslation();
+  const searchParams = useSearchParams();
+
+  const exampleDataId = searchParams.get("exampleId");
+
   return (
     <Stack mt={3}>
       <Stack direction="row">
@@ -36,14 +41,16 @@ const InputDataHeader = (props: InputDataHeaderProps) => {
         </Stack>
         <Stack ml="auto">
           <Stack direction="row" spacing={2} justifyContent="end">
-            <CommonButton
-              variant="outlined"
-              startIcon={<IconImportExampleData />}
-              data-testid="use-example-data-button"
-              onClick={onClickUseExampleData}
-            >
-              {translation("AiInterpret.button.useExampleData")}
-            </CommonButton>
+            {!exampleDataId && (
+              <CommonButton
+                variant="outlined"
+                startIcon={<IconImportExampleData />}
+                data-testid="use-example-data-button"
+                onClick={onClickUseExampleData}
+              >
+                {translation("AiInterpret.button.useExampleData")}
+              </CommonButton>
+            )}
             <ButtonInterpretDataStyled
               variant="contained"
               startIcon={isDisableSubmit ? <IconSparkleDisabled /> : <IconSparkle />}
