@@ -3,6 +3,8 @@ import { Box } from "@mui/system";
 
 import { IconCreditCoin, IconSparkle, PlaygroundLogoOverlay } from "@/assets";
 import { useUserProfileStore } from "@/store";
+import { getVersion } from "@/utils/common";
+import useTranslation from "@/locales/useLocale";
 
 const Wrapper = styled(Box)({
   padding: "20px",
@@ -28,12 +30,18 @@ const LogoBackground = styled(PlaygroundLogoOverlay)({
 
 const DashboardUserInformation = () => {
   const { data } = useUserProfileStore();
+  const { translation } = useTranslation();
 
   return (
     <Wrapper>
       <Content>
         <LogoBackground />
-        <IconSparkle width="16px" height="16px" />
+        <Stack direction="row" justifyContent="space-between">
+          <IconSparkle width="16px" height="16px" />
+          <Typography variant="labelExtraSmallMedium" color="common.white">
+            {translation("dashboard.userInformation.version", { version: getVersion() })}
+          </Typography>
+        </Stack>
         <Typography variant="bodySmallMedium" marginTop="32px">
           {"Admin Officer"}
         </Typography>
