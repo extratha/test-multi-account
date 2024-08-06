@@ -115,7 +115,7 @@ const LoginModule = () => {
         router.replace(NAVIGATION.SET_NEW_PASSWORD);
       }
     } catch (error) {
-      setErrorMessage(error?.response?.data?.message || translation("login.text.error.invalidEmailOrPassword"));
+      setErrorMessage(translation("login.text.error.invalidEmailOrPassword"));
       setIsSubmitting(false);
     }
   };
