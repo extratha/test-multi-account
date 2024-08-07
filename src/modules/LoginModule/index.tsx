@@ -110,7 +110,7 @@ const LoginModule = () => {
       setUserProfile(userProfile);
 
       if (user.passwordChanged) {
-        router.replace(NAVIGATION.CONSENT_TERMS_CONDITIONS);
+        router.replace(NAVIGATION.HOME);
       } else {
         router.replace(NAVIGATION.SET_NEW_PASSWORD);
       }

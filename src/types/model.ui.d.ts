@@ -1,3 +1,5 @@
+import { ConsentResult } from "./model.api";
+
 export interface LocaleResource {
   [string]: any;
 }
@@ -65,4 +67,9 @@ export interface InputGroupConfigResult {
 export interface LabGroupConfig {
   group: string;
   value: string[];
+}
+
+export interface RequiredConsentData {
+  type: string;
+  data: ConsentResult;
 }
