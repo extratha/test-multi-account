@@ -41,6 +41,11 @@ export const NAVIGATION = {
   PUBLIC_PRIVACY_POLICY: "/public/consents/privacy-policies",
 };
 
+export const ERROR_CODE = {
+  CONFLICT: "conflict",
+  CONSENT_REQUIRED: "consent-required",
+};
+
 export const GENDER = {
   MALE: "Male",
   FEMALE: "Female",
