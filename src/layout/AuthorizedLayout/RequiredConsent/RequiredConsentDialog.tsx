@@ -92,7 +92,7 @@ const SubmitButton = styled(Button)({
 });
 
 const initialFormValue: ConsentFormValues = {
-  agreement: true,
+  agreement: false,
 };
 
 // TODO: unit test
@@ -108,7 +108,7 @@ const RequiredConsentDialog = ({ consent, onSubmitted }: RequiredConsentsProps) 
     mode: "onChange",
   });
 
-  const isDisabled = methods.formState.isDirty && !methods.formState.isValid;
+  const isDisabled = !methods.formState.isValid;
 
   const getTitle = (type: string) => {
     switch (type) {
@@ -146,14 +146,16 @@ const RequiredConsentDialog = ({ consent, onSubmitted }: RequiredConsentsProps) 
         <Backdrop open>
           <HeaderBar>
             <Toolbar variant="dense">
-              <Typography variant="bodyBold" textAlign="center">
+              <Typography variant="bodyBold" textAlign="center" data-testid="consent-required-dialog-title-bar">
                 {translation("dashboard.requiredConsentDialog.titleBar")}
               </Typography>
             </Toolbar>
           </HeaderBar>
           <Container>
             <Paper elevation={0}>
-              <Typography variant="titleLargeBold">{getTitle(consent.type)}</Typography>
+              <Typography variant="titleLargeBold" data-testid="consent-required-dialog-title">
+                {getTitle(consent.type)}
+              </Typography>
               <TitleDivider />
               <ConsentContent name="consent-type" data={consent.data.consent} />
               <FormProvider {...methods}>
