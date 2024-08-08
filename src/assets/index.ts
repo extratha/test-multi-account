@@ -23,6 +23,7 @@ export { ReactComponent as IconSetting } from "./icons/icon-setting.svg";
 export { ReactComponent as IconSparkleDisabled } from "./icons/icon-sparkle-disabled.svg";
 export { ReactComponent as IconSparkle } from "./icons/icon-sparkle.svg";
 export { ReactComponent as IconExclamation } from "./icons/icon-exclamation.svg";
+export { ReactComponent as IconGlobe } from "./icons/icon-globe.svg";
 
 export { ReactComponent as ImageCarivaLogo } from "./images/cariva-logo.svg";
 export { ReactComponent as PlaygroundLogoColor } from "./images/playground-logo-color.svg";

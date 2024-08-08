@@ -129,8 +129,8 @@ describe("AiInterpretResult", () => {
   it("should copy to example data when click copy button", async () => {
     await renderAiInterpretResult();
 
-    await userEvent.click(screen.getByTestId("ai-interpret-button-copy-0"));
+    await userEvent.click(screen.getByTestId("ai-interpret-0-button-copy"));
 
-    expect(navigator.clipboard.writeText).toHaveBeenCalledWith("description-ai-result");
+    expect(navigator.clipboard.writeText).toHaveBeenCalledWith("title-ai-result\nTH language");
   });
 });

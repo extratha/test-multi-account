@@ -4,9 +4,8 @@ import { Button, Divider, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useMemo } from "react";
-import ReactMarkdown from "react-markdown";
 
-import { IconArrowLeft, IconCopy, IconPen, IconSparkle } from "@/assets";
+import { IconArrowLeft, IconPen, IconSparkle } from "@/assets";
 import FullScreenLoading from "@/components/Loading/FullScreenLoading";
 import Tag from "@/components/Tag";
 import { GENDER, GENERAL_CHECK_UP, GROUP_NAME, NAVIGATION } from "@/constant";
@@ -14,6 +13,7 @@ import { useGetLabExampleId, useGetLabInterpretResultId } from "@/hooks/useApi";
 import useTranslation from "@/locales/useLocale";
 import { InputData, InputDataResult } from "@/types/model.api";
 import AiInterpretLabResult from "./AiInterpretLebResult";
+import AiInterpretAiResult from "./AiInterpretAiResult";
 
 const ContentContainer = styled(Stack)(({ theme }) => ({
   flex: 1,
@@ -99,17 +99,6 @@ const Title = styled(Typography)(({ theme }) => ({
   color: theme.palette.common.white,
 }));
 
-const TitleResult = styled(Typography)(({ theme }) => ({
-  fontWeight: 600,
-  color: theme.palette.primary.main,
-}));
-
-const Markdown = styled(ReactMarkdown)(({ theme }) => ({
-  fontSize: "16px",
-  whiteSpace: "normal",
-  color: theme.palette.text.hight,
-}));
-
 const General = styled(Stack)(({ theme }) => ({
   color: theme.palette.text.hight,
   border: `1px solid ${theme.palette.background.borderLight}`,
@@ -183,10 +172,6 @@ const AiInterpretResult = () => {
 
   const handleClickBack = () => {
     router.replace(NAVIGATION.AI_INTERPRET_TRY_EXAMPLE_DATA);
-  };
-
-  const handleClickCopy = (text: string) => {
-    navigator.clipboard.writeText(text);
   };
 
   const getInformationValue = (item: InputData) => {
@@ -264,21 +249,12 @@ const AiInterpretResult = () => {
                       </Stack>
                       <Stack padding="24px" spacing="24px" divider={<Divider flexItem />}>
                         {aiResultData.map((option, index) => (
-                          <Stack key={`ai-interpret-result-${index}`} spacing="16px">
-                            <TitleResult data-testid={`ai-interpret-title-${index}`}>
-                              {`${index + 1}. ${option.title}`}
-                            </TitleResult>
-                            <Markdown data-testid={`ai-interpret-description-${index}`}>{option.description}</Markdown>
-                            <Stack direction="row">
-                              <Button
-                                startIcon={<IconCopy />}
-                                onClick={() => handleClickCopy(option.description)}
-                                data-testid={`ai-interpret-button-copy-${index}`}
-                              >
-                                {translation("AiInterpret.aiInterpretResult.button.copy")}
-                              </Button>
-                            </Stack>
-                          </Stack>
+                          <AiInterpretAiResult
+                            key={index}
+                            name={`ai-interpret-${index}`}
+                            title={`${index + 1}. ${option.title}`}
+                            data={option}
+                          />
                         ))}
                       </Stack>
                     </>
