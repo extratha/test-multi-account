@@ -28,6 +28,7 @@ const HomePageModule = () => {
   const router = useRouter();
   const [config, setConfig] = useState<HomeMenuItemConfig[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [userProfile, setUserProfile] = useState({ firstName: "", lastName: "" });
 
   const handleClickMenuItem = (item: HomeMenuItemConfig) => {
     router.replace(item.path);
@@ -45,8 +46,18 @@ const HomePageModule = () => {
     }
   };
 
+  //TODO refactor with NV-344
+  const getUserProfile = () => {
+    const data = localStorage.getItem("userProfile");
+    if (data) {
+      const rawUserProfile = JSON.parse(data);
+      setUserProfile({ ...userProfile, ...rawUserProfile.state.data });
+    }
+  };
+
   useEffect(() => {
     fetchConfig();
+    getUserProfile();
   }, []);
 
   return (
@@ -56,7 +67,7 @@ const HomePageModule = () => {
       ) : (
         <DashboardPage>
           <Stack spacing="16px" alignItems="flex-start" padding="40px">
-            <PageTitle>{`${translation("Common.title.hello")} ${translation("Common.roles.admin")}`}</PageTitle>
+            <PageTitle>{`${translation("Common.title.hello")} ${userProfile.firstName}`}</PageTitle>
             <Typography variant="headerExtraLargeBold">{translation("Common.title.pleaseSelectMenu")} </Typography>
           </Stack>
           <Grid container padding="0px 40px" spacing="24px">

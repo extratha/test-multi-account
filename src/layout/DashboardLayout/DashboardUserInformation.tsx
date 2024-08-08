@@ -1,10 +1,11 @@
 import { Stack, styled, Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import { useEffect, useState } from "react";
 
 import { IconCreditCoin, IconSparkle, PlaygroundLogoOverlay } from "@/assets";
+import useTranslation from "@/locales/useLocale";
 import { useUserProfileStore } from "@/store";
 import { getVersion } from "@/utils/common";
-import useTranslation from "@/locales/useLocale";
 
 const Wrapper = styled(Box)({
   padding: "20px",
@@ -31,6 +32,16 @@ const LogoBackground = styled(PlaygroundLogoOverlay)({
 const DashboardUserInformation = () => {
   const { data } = useUserProfileStore();
   const { translation } = useTranslation();
+  const [userProfile, setUserProfile] = useState({ firstName: "", lastName: "" });
+
+  //TODO refactor with NV-344
+  useEffect(() => {
+    const data = localStorage.getItem("userProfile");
+    if (data) {
+      const rawUserProfile = JSON.parse(data);
+      setUserProfile({ ...userProfile, ...rawUserProfile.state.data });
+    }
+  }, []);
 
   return (
     <Wrapper>
@@ -43,15 +54,15 @@ const DashboardUserInformation = () => {
           </Typography>
         </Stack>
         <Typography variant="bodySmallMedium" marginTop="32px">
-          {"Admin Officer"}
+          {`${userProfile.firstName} ${userProfile.lastName}`}
         </Typography>
         <Typography variant="labelExtraSmall">{data.email}</Typography>
         <Box flex="1" />
-        <Typography variant="labelExtraSmallMedium">{"เครดิตของฉัน"}</Typography>
+        <Typography variant="labelExtraSmallMedium">{translation("AiInterpret.text.myCredit")}</Typography>
         <Stack direction="row" alignItems="center" spacing="4px" color="emberShade.300">
           <IconCreditCoin />
           <Typography variant="bodyBold" color="amber.300">
-            {"ใช้ได้ไม่จำกัด"}
+            {translation("AiInterpret.text.unlimited")}
           </Typography>
         </Stack>
       </Content>
