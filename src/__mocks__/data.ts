@@ -540,7 +540,10 @@ export const mockAiInterpretResult: InterpretResult = {
     data: [
       {
         title: "title-ai-result",
-        description: "description-ai-result",
+        descriptions: [
+          { description: "TH language", language: "TH" },
+          { description: "EN language", language: "EN" },
+        ],
       },
     ],
   },

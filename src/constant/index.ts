@@ -12,6 +12,11 @@ export const ENV = {
     process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || "MOCK_NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID",
 };
 
+export const LANGUAGE = {
+  TH: "TH",
+  EN: "EN",
+};
+
 export const SESSION = {
   ACCESS_TOKEN: "access-token",
   REFRESH_TOKEN: "refresh-token",

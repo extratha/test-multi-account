@@ -1,0 +1,190 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AiInterpretAiResult should render correctly 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-0>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-0>:not(style)~:not(style) {
+  margin-top: 16px;
+}
+
+.emotion-1 {
+  margin: 0;
+  font-family: fontFamily;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #2196F3;
+}
+
+.emotion-2 {
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-2>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-2>:not(style)~:not(style) {
+  margin-left: 16px;
+}
+
+.emotion-3 {
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 4px;
+  padding: 6px 8px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: #2196F3;
+  font-family: fontFamily;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  min-width: 64px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.emotion-3::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-3.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-3 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-3:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(33, 150, 243, 0.04);
+}
+
+@media (hover: none) {
+  .emotion-3:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-3.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.emotion-4 {
+  display: inherit;
+  margin-right: 8px;
+  margin-left: -4px;
+}
+
+.emotion-4>*:nth-of-type(1) {
+  font-size: 20px;
+}
+
+.emotion-5 {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+}
+
+<div
+    class="MuiStack-root emotion-0"
+  >
+    <p
+      class="MuiTypography-root MuiTypography-body1 emotion-1"
+      data-testid="ai-interpret-0-title"
+    >
+      title general
+    </p>
+    <div
+      data-testid="ai-interpret-0-description"
+    >
+      language th
+    </div>
+    <div
+      class="MuiStack-root emotion-2"
+    >
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-3"
+        data-testid="ai-interpret-0-button-copy"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium emotion-4"
+        >
+          <svg />
+        </span>
+        คัดลอกข้อความ
+        <span
+          class="MuiTouchRipple-root emotion-5"
+        />
+      </button>
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-3"
+        data-testid="ai-interpret-0-change-translate-button"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium emotion-4"
+        >
+          <svg />
+        </span>
+        AiInterpret.aiInterpretResult.button.multiple
+        <span
+          class="MuiTouchRipple-root emotion-5"
+        />
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
