@@ -24,7 +24,12 @@ const AiInterpretAiResult = ({ name, title, data }: AiInterpretAiResultProps) =>
   const [language, setLanguage] = useState(LANGUAGE.TH);
 
   const description = useMemo(() => {
-    const text = data.descriptions.find((item) => item.language === language);
+    let text;
+    if (data.descriptions.length === 1) {
+      text = data.descriptions[0];
+    } else {
+      text = data.descriptions.find((item) => item.language === language);
+    }
     return text?.description || "";
   }, [language]);
 
@@ -54,7 +59,7 @@ const AiInterpretAiResult = ({ name, title, data }: AiInterpretAiResultProps) =>
             onClick={handleClickTranslate}
             data-testid={`${name}-change-translate-button`}
           >
-            {translation("AiInterpret.aiInterpretResult.button.multiple")}
+            {translation("AiInterpret.aiInterpretResult.button.translate")}
           </Button>
         )}
       </Stack>

@@ -179,7 +179,7 @@ exports[`AiInterpretAiResult should render correctly 1`] = `
         >
           <svg />
         </span>
-        AiInterpret.aiInterpretResult.button.multiple
+        แปลข้อความนี้
         <span
           class="MuiTouchRipple-root emotion-5"
         />
