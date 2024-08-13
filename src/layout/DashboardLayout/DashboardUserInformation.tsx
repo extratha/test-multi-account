@@ -34,7 +34,6 @@ const DashboardUserInformation = () => {
   const { translation } = useTranslation();
   const [userProfile, setUserProfile] = useState({ firstName: "", lastName: "" });
 
-  //TODO refactor with NV-344
   useEffect(() => {
     const data = localStorage.getItem("userProfile");
     if (data) {

@@ -46,7 +46,6 @@ const HomePageModule = () => {
     }
   };
 
-  //TODO refactor with NV-344
   const getUserProfile = () => {
     const data = localStorage.getItem("userProfile");
     if (data) {
