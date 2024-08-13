@@ -150,10 +150,16 @@
       "title": "นโยบายความเป็นส่วนตัว"
     }
   },
+  "dashboard": {
+    "userInformation": {
+      "version": "V {{version}}"
+    }
+  },
   "login": {
     "text": {
       "carivaPlayground": "CARIVA PLAYGROUND",
       "login": "เข้าสู่ระบบ",
+      "version": "V {{version}}",
       "password": "รหัสผ่าน",
       "placeholder": {
         "email": "อีเมล",
@@ -193,6 +199,11 @@
     },
     "toast": {
       "resetPasswordSuccess": "ตั้งค่ารหัสผ่านใหม่สำเร็จ"
+    }
+  },
+  "dashboard": {
+    "requiredConsentDialog": {
+      "titleBar": "เลื่อนขึ้นเพื่ออ่านข้อความทั้งหมดและดำเนินการต่อ"
     }
   },
   "AiInterpret": {
@@ -253,7 +264,8 @@
       "button": {
         "back": "กลับหน้าหลัก",
         "edit": "ปรับแต่งข้อมูล",
-        "copy": "คัดลอกข้อความ"
+        "copy": "คัดลอกข้อความ",
+        "translate": "แปลข้อความนี้"
       },
       "general": {
         "title": "การตรวจสุขภาพทั่วไป",

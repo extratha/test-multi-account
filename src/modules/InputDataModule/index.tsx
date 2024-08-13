@@ -78,13 +78,12 @@ const MALE = "Male";
 
 const InputDataModule = () => {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const { translation } = useTranslation();
-  const [isFetching, setIsFetching] = useState(true);
-  const [modalInterpretStatus, setModalInterpretStatus] = useState("");
-
+  const searchParams = useSearchParams();
   const interpretId = searchParams.get("exampleId");
 
+  const [isFetching, setIsFetching] = useState(true);
+  const [modalInterpretStatus, setModalInterpretStatus] = useState("");
   const [inputGroupConfigs, setInputGroupConfigs] = useState<InputGroupConfigResult[]>([]);
   const refIsCancelledSubmit = useRef(false);
 
@@ -176,7 +175,7 @@ const InputDataModule = () => {
     }
   };
 
-  const handleClickCloseModalInterpretStatus = () => {
+  const cancelSubmitInterpret = () => {
     refIsCancelledSubmit.current = modalInterpretStatus === INTERPRET_STATUS.PENDING;
     setModalInterpretStatus("");
   };
@@ -274,9 +273,7 @@ const InputDataModule = () => {
           </ContentContainerWrapper>
         </ContentContainer>
       )}
-      {modalInterpretStatus && (
-        <InterpretModal status={modalInterpretStatus} onClose={handleClickCloseModalInterpretStatus} />
-      )}
+      {modalInterpretStatus && <InterpretModal status={modalInterpretStatus} onClose={cancelSubmitInterpret} />}
     </>
   );
 };

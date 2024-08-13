@@ -17,6 +17,14 @@ export const apiAxios = axios.create({ baseURL: ENV.BASE_API_URL });
 apiAxios.interceptors.request.use(appendHeaders);
 apiAxios.interceptors.response.use((response) => response, onRefreshToken);
 
+export const setupOnApiAxiosError = <T>(onRejected: (error: T) => T) => {
+  return apiAxios.interceptors.response.use((response) => response, onRejected);
+};
+
+export const ejectOnApiAxiosError = (id: number) => {
+  apiAxios.interceptors.response.eject(id);
+};
+
 export const submitChangePassword = (data: ChangePasswordRequest) => {
   return apiAxios.post("/auth/change-password", data);
 };

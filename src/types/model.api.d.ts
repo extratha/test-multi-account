@@ -79,9 +79,14 @@ export interface InputDataResult {
   data: InputData[];
 }
 
-interface AiData {
+export interface AiData {
   title: string;
+  descriptions: AiLanguageData[];
+}
+
+export interface AiLanguageData {
   description: string;
+  language: string;
 }
 
 interface AiResult {

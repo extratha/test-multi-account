@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { IconCreditCoin, IconSparkle, PlaygroundLogoOverlay } from "@/assets";
 import useTranslation from "@/locales/useLocale";
 import { useUserProfileStore } from "@/store";
+import { getVersion } from "@/utils/common";
 
 const Wrapper = styled(Box)({
   padding: "20px",
@@ -45,7 +46,12 @@ const DashboardUserInformation = () => {
     <Wrapper>
       <Content>
         <LogoBackground />
-        <IconSparkle width="16px" height="16px" />
+        <Stack direction="row" justifyContent="space-between">
+          <IconSparkle width="16px" height="16px" />
+          <Typography variant="labelExtraSmallMedium" color="common.white">
+            {translation("dashboard.userInformation.version", { version: getVersion() })}
+          </Typography>
+        </Stack>
         <Typography variant="bodySmallMedium" marginTop="32px">
           {`${userProfile.firstName} ${userProfile.lastName}`}
         </Typography>
