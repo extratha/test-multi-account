@@ -153,6 +153,9 @@
   "dashboard": {
     "userInformation": {
       "version": "V {{version}}"
+    },
+    "requiredConsentDialog": {
+      "titleBar": "เลื่อนขึ้นเพื่ออ่านข้อความทั้งหมดและดำเนินการต่อ"
     }
   },
   "login": {
@@ -199,11 +202,6 @@
     },
     "toast": {
       "resetPasswordSuccess": "ตั้งค่ารหัสผ่านใหม่สำเร็จ"
-    }
-  },
-  "dashboard": {
-    "requiredConsentDialog": {
-      "titleBar": "เลื่อนขึ้นเพื่ออ่านข้อความทั้งหมดและดำเนินการต่อ"
     }
   },
   "AiInterpret": {
