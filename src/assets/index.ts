@@ -6,6 +6,8 @@ export { ReactComponent as IconConsentGroupDetail } from "./icons/icon-consent-g
 export { ReactComponent as IconCopy } from "./icons/icon-copy.svg";
 export { ReactComponent as IconCreditCoin } from "./icons/icon-credit-coin.svg";
 export { ReactComponent as IconErrorCircle } from "./icons/icon-error-circle.svg";
+export { ReactComponent as IconExclamation } from "./icons/icon-exclamation.svg";
+export { ReactComponent as IconGlobe } from "./icons/icon-globe.svg";
 export { ReactComponent as IconHomePageActive } from "./icons/icon-home-page-active.svg";
 export { ReactComponent as IconHomePage } from "./icons/icon-home-page.svg";
 export { ReactComponent as IconImportExampleData } from "./icons/icon-import-example-data.svg";
@@ -22,8 +24,6 @@ export { ReactComponent as IconReload } from "./icons/icon-reload.svg";
 export { ReactComponent as IconSetting } from "./icons/icon-setting.svg";
 export { ReactComponent as IconSparkleDisabled } from "./icons/icon-sparkle-disabled.svg";
 export { ReactComponent as IconSparkle } from "./icons/icon-sparkle.svg";
-export { ReactComponent as IconExclamation } from "./icons/icon-exclamation.svg";
-export { ReactComponent as IconGlobe } from "./icons/icon-globe.svg";
 
 export { ReactComponent as ImageCarivaLogo } from "./images/cariva-logo.svg";
 export { ReactComponent as PlaygroundLogoColor } from "./images/playground-logo-color.svg";
@@ -32,5 +32,3 @@ export { ReactComponent as PlaygroundLogo } from "./images/playground-logo.svg";
 
 export { default as ImageCoverBg } from "./images/image-cover-bg.jpg";
 export { default as ImageLoadingStack } from "./images/loading-stack.gif";
-
-export { default as IosDeviceFrame } from "./frame/ios-device-frame.png";
