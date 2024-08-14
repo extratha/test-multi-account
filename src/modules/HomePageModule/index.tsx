@@ -66,7 +66,9 @@ const HomePageModule = () => {
       ) : (
         <DashboardPage>
           <Stack spacing="16px" alignItems="flex-start" padding="40px">
-            <PageTitle>{`${translation("Common.title.hello")} ${userProfile.firstName}`}</PageTitle>
+            <PageTitle>{`${translation("Common.title.hello")} ${userProfile.firstName} ${
+              userProfile.lastName
+            }`}</PageTitle>
             <Typography variant="headerExtraLargeBold">{translation("Common.title.pleaseSelectMenu")} </Typography>
           </Stack>
           <Grid container padding="0px 40px" spacing="24px">
