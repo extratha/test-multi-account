@@ -16,26 +16,18 @@ interface RequiredConsentsProps {
 const RequiredConsent = ({ children }: RequiredConsentsProps) => {
   const [consentList, setConsentList] = useState<RequiredConsentData[]>([]);
 
-  const [consent, setConsent] = useState<RequiredConsentData>();
   const [activeIndex, setActiveIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
+  const consent = consentList[activeIndex];
+
   const updateNextConsent = () => {
-    let newConsent: RequiredConsentData | undefined = undefined;
-
-    if (consentList.length === 0) return;
-
-    if (activeIndex < consentList.length) {
-      newConsent = consentList[activeIndex];
-    } else {
-      setConsentList([]);
-    }
-
-    setConsent(newConsent);
     setActiveIndex(activeIndex + 1);
   };
 
   const validateConsents = async () => {
+    setActiveIndex(0);
+
     const responseTermsCondition = await getConsent(CONSENT_TYPE.TERMS_CONDITIONS);
     const responsePrivacyPolicy = await getConsent(CONSENT_TYPE.PRIVACY_POLICIES);
 
@@ -65,20 +57,17 @@ const RequiredConsent = ({ children }: RequiredConsentsProps) => {
       await validateConsents();
     }
 
-    return Promise.reject(error);
+    throw error;
   };
 
   useEffect(() => {
     const id = setupOnApiAxiosError(validateError);
     handleValidateConsent();
+
     return () => {
       ejectOnApiAxiosError(id);
     };
   }, []);
-
-  useEffect(() => {
-    updateNextConsent();
-  }, [consentList.length]);
 
   return (
     <>
