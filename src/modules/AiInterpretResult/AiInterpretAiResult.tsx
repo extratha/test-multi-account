@@ -59,7 +59,7 @@ const AiInterpretAiResult = ({ name, title, data }: AiInterpretAiResultProps) =>
             onClick={handleClickTranslate}
             data-testid={`${name}-change-translate-button`}
           >
-            {translation("AiInterpret.aiInterpretResult.button.translate")}
+            {translation(`AiInterpret.aiInterpretResult.button.translate.${language}`)}
           </Button>
         )}
       </Stack>

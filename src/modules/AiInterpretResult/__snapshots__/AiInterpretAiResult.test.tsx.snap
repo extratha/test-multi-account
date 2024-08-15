@@ -179,7 +179,7 @@ exports[`AiInterpretAiResult should render correctly 1`] = `
         >
           <svg />
         </span>
-        แปลข้อความนี้
+        See Translate
         <span
           class="MuiTouchRipple-root emotion-5"
         />
