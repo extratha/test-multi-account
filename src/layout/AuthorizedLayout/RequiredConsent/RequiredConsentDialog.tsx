@@ -126,6 +126,7 @@ const RequiredConsentDialog = ({ consent, onSubmitted }: RequiredConsentsProps) 
       setIsLoading(true);
       await submitConsent(SUBMIT_CONSENT_TYPE[consent.type], consent.data.version || "");
 
+      methods.reset();
       setIsLoading(false);
       if (onSubmitted) onSubmitted();
     } catch (error) {
