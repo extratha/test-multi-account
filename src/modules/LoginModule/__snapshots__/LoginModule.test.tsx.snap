@@ -712,7 +712,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-17:focus::-ms-input-
           <span
             class="MuiTypography-root MuiTypography-labelExtraSmall emotion-6"
           >
-            V 2.1
+            V 2.3
           </span>
         </div>
         <form>
