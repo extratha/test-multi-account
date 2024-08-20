@@ -11,6 +11,7 @@ interface AuthorizedLayoutProps {
   children: ReactNode;
 }
 
+// TODO: unit test
 const AuthorizedLayout = ({ children }: AuthorizedLayoutProps) => {
   const router = useRouter();
 

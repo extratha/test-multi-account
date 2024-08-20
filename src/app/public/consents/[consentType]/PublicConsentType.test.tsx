@@ -7,7 +7,7 @@ import { spyUseParams } from "@/testUtils/navigation";
 import { API, flushPromise, render } from "@/testUtils/testUtils";
 import Consents from "./page";
 
-describe("Consents", () => {
+describe("PublicConsentType", () => {
   let mockApiAdapter: MockAdapter;
   let params: PublicConsentTypeParams;
 
@@ -20,14 +20,14 @@ describe("Consents", () => {
     mockApiAdapter.onGet(API.PUBLIC_PRIVACY_POLICIES).reply(200, mockPublicPrivacyPolicy);
   });
 
-  const renderConsents = async () => {
+  const renderPublicConsentType = async () => {
     const view = render(<Consents />);
     await flushPromise();
     return view;
   };
 
   it("should render correctly", async () => {
-    const { asFragment } = await renderConsents();
+    const { asFragment } = await renderPublicConsentType();
     expect(asFragment()).toMatchSnapshot();
   });
 });
