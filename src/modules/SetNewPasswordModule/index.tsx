@@ -36,8 +36,8 @@ const SetNewPasswordWrapper = styled(Stack)(({ theme }) => ({
 }));
 
 const DialogExpired = styled(Dialog)({
-  "& .content-dialog": {
-    width: "400px",
+  "& .dialog-content": {
+    fontSize: "20px",
   },
 });
 

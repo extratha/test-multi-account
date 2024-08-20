@@ -101,7 +101,8 @@
     },
     "message": {
       "resetPassword": "กรอกอีเมลของคุณเพื่อรับลิงก์สำหรับตั้งรหัสผ่านใหม่",
-      "resetPasswordSuccess": "กรุณาตรวจสอบอีเมลของคุณ"
+      "resetPasswordSuccess": "กรุณาตรวจสอบอีเมลของคุณ",
+      "confirmLogout": "คุณต้องการออกจากระบบใช่หรือไม่ ?"
     },
     "responseError": {
       "invalidEmailOrPassword": "อีเมลหรือรหัสผ่านไม่ถูกต้อง กรุณาตรวจสอบอีกครั้ง"
