@@ -3,7 +3,9 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 import { PlaygroundLogoColor } from "@/assets";
+import Dialog from "@/components/Dialog";
 import { MENU_CONDITION, NAVIGATION, SESSION } from "@/constant";
+import useTranslation from "@/locales/useLocale";
 import { AppMenuConfig, MenuItemConfig } from "@/types/model.ui";
 import { removeStorage } from "@/utils/common";
 import DashboardPanelMenu from "./DashboardPanelMenu";
@@ -38,20 +40,40 @@ const SubHeader = styled(Typography)({
   padding: "12px 20px",
 }) as typeof Typography;
 
+const LogoutDialog = styled(Dialog)({
+  "& .MuiDialog-paper": {
+    minHeight: "240px",
+  },
+  "& .dialog-title": {
+    textAlign: "left",
+    padding: "24px 24px 8px",
+  },
+  "& .dialog-content": {
+    textAlign: "left",
+  },
+});
+
 const DashboardPanel = ({ menuList }: DashboardPanelProps) => {
   const router = useRouter();
 
   const [showSubmenu, setShowSubmenu] = useState("");
+  const [isLogoutDialog, setIsLogoutDialog] = useState(false);
+  const { translation } = useTranslation();
 
   const onLogout = () => {
+    setIsLogoutDialog(false);
     removeStorage(SESSION.ACCESS_TOKEN);
     removeStorage(SESSION.REFRESH_TOKEN);
     router.replace(NAVIGATION.LOGIN);
   };
 
+  const onCloseLogout = () => {
+    setIsLogoutDialog(false);
+  };
+
   const handleCLickMenuItem = (item: MenuItemConfig) => {
     if (item.key === MENU_CONDITION.LOGOUT) {
-      onLogout();
+      setIsLogoutDialog(true);
     } else {
       setShowSubmenu((state) => (state === item.key ? "" : item.key));
     }
@@ -84,6 +106,16 @@ const DashboardPanel = ({ menuList }: DashboardPanelProps) => {
         ))}
       </Stack>
       <Divider />
+      <LogoutDialog
+        name="logout"
+        open={isLogoutDialog}
+        title={translation("Common.menu.logout")}
+        description={translation("Common.message.confirmLogout")}
+        confirm={translation("Common.button.ok")}
+        cancel={translation("Common.button.back")}
+        onConfirm={onLogout}
+        onCancel={onCloseLogout}
+      />
       <DashboardUserInformation />
     </DashboardMenu>
   );
