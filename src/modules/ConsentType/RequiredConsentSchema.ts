@@ -1,8 +1,9 @@
-import useTranslation from "@/locales/useLocale";
 import * as yup from "yup";
 
+import useTranslation from "@/locales/useLocale";
+
 // TODO: unit test
-const useRequiredConsentSchema = () => {
+const useConsentTypeSchema = () => {
   const { translation } = useTranslation();
 
   return yup.object().shape({
@@ -15,4 +16,4 @@ const useRequiredConsentSchema = () => {
   });
 };
 
-export default useRequiredConsentSchema;
+export default useConsentTypeSchema;
