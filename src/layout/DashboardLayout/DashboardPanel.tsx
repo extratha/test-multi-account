@@ -111,7 +111,7 @@ const DashboardPanel = ({ menuList }: DashboardPanelProps) => {
         open={isLogoutDialog}
         title={translation("Common.menu.logout")}
         description={translation("Common.message.confirmLogout")}
-        confirm={translation("Common.button.ok")}
+        confirm={translation("Common.button.confirm")}
         cancel={translation("Common.button.back")}
         onConfirm={onLogout}
         onCancel={onCloseLogout}
