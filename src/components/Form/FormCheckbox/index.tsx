@@ -19,8 +19,8 @@ const FormCheckbox = ({ name, label, disabled, className }: FormCheckboxProps) =
       data-testid={`${name}-checkbox`}
       control={
         <Checkbox
-          checked={field.value}
           {...field}
+          checked={field.value}
           data-testid={`${name}-checkbox-item-button`}
           // @ts-ignore
           inputProps={{ "data-testid": `${name}-checkbox-value` }}

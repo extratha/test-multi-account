@@ -45,6 +45,7 @@ const createMuiTheme = () => {
         border: blueGrey[100],
         borderLight: blueGrey[50],
         grayLight: blueGrey[50],
+        grayHight: "#212121",
         gradient: "linear-gradient(94deg, #0059D6 0%, #028DF5 50%, #00CBDD 100%)",
       },
     },

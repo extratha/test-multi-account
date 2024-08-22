@@ -1,31 +1,27 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect } from "react";
 
-import FullScreenLoading from "@/components/Loading/FullScreenLoading";
 import { NAVIGATION, SESSION } from "@/constant";
 import { storage } from "@/utils/common";
+import RequiredConsent from "./RequiredConsent";
 
 interface AuthorizedLayoutProps {
   children: ReactNode;
 }
 
+// TODO: unit test
 const AuthorizedLayout = ({ children }: AuthorizedLayoutProps) => {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const accessToken = storage(SESSION.ACCESS_TOKEN);
-
-    if (accessToken) {
-      setIsLoading(false);
-    } else {
+    if (!storage(SESSION.ACCESS_TOKEN)) {
       router.replace(NAVIGATION.LOGIN);
     }
   }, []);
 
-  return <>{isLoading ? <FullScreenLoading /> : children}</>;
+  return <RequiredConsent>{children}</RequiredConsent>;
 };
 
 export default AuthorizedLayout;

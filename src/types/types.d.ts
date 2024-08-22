@@ -75,6 +75,7 @@ declare global {
 
     export interface TypeBackground {
       grayLight: string;
+      grayHight: string;
       border: string;
       borderLight: string;
       gradient: string;

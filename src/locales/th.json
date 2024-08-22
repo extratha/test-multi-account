@@ -101,7 +101,8 @@
     },
     "message": {
       "resetPassword": "กรอกอีเมลของคุณเพื่อรับลิงก์สำหรับตั้งรหัสผ่านใหม่",
-      "resetPasswordSuccess": "กรุณาตรวจสอบอีเมลของคุณ"
+      "resetPasswordSuccess": "กรุณาตรวจสอบอีเมลของคุณ",
+      "confirmLogout": "คุณต้องการออกจากระบบใช่หรือไม่ ?"
     },
     "responseError": {
       "invalidEmailOrPassword": "อีเมลหรือรหัสผ่านไม่ถูกต้อง กรุณาตรวจสอบอีกครั้ง"
@@ -140,7 +141,7 @@
       "title": "Symptom Checker",
       "subtitle": "ที่ปรึกษาทางการแพทย์อัจริยะ",
       "button": {
-        "reload": "รีโหลดหน้า"
+        "reload": "เริ่มต้นใหม่"
       }
     },
     "settingTermsAndConditions": {
@@ -150,10 +151,19 @@
       "title": "นโยบายความเป็นส่วนตัว"
     }
   },
+  "dashboard": {
+    "userInformation": {
+      "version": "V {{version}}"
+    },
+    "requiredConsentDialog": {
+      "titleBar": "เลื่อนขึ้นเพื่ออ่านข้อความทั้งหมดและดำเนินการต่อ"
+    }
+  },
   "login": {
     "text": {
       "carivaPlayground": "CARIVA PLAYGROUND",
       "login": "เข้าสู่ระบบ",
+      "version": "V {{version}}",
       "password": "รหัสผ่าน",
       "placeholder": {
         "email": "อีเมล",
@@ -187,8 +197,8 @@
       "setNewPassword": "ตั้งรหัสผ่านใหม่"
     },
     "dialog": {
-      "title": " ลิงค์ไม่ถูกต้อง",
-      "message": "ลิงค์นี้ไม่สามารถใช้งานได้\nกรุณาตรวจสอบลิงค์อีกครั้ง",
+      "title": " ลิงก์ไม่ถูกต้อง",
+      "message": "ลิงก์นี้ไม่สามารถใช้งานได้\nกรุณาตรวจสอบลิงก์อีกครั้ง",
       "button": "ตกลง"
     },
     "toast": {
@@ -253,7 +263,11 @@
       "button": {
         "back": "กลับหน้าหลัก",
         "edit": "ปรับแต่งข้อมูล",
-        "copy": "คัดลอกข้อความ"
+        "copy": "คัดลอกข้อความ",
+        "translate": {
+          "EN": "แปลข้อความนี้",
+          "TH": "See Translate"
+        }
       },
       "general": {
         "title": "การตรวจสุขภาพทั่วไป",

@@ -71,6 +71,9 @@ describe("InputDataModule", () => {
   });
 
   it("should call router push when click on use example data button", async () => {
+    spySearchParams.get.mockImplementation((key: string) => {
+      if (key === "exampleId") return undefined;
+    });
     await renderInputDataModule();
 
     await userEvent.click(screen.getByTestId("use-example-data-button"));

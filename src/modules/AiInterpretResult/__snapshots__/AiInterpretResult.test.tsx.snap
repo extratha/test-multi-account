@@ -380,19 +380,21 @@ exports[`AiInterpretResult should render correctly 1`] = `
 }
 
 .emotion-32 {
-  font-size: 16px;
-  white-space: normal;
-  color: #212121;
-}
-
-.emotion-33 {
   display: flex;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
 }
 
-.emotion-37 {
+.emotion-32>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-32>:not(style)~:not(style) {
+  margin-left: 16px;
+}
+
+.emotion-39 {
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -403,7 +405,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
   overflow: hidden;
 }
 
-.emotion-38 {
+.emotion-40 {
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -412,14 +414,14 @@ exports[`AiInterpretResult should render correctly 1`] = `
   background-color: #FAFAFA;
 }
 
-.emotion-39 {
+.emotion-41 {
   margin: 0;
   font-size: 18px;
   font-weight: 700;
   line-height: 24px;
 }
 
-.emotion-40 {
+.emotion-42 {
   display: flex;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -430,35 +432,35 @@ exports[`AiInterpretResult should render correctly 1`] = `
   padding: 12px 24px 24px;
 }
 
-.emotion-41 {
+.emotion-43 {
   margin: 0;
   font-size: 16px;
   font-weight: 700;
   line-height: 1.5;
 }
 
-.emotion-42 {
+.emotion-44 {
   display: flex;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
 }
 
-.emotion-42>:not(style):not(style) {
+.emotion-44>:not(style):not(style) {
   margin: 0;
 }
 
-.emotion-42>:not(style)~:not(style) {
+.emotion-44>:not(style)~:not(style) {
   margin-left: 36px;
 }
 
-.emotion-43 {
+.emotion-45 {
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
 }
 
-.emotion-44 {
+.emotion-46 {
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
@@ -466,7 +468,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
   color: #607D8B;
 }
 
-.emotion-65 {
+.emotion-67 {
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -476,26 +478,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
   overflow: hidden;
 }
 
-.emotion-65 .MuiButton-root {
+.emotion-67 .MuiButton-root {
   font-size: 12px;
   font-weight: 600;
   color: #FFFFFF;
   background-color: #212121;
 }
 
-.emotion-65 .MuiButton-root:hover {
+.emotion-67 .MuiButton-root:hover {
   background-color: #212121;
 }
 
-.emotion-65 .MuiButton-endIcon {
+.emotion-67 .MuiButton-endIcon {
   padding-left: 8px;
 }
 
-.emotion-66 {
+.emotion-68 {
   position: absolute;
 }
 
-.emotion-67 {
+.emotion-69 {
   display: flex;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -508,6 +510,13 @@ exports[`AiInterpretResult should render correctly 1`] = `
 }
 
 .emotion-70 {
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-72 {
   display: inline-flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -548,54 +557,54 @@ exports[`AiInterpretResult should render correctly 1`] = `
   box-shadow: 0px 4px 6px -1px #21212133,0px 2px 4px -2px #21212133;
 }
 
-.emotion-70::-moz-focus-inner {
+.emotion-72::-moz-focus-inner {
   border-style: none;
 }
 
-.emotion-70.Mui-disabled {
+.emotion-72.Mui-disabled {
   pointer-events: none;
   cursor: default;
 }
 
 @media print {
-  .emotion-70 {
+  .emotion-72 {
     -webkit-print-color-adjust: exact;
     color-adjust: exact;
   }
 }
 
-.emotion-70:hover {
+.emotion-72:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
   background-color: rgba(33, 150, 243, 0.04);
 }
 
 @media (hover: none) {
-  .emotion-70:hover {
+  .emotion-72:hover {
     background-color: transparent;
   }
 }
 
-.emotion-70.Mui-disabled {
+.emotion-72.Mui-disabled {
   color: rgba(0, 0, 0, 0.26);
 }
 
-.emotion-70 svg {
+.emotion-72 svg {
   width: 16px;
   height: 16px;
 }
 
-.emotion-71 {
+.emotion-73 {
   display: inherit;
   margin-right: -4px;
   margin-left: 8px;
 }
 
-.emotion-71>*:nth-of-type(1) {
+.emotion-73>*:nth-of-type(1) {
   font-size: 20px;
 }
 
-.emotion-73 {
+.emotion-75 {
   height: 0;
   overflow: hidden;
   -webkit-transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -603,16 +612,16 @@ exports[`AiInterpretResult should render correctly 1`] = `
   visibility: hidden;
 }
 
-.emotion-74 {
+.emotion-76 {
   display: flex;
   width: 100%;
 }
 
-.emotion-75 {
+.emotion-77 {
   width: 100%;
 }
 
-.emotion-76 {
+.emotion-78 {
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -620,35 +629,19 @@ exports[`AiInterpretResult should render correctly 1`] = `
   padding: 12px 24px;
 }
 
-.emotion-76>:not(style):not(style) {
+.emotion-78>:not(style):not(style) {
   margin: 0;
 }
 
-.emotion-76>:not(style)~:not(style) {
+.emotion-78>:not(style)~:not(style) {
   margin-top: 16px;
 }
 
-.emotion-79 {
+.emotion-81 {
   margin: 0;
   font-size: 18px;
   font-weight: 700;
   line-height: 24px;
-}
-
-.emotion-81 {
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  width: 100%;
-}
-
-.emotion-81>:not(style):not(style) {
-  margin: 0;
-}
-
-.emotion-81>:not(style)~:not(style) {
-  margin-top: 8px;
 }
 
 .emotion-83 {
@@ -656,10 +649,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  width: 100%;
+}
+
+.emotion-83>:not(style):not(style) {
+  margin: 0;
+}
+
+.emotion-83>:not(style)~:not(style) {
+  margin-top: 8px;
+}
+
+.emotion-85 {
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   width: 25%;
 }
 
-.emotion-84 {
+.emotion-86 {
   margin: 0;
   font-size: 16px;
   font-weight: 700;
@@ -667,14 +676,14 @@ exports[`AiInterpretResult should render correctly 1`] = `
   text-align: end;
 }
 
-.emotion-85 {
+.emotion-87 {
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
   text-align: end;
 }
 
-.emotion-92 {
+.emotion-94 {
   margin: 0;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -828,22 +837,21 @@ exports[`AiInterpretResult should render correctly 1`] = `
               >
                 <p
                   class="MuiTypography-root MuiTypography-body1 emotion-31"
-                  data-testid="ai-interpret-title-0"
+                  data-testid="ai-interpret-0-title"
                 >
                   1. title-ai-result
                 </p>
                 <div
-                  class="emotion-32"
-                  data-testid="ai-interpret-description-0"
+                  data-testid="ai-interpret-0-description"
                 >
-                  description-ai-result
+                  TH language
                 </div>
                 <div
-                  class="MuiStack-root emotion-33"
+                  class="MuiStack-root emotion-32"
                 >
                   <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-3"
-                    data-testid="ai-interpret-button-copy-0"
+                    data-testid="ai-interpret-0-button-copy"
                     tabindex="0"
                     type="button"
                   >
@@ -857,43 +865,59 @@ exports[`AiInterpretResult should render correctly 1`] = `
                       class="MuiTouchRipple-root emotion-5"
                     />
                   </button>
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-3"
+                    data-testid="ai-interpret-0-change-translate-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium emotion-4"
+                    >
+                      <svg />
+                    </span>
+                    See Translate
+                    <span
+                      class="MuiTouchRipple-root emotion-5"
+                    />
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div
-          class="MuiStack-root emotion-37"
+          class="MuiStack-root emotion-39"
         >
           <div
-            class="MuiStack-root emotion-38"
+            class="MuiStack-root emotion-40"
           >
             <span
-              class="MuiTypography-root MuiTypography-titleBold emotion-39"
+              class="MuiTypography-root MuiTypography-titleBold emotion-41"
             >
               การตรวจสุขภาพทั่วไป
             </span>
           </div>
           <div
-            class="MuiStack-root emotion-40"
+            class="MuiStack-root emotion-42"
           >
             <span
-              class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+              class="MuiTypography-root MuiTypography-bodyBold emotion-43"
               data-testid="ai-interpret-general-information-title-age"
             >
               อายุ
             </span>
             <div
-              class="MuiStack-root emotion-42"
+              class="MuiStack-root emotion-44"
             >
               <span
-                class="MuiTypography-root MuiTypography-bodySmall emotion-43"
+                class="MuiTypography-root MuiTypography-bodySmall emotion-45"
                 data-testid="ai-interpret-general-information-age-value"
               >
                 40
               </span>
               <span
-                class="MuiTypography-root MuiTypography-bodySmall emotion-44"
+                class="MuiTypography-root MuiTypography-bodySmall emotion-46"
                 data-testid="ai-interpret-general-information-age-unit"
               >
                 ปี
@@ -901,97 +925,97 @@ exports[`AiInterpretResult should render correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiStack-root emotion-40"
+            class="MuiStack-root emotion-42"
           >
             <span
-              class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+              class="MuiTypography-root MuiTypography-bodyBold emotion-43"
               data-testid="ai-interpret-general-information-title-gender"
             >
               เพศ
             </span>
             <div
-              class="MuiStack-root emotion-42"
+              class="MuiStack-root emotion-44"
             >
               <span
-                class="MuiTypography-root MuiTypography-bodySmall emotion-43"
+                class="MuiTypography-root MuiTypography-bodySmall emotion-45"
                 data-testid="ai-interpret-general-information-gender-value"
               >
                 ชาย
               </span>
               <span
-                class="MuiTypography-root MuiTypography-bodySmall emotion-44"
+                class="MuiTypography-root MuiTypography-bodySmall emotion-46"
                 data-testid="ai-interpret-general-information-gender-unit"
               />
             </div>
           </div>
           <div
-            class="MuiStack-root emotion-40"
+            class="MuiStack-root emotion-42"
           >
             <span
-              class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+              class="MuiTypography-root MuiTypography-bodyBold emotion-43"
               data-testid="ai-interpret-general-information-title-body_weight"
             >
               น้ำหนัก
             </span>
             <div
-              class="MuiStack-root emotion-42"
+              class="MuiStack-root emotion-44"
             >
               <span
-                class="MuiTypography-root MuiTypography-bodySmall emotion-43"
+                class="MuiTypography-root MuiTypography-bodySmall emotion-45"
                 data-testid="ai-interpret-general-information-body_weight-value"
               >
                 40
               </span>
               <span
-                class="MuiTypography-root MuiTypography-bodySmall emotion-44"
+                class="MuiTypography-root MuiTypography-bodySmall emotion-46"
                 data-testid="ai-interpret-general-information-body_weight-unit"
               />
             </div>
           </div>
           <div
-            class="MuiStack-root emotion-40"
+            class="MuiStack-root emotion-42"
           >
             <span
-              class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+              class="MuiTypography-root MuiTypography-bodyBold emotion-43"
               data-testid="ai-interpret-general-information-title-body_height"
             >
               ส่วนสูง
             </span>
             <div
-              class="MuiStack-root emotion-42"
+              class="MuiStack-root emotion-44"
             >
               <span
-                class="MuiTypography-root MuiTypography-bodySmall emotion-43"
+                class="MuiTypography-root MuiTypography-bodySmall emotion-45"
                 data-testid="ai-interpret-general-information-body_height-value"
               >
                 150
               </span>
               <span
-                class="MuiTypography-root MuiTypography-bodySmall emotion-44"
+                class="MuiTypography-root MuiTypography-bodySmall emotion-46"
                 data-testid="ai-interpret-general-information-body_height-unit"
               />
             </div>
           </div>
           <div
-            class="MuiStack-root emotion-40"
+            class="MuiStack-root emotion-42"
           >
             <span
-              class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+              class="MuiTypography-root MuiTypography-bodyBold emotion-43"
               data-testid="ai-interpret-general-information-title-temperature"
             >
               อุณหภูมิร่างกาย
             </span>
             <div
-              class="MuiStack-root emotion-42"
+              class="MuiStack-root emotion-44"
             >
               <span
-                class="MuiTypography-root MuiTypography-bodySmall emotion-43"
+                class="MuiTypography-root MuiTypography-bodySmall emotion-45"
                 data-testid="ai-interpret-general-information-temperature-value"
               >
                 38.00
               </span>
               <span
-                class="MuiTypography-root MuiTypography-bodySmall emotion-44"
+                class="MuiTypography-root MuiTypography-bodySmall emotion-46"
                 data-testid="ai-interpret-general-information-temperature-unit"
               >
                 °C
@@ -1000,33 +1024,33 @@ exports[`AiInterpretResult should render correctly 1`] = `
           </div>
         </div>
         <div
-          class="MuiStack-root emotion-65"
+          class="MuiStack-root emotion-67"
         >
           <svg
-            class="emotion-66"
+            class="emotion-68"
           />
           <div
-            class="MuiStack-root emotion-67"
+            class="MuiStack-root emotion-69"
           >
             <div
-              class="MuiStack-root emotion-33"
+              class="MuiStack-root emotion-70"
             >
               <span
-                class="MuiTypography-root MuiTypography-titleBold emotion-39"
+                class="MuiTypography-root MuiTypography-titleBold emotion-41"
                 data-testid="ai-interpret-lab-title-hematologyCBC"
               >
                 โลหิตวิทยา
               </span>
             </div>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-70"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-72"
               data-testid="ai-interpret-lab-hematologyCBC-button-collapse"
               tabindex="0"
               type="button"
             >
               ดูผล
               <span
-                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-71"
+                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-73"
               >
                 <svg />
               </span>
@@ -1036,17 +1060,17 @@ exports[`AiInterpretResult should render correctly 1`] = `
             </button>
           </div>
           <div
-            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-73"
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-75"
             style="min-height: 0px;"
           >
             <div
-              class="MuiCollapse-wrapper MuiCollapse-vertical emotion-74"
+              class="MuiCollapse-wrapper MuiCollapse-vertical emotion-76"
             >
               <div
-                class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-75"
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-77"
               >
                 <div
-                  class="MuiStack-root emotion-76"
+                  class="MuiStack-root emotion-78"
                 >
                   <div
                     class="MuiStack-root emotion-30"
@@ -1056,7 +1080,7 @@ exports[`AiInterpretResult should render correctly 1`] = `
                       data-testid="ai-interpret-lab-title-sub-hematologyCBC-hemoglobin"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-titleBold emotion-79"
+                        class="MuiTypography-root MuiTypography-titleBold emotion-81"
                       >
                         ความเข้มข้นของเลือด
                       </span>
@@ -1064,26 +1088,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
                         class="MuiStack-root emotion-2"
                       >
                         <div
-                          class="MuiStack-root emotion-81"
+                          class="MuiStack-root emotion-83"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                             data-testid="ai-interpret-lab-hematologyCBC-hb_value-label"
                           >
                             Hb
                           </span>
                         </div>
                         <div
-                          class="MuiStack-root emotion-83"
+                          class="MuiStack-root emotion-85"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                             data-testid="ai-interpret-lab-hematologyCBC-hb_value-value"
                           >
                             13.80 (g/dL)
                           </span>
                           <span
-                            class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                            class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                             data-testid="ai-interpret-lab-hematologyCBC-hb_value-unit"
                           >
                             (- g/dL)
@@ -1094,26 +1118,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
                         class="MuiStack-root emotion-2"
                       >
                         <div
-                          class="MuiStack-root emotion-81"
+                          class="MuiStack-root emotion-83"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                             data-testid="ai-interpret-lab-hematologyCBC-hct_value-label"
                           >
                             HCT
                           </span>
                         </div>
                         <div
-                          class="MuiStack-root emotion-83"
+                          class="MuiStack-root emotion-85"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                             data-testid="ai-interpret-lab-hematologyCBC-hct_value-value"
                           >
                             40.60 (%)
                           </span>
                           <span
-                            class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                            class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                             data-testid="ai-interpret-lab-hematologyCBC-hct_value-unit"
                           >
                             (- %)
@@ -1122,14 +1146,14 @@ exports[`AiInterpretResult should render correctly 1`] = `
                       </div>
                     </div>
                     <hr
-                      class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem emotion-92"
+                      class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem emotion-94"
                     />
                     <div
                       class="MuiStack-root emotion-30"
                       data-testid="ai-interpret-lab-title-sub-hematologyCBC-redBlood"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-titleBold emotion-79"
+                        class="MuiTypography-root MuiTypography-titleBold emotion-81"
                       >
                         ลักษณะเม็ดเลือดแดง
                       </span>
@@ -1137,26 +1161,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
                         class="MuiStack-root emotion-2"
                       >
                         <div
-                          class="MuiStack-root emotion-81"
+                          class="MuiStack-root emotion-83"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                             data-testid="ai-interpret-lab-hematologyCBC-mcv_value-label"
                           >
                             MCV
                           </span>
                         </div>
                         <div
-                          class="MuiStack-root emotion-83"
+                          class="MuiStack-root emotion-85"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                             data-testid="ai-interpret-lab-hematologyCBC-mcv_value-value"
                           >
                             82.70 (fl)
                           </span>
                           <span
-                            class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                            class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                             data-testid="ai-interpret-lab-hematologyCBC-mcv_value-unit"
                           >
                             (- fl)
@@ -1167,26 +1191,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
                         class="MuiStack-root emotion-2"
                       >
                         <div
-                          class="MuiStack-root emotion-81"
+                          class="MuiStack-root emotion-83"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                             data-testid="ai-interpret-lab-hematologyCBC-mch_value-label"
                           >
                             MCH
                           </span>
                         </div>
                         <div
-                          class="MuiStack-root emotion-83"
+                          class="MuiStack-root emotion-85"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                             data-testid="ai-interpret-lab-hematologyCBC-mch_value-value"
                           >
                             28.10 (pg)
                           </span>
                           <span
-                            class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                            class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                             data-testid="ai-interpret-lab-hematologyCBC-mch_value-unit"
                           >
                             (- pg)
@@ -1197,26 +1221,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
                         class="MuiStack-root emotion-2"
                       >
                         <div
-                          class="MuiStack-root emotion-81"
+                          class="MuiStack-root emotion-83"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                             data-testid="ai-interpret-lab-hematologyCBC-mchc_value-label"
                           >
                             MCHC
                           </span>
                         </div>
                         <div
-                          class="MuiStack-root emotion-83"
+                          class="MuiStack-root emotion-85"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                             data-testid="ai-interpret-lab-hematologyCBC-mchc_value-value"
                           >
                             34.00 (g/dL)
                           </span>
                           <span
-                            class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                            class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                             data-testid="ai-interpret-lab-hematologyCBC-mchc_value-unit"
                           >
                             (- g/dL)
@@ -1225,14 +1249,14 @@ exports[`AiInterpretResult should render correctly 1`] = `
                       </div>
                     </div>
                     <hr
-                      class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem emotion-92"
+                      class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem emotion-94"
                     />
                     <div
                       class="MuiStack-root emotion-30"
                       data-testid="ai-interpret-lab-title-sub-hematologyCBC-whiteBlood"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-titleBold emotion-79"
+                        class="MuiTypography-root MuiTypography-titleBold emotion-81"
                       >
                         จำนวนเม็ดเลือดขาวและแยกชนิด
                       </span>
@@ -1240,26 +1264,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
                         class="MuiStack-root emotion-2"
                       >
                         <div
-                          class="MuiStack-root emotion-81"
+                          class="MuiStack-root emotion-83"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                             data-testid="ai-interpret-lab-hematologyCBC-wbc_value-label"
                           >
                             WBC
                           </span>
                         </div>
                         <div
-                          class="MuiStack-root emotion-83"
+                          class="MuiStack-root emotion-85"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                             data-testid="ai-interpret-lab-hematologyCBC-wbc_value-value"
                           >
                             5.08 (*10^3/mm^3)
                           </span>
                           <span
-                            class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                            class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                             data-testid="ai-interpret-lab-hematologyCBC-wbc_value-unit"
                           >
                             (- *10^3/mm^3)
@@ -1270,26 +1294,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
                         class="MuiStack-root emotion-2"
                       >
                         <div
-                          class="MuiStack-root emotion-81"
+                          class="MuiStack-root emotion-83"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                             data-testid="ai-interpret-lab-hematologyCBC-neutrophil_value-label"
                           >
                             Neutrophil
                           </span>
                         </div>
                         <div
-                          class="MuiStack-root emotion-83"
+                          class="MuiStack-root emotion-85"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                             data-testid="ai-interpret-lab-hematologyCBC-neutrophil_value-value"
                           >
                             58.30 (%)
                           </span>
                           <span
-                            class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                            class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                             data-testid="ai-interpret-lab-hematologyCBC-neutrophil_value-unit"
                           >
                             (- %)
@@ -1300,26 +1324,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
                         class="MuiStack-root emotion-2"
                       >
                         <div
-                          class="MuiStack-root emotion-81"
+                          class="MuiStack-root emotion-83"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                             data-testid="ai-interpret-lab-hematologyCBC-lymphocyte_value-label"
                           >
                             Lymphocyte
                           </span>
                         </div>
                         <div
-                          class="MuiStack-root emotion-83"
+                          class="MuiStack-root emotion-85"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                             data-testid="ai-interpret-lab-hematologyCBC-lymphocyte_value-value"
                           >
                             28.50 (%)
                           </span>
                           <span
-                            class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                            class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                             data-testid="ai-interpret-lab-hematologyCBC-lymphocyte_value-unit"
                           >
                             (- %)
@@ -1330,26 +1354,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
                         class="MuiStack-root emotion-2"
                       >
                         <div
-                          class="MuiStack-root emotion-81"
+                          class="MuiStack-root emotion-83"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                             data-testid="ai-interpret-lab-hematologyCBC-monocyte_value-label"
                           >
                             Monocyte 
                           </span>
                         </div>
                         <div
-                          class="MuiStack-root emotion-83"
+                          class="MuiStack-root emotion-85"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                             data-testid="ai-interpret-lab-hematologyCBC-monocyte_value-value"
                           >
                             5.90 (%)
                           </span>
                           <span
-                            class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                            class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                             data-testid="ai-interpret-lab-hematologyCBC-monocyte_value-unit"
                           >
                             (- %)
@@ -1360,26 +1384,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
                         class="MuiStack-root emotion-2"
                       >
                         <div
-                          class="MuiStack-root emotion-81"
+                          class="MuiStack-root emotion-83"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                             data-testid="ai-interpret-lab-hematologyCBC-eosinophil_value-label"
                           >
                             Eosinophil
                           </span>
                         </div>
                         <div
-                          class="MuiStack-root emotion-83"
+                          class="MuiStack-root emotion-85"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                             data-testid="ai-interpret-lab-hematologyCBC-eosinophil_value-value"
                           >
                             6.30 (%)
                           </span>
                           <span
-                            class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                            class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                             data-testid="ai-interpret-lab-hematologyCBC-eosinophil_value-unit"
                           >
                             (- %)
@@ -1390,26 +1414,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
                         class="MuiStack-root emotion-2"
                       >
                         <div
-                          class="MuiStack-root emotion-81"
+                          class="MuiStack-root emotion-83"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                             data-testid="ai-interpret-lab-hematologyCBC-basophil_value-label"
                           >
                             Basophil
                           </span>
                         </div>
                         <div
-                          class="MuiStack-root emotion-83"
+                          class="MuiStack-root emotion-85"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                             data-testid="ai-interpret-lab-hematologyCBC-basophil_value-value"
                           >
                             1.00 (%)
                           </span>
                           <span
-                            class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                            class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                             data-testid="ai-interpret-lab-hematologyCBC-basophil_value-unit"
                           >
                             (- %)
@@ -1420,26 +1444,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
                         class="MuiStack-root emotion-2"
                       >
                         <div
-                          class="MuiStack-root emotion-81"
+                          class="MuiStack-root emotion-83"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                             data-testid="ai-interpret-lab-hematologyCBC-platelet_count_value-label"
                           >
                             Platelet Count
                           </span>
                         </div>
                         <div
-                          class="MuiStack-root emotion-83"
+                          class="MuiStack-root emotion-85"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                            class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                             data-testid="ai-interpret-lab-hematologyCBC-platelet_count_value-value"
                           >
                             243 (*10^3/mm^3)
                           </span>
                           <span
-                            class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                            class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                             data-testid="ai-interpret-lab-hematologyCBC-platelet_count_value-unit"
                           >
                             (- *10^3/mm^3)
@@ -1454,33 +1478,33 @@ exports[`AiInterpretResult should render correctly 1`] = `
           </div>
         </div>
         <div
-          class="MuiStack-root emotion-65"
+          class="MuiStack-root emotion-67"
         >
           <svg
-            class="emotion-66"
+            class="emotion-68"
           />
           <div
-            class="MuiStack-root emotion-67"
+            class="MuiStack-root emotion-69"
           >
             <div
-              class="MuiStack-root emotion-33"
+              class="MuiStack-root emotion-70"
             >
               <span
-                class="MuiTypography-root MuiTypography-titleBold emotion-39"
+                class="MuiTypography-root MuiTypography-titleBold emotion-41"
                 data-testid="ai-interpret-lab-title-lipidProfile"
               >
                 ระดับไขมันในเลือด
               </span>
             </div>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-70"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-72"
               data-testid="ai-interpret-lab-lipidProfile-button-collapse"
               tabindex="0"
               type="button"
             >
               ดูผล
               <span
-                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-71"
+                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-73"
               >
                 <svg />
               </span>
@@ -1490,42 +1514,42 @@ exports[`AiInterpretResult should render correctly 1`] = `
             </button>
           </div>
           <div
-            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-73"
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-75"
             style="min-height: 0px;"
           >
             <div
-              class="MuiCollapse-wrapper MuiCollapse-vertical emotion-74"
+              class="MuiCollapse-wrapper MuiCollapse-vertical emotion-76"
             >
               <div
-                class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-75"
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-77"
               >
                 <div
-                  class="MuiStack-root emotion-76"
+                  class="MuiStack-root emotion-78"
                 >
                   <div
                     class="MuiStack-root emotion-2"
                   >
                     <div
-                      class="MuiStack-root emotion-81"
+                      class="MuiStack-root emotion-83"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                         data-testid="ai-interpret-lab-lipidProfile-cholesterol_value-label"
                       >
                         Cholesterol
                       </span>
                     </div>
                     <div
-                      class="MuiStack-root emotion-83"
+                      class="MuiStack-root emotion-85"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                         data-testid="ai-interpret-lab-lipidProfile-cholesterol_value-value"
                       >
                         208 (mg/dL)
                       </span>
                       <span
-                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                         data-testid="ai-interpret-lab-lipidProfile-cholesterol_value-unit"
                       >
                         (- mg/dL)
@@ -1536,26 +1560,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
                     class="MuiStack-root emotion-2"
                   >
                     <div
-                      class="MuiStack-root emotion-81"
+                      class="MuiStack-root emotion-83"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                         data-testid="ai-interpret-lab-lipidProfile-triglyceride_value-label"
                       >
                         Triglyceride
                       </span>
                     </div>
                     <div
-                      class="MuiStack-root emotion-83"
+                      class="MuiStack-root emotion-85"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                         data-testid="ai-interpret-lab-lipidProfile-triglyceride_value-value"
                       >
                         72 (mg/dL)
                       </span>
                       <span
-                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                         data-testid="ai-interpret-lab-lipidProfile-triglyceride_value-unit"
                       >
                         (- mg/dL)
@@ -1566,26 +1590,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
                     class="MuiStack-root emotion-2"
                   >
                     <div
-                      class="MuiStack-root emotion-81"
+                      class="MuiStack-root emotion-83"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                         data-testid="ai-interpret-lab-lipidProfile-hdl_value-label"
                       >
                         HDL
                       </span>
                     </div>
                     <div
-                      class="MuiStack-root emotion-83"
+                      class="MuiStack-root emotion-85"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                         data-testid="ai-interpret-lab-lipidProfile-hdl_value-value"
                       >
                         45.00 (mg/dL)
                       </span>
                       <span
-                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                         data-testid="ai-interpret-lab-lipidProfile-hdl_value-unit"
                       >
                         (- mg/dL)
@@ -1596,26 +1620,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
                     class="MuiStack-root emotion-2"
                   >
                     <div
-                      class="MuiStack-root emotion-81"
+                      class="MuiStack-root emotion-83"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                         data-testid="ai-interpret-lab-lipidProfile-ldl_value-label"
                       >
                         LDL
                       </span>
                     </div>
                     <div
-                      class="MuiStack-root emotion-83"
+                      class="MuiStack-root emotion-85"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                         data-testid="ai-interpret-lab-lipidProfile-ldl_value-value"
                       >
                         155 (mg/dL)
                       </span>
                       <span
-                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                         data-testid="ai-interpret-lab-lipidProfile-ldl_value-unit"
                       >
                         (- mg/dL)
@@ -1628,33 +1652,33 @@ exports[`AiInterpretResult should render correctly 1`] = `
           </div>
         </div>
         <div
-          class="MuiStack-root emotion-65"
+          class="MuiStack-root emotion-67"
         >
           <svg
-            class="emotion-66"
+            class="emotion-68"
           />
           <div
-            class="MuiStack-root emotion-67"
+            class="MuiStack-root emotion-69"
           >
             <div
-              class="MuiStack-root emotion-33"
+              class="MuiStack-root emotion-70"
             >
               <span
-                class="MuiTypography-root MuiTypography-titleBold emotion-39"
+                class="MuiTypography-root MuiTypography-titleBold emotion-41"
                 data-testid="ai-interpret-lab-title-bloodChemistry"
               >
                 สารเคมีในเลือด
               </span>
             </div>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-70"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-72"
               data-testid="ai-interpret-lab-bloodChemistry-button-collapse"
               tabindex="0"
               type="button"
             >
               ดูผล
               <span
-                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-71"
+                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-73"
               >
                 <svg />
               </span>
@@ -1664,42 +1688,42 @@ exports[`AiInterpretResult should render correctly 1`] = `
             </button>
           </div>
           <div
-            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-73"
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-75"
             style="min-height: 0px;"
           >
             <div
-              class="MuiCollapse-wrapper MuiCollapse-vertical emotion-74"
+              class="MuiCollapse-wrapper MuiCollapse-vertical emotion-76"
             >
               <div
-                class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-75"
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-77"
               >
                 <div
-                  class="MuiStack-root emotion-76"
+                  class="MuiStack-root emotion-78"
                 >
                   <div
                     class="MuiStack-root emotion-2"
                   >
                     <div
-                      class="MuiStack-root emotion-81"
+                      class="MuiStack-root emotion-83"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                         data-testid="ai-interpret-lab-bloodChemistry-uric_acid_value-label"
                       >
                         Uric Acid Test
                       </span>
                     </div>
                     <div
-                      class="MuiStack-root emotion-83"
+                      class="MuiStack-root emotion-85"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                         data-testid="ai-interpret-lab-bloodChemistry-uric_acid_value-value"
                       >
                         6.80 (mg/dL)
                       </span>
                       <span
-                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                         data-testid="ai-interpret-lab-bloodChemistry-uric_acid_value-unit"
                       >
                         (- mg/dL)
@@ -1710,26 +1734,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
                     class="MuiStack-root emotion-2"
                   >
                     <div
-                      class="MuiStack-root emotion-81"
+                      class="MuiStack-root emotion-83"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                         data-testid="ai-interpret-lab-bloodChemistry-fbs_value-label"
                       >
                         Fasting Blood Sugar
                       </span>
                     </div>
                     <div
-                      class="MuiStack-root emotion-83"
+                      class="MuiStack-root emotion-85"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                         data-testid="ai-interpret-lab-bloodChemistry-fbs_value-value"
                       >
                         93 (mg/dL)
                       </span>
                       <span
-                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                         data-testid="ai-interpret-lab-bloodChemistry-fbs_value-unit"
                       >
                         (- mg/dL)
@@ -1742,33 +1766,33 @@ exports[`AiInterpretResult should render correctly 1`] = `
           </div>
         </div>
         <div
-          class="MuiStack-root emotion-65"
+          class="MuiStack-root emotion-67"
         >
           <svg
-            class="emotion-66"
+            class="emotion-68"
           />
           <div
-            class="MuiStack-root emotion-67"
+            class="MuiStack-root emotion-69"
           >
             <div
-              class="MuiStack-root emotion-33"
+              class="MuiStack-root emotion-70"
             >
               <span
-                class="MuiTypography-root MuiTypography-titleBold emotion-39"
+                class="MuiTypography-root MuiTypography-titleBold emotion-41"
                 data-testid="ai-interpret-lab-title-renalFunctionTest"
               >
                 การทำงานของไต
               </span>
             </div>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-70"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-72"
               data-testid="ai-interpret-lab-renalFunctionTest-button-collapse"
               tabindex="0"
               type="button"
             >
               ดูผล
               <span
-                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-71"
+                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-73"
               >
                 <svg />
               </span>
@@ -1778,42 +1802,42 @@ exports[`AiInterpretResult should render correctly 1`] = `
             </button>
           </div>
           <div
-            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-73"
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-75"
             style="min-height: 0px;"
           >
             <div
-              class="MuiCollapse-wrapper MuiCollapse-vertical emotion-74"
+              class="MuiCollapse-wrapper MuiCollapse-vertical emotion-76"
             >
               <div
-                class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-75"
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-77"
               >
                 <div
-                  class="MuiStack-root emotion-76"
+                  class="MuiStack-root emotion-78"
                 >
                   <div
                     class="MuiStack-root emotion-2"
                   >
                     <div
-                      class="MuiStack-root emotion-81"
+                      class="MuiStack-root emotion-83"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                         data-testid="ai-interpret-lab-renalFunctionTest-creatinine_value-label"
                       >
                         Creatinine
                       </span>
                     </div>
                     <div
-                      class="MuiStack-root emotion-83"
+                      class="MuiStack-root emotion-85"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                         data-testid="ai-interpret-lab-renalFunctionTest-creatinine_value-value"
                       >
                         0.89 (mg/dL)
                       </span>
                       <span
-                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                         data-testid="ai-interpret-lab-renalFunctionTest-creatinine_value-unit"
                       >
                         (- mg/dL)
@@ -1824,26 +1848,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
                     class="MuiStack-root emotion-2"
                   >
                     <div
-                      class="MuiStack-root emotion-81"
+                      class="MuiStack-root emotion-83"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                         data-testid="ai-interpret-lab-renalFunctionTest-bun_value-label"
                       >
                         BUN
                       </span>
                     </div>
                     <div
-                      class="MuiStack-root emotion-83"
+                      class="MuiStack-root emotion-85"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                         data-testid="ai-interpret-lab-renalFunctionTest-bun_value-value"
                       >
                         10.70 (mg/dL)
                       </span>
                       <span
-                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                         data-testid="ai-interpret-lab-renalFunctionTest-bun_value-unit"
                       >
                         (- mg/dL)
@@ -1856,33 +1880,33 @@ exports[`AiInterpretResult should render correctly 1`] = `
           </div>
         </div>
         <div
-          class="MuiStack-root emotion-65"
+          class="MuiStack-root emotion-67"
         >
           <svg
-            class="emotion-66"
+            class="emotion-68"
           />
           <div
-            class="MuiStack-root emotion-67"
+            class="MuiStack-root emotion-69"
           >
             <div
-              class="MuiStack-root emotion-33"
+              class="MuiStack-root emotion-70"
             >
               <span
-                class="MuiTypography-root MuiTypography-titleBold emotion-39"
+                class="MuiTypography-root MuiTypography-titleBold emotion-41"
                 data-testid="ai-interpret-lab-title-liverFunctionTest"
               >
                 การทำงานของตับ
               </span>
             </div>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-70"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-72"
               data-testid="ai-interpret-lab-liverFunctionTest-button-collapse"
               tabindex="0"
               type="button"
             >
               ดูผล
               <span
-                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-71"
+                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-73"
               >
                 <svg />
               </span>
@@ -1892,42 +1916,42 @@ exports[`AiInterpretResult should render correctly 1`] = `
             </button>
           </div>
           <div
-            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-73"
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-75"
             style="min-height: 0px;"
           >
             <div
-              class="MuiCollapse-wrapper MuiCollapse-vertical emotion-74"
+              class="MuiCollapse-wrapper MuiCollapse-vertical emotion-76"
             >
               <div
-                class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-75"
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-77"
               >
                 <div
-                  class="MuiStack-root emotion-76"
+                  class="MuiStack-root emotion-78"
                 >
                   <div
                     class="MuiStack-root emotion-2"
                   >
                     <div
-                      class="MuiStack-root emotion-81"
+                      class="MuiStack-root emotion-83"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                         data-testid="ai-interpret-lab-liverFunctionTest-sgot_value-label"
                       >
                         SGOT/AST
                       </span>
                     </div>
                     <div
-                      class="MuiStack-root emotion-83"
+                      class="MuiStack-root emotion-85"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                         data-testid="ai-interpret-lab-liverFunctionTest-sgot_value-value"
                       >
                         18 (U/L)
                       </span>
                       <span
-                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                         data-testid="ai-interpret-lab-liverFunctionTest-sgot_value-unit"
                       >
                         (- U/L)
@@ -1938,26 +1962,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
                     class="MuiStack-root emotion-2"
                   >
                     <div
-                      class="MuiStack-root emotion-81"
+                      class="MuiStack-root emotion-83"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                         data-testid="ai-interpret-lab-liverFunctionTest-sgpt_value-label"
                       >
                         SGPT/ALT
                       </span>
                     </div>
                     <div
-                      class="MuiStack-root emotion-83"
+                      class="MuiStack-root emotion-85"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                         data-testid="ai-interpret-lab-liverFunctionTest-sgpt_value-value"
                       >
                         17 (U/L)
                       </span>
                       <span
-                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                         data-testid="ai-interpret-lab-liverFunctionTest-sgpt_value-unit"
                       >
                         (- U/L)
@@ -1968,26 +1992,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
                     class="MuiStack-root emotion-2"
                   >
                     <div
-                      class="MuiStack-root emotion-81"
+                      class="MuiStack-root emotion-83"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                         data-testid="ai-interpret-lab-liverFunctionTest-alp_value-label"
                       >
                         ALK Phosphatase
                       </span>
                     </div>
                     <div
-                      class="MuiStack-root emotion-83"
+                      class="MuiStack-root emotion-85"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                         data-testid="ai-interpret-lab-liverFunctionTest-alp_value-value"
                       >
                         71 (U/L)
                       </span>
                       <span
-                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                         data-testid="ai-interpret-lab-liverFunctionTest-alp_value-unit"
                       >
                         (- U/L)
@@ -2000,33 +2024,33 @@ exports[`AiInterpretResult should render correctly 1`] = `
           </div>
         </div>
         <div
-          class="MuiStack-root emotion-65"
+          class="MuiStack-root emotion-67"
         >
           <svg
-            class="emotion-66"
+            class="emotion-68"
           />
           <div
-            class="MuiStack-root emotion-67"
+            class="MuiStack-root emotion-69"
           >
             <div
-              class="MuiStack-root emotion-33"
+              class="MuiStack-root emotion-70"
             >
               <span
-                class="MuiTypography-root MuiTypography-titleBold emotion-39"
+                class="MuiTypography-root MuiTypography-titleBold emotion-41"
                 data-testid="ai-interpret-lab-title-urineAnalysis"
               >
                 การวิเคราะห์ปัสสาวะ
               </span>
             </div>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-70"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-72"
               data-testid="ai-interpret-lab-urineAnalysis-button-collapse"
               tabindex="0"
               type="button"
             >
               ดูผล
               <span
-                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-71"
+                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-73"
               >
                 <svg />
               </span>
@@ -2036,42 +2060,42 @@ exports[`AiInterpretResult should render correctly 1`] = `
             </button>
           </div>
           <div
-            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-73"
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-75"
             style="min-height: 0px;"
           >
             <div
-              class="MuiCollapse-wrapper MuiCollapse-vertical emotion-74"
+              class="MuiCollapse-wrapper MuiCollapse-vertical emotion-76"
             >
               <div
-                class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-75"
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-77"
               >
                 <div
-                  class="MuiStack-root emotion-76"
+                  class="MuiStack-root emotion-78"
                 >
                   <div
                     class="MuiStack-root emotion-2"
                   >
                     <div
-                      class="MuiStack-root emotion-81"
+                      class="MuiStack-root emotion-83"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                         data-testid="ai-interpret-lab-urineAnalysis-urine_color_value-label"
                       >
                         Color
                       </span>
                     </div>
                     <div
-                      class="MuiStack-root emotion-83"
+                      class="MuiStack-root emotion-85"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                         data-testid="ai-interpret-lab-urineAnalysis-urine_color_value-value"
                       >
                         Yellow
                       </span>
                       <span
-                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                         data-testid="ai-interpret-lab-urineAnalysis-urine_color_value-unit"
                       />
                     </div>
@@ -2080,26 +2104,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
                     class="MuiStack-root emotion-2"
                   >
                     <div
-                      class="MuiStack-root emotion-81"
+                      class="MuiStack-root emotion-83"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                         data-testid="ai-interpret-lab-urineAnalysis-urine_sp_gr_value-label"
                       >
                         SpGr
                       </span>
                     </div>
                     <div
-                      class="MuiStack-root emotion-83"
+                      class="MuiStack-root emotion-85"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                         data-testid="ai-interpret-lab-urineAnalysis-urine_sp_gr_value-value"
                       >
                         1.006
                       </span>
                       <span
-                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                         data-testid="ai-interpret-lab-urineAnalysis-urine_sp_gr_value-unit"
                       />
                     </div>
@@ -2108,26 +2132,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
                     class="MuiStack-root emotion-2"
                   >
                     <div
-                      class="MuiStack-root emotion-81"
+                      class="MuiStack-root emotion-83"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                         data-testid="ai-interpret-lab-urineAnalysis-urine_ph_value-label"
                       >
                         pH
                       </span>
                     </div>
                     <div
-                      class="MuiStack-root emotion-83"
+                      class="MuiStack-root emotion-85"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                         data-testid="ai-interpret-lab-urineAnalysis-urine_ph_value-value"
                       >
                         6.50
                       </span>
                       <span
-                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                         data-testid="ai-interpret-lab-urineAnalysis-urine_ph_value-unit"
                       />
                     </div>
@@ -2136,26 +2160,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
                     class="MuiStack-root emotion-2"
                   >
                     <div
-                      class="MuiStack-root emotion-81"
+                      class="MuiStack-root emotion-83"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                         data-testid="ai-interpret-lab-urineAnalysis-urine_wbc_value-label"
                       >
                         WBC
                       </span>
                     </div>
                     <div
-                      class="MuiStack-root emotion-83"
+                      class="MuiStack-root emotion-85"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                         data-testid="ai-interpret-lab-urineAnalysis-urine_wbc_value-value"
                       >
                         0-5
                       </span>
                       <span
-                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                         data-testid="ai-interpret-lab-urineAnalysis-urine_wbc_value-unit"
                       />
                     </div>
@@ -2164,26 +2188,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
                     class="MuiStack-root emotion-2"
                   >
                     <div
-                      class="MuiStack-root emotion-81"
+                      class="MuiStack-root emotion-83"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                         data-testid="ai-interpret-lab-urineAnalysis-urine_protein_value-label"
                       >
                         Protein
                       </span>
                     </div>
                     <div
-                      class="MuiStack-root emotion-83"
+                      class="MuiStack-root emotion-85"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                         data-testid="ai-interpret-lab-urineAnalysis-urine_protein_value-value"
                       >
                         Negative
                       </span>
                       <span
-                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                         data-testid="ai-interpret-lab-urineAnalysis-urine_protein_value-unit"
                       />
                     </div>
@@ -2192,26 +2216,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
                     class="MuiStack-root emotion-2"
                   >
                     <div
-                      class="MuiStack-root emotion-81"
+                      class="MuiStack-root emotion-83"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                         data-testid="ai-interpret-lab-urineAnalysis-urine_glucose_value-label"
                       >
                         Glucose
                       </span>
                     </div>
                     <div
-                      class="MuiStack-root emotion-83"
+                      class="MuiStack-root emotion-85"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                         data-testid="ai-interpret-lab-urineAnalysis-urine_glucose_value-value"
                       >
                         Negative
                       </span>
                       <span
-                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                         data-testid="ai-interpret-lab-urineAnalysis-urine_glucose_value-unit"
                       />
                     </div>
@@ -2220,26 +2244,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
                     class="MuiStack-root emotion-2"
                   >
                     <div
-                      class="MuiStack-root emotion-81"
+                      class="MuiStack-root emotion-83"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                         data-testid="ai-interpret-lab-urineAnalysis-urine_erythrocyte_value-label"
                       >
                         Erythrocyte
                       </span>
                     </div>
                     <div
-                      class="MuiStack-root emotion-83"
+                      class="MuiStack-root emotion-85"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                         data-testid="ai-interpret-lab-urineAnalysis-urine_erythrocyte_value-value"
                       >
                         Negative
                       </span>
                       <span
-                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                         data-testid="ai-interpret-lab-urineAnalysis-urine_erythrocyte_value-unit"
                       />
                     </div>
@@ -2248,26 +2272,26 @@ exports[`AiInterpretResult should render correctly 1`] = `
                     class="MuiStack-root emotion-2"
                   >
                     <div
-                      class="MuiStack-root emotion-81"
+                      class="MuiStack-root emotion-83"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                         data-testid="ai-interpret-lab-urineAnalysis-urine_rbc_value-label"
                       >
                         RBC
                       </span>
                     </div>
                     <div
-                      class="MuiStack-root emotion-83"
+                      class="MuiStack-root emotion-85"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                         data-testid="ai-interpret-lab-urineAnalysis-urine_rbc_value-value"
                       >
                         0-5
                       </span>
                       <span
-                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                         data-testid="ai-interpret-lab-urineAnalysis-urine_rbc_value-unit"
                       />
                     </div>
@@ -2278,33 +2302,33 @@ exports[`AiInterpretResult should render correctly 1`] = `
           </div>
         </div>
         <div
-          class="MuiStack-root emotion-65"
+          class="MuiStack-root emotion-67"
         >
           <svg
-            class="emotion-66"
+            class="emotion-68"
           />
           <div
-            class="MuiStack-root emotion-67"
+            class="MuiStack-root emotion-69"
           >
             <div
-              class="MuiStack-root emotion-33"
+              class="MuiStack-root emotion-70"
             >
               <span
-                class="MuiTypography-root MuiTypography-titleBold emotion-39"
+                class="MuiTypography-root MuiTypography-titleBold emotion-41"
                 data-testid="ai-interpret-lab-title-papSmear"
               >
                 Pap Smear
               </span>
             </div>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-70"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary emotion-72"
               data-testid="ai-interpret-lab-papSmear-button-collapse"
               tabindex="0"
               type="button"
             >
               ดูผล
               <span
-                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-71"
+                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium emotion-73"
               >
                 <svg />
               </span>
@@ -2314,42 +2338,42 @@ exports[`AiInterpretResult should render correctly 1`] = `
             </button>
           </div>
           <div
-            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-73"
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden emotion-75"
             style="min-height: 0px;"
           >
             <div
-              class="MuiCollapse-wrapper MuiCollapse-vertical emotion-74"
+              class="MuiCollapse-wrapper MuiCollapse-vertical emotion-76"
             >
               <div
-                class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-75"
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical emotion-77"
               >
                 <div
-                  class="MuiStack-root emotion-76"
+                  class="MuiStack-root emotion-78"
                 >
                   <div
                     class="MuiStack-root emotion-2"
                   >
                     <div
-                      class="MuiStack-root emotion-81"
+                      class="MuiStack-root emotion-83"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-41"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-43"
                         data-testid="ai-interpret-lab-papSmear-papsmear_finding-label"
                       >
                         การตรวจมะเร็งปากมดลูก
                       </span>
                     </div>
                     <div
-                      class="MuiStack-root emotion-83"
+                      class="MuiStack-root emotion-85"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-bodyBold emotion-84"
+                        class="MuiTypography-root MuiTypography-bodyBold emotion-86"
                         data-testid="ai-interpret-lab-papSmear-papsmear_finding-value"
                       >
                         Normal
                       </span>
                       <span
-                        class="MuiTypography-root MuiTypography-bodySmall emotion-85"
+                        class="MuiTypography-root MuiTypography-bodySmall emotion-87"
                         data-testid="ai-interpret-lab-papSmear-papsmear_finding-unit"
                       />
                     </div>

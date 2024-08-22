@@ -1,10 +1,9 @@
 "use client";
 
-import { Box, Button, Divider, Stack, styled, Typography } from "@mui/material";
-import Image from "next/image";
+import { Box, Button, Divider, Paper, Stack, styled, Typography } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 
-import { IconAiInterpret, IconReload, IosDeviceFrame } from "@/assets";
+import { IconAiInterpret, IconReload } from "@/assets";
 import FullScreenLoading from "@/components/Loading/FullScreenLoading";
 import { Page } from "@/components/Page";
 import DashboardPage from "@/components/Page/DashboardPage";
@@ -21,46 +20,35 @@ const Header = styled(Stack)({
 });
 
 const Content = styled(Stack)({
-  position: "relative",
   flex: 1,
-  padding: "8px 40px",
+  padding: "16px 40px",
   overflow: "hidden",
-});
-
-const DeviceWrapper = styled(Stack)({
-  position: "absolute",
-  top: 0,
-  left: 0,
-  width: "100%",
-  height: "100%",
-  flexDirection: "row",
   justifyContent: "center",
   alignItems: "center",
+  "& > .MuiPaper-root": {
+    position: "relative",
+    flex: 1,
+    width: "100%",
+    maxWidth: "480px",
+    padding: "0px",
+    boxShadow: "none",
+  },
 });
 
-const DeviceFrameSection = styled(Box)({
-  position: "relative",
-  width: "0px",
-  height: "0px",
-});
-
-const ContentIframe = styled("iframe")({
-  width: "100%",
+const ContentIframe = styled("iframe")(({ theme }) => ({
   height: "100%",
-  padding: "16px",
-  border: "0px",
-});
-
-const DeviceImage = styled(Image)({
-  position: "absolute",
-  pointerEvents: "none",
-});
+  width: "100%",
+  border: `4px solid ${theme.palette.background.borderLight}`,
+  borderRadius: "12px",
+}));
 
 const ReloadButton = styled(Button)({
   position: "absolute",
-  top: "24px",
+  top: "8px",
   left: "100%",
+  height: "40px",
   marginLeft: "24px",
+  borderRadius: "8px",
   whiteSpace: "nowrap",
 });
 
@@ -74,26 +62,7 @@ const SymptomChecker = () => {
   const [config, setConfig] = useState(initialConfig);
   const [isLoading, setIsLoading] = useState(true);
 
-  const refContent = useRef<HTMLDivElement>(null);
-  const refDeviceSection = useRef<HTMLDivElement>(null);
   const refContentIframe = useRef<HTMLIFrameElement>(null);
-
-  const calculateDeviceFrame = () => {
-    if (!refContent.current || !refDeviceSection.current || !refContentIframe.current) return;
-    const contentHeight = refContent.current.offsetHeight;
-    const margin = 24;
-    const maxHeight = 900;
-
-    let height = contentHeight - margin;
-
-    if (height > maxHeight) height = maxHeight;
-
-    const width = height * 0.5;
-
-    refDeviceSection.current.style.width = `${width}px`;
-    refDeviceSection.current.style.height = `${height - margin}px`;
-    refContentIframe.current.style.borderRadius = `${height * 0.075}px`;
-  };
 
   const handleClickReload = () => {
     if (refContentIframe.current) {
@@ -112,16 +81,6 @@ const SymptomChecker = () => {
     fetchConfigData();
   }, []);
 
-  useEffect(() => {
-    if (isLoading) return;
-
-    calculateDeviceFrame();
-    window.addEventListener("resize", calculateDeviceFrame);
-    return () => {
-      window.removeEventListener("resize", calculateDeviceFrame);
-    };
-  }, [isLoading]);
-
   return (
     <Page title={translation("Common.symptomChecker.title")}>
       {isLoading ? (
@@ -139,21 +98,13 @@ const SymptomChecker = () => {
             </Stack>
             <Divider />
           </Header>
-          <Content ref={refContent}>
-            <DeviceWrapper>
-              <DeviceFrameSection ref={refDeviceSection}>
-                <DeviceImage src={IosDeviceFrame} fill alt="check" />
-                <ContentIframe ref={refContentIframe} src={config.url} />
-                <ReloadButton
-                  variant="outlined"
-                  color="secondary"
-                  startIcon={<IconReload />}
-                  onClick={handleClickReload}
-                >
-                  {translation("Common.symptomChecker.button.reload")}
-                </ReloadButton>
-              </DeviceFrameSection>
-            </DeviceWrapper>
+          <Content>
+            <Paper>
+              <ContentIframe ref={refContentIframe} src={config.url} />
+              <ReloadButton variant="outlined" color="secondary" startIcon={<IconReload />} onClick={handleClickReload}>
+                {translation("Common.symptomChecker.button.reload")}
+              </ReloadButton>
+            </Paper>
           </Content>
         </DashboardPage>
       )}

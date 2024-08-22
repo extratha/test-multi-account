@@ -12,6 +12,11 @@ export const ENV = {
     process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || "MOCK_NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID",
 };
 
+export const LANGUAGE = {
+  TH: "TH",
+  EN: "EN",
+};
+
 export const SESSION = {
   ACCESS_TOKEN: "access-token",
   REFRESH_TOKEN: "refresh-token",
@@ -29,6 +34,7 @@ export const NAVIGATION = {
   HOME: "/home",
   FORGET_PASSWORD: "/forget-password",
   SET_NEW_PASSWORD: "/set-new-password",
+  CONSENTS: "/consents",
   CONSENT_TERMS_CONDITIONS: "/consents/terms-conditions",
   CONSENT_PRIVACY_POLICIES: "/consents/privacy-policies",
   AI_INTERPRET_RESULT: "/ai-interpret/interpret",
@@ -39,6 +45,15 @@ export const NAVIGATION = {
   SETTINGS_PRIVACY_POLICY: "/settings/privacy-policy",
   PUBLIC_TERMS_AND_CONDITIONS: "/public/consents/terms-conditions",
   PUBLIC_PRIVACY_POLICY: "/public/consents/privacy-policies",
+};
+
+export const SEARCH_PARAMS = {
+  REDIRECT: "redirect",
+};
+
+export const ERROR_CODE = {
+  CONFLICT: "conflict",
+  CONSENT_REQUIRED: "consent-required",
 };
 
 export const GENDER = {

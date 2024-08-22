@@ -167,7 +167,7 @@ exports[`HomePageModule should render correctly 1`] = `
           <p
             class="MuiTypography-root MuiTypography-body1 emotion-4"
           >
-            สวัสดี 
+            สวัสดี  
           </p>
           <span
             class="MuiTypography-root MuiTypography-headerExtraLargeBold emotion-5"

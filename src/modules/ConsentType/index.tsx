@@ -1,36 +1,43 @@
 "use client";
 
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Button, Divider, Stack, Typography, styled } from "@mui/material";
-import { useParams, useRouter } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { AppBar, Button, Divider, Stack, Toolbar, Typography } from "@mui/material";
+import { alpha, styled } from "@mui/material/styles";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
 import { getConsent, submitConsent } from "@/api/api";
 import ConsentContent from "@/components/ConsentContent";
 import FormCheckbox from "@/components/Form/FormCheckbox";
 import FullScreenLoading from "@/components/Loading/FullScreenLoading";
-import { Page } from "@/components/Page";
 import ConsentPage from "@/components/Page/ConsentPage";
-import PageNotFound from "@/components/Page/PageNotFound";
-import { CONSENT_TYPE, NAVIGATION, SUBMIT_CONSENT_TYPE } from "@/constant";
+import { CONSENT_TYPE, ERROR_CODE, NAVIGATION, SEARCH_PARAMS, SUBMIT_CONSENT_TYPE } from "@/constant";
 import useTranslation from "@/locales/useLocale";
 import { ConsentResult } from "@/types/model.api";
-import ConsentHeader from "./ConsentHeader";
-import useSubmitConsentSchema from "./ConsentTypeSchema";
+import useConsentTypeSchema from "./RequiredConsentSchema";
 
-interface ConsentFormValues {
+export interface ConsentTypeParams {
+  type: string;
+  [key: string]: string | string[];
+}
+
+interface RequiredConsentFormValues {
   agreement: boolean;
 }
 
-export interface ConsentTypeParams {
-  [key: string]: string | string[];
-  consentType: string;
-}
-
 const PageContainer = styled(ConsentPage)({
-  paddingTop: "72px",
+  padding: "72px 0px 32px",
 });
+
+const HeaderBar = styled(AppBar)(({ theme }) => ({
+  color: theme.palette.text.hight,
+  backgroundColor: theme.palette.common.white,
+  boxShadow: `0px 4px 6px -1px ${alpha(theme.palette.common.black, 0.1)}`,
+  "& > .MuiToolbar-root": {
+    justifyContent: "center",
+  },
+}));
 
 const TitleDivider = styled(Divider)({
   margin: "8px 0px 24px",
@@ -66,31 +73,33 @@ const SubmitButton = styled(Button)({
   fontSize: "14px",
 });
 
-const initialFormValue: ConsentFormValues = {
+const initialFormValue: RequiredConsentFormValues = {
   agreement: false,
 };
 
+// TODO: unit test
 const ConsentType = () => {
-  const { translation } = useTranslation();
-  const { consentType } = useParams<ConsentTypeParams>();
   const router = useRouter();
+  const params = useParams<ConsentTypeParams>();
+  const searchParams = useSearchParams();
 
-  const [consent, setConsent] = useState<ConsentResult>();
+  const { translation } = useTranslation();
+
   const [isLoading, setIsLoading] = useState(true);
-  const [isNotFound, setIsNotFound] = useState(false);
+  const [requiredConsent, setRequiredConsent] = useState<ConsentResult>();
 
-  const validateSchema = useSubmitConsentSchema();
+  const schema = useConsentTypeSchema();
 
-  const methods = useForm<ConsentFormValues>({
-    resolver: yupResolver(validateSchema),
+  const methods = useForm<RequiredConsentFormValues>({
+    resolver: yupResolver(schema),
     defaultValues: initialFormValue,
     mode: "onChange",
   });
 
-  const agreement = methods.watch("agreement");
+  const isDisabled = !methods.formState.isValid;
 
-  const title = useMemo(() => {
-    switch (consentType) {
+  const getTitle = (type: string) => {
+    switch (type) {
       case CONSENT_TYPE.TERMS_CONDITIONS:
         return translation("Common.pages.termsAndConditions");
       case CONSENT_TYPE.PRIVACY_POLICIES:
@@ -98,64 +107,76 @@ const ConsentType = () => {
       default:
         return "";
     }
-  }, []);
+  };
 
-  const navigateNext = () => {
-    if (consentType === CONSENT_TYPE.TERMS_CONDITIONS) {
-      router.replace(NAVIGATION.CONSENT_PRIVACY_POLICIES);
+  const redirectNextPage = () => {
+    if (params.type === CONSENT_TYPE.TERMS_CONDITIONS) {
+      router.replace(`${NAVIGATION.CONSENT_PRIVACY_POLICIES}?${searchParams.toString()}`);
     } else {
-      router.replace(NAVIGATION.HOME);
+      router.replace(searchParams.get(SEARCH_PARAMS.REDIRECT) || NAVIGATION.HOME);
     }
   };
 
-  const fetchConsent = async () => {
+  const fetchData = async () => {
     try {
       setIsLoading(true);
-      const response = await getConsent(consentType);
+      const { data } = await getConsent(params.type);
 
-      if (response.data.isConsent) {
-        navigateNext();
+      if (data.isConsent) {
+        redirectNextPage();
       } else {
-        setConsent(response.data);
+        setRequiredConsent(data);
         setIsLoading(false);
       }
     } catch (error) {
-      const statusCode = error?.response?.status;
-
-      setIsNotFound(statusCode === 404);
-      setIsLoading(false);
+      // TODO: error
     }
   };
 
-  const onSubmit = async () => {
+  const handleSubmit = async () => {
     try {
+      if (!requiredConsent) return;
+
       setIsLoading(true);
-      await submitConsent(SUBMIT_CONSENT_TYPE[consentType], consent?.version || "");
-      navigateNext();
+      await submitConsent(SUBMIT_CONSENT_TYPE[params.type], requiredConsent.version || "");
+      redirectNextPage();
     } catch (error) {
-      setIsLoading(false);
+      const errorCode = error?.response?.data?.code || "";
+
+      if (errorCode === ERROR_CODE.CONFLICT) {
+        redirectNextPage();
+      } else {
+        setIsLoading(false);
+      }
     }
   };
 
   useEffect(() => {
-    fetchConsent();
-  }, []);
+    fetchData();
+  }, [params]);
 
   return (
-    <Page title={title}>
+    <>
       {isLoading && <FullScreenLoading />}
-      {isNotFound && <PageNotFound />}
-      {consent && (
+      {requiredConsent && (
         <PageContainer>
-          <ConsentHeader title={title} />
-          <Typography variant="titleLargeBold">{title}</Typography>
+          <HeaderBar>
+            <Toolbar variant="dense">
+              <Typography variant="bodyBold" textAlign="center" data-testid="consent-required-dialog-title-bar">
+                {translation("dashboard.requiredConsentDialog.titleBar")}
+              </Typography>
+            </Toolbar>
+          </HeaderBar>
+          <Typography variant="titleLargeBold" data-testid="consent-required-dialog-title">
+            {getTitle(params.type)}
+          </Typography>
           <TitleDivider />
-          <ConsentContent name="consent-type" data={consent.consent} />
+          <ConsentContent name="consent-type" data={requiredConsent.consent} />
           <FormProvider {...methods}>
-            <Form onSubmit={methods.handleSubmit(onSubmit)}>
+            <Form onSubmit={methods.handleSubmit(handleSubmit)}>
               <Checkbox name="agreement" label={translation("Common.field.agreement")} />
               <ButtonGroup>
-                <SubmitButton type="submit" variant="contained" disabled={!agreement} data-testid="submit-button">
+                <SubmitButton type="submit" variant="contained" disabled={isDisabled} data-testid="submit-button">
                   {translation("Common.button.next")}
                 </SubmitButton>
               </ButtonGroup>
@@ -163,7 +184,7 @@ const ConsentType = () => {
           </FormProvider>
         </PageContainer>
       )}
-    </Page>
+    </>
   );
 };
 
